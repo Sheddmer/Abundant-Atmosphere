@@ -1,0 +1,62 @@
+{
+  "variants": {
+    "axis=x": [
+      {
+        "model": "abundant_atmosphere:block/mossy_deepslate",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/mossy_deepslate_mirrored",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/mossy_deepslate",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/mossy_deepslate_mirrored",
+        "x": 90,
+        "y": 90
+      }
+    ],
+    "axis=y": [
+      {
+        "model": "abundant_atmosphere:block/mossy_deepslate"
+      },
+      {
+        "model": "abundant_atmosphere:block/mossy_deepslate_mirrored"
+      },
+      {
+        "model": "abundant_atmosphere:block/mossy_deepslate",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/mossy_deepslate_mirrored",
+        "y": 180
+      }
+    ],
+    "axis=z": [
+      {
+        "model": "abundant_atmosphere:block/mossy_deepslate",
+        "x": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/mossy_deepslate_mirrored",
+        "x": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/mossy_deepslate",
+        "x": 90,
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/mossy_deepslate_mirrored",
+        "x": 90,
+        "y": 180
+      }
+    ]
+  }
+}

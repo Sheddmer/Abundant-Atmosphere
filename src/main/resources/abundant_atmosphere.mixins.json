@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "net.sheddmer.abundant_atmosphere.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "refmap": "abundant_atmosphere.refmap.json",
+  "mixins": [
+    "FrogVariantMixin",
+    "ThrownPotionMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

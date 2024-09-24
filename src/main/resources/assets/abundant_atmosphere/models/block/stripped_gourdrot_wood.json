@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "abundant_atmosphere:block/stripped_gourdrot_log",
+    "side": "abundant_atmosphere:block/stripped_gourdrot_log"
+  }
+}

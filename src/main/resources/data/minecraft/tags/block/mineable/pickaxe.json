@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "abundant_atmosphere:blacksalt_tiles",
+    "abundant_atmosphere:polished_calcite",
+    "abundant_atmosphere:polished_calcite_slab",
+    "abundant_atmosphere:polished_calcite_stairs",
+    "abundant_atmosphere:calcite_tiles",
+    "abundant_atmosphere:calcite_tile_slab",
+    "abundant_atmosphere:calcite_tile_stairs",
+    "abundant_atmosphere:polished_dripstone",
+    "abundant_atmosphere:polished_dripstone_slab",
+    "abundant_atmosphere:polished_dripstone_stairs",
+    "abundant_atmosphere:dripstone_tiles",
+    "abundant_atmosphere:dripstone_tile_slab",
+    "abundant_atmosphere:dripstone_tile_stairs",
+    "abundant_atmosphere:dripstone_shingles",
+    "abundant_atmosphere:dripstone_shingle_slab",
+    "abundant_atmosphere:dripstone_shingle_stairs",
+    "abundant_atmosphere:chiseled_mud_bricks",
+    "abundant_atmosphere:mixed_bricks",
+    "abundant_atmosphere:mixed_brick_slab",
+    "abundant_atmosphere:mixed_brick_stairs",
+    "abundant_atmosphere:dowsite",
+    "abundant_atmosphere:polished_dowsite"
+  ]
+}

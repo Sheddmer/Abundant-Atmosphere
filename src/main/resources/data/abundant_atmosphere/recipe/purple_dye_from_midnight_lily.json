@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "purple_dye",
+  "ingredients": [
+    {
+      "item": "abundant_atmosphere:midnight_lily"
+    }
+  ],
+  "result": {
+    "id": "minecraft:purple_dye"
+  }
+}

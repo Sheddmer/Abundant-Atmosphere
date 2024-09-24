@@ -1,0 +1,14 @@
+{
+  "block.stone_chest.close": {
+    "sounds": [
+      "abundant_atmosphere:block/stone_chest/stone_chest_close"
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.stone_chest_close"
+  },
+  "block.stone_chest.open": {
+    "sounds": [
+      "abundant_atmosphere:block/stone_chest/stone_chest_open"
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.stone_chest_open"
+  }
+}

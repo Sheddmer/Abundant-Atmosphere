@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "abundant_atmosphere:wisp_candle_from_red_mushroom"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_midnight_lily": {
+      "conditions": {
+        "items": [
+          {
+            "items": "abundant_atmosphere:midnight_lily"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_midnight_lily"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "abundant_atmosphere:wisp_candle_from_red_mushroom"
+    ]
+  }
+}

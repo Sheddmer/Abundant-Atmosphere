@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "lit=true,hanging=false": {
+      "model": "abundant_atmosphere:block/stone_brazier_lit"
+    },
+    "lit=false,hanging=false": {
+      "model": "abundant_atmosphere:block/stone_brazier"
+    },
+    "lit=true,hanging=true": {
+      "model": "abundant_atmosphere:block/hanging_stone_brazier_lit"
+    },
+    "lit=false,hanging=true": {
+      "model": "abundant_atmosphere:block/hanging_stone_brazier"
+    }
+  }
+}

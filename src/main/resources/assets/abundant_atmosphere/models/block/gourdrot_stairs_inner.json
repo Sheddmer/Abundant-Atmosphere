@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "abundant_atmosphere:block/gourdrot_planks",
+    "side": "abundant_atmosphere:block/gourdrot_planks",
+    "top": "abundant_atmosphere:block/gourdrot_planks"
+  }
+}

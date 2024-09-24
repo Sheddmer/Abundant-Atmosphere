@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "abundant_atmosphere:block/mud_lamp"
+    },
+    "facing=south": {
+      "model": "abundant_atmosphere:block/mud_lamp",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "abundant_atmosphere:block/mud_lamp",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "abundant_atmosphere:block/mud_lamp",
+      "y": 270
+    }
+  }
+}

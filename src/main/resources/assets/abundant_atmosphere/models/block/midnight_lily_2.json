@@ -1,0 +1,51 @@
+{
+	"ambientocclusion": false,
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"lily1": "abundant_atmosphere:block/midnight_lily_1",
+		"lily2": "abundant_atmosphere:block/midnight_lily_2",
+		"particle": "abundant_atmosphere:block/midnight_lily_1"
+	},
+	"elements": [
+		{
+			"from": [1.8, 0, 12],
+			"to": [16.2, 16, 12],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [7, 8, 10], "rescale": true},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#lily1"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#lily1"}
+			}
+		},
+		{
+			"from": [9, 0, 4.8],
+			"to": [9, 16, 19.2],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [7, 8, 10], "rescale": true},
+			"faces": {
+				"east": {"uv": [0, 0, 16, 16], "texture": "#lily1"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#lily1"}
+			}
+		},
+		{
+			"from": [0.8, 0, 6],
+			"to": [15.2, 16, 6],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 10], "rescale": true},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#lily2"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#lily2"}
+			}
+		},
+		{
+			"from": [8, 0, -1.2],
+			"to": [8, 16, 13.2],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 10], "rescale": true},
+			"faces": {
+				"east": {"uv": [0, 0, 16, 16], "texture": "#lily2"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#lily2"}
+			}
+		}
+	]
+}

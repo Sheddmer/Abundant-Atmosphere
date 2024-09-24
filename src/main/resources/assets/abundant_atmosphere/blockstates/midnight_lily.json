@@ -1,0 +1,82 @@
+{
+  "variants": {
+    "flower_stack=1,nightlight=false": [
+      {
+        "model": "abundant_atmosphere:block/midnight_lily_1"
+      }
+    ],
+    "flower_stack=2,nightlight=false": [
+      {
+        "model": "abundant_atmosphere:block/midnight_lily_2"
+      },
+      {
+        "model": "abundant_atmosphere:block/midnight_lily_2",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/midnight_lily_2",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/midnight_lily_2",
+        "y": 270
+      }
+    ],
+    "flower_stack=3,nightlight=false": [
+      {
+        "model": "abundant_atmosphere:block/midnight_lily_3"
+      },
+      {
+        "model": "abundant_atmosphere:block/midnight_lily_3",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/midnight_lily_3",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/midnight_lily_3",
+        "y": 270
+      }
+    ],
+    "flower_stack=1,nightlight=true": [
+      {
+        "model": "abundant_atmosphere:block/midnight_lily_lit_1"
+      }
+    ],
+    "flower_stack=2,nightlight=true": [
+      {
+        "model": "abundant_atmosphere:block/midnight_lily_lit_2"
+      },
+      {
+        "model": "abundant_atmosphere:block/midnight_lily_lit_2",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/midnight_lily_lit_2",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/midnight_lily_lit_2",
+        "y": 270
+      }
+    ],
+    "flower_stack=3,nightlight=true": [
+      {
+        "model": "abundant_atmosphere:block/midnight_lily_lit_3"
+      },
+      {
+        "model": "abundant_atmosphere:block/midnight_lily_lit_3",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/midnight_lily_lit_3",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/midnight_lily_lit_3",
+        "y": 270
+      }
+    ]
+  }
+}

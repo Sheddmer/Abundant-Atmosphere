@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "abundant_atmosphere:block/ashroot_slab"
+    },
+    "type=double": {
+      "model": "abundant_atmosphere:block/ashroot_planks"
+    },
+    "type=top": {
+      "model": "abundant_atmosphere:block/ashroot_slab_top"
+    }
+  }
+}

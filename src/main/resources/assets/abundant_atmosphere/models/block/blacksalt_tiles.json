@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "abundant_atmosphere:block/blacksalt_tiles",
+    "down": "abundant_atmosphere:block/blacksalt_tiles",
+    "up": "abundant_atmosphere:block/blacksalt_tiles",
+    "north": "abundant_atmosphere:block/blacksalt_tiles_alt",
+    "east": "abundant_atmosphere:block/blacksalt_tiles",
+    "south": "abundant_atmosphere:block/blacksalt_tiles_alt",
+    "west": "abundant_atmosphere:block/blacksalt_tiles"
+  }
+}

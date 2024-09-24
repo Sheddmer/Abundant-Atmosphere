@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "abundant_atmosphere:block/mossy_stone"
+      },
+      {
+        "model": "abundant_atmosphere:block/mossy_stone_mirrored"
+      },
+      {
+        "model": "abundant_atmosphere:block/mossy_stone",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/mossy_stone_mirrored",
+        "y": 180
+      }
+    ]
+  }
+}

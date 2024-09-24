@@ -1,0 +1,9 @@
+{
+  "parent": "abundant_atmosphere:block/template_stone_brazier",
+  "textures": {
+    "top": "abundant_atmosphere:block/stone_brazier_top_lit",
+    "side": "abundant_atmosphere:block/stone_brazier_side",
+    "bottom": "abundant_atmosphere:block/stone_brazier_bottom",
+    "chain": "abundant_atmosphere:block/stone_brazier_flame"
+  }
+}

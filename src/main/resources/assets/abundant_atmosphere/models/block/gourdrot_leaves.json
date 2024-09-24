@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "abundant_atmosphere:block/gourdrot_leaves"
+  }
+}

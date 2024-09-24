@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_left",
+  "textures": {
+    "bottom": "abundant_atmosphere:block/gourdrot_door_bottom",
+    "top": "abundant_atmosphere:block/gourdrot_door_top"
+  }
+}

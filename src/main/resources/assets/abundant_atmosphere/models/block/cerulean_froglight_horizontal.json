@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "abundant_atmosphere:block/cerulean_froglight_top",
+    "side": "abundant_atmosphere:block/cerulean_froglight_side"
+  }
+}

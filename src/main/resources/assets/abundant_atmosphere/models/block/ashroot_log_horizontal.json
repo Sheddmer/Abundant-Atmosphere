@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "abundant_atmosphere:block/ashroot_log_top",
+    "side": "abundant_atmosphere:block/ashroot_log"
+  }
+}

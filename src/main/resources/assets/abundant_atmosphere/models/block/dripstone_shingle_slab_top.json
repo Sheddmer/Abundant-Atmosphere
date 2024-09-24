@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "abundant_atmosphere:block/dripstone_shingles",
+    "side": "abundant_atmosphere:block/dripstone_shingles",
+    "top": "abundant_atmosphere:block/dripstone_shingles"
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "abundant_atmosphere:puffball_mushroom",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "abundant_atmosphere:puffball_mushroom",
+              "properties": {
+                "age": "0"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "abundant_atmosphere:puffball_mushroom",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "abundant_atmosphere:puffball_mushroom",
+              "properties": {
+                "age": "1"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "abundant_atmosphere:puffball_mushroom",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "abundant_atmosphere:puffball_mushroom",
+              "properties": {
+                "age": "2"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "abundant_atmosphere:puffball_mushroom",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "abundant_atmosphere:puffball_mushroom",
+              "properties": {
+                "age": "3"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "abundant_atmosphere:puffball_mushroom",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "abundant_atmosphere:puffball_mushroom",
+              "properties": {
+                "age": "4"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "abundant_atmosphere:large_puffball_mushroom",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "abundant_atmosphere:puffball_mushroom",
+              "properties": {
+                "age": "5"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "abundant_atmosphere:large_puffball_mushroom",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "abundant_atmosphere:puffball_mushroom",
+              "properties": {
+                "age": "6"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "abundant_atmosphere:large_puffball_mushroom",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "abundant_atmosphere:puffball_mushroom",
+              "properties": {
+                "age": "7"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "abundant_atmosphere:puffball_spores",
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.85
+            },
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "abundant_atmosphere:puffball_mushroom",
+              "properties": {
+                "age": "7"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "abundant_atmosphere:puffball_spores",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 3.0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "abundant_atmosphere:puffball_mushroom",
+              "properties": {
+                "age": "8"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "abundant_atmosphere:puffball_spores",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 3.0,
+                "max": 5.0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "abundant_atmosphere:puffball_mushroom",
+              "properties": {
+                "age": "9"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "abundant_atmosphere:puffball_spores",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 4.0,
+                "max": 7.0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "abundant_atmosphere:puffball_mushroom",
+              "properties": {
+                "age": "10"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "random_sequence": "abundant_atmosphere:blocks/puffball_mushroom"
+}

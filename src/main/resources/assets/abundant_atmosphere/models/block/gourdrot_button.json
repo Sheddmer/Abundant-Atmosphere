@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "abundant_atmosphere:block/gourdrot_planks"
+  }
+}
