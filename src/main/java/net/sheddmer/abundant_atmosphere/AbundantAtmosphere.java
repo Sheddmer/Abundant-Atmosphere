@@ -1,8 +1,6 @@
 package net.sheddmer.abundant_atmosphere;
 
-import net.minecraft.core.Registry;
-import net.minecraft.world.entity.animal.FrogVariant;
-import net.minecraft.world.item.*;
+
 import net.sheddmer.abundant_atmosphere.common.entity.frog.AAFrogVariants;
 import net.sheddmer.abundant_atmosphere.common.world.tree.AATrunkPlacerTypes;
 import net.sheddmer.abundant_atmosphere.init.*;
@@ -17,7 +15,6 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 @Mod(AbundantAtmosphere.MODID)
@@ -37,135 +34,12 @@ public class AbundantAtmosphere {
         AASounds.SOUND_EVENTS.register(bus);
         AATrunkPlacerTypes.TRUNK_PLACER.register(bus);
 
-        bus.addListener(this::addCreative);
+        bus.addListener(AAItems::addCreative);
         NeoForge.EVENT_BUS.register(this);
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        modContainer.registerConfig(ModConfig.Type.COMMON, AAConfig.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-    }
-
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.insertAfter(Items.POLISHED_BASALT.getDefaultInstance(), AABlocks.BLACKSALT_TILES.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.MUD_BRICK_WALL.getDefaultInstance(), AABlocks.CHISELED_MUD_BRICKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-
-            event.insertAfter(Items.POLISHED_ANDESITE_SLAB.getDefaultInstance(), Items.CALCITE.getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.CALCITE.getDefaultInstance(), AABlocks.POLISHED_CALCITE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.POLISHED_CALCITE.toStack(), AABlocks.POLISHED_CALCITE_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.POLISHED_CALCITE_STAIRS.toStack(), AABlocks.POLISHED_CALCITE_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.POLISHED_CALCITE_SLAB.toStack(), AABlocks.CALCITE_TILES.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.CALCITE_TILES.toStack(), AABlocks.CALCITE_TILE_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.CALCITE_TILE_STAIRS.toStack(), AABlocks.CALCITE_TILE_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-
-            event.insertAfter(Items.POLISHED_GRANITE_SLAB.getDefaultInstance(), AABlocks.DOWSITE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.DOWSITE.toStack(), AABlocks.POLISHED_DOWSITE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-
-            event.insertAfter(AABlocks.CALCITE_TILE_SLAB.toStack(), Items.DRIPSTONE_BLOCK.getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.DRIPSTONE_BLOCK.getDefaultInstance(), AABlocks.POLISHED_DRIPSTONE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.POLISHED_DRIPSTONE.toStack(), AABlocks.POLISHED_DRIPSTONE_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.POLISHED_DRIPSTONE_STAIRS.toStack(), AABlocks.POLISHED_DRIPSTONE_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.POLISHED_DRIPSTONE_SLAB.toStack(), AABlocks.DRIPSTONE_TILES.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.DRIPSTONE_TILES.toStack(), AABlocks.DRIPSTONE_TILE_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.DRIPSTONE_TILE_STAIRS.toStack(), AABlocks.DRIPSTONE_TILE_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.DRIPSTONE_TILE_SLAB.toStack(), AABlocks.DRIPSTONE_SHINGLES.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.DRIPSTONE_SHINGLES.toStack(), AABlocks.DRIPSTONE_SHINGLE_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.DRIPSTONE_SHINGLE_STAIRS.toStack(), AABlocks.DRIPSTONE_SHINGLE_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-
-            event.insertAfter(Items.BRICK_WALL.getDefaultInstance(), AABlocks.MIXED_BRICKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.MIXED_BRICKS.toStack(), AABlocks.MIXED_BRICK_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.MIXED_BRICK_STAIRS.toStack(), AABlocks.MIXED_BRICK_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            // Ashroot woodset (added after cherry in building blocks)
-            event.insertAfter(Items.CHERRY_BUTTON.getDefaultInstance(), AABlocks.ASHROOT_LOG.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.ASHROOT_LOG.toStack(), AABlocks.ASHROOT_WOOD.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.ASHROOT_WOOD.toStack(), AABlocks.STRIPPED_ASHROOT_LOG.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.STRIPPED_ASHROOT_LOG.toStack(), AABlocks.STRIPPED_ASHROOT_WOOD.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.STRIPPED_ASHROOT_WOOD.toStack(), AABlocks.ASHROOT_PLANKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.ASHROOT_PLANKS.toStack(), AABlocks.ASHROOT_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.ASHROOT_STAIRS.toStack(), AABlocks.ASHROOT_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.ASHROOT_SLAB.toStack(), AABlocks.ASHROOT_FENCE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.ASHROOT_FENCE.toStack(), AABlocks.ASHROOT_FENCE_GATE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.ASHROOT_FENCE_GATE.toStack(), AABlocks.ASHROOT_DOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.ASHROOT_DOOR.toStack(), AABlocks.ASHROOT_TRAPDOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.ASHROOT_TRAPDOOR.toStack(), AABlocks.ASHROOT_PRESSURE_PLATE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.ASHROOT_PRESSURE_PLATE.toStack(), AABlocks.ASHROOT_BUTTON.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            // Gourdrot woodset (added after ashroot in building blocks)
-            event.insertAfter(AABlocks.ASHROOT_BUTTON.toStack(), AABlocks.GOURDROT_LOG.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.GOURDROT_LOG.toStack(), AABlocks.GOURDROT_WOOD.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.GOURDROT_WOOD.toStack(), AABlocks.STRIPPED_GOURDROT_LOG.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.STRIPPED_GOURDROT_LOG.toStack(), AABlocks.STRIPPED_GOURDROT_WOOD.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.STRIPPED_GOURDROT_WOOD.toStack(), AABlocks.GOURDROT_PLANKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.GOURDROT_PLANKS.toStack(), AABlocks.GOURDROT_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.GOURDROT_STAIRS.toStack(), AABlocks.GOURDROT_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.GOURDROT_SLAB.toStack(), AABlocks.GOURDROT_FENCE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.GOURDROT_FENCE.toStack(), AABlocks.GOURDROT_FENCE_GATE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.GOURDROT_FENCE_GATE.toStack(), AABlocks.GOURDROT_DOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.GOURDROT_DOOR.toStack(), AABlocks.GOURDROT_TRAPDOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.GOURDROT_TRAPDOOR.toStack(), AABlocks.GOURDROT_PRESSURE_PLATE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.GOURDROT_PRESSURE_PLATE.toStack(), AABlocks.GOURDROT_BUTTON.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            // Mossy Blocks
-            event.insertAfter(Items.STONE.getDefaultInstance(), AABlocks.MOSSY_STONE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.BASALT.getDefaultInstance(), AABlocks.MOSSY_BASALT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-
-            event.insertAfter(Items.DEEPSLATE.getDefaultInstance(), AABlocks.MOSSY_DEEPSLATE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.COBBLED_DEEPSLATE_WALL.getDefaultInstance(), AABlocks.MOSSY_COBBLED_DEEPSLATE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.POLISHED_DEEPSLATE_WALL.getDefaultInstance(), AABlocks.MOSSY_POLISHED_DEEPSLATE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.DEEPSLATE_BRICK_WALL.getDefaultInstance(), AABlocks.MOSSY_DEEPSLATE_BRICKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.DEEPSLATE_TILE_WALL.getDefaultInstance(), AABlocks.MOSSY_DEEPSLATE_TILES.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-        }
-        if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
-            // general natural blocks
-            event.insertAfter(Items.FARMLAND.getDefaultInstance(), AABlocks.CAVE_CRUD.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.POINTED_DRIPSTONE.getDefaultInstance(), AABlocks.DOWSITE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.PINK_PETALS.getDefaultInstance(), AABlocks.MIDNIGHT_LILY.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.PEARLESCENT_FROGLIGHT.getDefaultInstance(), AABlocks.CERULEAN_FROGLIGHT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertBefore(Items.MOSS_BLOCK.getDefaultInstance(), AABlocks.MOSS_CLUMP.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.MOSS_CARPET.getDefaultInstance(), AABlocks.IRISH_MOSS_CLUMP.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.IRISH_MOSS_CLUMP.toStack(), AABlocks.IRISH_MOSS_BLOCK.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.IRISH_MOSS_BLOCK.toStack(), AABlocks.IRISH_MOSS_CARPET.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.AMETHYST_BLOCK.getDefaultInstance(), AABlocks.DIFFUSED_AMBER_BLOCK.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            // ashroot natural blocks (added after azalea)
-            event.insertAfter(Items.CHERRY_LOG.getDefaultInstance(), AABlocks.ASHROOT_LOG.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.FLOWERING_AZALEA.getDefaultInstance(), AABlocks.ASHROOT_SAPLING.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.FLOWERING_AZALEA_LEAVES.getDefaultInstance(), AABlocks.ASHROOT_LEAVES.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            // gourdrot natural blocks (added after ashroot)
-            event.insertAfter(AABlocks.ASHROOT_LOG.toStack(), AABlocks.GOURDROT_LOG.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.ASHROOT_LEAVES.toStack(), AABlocks.GOURDROT_LEAVES.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertBefore(Items.PUMPKIN.getDefaultInstance(), AABlocks.GOURDNUT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            // puffball items
-            event.insertAfter(Items.RED_MUSHROOM.getDefaultInstance(), AABlocks.PUFFBALL_MUSHROOM.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.PUFFBALL_MUSHROOM.toStack(), AAItems.LARGE_PUFFBALL_MUSHROOM.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.NETHER_WART.getDefaultInstance(), AAItems.PUFFBALL_SPORES.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-        }
-        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
-            event.insertAfter(Items.CANDLE.getDefaultInstance(), AABlocks.WISP_CANDLE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.SOUL_LANTERN.getDefaultInstance(), AAItems.MUD_LAMP.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.PEARLESCENT_FROGLIGHT.getDefaultInstance(), AABlocks.CERULEAN_FROGLIGHT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.CHEST.getDefaultInstance(), AABlocks.STONE_CHEST.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            // signs & hanging signs
-            event.insertAfter(Items.CHERRY_HANGING_SIGN.getDefaultInstance(), AAItems.ASHROOT_SIGN.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AAItems.ASHROOT_SIGN.toStack(), AAItems.ASHROOT_HANGING_SIGN.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AAItems.ASHROOT_HANGING_SIGN.toStack(), AAItems.GOURDROT_SIGN.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AAItems.GOURDROT_SIGN.toStack(), AAItems.GOURDROT_HANGING_SIGN.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            // braziers
-            event.insertAfter(Items.SOUL_CAMPFIRE.getDefaultInstance(), AABlocks.STONE_BRAZIER.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.STONE_BRAZIER.toStack(), AABlocks.SOUL_STONE_BRAZIER.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            // suspicious blocks
-            event.insertAfter(Items.SUSPICIOUS_SAND.getDefaultInstance(), AABlocks.SUSPICIOUS_RED_SAND.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertBefore(Items.SUSPICIOUS_SAND.getDefaultInstance(), AABlocks.SUSPICIOUS_DIRT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-        }
-        if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
-            event.insertBefore(Items.PUMPKIN_PIE.getDefaultInstance(), AAItems.ROASTED_GOURDNUT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-        }
-        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            event.insertAfter(Items.CHERRY_CHEST_BOAT.getDefaultInstance(), AAItems.ASHROOT_BOAT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AAItems.ASHROOT_BOAT.toStack(), AAItems.ASHROOT_CHEST_BOAT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AAItems.ASHROOT_CHEST_BOAT.toStack(), AAItems.GOURDROT_BOAT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AAItems.GOURDROT_BOAT.toStack(), AAItems.GOURDROT_CHEST_BOAT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-        }
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.insertAfter(Items.CLAY_BALL.getDefaultInstance(), AAItems.MUD_BALL.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-        }
     }
 
     @SubscribeEvent

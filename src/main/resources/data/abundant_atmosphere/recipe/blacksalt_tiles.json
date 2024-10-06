@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "B": {
+      "item": "minecraft:polished_basalt"
+    },
+    "A": {
+      "item": "minecraft:polished_blackstone"
+    }
+  },
+  "pattern": [
+    "BA",
+    "AB"
+  ],
+  "result": {
+    "count": 4,
+    "id": "abundant_atmosphere:blacksalt_tiles"
+  }
+}

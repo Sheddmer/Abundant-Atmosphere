@@ -3,31 +3,41 @@
   "block.abundant_atmosphere.polished_calcite": "Polished Calcite",
   "block.abundant_atmosphere.polished_calcite_stairs": "Polished Calcite Stairs",
   "block.abundant_atmosphere.polished_calcite_slab": "Polished Calcite Slab",
+  "block.abundant_atmosphere.polished_calcite_wall": "Polished Calcite Wall",
   "block.abundant_atmosphere.calcite_tiles": "Calcite Tiles",
   "block.abundant_atmosphere.calcite_tile_stairs": "Calcite Tile Stairs",
   "block.abundant_atmosphere.calcite_tile_slab": "Calcite Tile Slab",
+  "block.abundant_atmosphere.calcite_tile_wall": "Calcite Tile Wall",
   "block.abundant_atmosphere.polished_dripstone": "Polished Dripstone",
   "block.abundant_atmosphere.polished_dripstone_stairs": "Polished Dripstone Stairs",
   "block.abundant_atmosphere.polished_dripstone_slab": "Polished Dripstone Slab",
+  "block.abundant_atmosphere.polished_dripstone_wall": "Polished Dripstone Wall",
   "block.abundant_atmosphere.dripstone_tiles": "Dripstone Tiles",
   "block.abundant_atmosphere.dripstone_tile_stairs": "Dripstone Tile Stairs",
   "block.abundant_atmosphere.dripstone_tile_slab": "Dripstone Tile Slab",
+  "block.abundant_atmosphere.dripstone_tile_wall": "Dripstone Tile Wall",
   "block.abundant_atmosphere.dripstone_shingles": "Dripstone Shingles",
   "block.abundant_atmosphere.dripstone_shingle_stairs": "Dripstone Shingle Stairs",
   "block.abundant_atmosphere.dripstone_shingle_slab": "Dripstone Shingle Slab",
+  "block.abundant_atmosphere.dripstone_shingle_wall": "Dripstone Shingle Wall",
   "block.abundant_atmosphere.chiseled_mud_bricks": "Chiseled Mud Bricks",
   "block.abundant_atmosphere.mixed_bricks": "Mixed Bricks",
   "block.abundant_atmosphere.mixed_brick_stairs": "Mixed Brick Stairs",
   "block.abundant_atmosphere.mixed_brick_slab": "Mixed Brick Slab",
+  "block.abundant_atmosphere.mixed_brick_wall": "Mixed Brick Wall",
   "block.abundant_atmosphere.cave_crud": "Cave Crud",
   "block.abundant_atmosphere.dowsite": "Dowsite",
   "block.abundant_atmosphere.polished_dowsite": "Polished Dowsite",
+  "block.abundant_atmosphere.polished_dowsite_stairs": "Polished Dowsite Stairs",
+  "block.abundant_atmosphere.polished_dowsite_slab": "Polished Dowsite Slab",
+  "block.abundant_atmosphere.polished_dowsite_wall": "Polished Dowsite Wall",
   "block.abundant_atmosphere.midnight_lily": "Midnight Lily",
   "block.abundant_atmosphere.wisp_candle": "Wisp Candle",
   "block.abundant_atmosphere.mud_lamp": "Mud Lamp",
   "block.abundant_atmosphere.stone_brazier": "Stone Brazier",
   "block.abundant_atmosphere.soul_stone_brazier": "Soul Stone Brazier",
   "block.abundant_atmosphere.cerulean_froglight": "Cerulean Froglight",
+  "block.abundant_atmosphere.chromatic_froglight": "Chromatic Froglight",
   "item.abundant_atmosphere.mud_ball": "Mud Ball",
   "block.abundant_atmosphere.diffused_amber_block": "Diffused Amber Block",
 
@@ -49,7 +59,7 @@
 
   "item.abundant_atmosphere.puffball_spores": "Puffball Spores",
   "block.abundant_atmosphere.puffball_mushroom": "Puffball Mushroom",
-  "item.abundant_atmosphere.large_puffball_mushroom": "Large Puffball Mushroom",
+  "block.abundant_atmosphere.large_puffball_mushroom": "Large Puffball Mushroom",
 
   "block.abundant_atmosphere.ashroot_log": "Ashroot Log",
   "block.abundant_atmosphere.ashroot_wood": "Ashroot Wood",
@@ -70,6 +80,8 @@
   "item.abundant_atmosphere.ashroot_chest_boat": "Ashroot Chest Boat",
   "block.abundant_atmosphere.ashroot_sapling": "Ashroot Sapling",
   "block.abundant_atmosphere.ashroot_leaves": "Ashroot Leaves",
+
+  "item.abundant_atmosphere.frog_bucket": "Frog Bucket",
 
   "block.abundant_atmosphere.gourdrot_log": "Gourdrot Log",
   "block.abundant_atmosphere.gourdrot_wood": "Gourdrot Wood",
@@ -101,6 +113,11 @@
   "entity.abundant_atmosphere.aa_chest_boat": "Boat with Chest",
 
   "subtitles.abundant_atmosphere.stone_chest_close": "Stone Chest shuts",
-  "subtitles.abundant_atmosphere.stone_chest_open": "Stone Chest opens"
+  "subtitles.abundant_atmosphere.stone_chest_open": "Stone Chest opens",
+
+  "advancements.abundant_atmosphere.leash_frog_end.title": "Cosmic Conformity",
+  "advancements.abundant_atmosphere.leash_frog_end.description": "Twist a Tadpole by growing it up in the End, and leash it",
+  "advancements.abundant_atmosphere.collect_chromatic_froglight.title": "In the Palm of My Hand",
+  "advancements.abundant_atmosphere.collect_chromatic_froglight.description": "Obtain a Chromatic Froglight"
 
 }

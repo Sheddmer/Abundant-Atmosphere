@@ -10,8 +10,4 @@ public class AAModelLayers {
     public static final ModelLayerLocation GOURDROT_BOAT_LAYER = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "boat/gourdrot"), "main");
     public static final ModelLayerLocation GOURDROT_CHEST_BOAT_LAYER = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "chest_boat/gourdrot"), "main");
 
-    public static final ModelLayerLocation STONE_CHEST = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "stone_chest/normal"), "main");
-    public static final ModelLayerLocation DOUBLE_STONE_CHEST_LEFT = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "stone_chest/normal_left"), "main");
-    public static final ModelLayerLocation DOUBLE_STONE_CHEST_RIGHT = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "stone_chest/normal_right"), "main");
-
 }

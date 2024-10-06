@@ -2,6 +2,11 @@
   "replace": false,
   "values": [
     "abundant_atmosphere:ashroot_leaves",
-    "abundant_atmosphere:gourdrot_leaves"
+    "abundant_atmosphere:gourdrot_leaves",
+    "abundant_atmosphere:irish_moss_block",
+    "abundant_atmosphere:irish_moss_carpet",
+    "abundant_atmosphere:irish_moss_clump",
+    "abundant_atmosphere:moss_clump",
+    "abundant_atmosphere:puffball_mushroom"
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "abundant_atmosphere:polished_calcite_stairs",
+    "abundant_atmosphere:calcite_tile_stairs",
+    "abundant_atmosphere:polished_dripstone_stairs",
+    "abundant_atmosphere:dripstone_tile_stairs",
+    "abundant_atmosphere:dripstone_shingle_stairs",
+    "abundant_atmosphere:mixed_brick_stairs",
+    "abundant_atmosphere:polished_dowsite_stairs"
+  ]
+}

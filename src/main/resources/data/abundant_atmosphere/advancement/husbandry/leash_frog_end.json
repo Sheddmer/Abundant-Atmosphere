@@ -1,0 +1,45 @@
+{
+  "parent": "minecraft:husbandry/leash_all_frog_variants",
+  "criteria": {
+    "abundant_atmosphere:budgett": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:frog",
+              "type_specific": {
+                "type": "minecraft:frog",
+                "variant": "abundant_atmosphere:budgett"
+              }
+            }
+          }
+        ],
+        "item": {
+          "items": "minecraft:lead"
+        }
+      },
+      "trigger": "minecraft:player_interacted_with_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.abundant_atmosphere.leash_frog_end.description"
+    },
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "minecraft:end_stone"
+    },
+    "title": {
+      "translate": "advancements.abundant_atmosphere.leash_frog_end.title"
+    }
+  },
+  "requirements": [
+    [
+      "abundant_atmosphere:budgett"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

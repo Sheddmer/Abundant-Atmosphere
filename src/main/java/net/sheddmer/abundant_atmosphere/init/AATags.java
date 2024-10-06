@@ -11,6 +11,7 @@ import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 public class AATags {
 
     public static final TagKey<Biome> SPAWNS_TROPICAL_VARIANT_FROGS = registerBiomeTag("spawns_tropical_variant_frogs");
+    public static final TagKey<Biome> SPAWNS_BUDGETT_VARIANT_FROGS = registerBiomeTag("spawns_budgett_variant_frogs");
     public static final TagKey<MobEffect> WISP_CANDLE_CLEARS = registerEffectTag("wisp_candle_clears");
     public static final TagKey<Block> PUFFBALL_GROW_ON = registerBlockTag("puffball_grow_on");
 

@@ -1,0 +1,32 @@
+{
+  "parent": "abundant_atmosphere:husbandry/leash_frog_end",
+  "criteria": {
+    "froglight": {
+      "conditions": {
+        "item": "abundant_atmosphere:chromatic_froglight"
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.abundant_atmosphere.collect_chromatic_froglight.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "abundant_atmosphere:chromatic_froglight"
+    },
+    "title": {
+      "translate": "advancements.abundant_atmosphere.collect_chromatic_froglight.title"
+    }
+  },
+  "requirements": [
+    [
+      "froglight"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
+

@@ -11,5 +11,6 @@ public class AAFrogVariants {
     public static final DeferredRegister<FrogVariant> FROG_VARIANTS = DeferredRegister.create(BuiltInRegistries.FROG_VARIANT, AbundantAtmosphere.MODID);
 
     public static final DeferredHolder<FrogVariant, FrogVariant> TROPICAL = FROG_VARIANTS.register("tropical", () -> new FrogVariant(ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "textures/entity/frog/tropical_frog.png")));
+    public static final DeferredHolder<FrogVariant, FrogVariant> BUDGETT = FROG_VARIANTS.register("budgett", () -> new FrogVariant(ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "textures/entity/frog/budgett_frog.png")));
 
 }

@@ -35,6 +35,8 @@ public abstract class FrogVariantMixin extends Animal {
         Holder<Biome> holder = pLevel.getBiome(this.blockPosition());
         if (holder.is(AATags.SPAWNS_TROPICAL_VARIANT_FROGS)) {
             setVariant(AAFrogVariants.TROPICAL);
+        } else if (holder.is(AATags.SPAWNS_BUDGETT_VARIANT_FROGS)) {
+            setVariant(AAFrogVariants.BUDGETT);
         }
     }
 }

@@ -2,6 +2,7 @@ package net.sheddmer.abundant_atmosphere.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
@@ -19,27 +20,25 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.sheddmer.abundant_atmosphere.init.AABlocks;
+import net.sheddmer.abundant_atmosphere.init.AAParticleTypes;
 import net.sheddmer.abundant_atmosphere.init.AAProperties;
+import net.sheddmer.abundant_atmosphere.init.AATags;
 import org.checkerframework.checker.units.qual.A;
 
 public class PuffballMushroomBlock extends Block implements BonemealableBlock {
-    public static final IntegerProperty AGE = AAProperties.AGE_10;
+    public static final IntegerProperty AGE = BlockStateProperties.AGE_4;
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
             Block.box(5.0, 0.0, 5.0, 11.0, 4.0, 11.0),
             Block.box(4.0, 0.0, 4.0, 12.0, 6.0, 12.0),
             Block.box(4.0, 0.0, 4.0, 12.0, 6.0, 12.0),
             Block.box(3.0, 0.0, 3.0, 13.0, 7.0, 13.0),
-            Block.box(1.0, 0.0, 1.0, 15.0, 8.0, 15.0),
-            Block.box(0.0, 0.0, 0.0, 16.0, 10.0, 16.0),
-            Block.box(0.0, 0.0, 0.0, 16.0, 10.0, 16.0),
-            Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
-            Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
-            Block.box(2.0, 0.0, 2.0, 14.0, 5.0, 14.0),
-            Block.box(2.0, 0.0, 2.0, 14.0, 5.0, 14.0)
+            Block.box(1.0, 0.0, 1.0, 15.0, 8.0, 15.0)
     };
 
     public PuffballMushroomBlock(Properties properties) {
@@ -61,33 +60,15 @@ public class PuffballMushroomBlock extends Block implements BonemealableBlock {
     }
 
     @Override
-    protected boolean isRandomlyTicking(BlockState state) {
-        return !this.isMaxAge(state);
-    }
-
-    public final boolean isMaxAge(BlockState state) {
-        return state.getValue(AGE) == 10;
-    }
-
-    @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource source) {
         if (!level.isAreaLoaded(pos, 1)) return;
-        if (!this.isMaxAge(state) && level.getBlockState(pos.below()).is(BlockTags.DIRT)) {
+        if (level.getBlockState(pos.below()).is(AATags.PUFFBALL_GROW_ON)) {
             if (level.random.nextFloat() < 0.05) {
-                level.setBlock(pos, state.setValue(AGE, state.getValue(AGE) + 1), 2);
+                if (state.getValue(AGE) == 4) {
+                    level.setBlock(pos, AABlocks.LARGE_PUFFBALL_MUSHROOM.get().defaultBlockState(), 2);
+                } else level.setBlock(pos, state.setValue(AGE, state.getValue(AGE) + 1), 2);
             }
         }
-    }
-
-    @Override
-    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        if (state.getValue(AGE) >= 9 && entity instanceof Player) {
-            level.destroyBlock(pos, true, entity);
-        } else if (entity instanceof Ravager && net.neoforged.neoforge.event.EventHooks.canEntityGrief(level, entity)) {
-            level.destroyBlock(pos, true, entity);
-        }
-
-        super.entityInside(state, level, pos, entity);
     }
 
     @Override
@@ -115,12 +96,12 @@ public class PuffballMushroomBlock extends Block implements BonemealableBlock {
     }
 
     public int isMaxBonemeal() {
-        return 5;
+        return 4;
     }
 
     @Override
     public boolean isValidBonemealTarget(LevelReader reader, BlockPos pos, BlockState state) {
-        return state.getValue(AGE) < 5;
+        return true;
     }
 
     @Override

@@ -17,7 +17,6 @@ import net.sheddmer.abundant_atmosphere.client.renderer.StoneChestRenderer;
 import net.sheddmer.abundant_atmosphere.common.particle.FireflyParticle;
 import net.sheddmer.abundant_atmosphere.common.particle.WispFlameParticle;
 import net.sheddmer.abundant_atmosphere.init.AABlockEntityTypes;
-import net.sheddmer.abundant_atmosphere.init.AABlocks;
 import net.sheddmer.abundant_atmosphere.init.AAEntityTypes;
 import net.sheddmer.abundant_atmosphere.init.AAParticleTypes;
 
@@ -46,10 +45,7 @@ public class AbundantAtmosphereClient {
         event.registerLayerDefinition(AAModelLayers.GOURDROT_BOAT_LAYER, BoatModel::createBodyModel);
         event.registerLayerDefinition(AAModelLayers.GOURDROT_CHEST_BOAT_LAYER, ChestBoatModel::createBodyModel);
 
-        event.registerLayerDefinition(AAModelLayers.STONE_CHEST, StoneChestRenderer::createBodyLayer);
-        event.registerLayerDefinition(AAModelLayers.DOUBLE_STONE_CHEST_LEFT, StoneChestRenderer::createBodyLayer);
-        event.registerLayerDefinition(AAModelLayers.DOUBLE_STONE_CHEST_RIGHT, StoneChestRenderer::createBodyLayer);
-
+        event.registerLayerDefinition(StoneChestRenderer.STONE_CHEST, StoneChestRenderer::createBodyLayer);
     }
 
     @SubscribeEvent

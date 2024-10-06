@@ -1,12 +1,14 @@
 package net.sheddmer.abundant_atmosphere.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -18,13 +20,26 @@ import net.sheddmer.abundant_atmosphere.client.AAModelLayers;
 import net.sheddmer.abundant_atmosphere.common.block.StoneChestBlock;
 import net.sheddmer.abundant_atmosphere.common.blockentity.StoneChestBlockEntity;
 
+import java.util.Calendar;
+
 @OnlyIn(Dist.CLIENT)
 public class StoneChestRenderer implements BlockEntityRenderer<StoneChestBlockEntity> {
-    public static final ModelLayerLocation STONE_CHEST = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "entity/stone_chest"), "main");
+    public static final ModelLayerLocation STONE_CHEST = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "stone_chest"), "main");
+    public static final ResourceLocation NORMAL = ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "textures/entity/stone_chest/normal.png");
+    public static final ResourceLocation NORMAL_LEFT = ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "textures/entity/stone_chest/normal_left.png");
+    public static final ResourceLocation NORMAL_RIGHT = ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "textures/entity/stone_chest/normal_right.png");
+
     private final ModelPart body;
     private final ModelPart lid;
+    private boolean halloweenTextures;
     public StoneChestRenderer(BlockEntityRendererProvider.Context context) {
-        ModelPart root = context.bakeLayer(AAModelLayers.STONE_CHEST);
+        Calendar calendar = Calendar.getInstance();
+        if (calendar.get(2) + 1 == 10 && calendar.get(5) >= 24) {
+            calendar.get(5);
+            this.halloweenTextures = true;
+        }
+
+        ModelPart root = context.bakeLayer(STONE_CHEST);
         this.body = root.getChild("body");
         this.lid = root.getChild("lid");
     }
@@ -33,7 +48,6 @@ public class StoneChestRenderer implements BlockEntityRenderer<StoneChestBlockEn
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
         PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 18).addBox(-8.0F, -10.0F, -7.0F, 16.0F, 10.0F, 14.0F), PartPose.offset(0.0F, 24.0F, 0.0F));
-
         PartDefinition lid = partdefinition.addOrReplaceChild("lid", CubeListBuilder.create().texOffs(0, 0).addBox(-8.0F, -4.0F, -10.0F, 16.0F, 4.0F, 14.0F), PartPose.offset(0.0F, 14.0F, 3.0F));
 
         return LayerDefinition.create(meshdefinition, 64, 64);
@@ -50,6 +64,10 @@ public class StoneChestRenderer implements BlockEntityRenderer<StoneChestBlockEn
             float f1 = blockState.getValue(StoneChestBlock.FACING).toYRot();
             stack.mulPose(Axis.YP.rotationDegrees(-f1));
         }
+
+        VertexConsumer vertexconsumer = source.getBuffer(RenderType.entityCutoutNoCull(NORMAL));
+        this.body.render(stack, vertexconsumer, packedLight, packedOverlay);
+        this.lid.render(stack, vertexconsumer, packedLight, packedOverlay);
 
         stack.popPose();
     }

@@ -13,7 +13,7 @@ import net.neoforged.fml.event.config.ModConfigEvent;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
 @EventBusSubscriber(modid = AbundantAtmosphere.MODID, bus = EventBusSubscriber.Bus.MOD)
-public class Config {
+public class AAConfig {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
     private static final ModConfigSpec.BooleanValue LOG_DIRT_BLOCK = BUILDER
@@ -31,7 +31,7 @@ public class Config {
     // a list of strings that are treated as resource locations for items
     private static final ModConfigSpec.ConfigValue<List<? extends String>> ITEM_STRINGS = BUILDER
             .comment("A list of items to log on common setup.")
-            .defineListAllowEmpty("items", List.of("minecraft:iron_ingot"), Config::validateItemName);
+            .defineListAllowEmpty("items", List.of("minecraft:iron_ingot"), AAConfig::validateItemName);
 
     static final ModConfigSpec SPEC = BUILDER.build();
 

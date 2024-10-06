@@ -10,6 +10,14 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -20,8 +28,10 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.sheddmer.abundant_atmosphere.init.AAParticleTypes;
+import net.sheddmer.abundant_atmosphere.init.AATags;
 
 import java.util.List;
 
@@ -54,6 +64,16 @@ public class WispCandleBlock extends Block implements SimpleWaterloggedBlock {
             return;
         }
         this.getParticleOffsets(state).forEach(vec3 -> WispCandleBlock.addParticlesAndSound(level, vec3.add(pos.getX(), pos.getY(), pos.getZ()), random));
+    }
+
+    @Override
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+        if (stack.is(Items.LAPIS_LAZULI)) {
+            stack.shrink(1);
+            level.playSound(player, pos, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 1.0f, 1.0f);
+            player.removeEffect(MobEffects.WEAKNESS);
+        }
+        return ItemInteractionResult.sidedSuccess(level.isClientSide);
     }
 
     private static void addParticlesAndSound(Level level, Vec3 offset, RandomSource random) {

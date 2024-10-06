@@ -14,24 +14,6 @@
     },
     "age=4": {
       "model": "abundant_atmosphere:block/puffball_mushroom_stage4"
-    },
-    "age=5": {
-      "model": "abundant_atmosphere:block/puffball_mushroom_stage5"
-    },
-    "age=6": {
-      "model": "abundant_atmosphere:block/puffball_mushroom_stage6"
-    },
-    "age=7": {
-      "model": "abundant_atmosphere:block/puffball_mushroom_stage7"
-    },
-    "age=8": {
-      "model": "abundant_atmosphere:block/puffball_mushroom_stage8"
-    },
-    "age=9": {
-      "model": "abundant_atmosphere:block/puffball_mushroom_stage9"
-    },
-    "age=10": {
-      "model": "abundant_atmosphere:block/puffball_mushroom_stage10"
     }
   }
 }

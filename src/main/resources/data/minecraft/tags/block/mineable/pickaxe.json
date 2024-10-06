@@ -22,6 +22,19 @@
     "abundant_atmosphere:mixed_brick_slab",
     "abundant_atmosphere:mixed_brick_stairs",
     "abundant_atmosphere:dowsite",
-    "abundant_atmosphere:polished_dowsite"
+    "abundant_atmosphere:polished_dowsite",
+    "abundant_atmosphere:mud_lamp",
+    "abundant_atmosphere:wall_mud_lamp",
+    "abundant_atmosphere:stone_brazier",
+    "abundant_atmosphere:soul_stone_brazier",
+    "abundant_atmosphere:mossy_stone",
+    "abundant_atmosphere:mossy_basalt",
+    "abundant_atmosphere:mossy_deepslate",
+    "abundant_atmosphere:mossy_cobbled_deepslate",
+    "abundant_atmosphere:mossy_polished_deepslate",
+    "abundant_atmosphere:mossy_deepslate_bricks",
+    "abundant_atmosphere:mossy_deepslate_tiles",
+    "abundant_atmosphere:stone_chest",
+    "abundant_atmosphere:trapped_stone_chest"
   ]
 }

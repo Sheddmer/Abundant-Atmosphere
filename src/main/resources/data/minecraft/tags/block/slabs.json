@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "abundant_atmosphere:polished_calcite_slab",
+    "abundant_atmosphere:calcite_tile_slab",
+    "abundant_atmosphere:polished_dripstone_slab",
+    "abundant_atmosphere:dripstone_tile_slab",
+    "abundant_atmosphere:dripstone_shingle_slab",
+    "abundant_atmosphere:mixed_brick_slab",
+    "abundant_atmosphere:polished_dowsite_slab"
+  ]
+}
