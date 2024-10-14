@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/wall_inventory",
-  "textures": {
-    "wall": "abundant_atmosphere:block/mixed_bricks"
-  }
-}

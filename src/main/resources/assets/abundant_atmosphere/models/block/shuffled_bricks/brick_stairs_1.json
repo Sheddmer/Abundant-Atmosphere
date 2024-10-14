@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "abundant_atmosphere:block/shuffled_bricks_1",
+    "side": "abundant_atmosphere:block/shuffled_bricks_1",
+    "top": "abundant_atmosphere:block/shuffled_bricks_1"
+  }
+}

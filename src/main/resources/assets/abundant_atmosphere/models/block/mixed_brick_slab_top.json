@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "abundant_atmosphere:block/mixed_bricks",
-    "side": "abundant_atmosphere:block/mixed_bricks",
-    "top": "abundant_atmosphere:block/mixed_bricks"
-  }
-}

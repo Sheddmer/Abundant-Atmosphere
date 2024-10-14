@@ -21,10 +21,10 @@
   "block.abundant_atmosphere.dripstone_shingle_slab": "Dripstone Shingle Slab",
   "block.abundant_atmosphere.dripstone_shingle_wall": "Dripstone Shingle Wall",
   "block.abundant_atmosphere.chiseled_mud_bricks": "Chiseled Mud Bricks",
-  "block.abundant_atmosphere.mixed_bricks": "Mixed Bricks",
-  "block.abundant_atmosphere.mixed_brick_stairs": "Mixed Brick Stairs",
-  "block.abundant_atmosphere.mixed_brick_slab": "Mixed Brick Slab",
-  "block.abundant_atmosphere.mixed_brick_wall": "Mixed Brick Wall",
+  "block.abundant_atmosphere.shuffled_bricks": "Shuffled Bricks",
+  "block.abundant_atmosphere.shuffled_brick_stairs": "Shuffled Brick Stairs",
+  "block.abundant_atmosphere.shuffled_brick_slab": "Shuffled Brick Slab",
+  "block.abundant_atmosphere.shuffled_brick_wall": "Shuffled Brick Wall",
   "block.abundant_atmosphere.cave_crud": "Cave Crud",
   "block.abundant_atmosphere.dowsite": "Dowsite",
   "block.abundant_atmosphere.polished_dowsite": "Polished Dowsite",
@@ -111,6 +111,8 @@
   "container.abundant_atmosphere.stone_chest.large": "Large Stone Chest",
 
   "entity.abundant_atmosphere.aa_chest_boat": "Boat with Chest",
+
+  "item.abundant_atmosphere.puffball_slice": "Puffball Slice",
 
   "subtitles.abundant_atmosphere.stone_chest_close": "Stone Chest shuts",
   "subtitles.abundant_atmosphere.stone_chest_open": "Stone Chest opens",

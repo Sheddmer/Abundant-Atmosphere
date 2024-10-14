@@ -76,7 +76,7 @@ public class AAEvents {
                 level.playSound(player, pos, SoundEvents.MOSS_BREAK, SoundSource.BLOCKS, 1.0f, 1.0f);
                 if (!level.isClientSide && !player.isCreative()) stack.hurtAndBreak(1, player, stack.getEquipmentSlot());
                 ParticleUtils.spawnParticlesOnBlockFaces(level, pos, new BlockParticleOption(ParticleTypes.BLOCK, Blocks.MOSS_BLOCK.defaultBlockState()), UniformInt.of(1, 1));
-                level.setBlockAndUpdate(pos, state.is(Blocks.MOSSY_COBBLESTONE) ? Blocks.COBBLESTONE.defaultBlockState() : state.is(Blocks.MOSSY_COBBLESTONE_STAIRS) ? Blocks.COBBLESTONE_STAIRS.defaultBlockState() : state.is(Blocks.MOSSY_COBBLESTONE_SLAB) ? Blocks.COBBLESTONE_SLAB.defaultBlockState() : state.is(Blocks.MOSSY_COBBLESTONE_WALL) ? Blocks.COBBLESTONE_WALL.defaultBlockState() : state.is(Blocks.MOSSY_STONE_BRICKS) ? Blocks.STONE_BRICKS.defaultBlockState() : state.is(Blocks.MOSSY_STONE_BRICK_STAIRS) ? Blocks.STONE_BRICK_STAIRS.defaultBlockState() : state.is(Blocks.MOSSY_STONE_BRICK_SLAB) ? Blocks.STONE_BRICK_SLAB.defaultBlockState() : state.is(Blocks.MOSSY_STONE_BRICK_WALL) ? Blocks.STONE_BRICK_WALL.defaultBlockState() : state.is(Blocks.INFESTED_MOSSY_STONE_BRICKS) ? Blocks.INFESTED_STONE_BRICKS.defaultBlockState() : state.is(AABlocks.MOSSY_STONE) ? Blocks.STONE.defaultBlockState() : state.is(AABlocks.MOSSY_BASALT) ? Blocks.BASALT.defaultBlockState() : state);
+                level.setBlockAndUpdate(pos, state.is(Blocks.MOSSY_COBBLESTONE) ? Blocks.COBBLESTONE.withPropertiesOf(state) : state.is(Blocks.MOSSY_COBBLESTONE_STAIRS) ? Blocks.COBBLESTONE_STAIRS.withPropertiesOf(state) : state.is(Blocks.MOSSY_COBBLESTONE_SLAB) ? Blocks.COBBLESTONE_SLAB.withPropertiesOf(state) : state.is(Blocks.MOSSY_COBBLESTONE_WALL) ? Blocks.COBBLESTONE_WALL.withPropertiesOf(state) : state.is(Blocks.MOSSY_STONE_BRICKS) ? Blocks.STONE_BRICKS.withPropertiesOf(state) : state.is(Blocks.MOSSY_STONE_BRICK_STAIRS) ? Blocks.STONE_BRICK_STAIRS.withPropertiesOf(state) : state.is(Blocks.MOSSY_STONE_BRICK_SLAB) ? Blocks.STONE_BRICK_SLAB.withPropertiesOf(state) : state.is(Blocks.MOSSY_STONE_BRICK_WALL) ? Blocks.STONE_BRICK_WALL.withPropertiesOf(state) : state.is(Blocks.INFESTED_MOSSY_STONE_BRICKS) ? Blocks.INFESTED_STONE_BRICKS.withPropertiesOf(state) : state.is(AABlocks.MOSSY_STONE) ? Blocks.STONE.withPropertiesOf(state) : state.is(AABlocks.MOSSY_BASALT) ? Blocks.BASALT.withPropertiesOf(state) : state);
                 if (!level.isClientSide && level.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)) Block.popResourceFromFace(level, pos, event.getFace(), AABlocks.MOSS_CLUMP.toStack());
 
                 event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide()));
@@ -88,7 +88,7 @@ public class AAEvents {
                 level.playSound(player, pos, SoundEvents.MOSS_BREAK, SoundSource.BLOCKS, 1.0f, 1.0f);
                 if (!level.isClientSide && !player.isCreative()) stack.hurtAndBreak(1, player, stack.getEquipmentSlot());
                 ParticleUtils.spawnParticlesOnBlockFaces(level, pos, new BlockParticleOption(ParticleTypes.BLOCK, AABlocks.IRISH_MOSS_BLOCK.get().defaultBlockState()), UniformInt.of(1, 1));
-            level.setBlockAndUpdate(pos, state.is(AABlocks.MOSSY_DEEPSLATE) ? Blocks.DEEPSLATE.defaultBlockState() : state.is(AABlocks.MOSSY_COBBLED_DEEPSLATE) ? Blocks.COBBLED_DEEPSLATE.defaultBlockState() : state.is(AABlocks.MOSSY_POLISHED_DEEPSLATE) ? Blocks.POLISHED_DEEPSLATE.defaultBlockState() : state.is(AABlocks.MOSSY_DEEPSLATE_BRICKS) ? Blocks.DEEPSLATE_BRICKS.defaultBlockState() : state.is(AABlocks.MOSSY_DEEPSLATE_TILES) ? Blocks.DEEPSLATE_TILES.defaultBlockState() : state);
+            level.setBlockAndUpdate(pos, state.is(AABlocks.MOSSY_DEEPSLATE) ? Blocks.DEEPSLATE.withPropertiesOf(state) : state.is(AABlocks.MOSSY_COBBLED_DEEPSLATE) ? Blocks.COBBLED_DEEPSLATE.withPropertiesOf(state) : state.is(AABlocks.MOSSY_POLISHED_DEEPSLATE) ? Blocks.POLISHED_DEEPSLATE.withPropertiesOf(state) : state.is(AABlocks.MOSSY_DEEPSLATE_BRICKS) ? Blocks.DEEPSLATE_BRICKS.withPropertiesOf(state) : state.is(AABlocks.MOSSY_DEEPSLATE_TILES) ? Blocks.DEEPSLATE_TILES.withPropertiesOf(state) : state);
                 if (!level.isClientSide && level.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)) Block.popResourceFromFace(level, pos, event.getFace(), AABlocks.IRISH_MOSS_CLUMP.toStack());
 
                 event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide()));
@@ -100,7 +100,8 @@ public class AAEvents {
             // Emptying Mud from Muddy roots
             if (state.is(Blocks.MUDDY_MANGROVE_ROOTS)) {
                 level.playSound(player, pos, SoundEvents.MUD_BREAK, SoundSource.BLOCKS, 1.0f, 1.0f);
-                ParticleUtils.spawnParticlesOnBlockFaces(level, pos, new BlockParticleOption(ParticleTypes.BLOCK, Blocks.MUD.defaultBlockState()), UniformInt.of(1, 1));
+                if (!level.isClientSide && !player.isCreative()) stack.hurtAndBreak(1, player, stack.getEquipmentSlot());
+                ParticleUtils.spawnParticlesOnBlockFaces(level, pos, new BlockParticleOption(ParticleTypes.BLOCK, Blocks.MUD.defaultBlockState()), UniformInt.of(2, 2));
                 level.setBlockAndUpdate(pos, Blocks.MANGROVE_ROOTS.defaultBlockState());
                 if (!level.isClientSide && level.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)) Block.popResourceFromFace(level, pos, event.getFace(), Items.MUD.getDefaultInstance());
 

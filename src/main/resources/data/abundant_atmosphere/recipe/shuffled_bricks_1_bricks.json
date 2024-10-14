@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "shuffled_bricks",
+  "key": {
+    "B": {
+      "item": "minecraft:brick"
+    },
+    "N": {
+      "item": "minecraft:nether_brick"
+    }
+  },
+  "pattern": [
+    "BN",
+    "NB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "abundant_atmosphere:shuffled_bricks"
+  }
+}

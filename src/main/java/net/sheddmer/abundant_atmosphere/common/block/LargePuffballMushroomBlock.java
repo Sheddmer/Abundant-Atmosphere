@@ -3,6 +3,7 @@ package net.sheddmer.abundant_atmosphere.common.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.ParticleUtils;
@@ -21,6 +22,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sheddmer.abundant_atmosphere.init.AATags;
@@ -70,8 +72,7 @@ public class LargePuffballMushroomBlock extends Block {
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         if (state.getValue(AGE) >= 4 && entity instanceof Player) {
             level.destroyBlock(pos, true, entity);
-            level.addParticle(ParticleTypes.DUST_PLUME, pos.getX() + 0.5, pos.getY() + 0.25, pos.getZ() + 0.5, 0.0, 0.0, 0.0);
-            ParticleUtils.spawnParticles(level, pos, 16, 0.5, 0.0, false, ParticleTypes.DUST);
+            ParticleUtils.spawnParticlesOnBlockFaces(level, pos, new DustParticleOptions(Vec3.fromRGB24(6705208).toVector3f(), 2.0f), UniformInt.of(4, 12));
         } else if (entity instanceof Ravager && net.neoforged.neoforge.event.EventHooks.canEntityGrief(level, entity)) {
             level.destroyBlock(pos, true, entity);
         }

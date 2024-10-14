@@ -14,6 +14,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 import net.sheddmer.abundant_atmosphere.common.entity.AABoatEntity;
 import net.sheddmer.abundant_atmosphere.common.item.AABoatItem;
+import net.sheddmer.abundant_atmosphere.common.item.AAFoods;
 import net.sheddmer.abundant_atmosphere.common.item.MudBallItem;
 
 public class AAItems {
@@ -33,6 +34,10 @@ public class AAItems {
     public static final DeferredItem<Item> MUD_BALL = ITEMS.register("mud_ball", () -> new MudBallItem(new Item.Properties()));
 
     public static final DeferredItem<Item> CHROMATIC_FROGLIGHT = ITEMS.register("chromatic_froglight", () -> new BlockItem(AABlocks.CHROMATIC_FROGLIGHT.get(), new Item.Properties().rarity(Rarity.UNCOMMON)));
+
+    // Farmer's Delight items
+    public static final DeferredItem<Item> PUFFBALL_SLICE = ITEMS.register("puffball_slice", () -> new Item(new Item.Properties().food(AAFoods.PUFFBALL_SLICE)));
+
 
 
     // Insert Items
@@ -71,10 +76,10 @@ public class AAItems {
             event.insertAfter(AABlocks.DRIPSTONE_SHINGLE_STAIRS.toStack(), AABlocks.DRIPSTONE_SHINGLE_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AABlocks.DRIPSTONE_SHINGLE_SLAB.toStack(), AABlocks.DRIPSTONE_SHINGLE_WALL.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             // Mixed Brick blocks
-            event.insertAfter(Items.BRICK_WALL.getDefaultInstance(), AABlocks.MIXED_BRICKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.MIXED_BRICKS.toStack(), AABlocks.MIXED_BRICK_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.MIXED_BRICK_STAIRS.toStack(), AABlocks.MIXED_BRICK_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.MIXED_BRICK_SLAB.toStack(), AABlocks.MIXED_BRICK_WALL.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(Items.BRICK_WALL.getDefaultInstance(), AABlocks.SHUFFLED_BRICKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.SHUFFLED_BRICKS.toStack(), AABlocks.SHUFFLED_BRICK_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.SHUFFLED_BRICK_STAIRS.toStack(), AABlocks.SHUFFLED_BRICK_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.SHUFFLED_BRICK_SLAB.toStack(), AABlocks.SHUFFLED_BRICK_WALL.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             // Ashroot woodset (added after cherry in building blocks)
             event.insertAfter(Items.CHERRY_BUTTON.getDefaultInstance(), AABlocks.ASHROOT_LOG.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AABlocks.ASHROOT_LOG.toStack(), AABlocks.ASHROOT_WOOD.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
@@ -135,12 +140,14 @@ public class AAItems {
             event.insertBefore(Items.PUMPKIN.getDefaultInstance(), AABlocks.GOURDNUT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             // puffball items
             event.insertAfter(Items.RED_MUSHROOM.getDefaultInstance(), AABlocks.PUFFBALL_MUSHROOM.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.PUFFBALL_MUSHROOM.toStack(), AABlocks.LARGE_PUFFBALL_MUSHROOM.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.NETHER_WART.getDefaultInstance(), AAItems.PUFFBALL_SPORES.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
             event.insertAfter(Items.CANDLE.getDefaultInstance(), AABlocks.WISP_CANDLE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.SOUL_LANTERN.getDefaultInstance(), AAItems.MUD_LAMP.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.PEARLESCENT_FROGLIGHT.getDefaultInstance(), AABlocks.CERULEAN_FROGLIGHT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.CERULEAN_FROGLIGHT.toStack(), AAItems.CHROMATIC_FROGLIGHT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.CHEST.getDefaultInstance(), AABlocks.STONE_CHEST.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             // signs & hanging signs
             event.insertAfter(Items.CHERRY_HANGING_SIGN.getDefaultInstance(), AAItems.ASHROOT_SIGN.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
@@ -156,6 +163,7 @@ public class AAItems {
         }
         if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
             event.insertBefore(Items.PUMPKIN_PIE.getDefaultInstance(), AAItems.ROASTED_GOURDNUT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(Items.POISONOUS_POTATO.getDefaultInstance(), AAItems.PUFFBALL_SLICE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.insertAfter(Items.CHERRY_CHEST_BOAT.getDefaultInstance(), AAItems.ASHROOT_BOAT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);

@@ -42,5 +42,13 @@ config="${mod_id}.mixins.json"
     ordering="AFTER"
     side="BOTH"
 
+[[dependencies.${mod_id}]]
+    modId="nomansland"
+    type="optional"
+    reason="${nml_reason}"
+    versionRange="${nml_version_range}"
+    ordering="AFTER"
+    side="BOTH"
+
 #[features.${mod_id}]
 #openGLVersion="[3.2,)"

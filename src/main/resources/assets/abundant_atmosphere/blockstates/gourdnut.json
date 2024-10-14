@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "hanging=false": {
       "model": "abundant_atmosphere:block/gourdnut"
+    },
+    "hanging=true": {
+      "model": "abundant_atmosphere:block/gourdnut_hanging"
     }
   }
 }
