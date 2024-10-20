@@ -39,7 +39,14 @@
   "block.abundant_atmosphere.cerulean_froglight": "Cerulean Froglight",
   "block.abundant_atmosphere.chromatic_froglight": "Chromatic Froglight",
   "item.abundant_atmosphere.mud_ball": "Mud Ball",
-  "block.abundant_atmosphere.diffused_amber_block": "Diffused Amber Block",
+  "block.abundant_atmosphere.raw_amber_block": "Raw Amber Block",
+
+  "block.abundant_atmosphere.trimmed_ashroot_planks": "Trimmed Ashroot Planks",
+  "block.abundant_atmosphere.ashroot_bookshelf": "Ashroot Bookshelf",
+  "block.abundant_atmosphere.ashroot_cabinet": "Ashroot Cabinet",
+  "block.abundant_atmosphere.trimmed_gourdrot_planks": "Trimmed Gourdrot Planks",
+  "block.abundant_atmosphere.gourdrot_bookshelf": "Gourdrot Bookshelf",
+  "block.abundant_atmosphere.gourdrot_cabinet": "Gourdrot Cabinet",
 
   "block.abundant_atmosphere.moss_clump": "Moss Clump",
   "block.abundant_atmosphere.mossy_stone": "Mossy Stone",

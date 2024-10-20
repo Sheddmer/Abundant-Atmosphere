@@ -1,13 +1,9 @@
 package net.sheddmer.abundant_atmosphere.init;
 
 import net.minecraft.core.Direction;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.component.CustomData;
-import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -15,7 +11,7 @@ import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 import net.sheddmer.abundant_atmosphere.common.entity.AABoatEntity;
 import net.sheddmer.abundant_atmosphere.common.item.AABoatItem;
 import net.sheddmer.abundant_atmosphere.common.item.AAFoods;
-import net.sheddmer.abundant_atmosphere.common.item.MudBallItem;
+import net.sheddmer.abundant_atmosphere.common.item.FungusSporeItem;
 
 public class AAItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(AbundantAtmosphere.MODID);
@@ -30,8 +26,7 @@ public class AAItems {
     public static final DeferredItem<Item> GOURDROT_BOAT = ITEMS.register("gourdrot_boat", () -> new AABoatItem(false, AABoatEntity.Type.GOURDROT, new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> GOURDROT_CHEST_BOAT = ITEMS.register("gourdrot_chest_boat", () -> new AABoatItem(true, AABoatEntity.Type.GOURDROT, new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> MUD_LAMP = ITEMS.register("mud_lamp", () -> new StandingAndWallBlockItem(AABlocks.MUD_LAMP.get(), AABlocks.WALL_MUD_LAMP.get(), new Item.Properties(), Direction.DOWN));
-    public static final DeferredItem<Item> PUFFBALL_SPORES = ITEMS.register("puffball_spores", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> MUD_BALL = ITEMS.register("mud_ball", () -> new MudBallItem(new Item.Properties()));
+    public static final DeferredItem<Item> PUFFBALL_SPORES = ITEMS.register("puffball_spores", () -> new FungusSporeItem(AABlocks.PUFFBALL_MUSHROOM.get(), 8677966, new Item.Properties()));
 
     public static final DeferredItem<Item> CHROMATIC_FROGLIGHT = ITEMS.register("chromatic_froglight", () -> new BlockItem(AABlocks.CHROMATIC_FROGLIGHT.get(), new Item.Properties().rarity(Rarity.UNCOMMON)));
 
@@ -129,7 +124,7 @@ public class AAItems {
             event.insertAfter(Items.MOSS_CARPET.getDefaultInstance(), AABlocks.IRISH_MOSS_CLUMP.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AABlocks.IRISH_MOSS_CLUMP.toStack(), AABlocks.IRISH_MOSS_BLOCK.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AABlocks.IRISH_MOSS_BLOCK.toStack(), AABlocks.IRISH_MOSS_CARPET.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.AMETHYST_BLOCK.getDefaultInstance(), AABlocks.DIFFUSED_AMBER_BLOCK.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(Items.AMETHYST_BLOCK.getDefaultInstance(), AABlocks.RAW_AMBER_BLOCK.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             // ashroot natural blocks (added after azalea)
             event.insertAfter(Items.CHERRY_LOG.getDefaultInstance(), AABlocks.ASHROOT_LOG.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.FLOWERING_AZALEA.getDefaultInstance(), AABlocks.ASHROOT_SAPLING.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
@@ -172,7 +167,6 @@ public class AAItems {
             event.insertAfter(AAItems.GOURDROT_BOAT.toStack(), AAItems.GOURDROT_CHEST_BOAT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.insertAfter(Items.CLAY_BALL.getDefaultInstance(), AAItems.MUD_BALL.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
         if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
             event.insertAfter(Items.TRAPPED_CHEST.getDefaultInstance(), AABlocks.TRAPPED_STONE_CHEST.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);

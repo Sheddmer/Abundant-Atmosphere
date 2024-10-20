@@ -72,7 +72,7 @@ public class LargePuffballMushroomBlock extends Block {
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         if (state.getValue(AGE) >= 4 && entity instanceof Player) {
             level.destroyBlock(pos, true, entity);
-            ParticleUtils.spawnParticlesOnBlockFaces(level, pos, new DustParticleOptions(Vec3.fromRGB24(6705208).toVector3f(), 2.0f), UniformInt.of(4, 12));
+            ParticleUtils.spawnParticlesOnBlockFaces(level, pos, new DustParticleOptions(Vec3.fromRGB24(8677966).toVector3f(), 2.0f), UniformInt.of(4, 12));
         } else if (entity instanceof Ravager && net.neoforged.neoforge.event.EventHooks.canEntityGrief(level, entity)) {
             level.destroyBlock(pos, true, entity);
         }

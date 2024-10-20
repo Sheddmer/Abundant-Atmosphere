@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "diffused_light=0": {
+      "model": "abundant_atmosphere:block/raw_amber/block_0"
+    },
+    "diffused_light=1": {
+      "model": "abundant_atmosphere:block/raw_amber/block_1"
+    },
+    "diffused_light=2": {
+      "model": "abundant_atmosphere:block/raw_amber/block_2"
+    },
+    "diffused_light=3": {
+      "model": "abundant_atmosphere:block/raw_amber/block_3"
+    },
+    "diffused_light=4": {
+      "model": "abundant_atmosphere:block/raw_amber/block_4"
+    },
+    "diffused_light=5": {
+      "model": "abundant_atmosphere:block/raw_amber/block_5"
+    },
+    "diffused_light=6": {
+      "model": "abundant_atmosphere:block/raw_amber/block_6"
+    },
+    "diffused_light=7": {
+      "model": "abundant_atmosphere:block/raw_amber/block_7"
+    },
+    "diffused_light=8": {
+      "model": "abundant_atmosphere:block/raw_amber/block_8"
+    },
+    "diffused_light=9": {
+      "model": "abundant_atmosphere:block/raw_amber/block_9"
+    },
+    "diffused_light=10": {
+      "model": "abundant_atmosphere:block/raw_amber/block_10"
+    },
+    "diffused_light=11": {
+      "model": "abundant_atmosphere:block/raw_amber/block_11"
+    },
+    "diffused_light=12": {
+      "model": "abundant_atmosphere:block/raw_amber/block_12"
+    },
+    "diffused_light=13": {
+      "model": "abundant_atmosphere:block/raw_amber/block_13"
+    },
+    "diffused_light=14": {
+      "model": "abundant_atmosphere:block/raw_amber/block_14"
+    }
+  }
+}

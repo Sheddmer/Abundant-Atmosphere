@@ -21,8 +21,10 @@ import java.util.function.IntFunction;
 public class AAChestBoatEntity extends ChestBoat {
 
     public static final EntityDataAccessor<Integer> DATA_ID_TYPE = SynchedEntityData.defineId(AAChestBoatEntity.class, EntityDataSerializers.INT);
+
     public AAChestBoatEntity(EntityType<? extends Boat> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
+        this.entityData.set(DATA_ID_TYPE, AABoatEntity.Type.ASHROOT.ordinal());
     }
 
     public AAChestBoatEntity(Level level, double pX, double pY, double pZ) {
@@ -35,7 +37,7 @@ public class AAChestBoatEntity extends ChestBoat {
 
     @Override
     public Item getDropItem() {
-        return switch(getModVariant()) {
+        return switch (getModVariant()) {
             case ASHROOT -> AAItems.ASHROOT_CHEST_BOAT.get();
             case GOURDROT -> AAItems.GOURDROT_CHEST_BOAT.get();
         };
@@ -49,9 +51,10 @@ public class AAChestBoatEntity extends ChestBoat {
         return AABoatEntity.Type.byId(this.entityData.get(DATA_ID_TYPE));
     }
 
+    @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
-        this.entityData.set(DATA_ID_TYPE, AABoatEntity.Type.ASHROOT.ordinal());
+        builder.define(DATA_ID_TYPE, 0);
     }
 
     protected void addAdditionalSaveData(CompoundTag pCompound) {
@@ -64,20 +67,29 @@ public class AAChestBoatEntity extends ChestBoat {
         }
     }
 
-    public static enum Type implements StringRepresentable {
+    public enum Type implements StringRepresentable {
         ASHROOT(AABlocks.ASHROOT_PLANKS.get(), "ashroot"),
         GOURDROT(AABlocks.GOURDROT_PLANKS.get(), "gourdrot");
 
 
+        public static final StringRepresentable.EnumCodec<AAChestBoatEntity.Type> CODEC = StringRepresentable.fromEnum(AAChestBoatEntity.Type::values);
+        private static final IntFunction<AAChestBoatEntity.Type> BY_ID = ByIdMap.continuous(Enum::ordinal, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
         private final String name;
         private final Block planks;
-        public static final StringRepresentable.EnumCodec<AAChestBoatEntity.Type> CODEC = StringRepresentable.fromEnum(AAChestBoatEntity.Type::values);
-        private static final IntFunction<Type> BY_ID = ByIdMap.continuous(Enum::ordinal, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
 
-        private Type(Block pPlanks, String pName) {
+        Type(Block pPlanks, String pName) {
             this.name = pName;
             this.planks = pPlanks;
         }
+
+        public static AAChestBoatEntity.Type byId(int pId) {
+            return BY_ID.apply(pId);
+        }
+
+        public static AAChestBoatEntity.Type byName(String pName) {
+            return CODEC.byName(pName, ASHROOT);
+        }
+
         public String getSerializedName() {
             return this.name;
         }
@@ -92,13 +104,6 @@ public class AAChestBoatEntity extends ChestBoat {
 
         public String toString() {
             return this.name;
-        }
-        public static AAChestBoatEntity.Type byId(int pId) {
-            return BY_ID.apply(pId);
-        }
-
-        public static AAChestBoatEntity.Type byName(String pName) {
-            return CODEC.byName(pName, ASHROOT);
         }
     }
 }

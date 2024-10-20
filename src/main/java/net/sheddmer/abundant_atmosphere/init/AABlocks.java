@@ -13,6 +13,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 import net.sheddmer.abundant_atmosphere.common.block.*;
+import net.sheddmer.abundant_atmosphere.integration.Mods;
 
 import java.util.function.Supplier;
 
@@ -58,7 +59,8 @@ public class AABlocks {
     public static final DeferredBlock<Block> SOUL_STONE_BRAZIER = registerBlock("soul_stone_brazier", () -> new StoneBrazierBlock(2, BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).strength(4.0f, 8.0f).requiresCorrectToolForDrops().noOcclusion().ignitedByLava().lightLevel(state -> state.getValue(StoneBrazierBlock.LIT) ? 10 : 0).instrument(NoteBlockInstrument.BASS).sound(SoundType.POLISHED_DEEPSLATE)));
     public static final DeferredBlock<Block> CERULEAN_FROGLIGHT = registerBlock("cerulean_froglight", () ->  new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).strength(0.3f, 0.3f).lightLevel(value -> 15).sound(SoundType.FROGLIGHT)));
     public static final DeferredBlock<Block> CHROMATIC_FROGLIGHT = BLOCKS.register("chromatic_froglight", () ->  new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.3f, 0.3f).lightLevel(value -> 15).sound(SoundType.FROGLIGHT)));
-    public static final DeferredBlock<Block> DIFFUSED_AMBER_BLOCK = registerBlock("diffused_amber_block", () -> new DiffusedCrystalBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(1.0f, 0.5f).lightLevel(state -> state.getValue(DiffusedCrystalBlock.DIFFUSED_LIGHT)).instrument(NoteBlockInstrument.CHIME).sound(SoundType.AMETHYST)));
+
+    public static final DeferredBlock<Block> RAW_AMBER_BLOCK = registerBlock("raw_amber_block", () -> new DiffusedCrystalBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(1.0f, 0.5f).noOcclusion().lightLevel(state -> state.getValue(DiffusedCrystalBlock.DIFFUSED_LIGHT)).instrument(NoteBlockInstrument.CHIME).sound(SoundType.AMETHYST)));
 
     // Suspicious Blocks
     public static final DeferredBlock<Block> SUSPICIOUS_DIRT = registerBlock("suspicious_dirt", () -> new BrushableBlock(Blocks.DIRT, SoundEvents.BRUSH_GRAVEL, SoundEvents.BRUSH_GRAVEL_COMPLETED, BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).strength(0.25f, 0.25f).sound(SoundType.SUSPICIOUS_GRAVEL).pushReaction(PushReaction.DESTROY)));

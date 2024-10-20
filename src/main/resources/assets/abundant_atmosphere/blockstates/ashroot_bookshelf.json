@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "abundant_atmosphere:block/ashroot_bookshelf"
+      },
+      {
+        "model": "abundant_atmosphere:block/ashroot_bookshelf_alt"
+      }
+    ]
+  }
+}
