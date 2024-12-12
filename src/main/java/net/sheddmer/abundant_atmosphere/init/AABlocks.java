@@ -1,5 +1,7 @@
 package net.sheddmer.abundant_atmosphere.init;
 
+import com.farcr.nomansland.common.block.BookshelfBlock;
+import com.farcr.nomansland.common.block.TrimmedPlankBlock;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -13,7 +15,8 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 import net.sheddmer.abundant_atmosphere.common.block.*;
-import net.sheddmer.abundant_atmosphere.integration.Mods;
+import net.sheddmer.abundant_atmosphere.integration.AAModCompats;
+import vectorwing.farmersdelight.common.block.CabinetBlock;
 
 import java.util.function.Supplier;
 
@@ -72,7 +75,6 @@ public class AABlocks {
     public static final DeferredBlock<Block> PUFFBALL_MUSHROOM = registerBlock("puffball_mushroom", () -> new PuffballMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).instabreak().noOcclusion().randomTicks().sound(SoundType.FUNGUS).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<Block> LARGE_PUFFBALL_MUSHROOM = registerBlock("large_puffball_mushroom", () -> new LargePuffballMushroomBlock(BlockBehaviour.Properties.ofFullCopy(PUFFBALL_MUSHROOM.get())));
     public static final DeferredBlock<Block> MOSS_CLUMP = registerBlock("moss_clump", () -> new MossClumpBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).strength(0.1f, 0.1f).noCollission().noOcclusion().replaceable().sound(SoundType.MOSS).pushReaction(PushReaction.DESTROY)));
-    public static final DeferredBlock<Block> DENSE_MANGROVE_ROOTS = registerBlock("dense_mangrove_roots", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.PODZOL).strength(1.0f, 1.0f).noOcclusion().instrument(NoteBlockInstrument.BASS).sound(SoundType.MANGROVE_ROOTS).ignitedByLava()));
     public static final DeferredBlock<Block> IRISH_MOSS_BLOCK = registerBlock("irish_moss_block", () -> new MossBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).strength(0.1f, 0.1f).sound(SoundType.MOSS).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<Block> IRISH_MOSS_CARPET = registerBlock("irish_moss_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).strength(0.1f, 0.1f).sound(SoundType.MOSS_CARPET).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<Block> IRISH_MOSS_CLUMP = registerBlock("irish_moss_clump", () -> new MossClumpBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).strength(0.1f, 0.1f).noCollission().noOcclusion().replaceable().sound(SoundType.MOSS).pushReaction(PushReaction.DESTROY)));
@@ -136,6 +138,13 @@ public class AABlocks {
     public static final DeferredBlock<Block> GOURDNUT = registerBlock("gourdnut", () -> new GourdnutBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(0.1f, 0.0f).noOcclusion().instrument(NoteBlockInstrument.DIDGERIDOO).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<Block> GOURDROT_LEAVES = registerBlock("gourdrot_leaves", () ->  new LeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).strength(0.2f, 0.2f).randomTicks().noOcclusion().sound(SoundType.AZALEA_LEAVES).pushReaction(PushReaction.DESTROY).ignitedByLava()));
 
+    // Farmer's Delight Integration
+
+    // No Man's Land Integration
+    public static final DeferredBlock<Block> TRIMMED_ASHROOT_PLANKS = registerBlock("trimmed_ashroot_planks", AAModCompats.NOMANSLAND.isLoaded() ? () -> new TrimmedPlankBlock(BlockBehaviour.Properties.ofFullCopy(ASHROOT_PLANKS.get())) : null);
+    public static final DeferredBlock<Block> ASHROOT_BOOKSHELF = registerBlock("ashroot_bookshelf", AAModCompats.NOMANSLAND.isLoaded() ? () -> new BookshelfBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BOOKSHELF)) : null);
+    public static final DeferredBlock<Block> TRIMMED_GOURDROT_PLANKS = registerBlock("trimmed_gourdrot_planks", AAModCompats.NOMANSLAND.isLoaded() ? () -> new TrimmedPlankBlock(BlockBehaviour.Properties.ofFullCopy(GOURDROT_PLANKS.get())) : null);
+    public static final DeferredBlock<Block> GOURDROT_BOOKSHELF = registerBlock("gourdrot_bookshelf", AAModCompats.NOMANSLAND.isLoaded() ? () -> new BookshelfBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BOOKSHELF)) : null);
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

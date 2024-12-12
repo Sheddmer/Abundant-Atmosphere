@@ -35,6 +35,14 @@ config="${mod_id}.mixins.json"
     side="BOTH"
 
 [[dependencies.${mod_id}]]
+    modId="biolith"
+    type="required"
+    reason="${bl_reason}"
+    versionRange="${bl_version_range}"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
     modId="farmersdelight"
     type="optional"
     reason="${fd_reason}"

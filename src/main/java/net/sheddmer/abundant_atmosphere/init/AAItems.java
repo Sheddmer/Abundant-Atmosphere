@@ -1,5 +1,8 @@
 package net.sheddmer.abundant_atmosphere.init;
 
+import com.farcr.nomansland.common.registry.NMLBlocks;
+import com.farcr.nomansland.common.registry.NMLCreativeTabs;
+import com.farcr.nomansland.common.registry.NMLItems;
 import net.minecraft.core.Direction;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
@@ -12,6 +15,9 @@ import net.sheddmer.abundant_atmosphere.common.entity.AABoatEntity;
 import net.sheddmer.abundant_atmosphere.common.item.AABoatItem;
 import net.sheddmer.abundant_atmosphere.common.item.AAFoods;
 import net.sheddmer.abundant_atmosphere.common.item.FungusSporeItem;
+import net.sheddmer.abundant_atmosphere.integration.AAModCompats;
+import vectorwing.farmersdelight.common.registry.ModBlocks;
+import vectorwing.farmersdelight.common.registry.ModItems;
 
 public class AAItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(AbundantAtmosphere.MODID);
@@ -112,6 +118,11 @@ public class AAItems {
             event.insertAfter(Items.POLISHED_DEEPSLATE_WALL.getDefaultInstance(), AABlocks.MOSSY_POLISHED_DEEPSLATE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.DEEPSLATE_BRICK_WALL.getDefaultInstance(), AABlocks.MOSSY_DEEPSLATE_BRICKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.DEEPSLATE_TILE_WALL.getDefaultInstance(), AABlocks.MOSSY_DEEPSLATE_TILES.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+
+            if (AAModCompats.NOMANSLAND.isLoaded()) {
+                event.insertAfter(AABlocks.ASHROOT_SLAB.toStack(), AABlocks.TRIMMED_ASHROOT_PLANKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(AABlocks.GOURDROT_SLAB.toStack(), AABlocks.TRIMMED_GOURDROT_PLANKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            }
         }
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
             // general natural blocks
@@ -170,6 +181,12 @@ public class AAItems {
         }
         if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
             event.insertAfter(Items.TRAPPED_CHEST.getDefaultInstance(), AABlocks.TRAPPED_STONE_CHEST.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+        }
+        if (AAModCompats.NOMANSLAND.isLoaded() && event.getTabKey() == NMLCreativeTabs.NO_MANS_TAB.getKey()) {
+            event.insertAfter(NMLBlocks.TRIMMED_CHERRY_PLANKS.toStack(), AABlocks.TRIMMED_ASHROOT_PLANKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.TRIMMED_ASHROOT_PLANKS.toStack(), AABlocks.ASHROOT_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.ASHROOT_BOOKSHELF.toStack(), AABlocks.TRIMMED_GOURDROT_PLANKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.TRIMMED_GOURDROT_PLANKS.toStack(), AABlocks.GOURDROT_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
     }
 }

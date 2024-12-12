@@ -110,11 +110,19 @@ repositories {
     maven { url "https://maven.blamejared.com/" }
     maven { url "https://repo1.maven.org/maven2" }
     maven { url "https://api.modrinth.com/maven" }
+    maven { url 'https://maven.terraformersmc.com/' }
+    flatDir {
+        dirs 'libs'
+    }
 }
 
 dependencies {
+    // Required dependencies
+    implementation "com.terraformersmc:biolith-neoforge:${bl_version}"
+
     // Optional dependencies
     implementation "maven.modrinth:farmers-delight:1.21.1-$fd_version"
+    implementation "com.farcr:nomansland:0.0.4-alpha"
 
     compileOnly "mezz.jei:jei-$minecraft_version-common-api:$jei_version"
     compileOnly "mezz.jei:jei-$minecraft_version-neoforge-api:$jei_version"
@@ -141,6 +149,8 @@ tasks.withType(ProcessResources).configureEach {
             mod_version             : mod_version,
             mod_authors             : mod_authors,
             mod_description         : mod_description,
+            bl_version_range        : bl_version_range,
+            bl_reason               : bl_reason,
             fd_version_range        : fd_version_range,
             fd_reason               : fd_reason,
             nml_version_range       : nml_version_range,

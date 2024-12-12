@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "abundant_atmosphere:block/gourdrot_planks",
+    "side": "abundant_atmosphere:block/gourdrot_bookshelf_alt"
+  }
+}

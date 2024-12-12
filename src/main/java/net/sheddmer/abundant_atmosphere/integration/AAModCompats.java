@@ -12,14 +12,15 @@ import java.util.function.Supplier;
 /**
  * For compatibility with and without another mod present, we have to define load conditions of the specific code
  */
-public enum Mods {
+public enum AAModCompats {
+    BIOLITH,
     FARMERSDELIGHT,
     NOMANSLAND,
     CREATE;
 
     private final String id;
 
-    Mods() {
+    AAModCompats() {
         id = name().toLowerCase();
     }
 

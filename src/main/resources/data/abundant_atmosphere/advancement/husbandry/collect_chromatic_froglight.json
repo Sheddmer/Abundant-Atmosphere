@@ -3,7 +3,11 @@
   "criteria": {
     "froglight": {
       "conditions": {
-        "item": "abundant_atmosphere:chromatic_froglight"
+        "items": [
+          {
+            "items": "abundant_atmosphere:chromatic_froglight"
+          }
+        ]
       },
       "trigger": "minecraft:inventory_changed"
     }
@@ -29,4 +33,3 @@
   ],
   "sends_telemetry_event": true
 }
-

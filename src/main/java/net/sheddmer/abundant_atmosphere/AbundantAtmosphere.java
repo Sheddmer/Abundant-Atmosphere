@@ -4,6 +4,7 @@ package net.sheddmer.abundant_atmosphere;
 import net.sheddmer.abundant_atmosphere.common.entity.frog.AAFrogVariants;
 import net.sheddmer.abundant_atmosphere.common.world.tree.AATrunkPlacerTypes;
 import net.sheddmer.abundant_atmosphere.init.*;
+import net.sheddmer.abundant_atmosphere.integration.biolith.AABiomeIntegration;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -33,6 +34,8 @@ public class AbundantAtmosphere {
         AAParticleTypes.PARTICLE_TYPES.register(bus);
         AASounds.SOUND_EVENTS.register(bus);
         AATrunkPlacerTypes.TRUNK_PLACER.register(bus);
+
+        AABiomeIntegration.registerBiomes();
 
         bus.addListener(AAItems::addCreative);
         NeoForge.EVENT_BUS.register(this);
