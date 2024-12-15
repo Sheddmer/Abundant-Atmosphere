@@ -97,8 +97,7 @@ public class MudLampBlock extends Block implements SimpleWaterloggedBlock {
             if (f < 0.3F) {
                 level.addParticle(ParticleTypes.SMOKE, pos.getX() + 0.5, pos.getY() + 0.45, pos.getY() + 0.5, 0.0, 0.0, 0.0);
                 if (f < 0.17F) {
-                    level.playLocalSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getY() + 0.5, SoundEvents.CANDLE_AMBIENT, SoundSource.BLOCKS, 1.0F + source.nextFloat(), source.nextFloat() * 0.7F + 0.3F, false
-                    );
+                    level.playLocalSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getY() + 0.5, SoundEvents.CANDLE_AMBIENT, SoundSource.BLOCKS, 1.0F + source.nextFloat(), source.nextFloat() * 0.7F + 0.3F, false);
                 }
             }
             level.addParticle(ParticleTypes.FLAME,  pos.getX() + 0.5, pos.getY() + 0.45, pos.getZ() + 0.5, 0.0, 0.0, 0.0);

@@ -65,27 +65,12 @@ public class MidnightLilyBlock extends BushBlock implements BonemealableBlock {
         int k = pos.getZ();
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
         if (!state.getValue(PERSISTENT) && state.getValue(NIGHTLIGHT)) {
-            if (h == 1) {
-                for (int l = 0; l < 0.5; ++l) {
-                    blockpos$mutableblockpos.set(i + Mth.nextInt(source, -4, 4), j + source.nextInt(4), k + Mth.nextInt(source, -4, 4));
-                    level.addParticle(AAParticleTypes.FIREFLY.get(), (double) blockpos$mutableblockpos.getX() + source.nextDouble(), (double) blockpos$mutableblockpos.getY() + source.nextDouble(), (double) blockpos$mutableblockpos.getZ() + source.nextDouble(), 0.0D, 0.0D, 0.0D);
-                }
-            }
-            if (h == 2) {
-                for (int l = 0; l < 1; ++l) {
-                    blockpos$mutableblockpos.set(i + Mth.nextInt(source, -8, 8), j + source.nextInt(8), k + Mth.nextInt(source, -8, 8));
-                    level.addParticle(AAParticleTypes.FIREFLY.get(), (double) blockpos$mutableblockpos.getX() + source.nextDouble(), (double) blockpos$mutableblockpos.getY() + source.nextDouble(), (double) blockpos$mutableblockpos.getZ() + source.nextDouble(), 0.0D, 0.0D, 0.0D);
-                }
-            }
-            if (h == 3) {
-                for (int l = 0; l < 2; ++l) {
-                    blockpos$mutableblockpos.set(i + Mth.nextInt(source, -12, 12), j + source.nextInt(12), k + Mth.nextInt(source, -12, 12));
-                    level.addParticle(AAParticleTypes.FIREFLY.get(), (double) blockpos$mutableblockpos.getX() + source.nextDouble(), (double) blockpos$mutableblockpos.getY() + source.nextDouble(), (double) blockpos$mutableblockpos.getZ() + source.nextDouble(), 0.0D, 0.0D, 0.0D);
-                }
+            if (source.nextFloat() < 0.3F * h) {
+                blockpos$mutableblockpos.set(i + Mth.nextInt(source, h * -5, h * 5), j + Mth.nextInt(source, h * -5, h * 5), k + Mth.nextInt(source, h * -5, h * 5));
+                level.addParticle(AAParticleTypes.FIREFLY.get(), (double) blockpos$mutableblockpos.getX() + source.nextDouble(), (double) blockpos$mutableblockpos.getY() + source.nextDouble(), (double) blockpos$mutableblockpos.getZ() + source.nextDouble(), 0.0D, 0.0D, 0.0D);
             }
         }
     }
-
 
     @Override
     public boolean canBeReplaced(BlockState state, BlockPlaceContext useContext) {

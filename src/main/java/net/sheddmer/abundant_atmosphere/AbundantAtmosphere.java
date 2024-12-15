@@ -2,6 +2,7 @@ package net.sheddmer.abundant_atmosphere;
 
 
 import net.sheddmer.abundant_atmosphere.common.entity.frog.AAFrogVariants;
+import net.sheddmer.abundant_atmosphere.common.world.tree.AAFoliagePlacerTypes;
 import net.sheddmer.abundant_atmosphere.common.world.tree.AATrunkPlacerTypes;
 import net.sheddmer.abundant_atmosphere.init.*;
 import net.sheddmer.abundant_atmosphere.integration.biolith.AABiomeIntegration;
@@ -34,7 +35,7 @@ public class AbundantAtmosphere {
         AAParticleTypes.PARTICLE_TYPES.register(bus);
         AASounds.SOUND_EVENTS.register(bus);
         AATrunkPlacerTypes.TRUNK_PLACER.register(bus);
-
+        AAFoliagePlacerTypes.FOLIAGE_PLACER.register(bus);
         AABiomeIntegration.registerBiomes();
 
         bus.addListener(AAItems::addCreative);
@@ -47,6 +48,5 @@ public class AbundantAtmosphere {
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-
     }
 }

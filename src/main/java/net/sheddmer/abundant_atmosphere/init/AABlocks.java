@@ -16,14 +16,16 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 import net.sheddmer.abundant_atmosphere.common.block.*;
 import net.sheddmer.abundant_atmosphere.integration.AAModCompats;
-import vectorwing.farmersdelight.common.block.CabinetBlock;
 
 import java.util.function.Supplier;
 
 public class AABlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(AbundantAtmosphere.MODID);
 
+    // General blocks
     public static final DeferredBlock<Block> BLACKSALT_TILES = registerBlock("blacksalt_tiles", () -> new Block(BlockBehaviour.Properties.of().strength(1.4f, 1.4f).requiresCorrectToolForDrops().sound(SoundType.BASALT)));
+    public static final DeferredBlock<Block> CHISELED_MUD_BRICKS = registerBlock("chiseled_mud_bricks", () ->  new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).requiresCorrectToolForDrops().strength(1.5f, 3.0f).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.MUD_BRICKS)));
+    // Calcite blocks
     public static final DeferredBlock<Block> POLISHED_CALCITE = registerBlock("polished_calcite", () ->  new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).requiresCorrectToolForDrops().strength(0.75f, 1.0f).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE)));
     public static final DeferredBlock<Block> POLISHED_CALCITE_STAIRS = registerBlock("polished_calcite_stairs", () ->  new StairBlock(POLISHED_CALCITE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(POLISHED_CALCITE.get())));
     public static final DeferredBlock<Block> POLISHED_CALCITE_SLAB = registerBlock("polished_calcite_slab", () ->  new SlabBlock(BlockBehaviour.Properties.ofFullCopy(POLISHED_CALCITE.get())));
@@ -32,6 +34,7 @@ public class AABlocks {
     public static final DeferredBlock<Block> CALCITE_TILE_STAIRS = registerBlock("calcite_tile_stairs", () ->  new StairBlock(POLISHED_CALCITE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(POLISHED_CALCITE.get())));
     public static final DeferredBlock<Block> CALCITE_TILE_SLAB = registerBlock("calcite_tile_slab", () ->  new SlabBlock(BlockBehaviour.Properties.ofFullCopy(POLISHED_CALCITE.get())));
     public static final DeferredBlock<Block> CALCITE_TILE_WALL = registerBlock("calcite_tile_wall", () ->  new WallBlock(BlockBehaviour.Properties.ofFullCopy(POLISHED_CALCITE.get()).forceSolidOn()));
+    // Dripstone blocks
     public static final DeferredBlock<Block> POLISHED_DRIPSTONE = registerBlock("polished_dripstone", () ->  new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).requiresCorrectToolForDrops().strength(1.5f, 1.5f).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.DRIPSTONE_BLOCK)));
     public static final DeferredBlock<Block> POLISHED_DRIPSTONE_STAIRS = registerBlock("polished_dripstone_stairs", () ->  new StairBlock(POLISHED_DRIPSTONE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(POLISHED_DRIPSTONE.get())));
     public static final DeferredBlock<Block> POLISHED_DRIPSTONE_SLAB = registerBlock("polished_dripstone_slab", () ->  new SlabBlock(BlockBehaviour.Properties.ofFullCopy(POLISHED_DRIPSTONE.get())));
@@ -44,12 +47,12 @@ public class AABlocks {
     public static final DeferredBlock<Block> DRIPSTONE_SHINGLE_STAIRS = registerBlock("dripstone_shingle_stairs", () ->  new StairBlock(POLISHED_DRIPSTONE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(POLISHED_DRIPSTONE.get())));
     public static final DeferredBlock<Block> DRIPSTONE_SHINGLE_SLAB = registerBlock("dripstone_shingle_slab", () ->  new SlabBlock(BlockBehaviour.Properties.ofFullCopy(POLISHED_DRIPSTONE.get())));
     public static final DeferredBlock<Block> DRIPSTONE_SHINGLE_WALL = registerBlock("dripstone_shingle_wall", () ->  new WallBlock(BlockBehaviour.Properties.ofFullCopy(POLISHED_DRIPSTONE.get()).forceSolidOn()));
-    public static final DeferredBlock<Block> CHISELED_MUD_BRICKS = registerBlock("chiseled_mud_bricks", () ->  new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).requiresCorrectToolForDrops().strength(1.5f, 3.0f).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.MUD_BRICKS)));
+    // Shuffled Brick blocks
     public static final DeferredBlock<Block> SHUFFLED_BRICKS = registerBlock("shuffled_bricks", () ->  new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).requiresCorrectToolForDrops().strength(2.5f, 8.0f).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHER_BRICKS)));
     public static final DeferredBlock<Block> SHUFFLED_BRICK_STAIRS = registerBlock("shuffled_brick_stairs", () ->  new StairBlock(SHUFFLED_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SHUFFLED_BRICKS.get())));
     public static final DeferredBlock<Block> SHUFFLED_BRICK_SLAB = registerBlock("shuffled_brick_slab", () ->  new SlabBlock(BlockBehaviour.Properties.ofFullCopy(SHUFFLED_BRICKS.get())));
     public static final DeferredBlock<Block> SHUFFLED_BRICK_WALL = registerBlock("shuffled_brick_wall", () ->  new WallBlock(BlockBehaviour.Properties.ofFullCopy(SHUFFLED_BRICKS.get()).forceSolidOn()));
-    public static final DeferredBlock<Block> CAVE_CRUD = registerBlock("cave_crud", () ->  new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).strength(0.75f, 0.75f).sound(SoundType.ROOTED_DIRT)));
+
     public static final DeferredBlock<Block> DOWSITE = registerBlock("dowsite", () ->  new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).strength(1.5f, 6.0f).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.TUFF)));
     public static final DeferredBlock<Block> POLISHED_DOWSITE = registerBlock("polished_dowsite", () ->  new Block(BlockBehaviour.Properties.ofFullCopy(DOWSITE.get())));
     public static final DeferredBlock<Block> POLISHED_DOWSITE_STAIRS = registerBlock("polished_dowsite_stairs", () ->  new StairBlock(POLISHED_DOWSITE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(POLISHED_DOWSITE.get())));
@@ -60,16 +63,15 @@ public class AABlocks {
     public static final DeferredBlock<Block> WALL_MUD_LAMP = BLOCKS.register("wall_mud_lamp", () ->  new WallMudLampBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).strength(2.0f, 2.0f).lightLevel(state -> state.getValue(MudLampBlock.LIT) ? 10 : 0).noOcclusion().sound(SoundType.PACKED_MUD).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<Block> STONE_BRAZIER = registerBlock("stone_brazier", () -> new StoneBrazierBlock(1, BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).strength(4.0f, 8.0f).requiresCorrectToolForDrops().noOcclusion().ignitedByLava().lightLevel(state -> state.getValue(StoneBrazierBlock.LIT) ? 15 : 0).instrument(NoteBlockInstrument.BASS).sound(SoundType.POLISHED_DEEPSLATE)));
     public static final DeferredBlock<Block> SOUL_STONE_BRAZIER = registerBlock("soul_stone_brazier", () -> new StoneBrazierBlock(2, BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).strength(4.0f, 8.0f).requiresCorrectToolForDrops().noOcclusion().ignitedByLava().lightLevel(state -> state.getValue(StoneBrazierBlock.LIT) ? 10 : 0).instrument(NoteBlockInstrument.BASS).sound(SoundType.POLISHED_DEEPSLATE)));
-    public static final DeferredBlock<Block> CERULEAN_FROGLIGHT = registerBlock("cerulean_froglight", () ->  new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).strength(0.3f, 0.3f).lightLevel(value -> 15).sound(SoundType.FROGLIGHT)));
-    public static final DeferredBlock<Block> CHROMATIC_FROGLIGHT = BLOCKS.register("chromatic_froglight", () ->  new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.3f, 0.3f).lightLevel(value -> 15).sound(SoundType.FROGLIGHT)));
 
     public static final DeferredBlock<Block> RAW_AMBER_BLOCK = registerBlock("raw_amber_block", () -> new DiffusedCrystalBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(1.0f, 0.5f).noOcclusion().lightLevel(state -> state.getValue(DiffusedCrystalBlock.DIFFUSED_LIGHT)).instrument(NoteBlockInstrument.CHIME).sound(SoundType.AMETHYST)));
 
-    // Suspicious Blocks
+    // Suspicious blocks
     public static final DeferredBlock<Block> SUSPICIOUS_DIRT = registerBlock("suspicious_dirt", () -> new BrushableBlock(Blocks.DIRT, SoundEvents.BRUSH_GRAVEL, SoundEvents.BRUSH_GRAVEL_COMPLETED, BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).strength(0.25f, 0.25f).sound(SoundType.SUSPICIOUS_GRAVEL).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<Block> SUSPICIOUS_RED_SAND = registerBlock("suspicious_red_sand", () -> new BrushableBlock(Blocks.RED_SAND, SoundEvents.BRUSH_SAND, SoundEvents.BRUSH_SAND_COMPLETED, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(0.25f,0.25f).instrument(NoteBlockInstrument.SNARE).sound(SoundType.SUSPICIOUS_SAND).pushReaction(PushReaction.DESTROY)));
 
-    // Plants & Crops
+    // Natural blocks
+    public static final DeferredBlock<Block> CAVE_CRUD = registerBlock("cave_crud", () ->  new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).strength(0.75f, 0.75f).sound(SoundType.ROOTED_DIRT)));
     public static final DeferredBlock<Block> MIDNIGHT_LILY = registerBlock("midnight_lily", () ->  new MidnightLilyBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instabreak().noCollission().randomTicks().lightLevel(state -> state.getValue(MidnightLilyBlock.NIGHTLIGHT) ? 2 + state.getValue(MidnightLilyBlock.FLOWER_STACK) : 0).sound(SoundType.PINK_PETALS).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<Block> POTTED_MIDNIGHT_LILY = BLOCKS.register("potted_midnight_lily", () -> new FlowerPotBlock(MIDNIGHT_LILY.get(), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<Block> PUFFBALL_MUSHROOM = registerBlock("puffball_mushroom", () -> new PuffballMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).instabreak().noOcclusion().randomTicks().sound(SoundType.FUNGUS).pushReaction(PushReaction.DESTROY)));
@@ -78,7 +80,8 @@ public class AABlocks {
     public static final DeferredBlock<Block> IRISH_MOSS_BLOCK = registerBlock("irish_moss_block", () -> new MossBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).strength(0.1f, 0.1f).sound(SoundType.MOSS).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<Block> IRISH_MOSS_CARPET = registerBlock("irish_moss_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).strength(0.1f, 0.1f).sound(SoundType.MOSS_CARPET).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<Block> IRISH_MOSS_CLUMP = registerBlock("irish_moss_clump", () -> new MossClumpBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).strength(0.1f, 0.1f).noCollission().noOcclusion().replaceable().sound(SoundType.MOSS).pushReaction(PushReaction.DESTROY)));
-
+    public static final DeferredBlock<Block> CERULEAN_FROGLIGHT = registerBlock("cerulean_froglight", () ->  new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).strength(0.3f, 0.3f).lightLevel(value -> 15).sound(SoundType.FROGLIGHT)));
+    public static final DeferredBlock<Block> CHROMATIC_FROGLIGHT = BLOCKS.register("chromatic_froglight", () ->  new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.3f, 0.3f).lightLevel(value -> 15).sound(SoundType.FROGLIGHT)));
     // Mossy Blocks
     public static final DeferredBlock<Block> MOSSY_STONE = registerBlock("mossy_stone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
     public static final DeferredBlock<Block> MOSSY_BASALT = registerBlock("mossy_basalt", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BASALT)));

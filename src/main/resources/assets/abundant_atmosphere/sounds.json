@@ -10,5 +10,14 @@
       "abundant_atmosphere:block/stone_chest/stone_chest_open"
     ],
     "subtitle": "subtitles.abundant_atmosphere.stone_chest_open"
+  },
+  "block.stone_brazier.crackle": {
+    "sounds": [
+      {
+        "name": "minecraft:block.campfire.crackle",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.brazier_crackles"
   }
 }

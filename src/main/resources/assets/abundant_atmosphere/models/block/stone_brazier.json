@@ -1,9 +1,9 @@
 {
 	"render_type": "minecraft:cutout",
 	"textures": {
-		"top": "abundant_atmosphere:block/stone_brazier_top",
-		"side": "abundant_atmosphere:block/stone_brazier_side",
-		"bottom": "abundant_atmosphere:block/stone_brazier_bottom",
+		"top": "abundant_atmosphere:block/stone_brazier/stone_brazier_top",
+		"side": "abundant_atmosphere:block/stone_brazier/stone_brazier_side",
+		"bottom": "abundant_atmosphere:block/stone_brazier/stone_brazier_bottom",
 		"particle": "#bottom"
 	},
 	"elements": [

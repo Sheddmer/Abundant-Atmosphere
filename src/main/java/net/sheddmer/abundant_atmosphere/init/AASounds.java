@@ -13,6 +13,6 @@ public class AASounds {
 
     public static final DeferredHolder<SoundEvent, SoundEvent> STONE_CHEST_OPEN = SOUND_EVENTS.register("block.stone_chest.open", () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "block.stone_chest.open")));
     public static final DeferredHolder<SoundEvent, SoundEvent> STONE_CHEST_CLOSE = SOUND_EVENTS.register("block.stone_chest.close", () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "block.stone_chest.close")));
-
+    public static final DeferredHolder<SoundEvent, SoundEvent> BRAZIER_CRACKLES = SOUND_EVENTS.register("block.stone_brazier.crackle", () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID,"block.stone_brazier.crackle" )));
 
 }

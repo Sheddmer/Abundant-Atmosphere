@@ -1,7 +1,49 @@
 {
   "variants": {
-    "": {
-      "model": "abundant_atmosphere:block/stone_chest"
+    "facing=north,type=single": {
+      "model": "abundant_atmosphere:block/stone_chest_temp"
+    },
+    "facing=east,type=single": {
+      "model": "abundant_atmosphere:block/stone_chest_temp",
+      "y": 90
+    },
+    "facing=south,type=single": {
+      "model": "abundant_atmosphere:block/stone_chest_temp",
+      "y": 180
+    },
+    "facing=west,type=single": {
+      "model": "abundant_atmosphere:block/stone_chest_temp",
+      "y": 270
+    },
+    "facing=north,type=left": {
+      "model": "abundant_atmosphere:block/stone_chest_temp_left"
+    },
+    "facing=east,type=left": {
+      "model": "abundant_atmosphere:block/stone_chest_temp_left",
+      "y": 90
+    },
+    "facing=south,type=left": {
+      "model": "abundant_atmosphere:block/stone_chest_temp_left",
+      "y": 180
+    },
+    "facing=west,type=left": {
+      "model": "abundant_atmosphere:block/stone_chest_temp_left",
+      "y": 270
+    },
+    "facing=north,type=right": {
+      "model": "abundant_atmosphere:block/stone_chest_temp_right"
+    },
+    "facing=east,type=right": {
+      "model": "abundant_atmosphere:block/stone_chest_temp_right",
+      "y": 90
+    },
+    "facing=south,type=right": {
+      "model": "abundant_atmosphere:block/stone_chest_temp_right",
+      "y": 180
+    },
+    "facing=west,type=right": {
+      "model": "abundant_atmosphere:block/stone_chest_temp_right",
+      "y": 270
     }
   }
 }

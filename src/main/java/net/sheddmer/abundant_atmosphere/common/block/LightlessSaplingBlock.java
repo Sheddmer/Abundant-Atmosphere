@@ -15,7 +15,7 @@ public class LightlessSaplingBlock extends SaplingBlock {
 
     @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource source) {
-        if (!level.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
+        if (!level.isAreaLoaded(pos, 1)) return;
         if (level.getMaxLocalRawBrightness(pos.above()) >= 0 && source.nextInt(7) == 0) {
             this.advanceTree(level, pos, state, source);
         }

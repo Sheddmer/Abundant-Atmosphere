@@ -2,6 +2,10 @@ package net.sheddmer.abundant_atmosphere.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -22,6 +26,7 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.sheddmer.abundant_atmosphere.init.AASounds;
 
 import javax.annotation.Nullable;
 
@@ -79,11 +84,20 @@ public class StoneBrazierBlock extends Block implements SimpleWaterloggedBlock {
         if (state.getValue(LIT) && entity instanceof LivingEntity) {
             entity.hurt(level.damageSources().campfire(), (float)this.fireDamage);
         }
-
         super.entityInside(state, level, pos, entity);
     }
 
-    public static boolean isLit(BlockState state) {
+    @Override
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource source) {
+        if (source.nextInt(10) == 0) {
+            level.playLocalSound((double)pos.getX() + 0.5, (double)pos.getY() + 0.5, (double)pos.getZ() + 0.5, AASounds.BRAZIER_CRACKLES.get(), SoundSource.BLOCKS, 0.5F + source.nextFloat(), source.nextFloat() * 0.7F + 0.6F, false);
+        }
+        if (source.nextInt(5) == 0) {
+            level.addParticle(ParticleTypes.LARGE_SMOKE,(double)pos.getX() + Mth.randomBetween(source, 0.25F, 0.75F), (double)pos.getY() + 0.6, (double)pos.getZ() + Mth.randomBetween(source, 0.25F, 0.75F), 0, 0.0F, 0);
+        }
+    }
+
+        public static boolean isLit(BlockState state) {
         return state.hasProperty(LIT) && state.getValue(LIT);
     }
 
