@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "minecraft:block/lily_pad"
+    },
+    "facing=south": {
+      "model": "minecraft:block/lily_pad",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "minecraft:block/lily_pad",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "minecraft:block/lily_pad",
+      "y": 270
+    }
+  }
+}

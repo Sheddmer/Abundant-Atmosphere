@@ -5,8 +5,9 @@
   "minVersion": "0.8",
   "refmap": "abundant_atmosphere.refmap.json",
   "mixins": [
-    "FrogVariantMixin",
-    "ThrownPotionMixin"
+    "AAFrogVariantMixin",
+    "AALilypadMixin",
+    "AAThrownPotionMixin"
   ],
   "client": [
   ],

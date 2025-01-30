@@ -13,5 +13,11 @@ public class AABiomeIntegration {
                 0.5
         );
 
+        BiomePlacement.replaceOverworld(
+                Biomes.CHERRY_GROVE,
+                AABiomes.BASALT_HOTSPRINGS,
+                1.0
+        );
+
     }
 }

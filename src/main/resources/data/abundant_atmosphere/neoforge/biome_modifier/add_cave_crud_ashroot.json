@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "abundant_atmosphere:patch_cave_crud_ashroot"
+  ],
+  "step": "local_modifications"
+}

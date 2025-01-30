@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "abundant_atmosphere:block/red_bamboo_mosaic",
+    "side": "abundant_atmosphere:block/red_bamboo_mosaic",
+    "top": "abundant_atmosphere:block/red_bamboo_mosaic"
+  }
+}

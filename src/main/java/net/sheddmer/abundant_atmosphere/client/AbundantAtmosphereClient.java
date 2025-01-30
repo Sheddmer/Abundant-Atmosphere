@@ -2,6 +2,8 @@ package net.sheddmer.abundant_atmosphere.client;
 
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
+import net.minecraft.client.model.ChestRaftModel;
+import net.minecraft.client.model.RaftModel;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -45,7 +47,10 @@ public class AbundantAtmosphereClient {
         event.registerLayerDefinition(AAModelLayers.GOURDROT_BOAT_LAYER, BoatModel::createBodyModel);
         event.registerLayerDefinition(AAModelLayers.GOURDROT_CHEST_BOAT_LAYER, ChestBoatModel::createBodyModel);
 
-        event.registerLayerDefinition(StoneChestRenderer.STONE_CHEST, StoneChestRenderer::createBodyLayer);
+        event.registerLayerDefinition(AAModelLayers.RED_BAMBOO_RAFT_LAYER, RaftModel::createBodyModel);
+        event.registerLayerDefinition(AAModelLayers.RED_BAMBOO_CHEST_RAFT_LAYER, ChestRaftModel::createBodyModel);
+
+        event.registerLayerDefinition(AAModelLayers.STONE_CHEST, StoneChestRenderer::createBodyLayer);
     }
 
     @SubscribeEvent

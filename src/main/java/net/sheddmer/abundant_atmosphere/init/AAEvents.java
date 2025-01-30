@@ -1,5 +1,6 @@
 package net.sheddmer.abundant_atmosphere.init;
 
+import com.farcr.nomansland.common.registry.NMLBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
@@ -32,6 +33,7 @@ import net.sheddmer.abundant_atmosphere.common.block.MidnightLilyBlock;
 import net.sheddmer.abundant_atmosphere.common.block.MudLampBlock;
 import net.sheddmer.abundant_atmosphere.common.block.StoneBrazierBlock;
 import net.sheddmer.abundant_atmosphere.common.block.WallMudLampBlock;
+import net.sheddmer.abundant_atmosphere.integration.AAModCompats;
 
 @EventBusSubscriber(modid = AbundantAtmosphere.MODID)
 public class AAEvents {
@@ -48,7 +50,7 @@ public class AAEvents {
             // Growing trees from Pumpkins
             if (state.is(Blocks.PUMPKIN) && level.getBlockState(pos.below()).is(BlockTags.DIRT)) {
                 level.playSound(player, pos, SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0f, 1.0f);
-                level.addParticle(ParticleTypes.COMPOSTER, pos.getX() + Math.random(), pos.getY() + 0.2 + Math.random(), pos.getZ() + Math.random(), 0, 0, 0);
+                level.addParticle(ParticleTypes.HAPPY_VILLAGER, (double) pos.getX() + Math.random(), (double) pos.getY() + 0.2 + Math.random(), (double) pos.getZ() + Math.random(), 0, 0, 0);
                 if (!level.isClientSide && !player.isCreative()) stack.shrink(1);
                 if (!level.isClientSide && level.random.nextFloat() < 0.35) {
                     advancePumpkinTree((ServerLevel) level, pos, state, level.random);
@@ -63,7 +65,8 @@ public class AAEvents {
             if (state.is(AABlocks.MIDNIGHT_LILY) && !state.getValue(MidnightLilyBlock.PERSISTENT)) {
                 level.playSound(player, pos, SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0f, 1.0f);
                 level.setBlockAndUpdate(pos, state.setValue(MidnightLilyBlock.PERSISTENT, true));
-                if (!level.isClientSide && !player.isCreative()) stack.hurtAndBreak(1, player, stack.getEquipmentSlot());
+                if (!level.isClientSide && !player.isCreative())
+                    stack.hurtAndBreak(1, player, stack.getEquipmentSlot());
                 if (state.getValue(MidnightLilyBlock.NIGHTLIGHT))
                     level.setBlockAndUpdate(pos, state.setValue(MidnightLilyBlock.NIGHTLIGHT, false));
 
@@ -71,29 +74,49 @@ public class AAEvents {
                 event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide()));
                 event.setCanceled(true);
             }
-            // Removing moss from mossy blocks
+            // Removing moss from Stone blocks
             if (state.is(Blocks.MOSSY_COBBLESTONE) || state.is(Blocks.MOSSY_COBBLESTONE_STAIRS) || state.is(Blocks.MOSSY_COBBLESTONE_SLAB) || state.is(Blocks.MOSSY_COBBLESTONE_WALL) || state.is(Blocks.MOSSY_STONE_BRICKS) || state.is(Blocks.MOSSY_STONE_BRICK_STAIRS) || state.is(Blocks.MOSSY_STONE_BRICK_SLAB) || state.is(Blocks.MOSSY_STONE_BRICK_WALL) || state.is(Blocks.INFESTED_MOSSY_STONE_BRICKS) || state.is(AABlocks.MOSSY_STONE) || state.is(AABlocks.MOSSY_BASALT)) {
                 level.playSound(player, pos, SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0f, 1.0f);
                 level.playSound(player, pos, SoundEvents.MOSS_BREAK, SoundSource.BLOCKS, 1.0f, 1.0f);
-                if (!level.isClientSide && !player.isCreative()) stack.hurtAndBreak(1, player, stack.getEquipmentSlot());
+                if (!level.isClientSide && !player.isCreative())
+                    stack.hurtAndBreak(1, player, stack.getEquipmentSlot());
                 ParticleUtils.spawnParticlesOnBlockFaces(level, pos, new BlockParticleOption(ParticleTypes.BLOCK, Blocks.MOSS_BLOCK.defaultBlockState()), UniformInt.of(1, 1));
                 level.setBlockAndUpdate(pos, state.is(Blocks.MOSSY_COBBLESTONE) ? Blocks.COBBLESTONE.withPropertiesOf(state) : state.is(Blocks.MOSSY_COBBLESTONE_STAIRS) ? Blocks.COBBLESTONE_STAIRS.withPropertiesOf(state) : state.is(Blocks.MOSSY_COBBLESTONE_SLAB) ? Blocks.COBBLESTONE_SLAB.withPropertiesOf(state) : state.is(Blocks.MOSSY_COBBLESTONE_WALL) ? Blocks.COBBLESTONE_WALL.withPropertiesOf(state) : state.is(Blocks.MOSSY_STONE_BRICKS) ? Blocks.STONE_BRICKS.withPropertiesOf(state) : state.is(Blocks.MOSSY_STONE_BRICK_STAIRS) ? Blocks.STONE_BRICK_STAIRS.withPropertiesOf(state) : state.is(Blocks.MOSSY_STONE_BRICK_SLAB) ? Blocks.STONE_BRICK_SLAB.withPropertiesOf(state) : state.is(Blocks.MOSSY_STONE_BRICK_WALL) ? Blocks.STONE_BRICK_WALL.withPropertiesOf(state) : state.is(Blocks.INFESTED_MOSSY_STONE_BRICKS) ? Blocks.INFESTED_STONE_BRICKS.withPropertiesOf(state) : state.is(AABlocks.MOSSY_STONE) ? Blocks.STONE.withPropertiesOf(state) : state.is(AABlocks.MOSSY_BASALT) ? Blocks.BASALT.withPropertiesOf(state) : state);
-                if (!level.isClientSide && level.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)) Block.popResourceFromFace(level, pos, event.getFace(), AABlocks.MOSS_CLUMP.toStack());
+                if (!level.isClientSide && level.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS))
+                    Block.popResourceFromFace(level, pos, event.getFace(), AABlocks.MOSS_CLUMP.toStack());
 
                 event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide()));
                 event.setCanceled(true);
             }
-            // Removing irish moss from blocks
+            // Removing moss from Deepslate blocks
             if (state.is(AABlocks.MOSSY_DEEPSLATE) || state.is(AABlocks.MOSSY_COBBLED_DEEPSLATE) || state.is(AABlocks.MOSSY_POLISHED_DEEPSLATE) || state.is(AABlocks.MOSSY_DEEPSLATE_BRICKS) || state.is(AABlocks.MOSSY_DEEPSLATE_TILES)) {
                 level.playSound(player, pos, SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0f, 1.0f);
                 level.playSound(player, pos, SoundEvents.MOSS_BREAK, SoundSource.BLOCKS, 1.0f, 1.0f);
-                if (!level.isClientSide && !player.isCreative()) stack.hurtAndBreak(1, player, stack.getEquipmentSlot());
+                if (!level.isClientSide && !player.isCreative())
+                    stack.hurtAndBreak(1, player, stack.getEquipmentSlot());
                 ParticleUtils.spawnParticlesOnBlockFaces(level, pos, new BlockParticleOption(ParticleTypes.BLOCK, AABlocks.IRISH_MOSS_BLOCK.get().defaultBlockState()), UniformInt.of(1, 1));
-            level.setBlockAndUpdate(pos, state.is(AABlocks.MOSSY_DEEPSLATE) ? Blocks.DEEPSLATE.withPropertiesOf(state) : state.is(AABlocks.MOSSY_COBBLED_DEEPSLATE) ? Blocks.COBBLED_DEEPSLATE.withPropertiesOf(state) : state.is(AABlocks.MOSSY_POLISHED_DEEPSLATE) ? Blocks.POLISHED_DEEPSLATE.withPropertiesOf(state) : state.is(AABlocks.MOSSY_DEEPSLATE_BRICKS) ? Blocks.DEEPSLATE_BRICKS.withPropertiesOf(state) : state.is(AABlocks.MOSSY_DEEPSLATE_TILES) ? Blocks.DEEPSLATE_TILES.withPropertiesOf(state) : state);
-                if (!level.isClientSide && level.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)) Block.popResourceFromFace(level, pos, event.getFace(), AABlocks.IRISH_MOSS_CLUMP.toStack());
+                level.setBlockAndUpdate(pos, state.is(AABlocks.MOSSY_DEEPSLATE) ? Blocks.DEEPSLATE.withPropertiesOf(state) : state.is(AABlocks.MOSSY_COBBLED_DEEPSLATE) ? Blocks.COBBLED_DEEPSLATE.withPropertiesOf(state) : state.is(AABlocks.MOSSY_POLISHED_DEEPSLATE) ? Blocks.POLISHED_DEEPSLATE.withPropertiesOf(state) : state.is(AABlocks.MOSSY_DEEPSLATE_BRICKS) ? Blocks.DEEPSLATE_BRICKS.withPropertiesOf(state) : state.is(AABlocks.MOSSY_DEEPSLATE_TILES) ? Blocks.DEEPSLATE_TILES.withPropertiesOf(state) : state);
+                if (!level.isClientSide && level.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS))
+                    Block.popResourceFromFace(level, pos, event.getFace(), AABlocks.IRISH_MOSS_CLUMP.toStack());
 
                 event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide()));
                 event.setCanceled(true);
+            }
+            // removing moss from No Man's Land blocks (COMPAT)
+            if (AAModCompats.NOMANSLAND.isLoaded()) {
+                if (state.is(NMLBlocks.MOSSY_COARSE_BRICKS) || state.is(NMLBlocks.MOSSY_COARSE_BRICK_STAIRS) || state.is(NMLBlocks.MOSSY_COARSE_BRICK_SLAB) || state.is(NMLBlocks.MOSSY_COARSE_BRICK_WALL) || state.is(NMLBlocks.MOSSY_COBBLESTONE_BRICKS) || state.is(NMLBlocks.MOSSY_COBBLESTONE_BRICK_STAIRS) || state.is(NMLBlocks.MOSSY_COBBLESTONE_BRICK_SLAB) || state.is(NMLBlocks.MOSSY_COBBLESTONE_BRICK_WALL)) {
+                    level.playSound(player, pos, SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0f, 1.0f);
+                    level.playSound(player, pos, SoundEvents.MOSS_BREAK, SoundSource.BLOCKS, 1.0f, 1.0f);
+                    if (!level.isClientSide && !player.isCreative())
+                        stack.hurtAndBreak(1, player, stack.getEquipmentSlot());
+                    ParticleUtils.spawnParticlesOnBlockFaces(level, pos, new BlockParticleOption(ParticleTypes.BLOCK, Blocks.MOSS_BLOCK.defaultBlockState()), UniformInt.of(1, 1));
+                    level.setBlockAndUpdate(pos, state.is(NMLBlocks.MOSSY_COARSE_BRICKS) ? NMLBlocks.COARSE_BRICKS.get().withPropertiesOf(state) : state.is(NMLBlocks.MOSSY_COARSE_BRICK_STAIRS) ? NMLBlocks.COARSE_BRICK_STAIRS.get().withPropertiesOf(state) : state.is(NMLBlocks.MOSSY_COARSE_BRICK_SLAB) ? NMLBlocks.COARSE_BRICK_SLAB.get().withPropertiesOf(state) : state.is(NMLBlocks.MOSSY_COARSE_BRICK_WALL) ? NMLBlocks.COARSE_BRICK_WALL.get().withPropertiesOf(state) : state.is(NMLBlocks.MOSSY_COBBLESTONE_BRICKS) ? NMLBlocks.COBBLESTONE_BRICKS.get().withPropertiesOf(state) : state.is(NMLBlocks.MOSSY_COBBLESTONE_BRICK_STAIRS) ? NMLBlocks.COBBLESTONE_BRICK_STAIRS.get().withPropertiesOf(state) : state.is(NMLBlocks.MOSSY_COBBLESTONE_BRICK_SLAB) ? NMLBlocks.COBBLESTONE_BRICK_SLAB.get().withPropertiesOf(state) : state.is(NMLBlocks.MOSSY_COBBLESTONE_BRICK_WALL) ? NMLBlocks.COBBLESTONE_BRICK_WALL.get().withPropertiesOf(state) : state);
+                    if (!level.isClientSide && level.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS))
+                        Block.popResourceFromFace(level, pos, event.getFace(), AABlocks.MOSS_CLUMP.toStack());
+
+                    event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide()));
+                    event.setCanceled(true);
+                }
             }
         }
         // Shoveling events
@@ -113,8 +136,7 @@ public class AAEvents {
     }
 
     public static void advancePumpkinTree(ServerLevel level, BlockPos pPos, BlockState pState, RandomSource pRandom) {
-        TreeGrower.OAK.growTree(level, level.getChunkSource().getGenerator(), pPos, pState, pRandom);
-
+        AATreeGrower.GOURDROT.growTree(level, level.getChunkSource().getGenerator(), pPos, pState, pRandom);
     }
 
 }

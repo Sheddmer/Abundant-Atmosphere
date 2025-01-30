@@ -122,14 +122,14 @@ dependencies {
 
     // Optional dependencies
     implementation "maven.modrinth:farmers-delight:1.21.1-$fd_version"
-    implementation "com.farcr:nomansland:0.0.4-alpha"
+    implementation "com.farcr:nomansland:0.1.0-beta"
 
     compileOnly "mezz.jei:jei-$minecraft_version-common-api:$jei_version"
     compileOnly "mezz.jei:jei-$minecraft_version-neoforge-api:$jei_version"
     localRuntime "mezz.jei:jei-$minecraft_version-neoforge:$jei_version"
 
     // Mods that help in the development environment
-    localRuntime "maven.modrinth:xaeros-world-map:1.38.9_NeoForge_1.21"
+    localRuntime "maven.modrinth:xaeros-world-map:1.39.2_NeoForge_1.21"
     localRuntime "maven.modrinth:appleskin:3.0.5+mc1.21"
     localRuntime "maven.modrinth:sodium:mc1.21-0.6.0-beta.2-neoforge"
     localRuntime "maven.modrinth:iris:1.8.0-beta.5+1.21-neoforge"

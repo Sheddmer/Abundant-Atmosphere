@@ -14,6 +14,10 @@ public class AATags {
     public static final TagKey<Biome> SPAWNS_BUDGETT_VARIANT_FROGS = registerBiomeTag("spawns_budgett_variant_frogs");
     public static final TagKey<MobEffect> WISP_CANDLE_CLEARS = registerEffectTag("wisp_candle_clears");
     public static final TagKey<Block> PUFFBALL_GROW_ON = registerBlockTag("puffball_grow_on");
+    public static final TagKey<Block> RED_BAMBOO_PLANTABLE_ON = registerBlockTag("red_bamboo_plantable_on");
+    public static final TagKey<Block> MOSSY_BASALT_OVERGROWABLE = registerBlockTag("mossy_basalt_overgrowable");
+
+    public static final TagKey<Biome> IS_SWAMP = registerBiomeTag("is_swamp");
 
     private static TagKey<Biome> registerBiomeTag(String name) {
         return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, name));

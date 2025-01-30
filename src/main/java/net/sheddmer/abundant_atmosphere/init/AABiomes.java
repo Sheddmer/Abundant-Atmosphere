@@ -9,6 +9,7 @@ import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 public class AABiomes {
 
     public static final ResourceKey<Biome> AMBER_CAVERNS = createKey("amber_caverns");
+    public static final ResourceKey<Biome> BASALT_HOTSPRINGS = createKey("basalt_hotsprings");
 
     public static ResourceKey<Biome> createKey(String name) {
         return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, name));

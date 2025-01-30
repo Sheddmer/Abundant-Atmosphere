@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "nomansland:frog_leg"
+    },
+    {
+      "item": "abundant_atmosphere:puffball_slice"
+    },
+    {
+      "item": "abundant_atmosphere:midnight_lily"
+    },
+    {
+      "tag": "c:crops/rice"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "abundant_atmosphere:swamp_scran"
+  }
+}

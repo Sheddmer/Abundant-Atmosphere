@@ -1,9 +1,9 @@
 package net.sheddmer.abundant_atmosphere;
 
 
-import net.sheddmer.abundant_atmosphere.common.entity.frog.AAFrogVariants;
-import net.sheddmer.abundant_atmosphere.common.world.tree.AAFoliagePlacerTypes;
-import net.sheddmer.abundant_atmosphere.common.world.tree.AATrunkPlacerTypes;
+import net.sheddmer.abundant_atmosphere.common.entity.frogvariant.AAFrogVariants;
+import net.sheddmer.abundant_atmosphere.init.AAFoliagePlacerTypes;
+import net.sheddmer.abundant_atmosphere.init.AATrunkPlacerTypes;
 import net.sheddmer.abundant_atmosphere.init.*;
 import net.sheddmer.abundant_atmosphere.integration.biolith.AABiomeIntegration;
 import org.slf4j.Logger;
@@ -31,6 +31,7 @@ public class AbundantAtmosphere {
         AABlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
         AAEntityTypes.ENTITY_TYPES.register(bus);
         AAFrogVariants.FROG_VARIANTS.register(bus);
+        AAEffects.MOB_EFFECTS.register(bus);
         AAItems.ITEMS.register(bus);
         AAParticleTypes.PARTICLE_TYPES.register(bus);
         AASounds.SOUND_EVENTS.register(bus);

@@ -24,12 +24,12 @@ import net.sheddmer.abundant_atmosphere.init.AABlocks;
 import java.util.function.ToIntFunction;
 
 public class MossClumpBlock extends MultifaceBlock implements BonemealableBlock, SimpleWaterloggedBlock {
-    public static final MapCodec<GlowLichenBlock> CODEC = simpleCodec(GlowLichenBlock::new);
+    public static final MapCodec<MossClumpBlock> CODEC = simpleCodec(MossClumpBlock::new);
     private static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     private final MultifaceSpreader spreader = new MultifaceSpreader(this);
 
     @Override
-    public MapCodec<GlowLichenBlock> codec() {
+    public MapCodec<MossClumpBlock> codec() {
         return CODEC;
     }
 
@@ -38,13 +38,10 @@ public class MossClumpBlock extends MultifaceBlock implements BonemealableBlock,
         this.registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(false)));
     }
     @Override
-    protected BlockState updateShape(
-            BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos
-    ) {
+    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
         if (state.getValue(WATERLOGGED)) {
             level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
         }
-
         return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
     }
 
@@ -55,7 +52,7 @@ public class MossClumpBlock extends MultifaceBlock implements BonemealableBlock,
 
     @Override
     public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
-        return Direction.stream().anyMatch(p_153316_ -> this.spreader.canSpreadInAnyDirection(state, level, pos, p_153316_.getOpposite()));
+        return Direction.stream().anyMatch(direction -> this.spreader.canSpreadInAnyDirection(state, level, pos, direction.getOpposite()));
     }
 
     @Override

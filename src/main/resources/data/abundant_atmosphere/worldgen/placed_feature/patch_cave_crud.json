@@ -1,5 +1,5 @@
 {
-  "feature": "abundant_atmosphere:cave_crud_patch",
+  "feature": "abundant_atmosphere:patch_cave_crud",
   "placement": [
     {
       "type": "minecraft:count",

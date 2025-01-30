@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "up=false,down=false": {
+      "model": "abundant_atmosphere:block/nml/trimmed_red_bamboo_planks_middle"
+    },
+    "up=true,down=false": {
+      "model": "abundant_atmosphere:block/nml/trimmed_red_bamboo_planks_upper"
+    },
+    "up=false,down=true": {
+      "model": "abundant_atmosphere:block/nml/trimmed_red_bamboo_planks_lower"
+    },
+    "up=true,down=true": {
+      "model": "abundant_atmosphere:block/nml/trimmed_red_bamboo_planks"
+    }
+  }
+}

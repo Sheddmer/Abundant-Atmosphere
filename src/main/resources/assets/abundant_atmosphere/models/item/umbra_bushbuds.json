@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "abundant_atmosphere:block/umbra_bushbuds"
+  }
+}

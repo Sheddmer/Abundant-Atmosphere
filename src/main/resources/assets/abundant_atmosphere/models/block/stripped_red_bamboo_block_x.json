@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_uv_locked_x",
+  "textures": {
+    "end": "abundant_atmosphere:block/stripped_red_bamboo_block_top",
+    "side": "abundant_atmosphere:block/stripped_red_bamboo_block"
+  }
+}

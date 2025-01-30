@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/orientable",
   "textures": {
-    "front": "abundant_atmosphere:block/ashroot_cabinet_front",
-    "side": "abundant_atmosphere:block/ashroot_cabinet_side",
-    "top": "abundant_atmosphere:block/ashroot_cabinet_top"
+    "front": "abundant_atmosphere:block/fd/ashroot_cabinet_front",
+    "side": "abundant_atmosphere:block/fd/ashroot_cabinet_side",
+    "top": "abundant_atmosphere:block/fd/ashroot_cabinet_top"
   }
 }

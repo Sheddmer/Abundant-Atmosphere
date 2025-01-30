@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "abundant_atmosphere:block/nml/trimmed_red_bamboo_planks_top",
+    "side": "abundant_atmosphere:block/nml/trimmed_red_bamboo_planks_upper"
+  }
+}

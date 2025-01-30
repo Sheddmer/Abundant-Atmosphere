@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "abundant_atmosphere:block/red_bamboo_slab"
+    },
+    "type=double": {
+      "model": "abundant_atmosphere:block/red_bamboo_planks"
+    },
+    "type=top": {
+      "model": "abundant_atmosphere:block/red_bamboo_slab_top"
+    }
+  }
+}

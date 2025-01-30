@@ -1,14 +1,26 @@
 {
   "variants": {
-    "axis=x": {
+    "axis=x,overgrown=false": {
       "model": "abundant_atmosphere:block/mossy_basalt",
       "x": 90,
       "y": 90
     },
-    "axis=y": {
+    "axis=y,overgrown=false": {
       "model": "abundant_atmosphere:block/mossy_basalt"
     },
-    "axis=z": {
+    "axis=z,overgrown=false": {
+      "model": "abundant_atmosphere:block/mossy_basalt",
+      "x": 90
+    },
+    "axis=x,overgrown=true": {
+      "model": "abundant_atmosphere:block/mossy_basalt",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,overgrown=true": {
+      "model": "abundant_atmosphere:block/mossy_basalt_overgrown"
+    },
+    "axis=z,overgrown=true": {
       "model": "abundant_atmosphere:block/mossy_basalt",
       "x": 90
     }

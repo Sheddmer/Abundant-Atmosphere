@@ -22,8 +22,10 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.sheddmer.abundant_atmosphere.init.AABlocks;
 import net.sheddmer.abundant_atmosphere.init.AAParticleTypes;
 import net.sheddmer.abundant_atmosphere.init.AAProperties;
 
@@ -41,7 +43,9 @@ public class MidnightLilyBlock extends BushBlock implements BonemealableBlock {
     }
 
     @Override
-    protected MapCodec<? extends BushBlock> codec() {return codec();}
+    protected MapCodec<? extends BushBlock> codec() {
+        return codec();
+    }
 
     @Override
     protected boolean isRandomlyTicking(BlockState state) {
@@ -82,14 +86,15 @@ public class MidnightLilyBlock extends BushBlock implements BonemealableBlock {
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        Vec3 vec3 = state.getOffset(level, pos);
         switch (state.getValue(FLOWER_STACK)) {
             case 1:
             default:
-                return SHAPE_ONE;
+                return SHAPE_ONE.move(vec3.x, vec3.y, vec3.z);
             case 2:
-                return SHAPE_TWO;
+                return SHAPE_TWO.move(vec3.x, vec3.y, vec3.z);
             case 3:
-                return SHAPE_THREE;
+                return SHAPE_THREE.move(vec3.x, vec3.y, vec3.z);
         }
     }
 
@@ -118,7 +123,7 @@ public class MidnightLilyBlock extends BushBlock implements BonemealableBlock {
         if (i < 3) {
             level.setBlock(pos, state.setValue(FLOWER_STACK, i + 1), 2);
         } else {
-            MidnightLilyBlock.popResource(level, pos, new ItemStack(this));
+            popResource(level, pos, new ItemStack(this));
         }
     }
 

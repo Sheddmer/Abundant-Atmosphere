@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "abundant_atmosphere:block/leaf_pile"
+      },
+      {
+        "model": "abundant_atmosphere:block/leaf_pile",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/leaf_pile",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/leaf_pile",
+        "y": 270
+      }
+      ]
+  }
+}

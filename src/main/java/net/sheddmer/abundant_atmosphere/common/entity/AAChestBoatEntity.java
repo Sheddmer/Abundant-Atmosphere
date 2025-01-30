@@ -40,6 +40,7 @@ public class AAChestBoatEntity extends ChestBoat {
         return switch (getModVariant()) {
             case ASHROOT -> AAItems.ASHROOT_CHEST_BOAT.get();
             case GOURDROT -> AAItems.GOURDROT_CHEST_BOAT.get();
+            case RED_BAMBOO -> AAItems.RED_BAMBOO_CHEST_RAFT.get();
         };
     }
 
@@ -68,18 +69,20 @@ public class AAChestBoatEntity extends ChestBoat {
     }
 
     public enum Type implements StringRepresentable {
-        ASHROOT(AABlocks.ASHROOT_PLANKS.get(), "ashroot"),
-        GOURDROT(AABlocks.GOURDROT_PLANKS.get(), "gourdrot");
-
+        ASHROOT(AABlocks.ASHROOT_PLANKS.get(), "ashroot", false),
+        GOURDROT(AABlocks.GOURDROT_PLANKS.get(), "gourdrot", false),
+        RED_BAMBOO(AABlocks.RED_BAMBOO_PLANKS.get(), "red_bamboo", true);
 
         public static final StringRepresentable.EnumCodec<AAChestBoatEntity.Type> CODEC = StringRepresentable.fromEnum(AAChestBoatEntity.Type::values);
         private static final IntFunction<AAChestBoatEntity.Type> BY_ID = ByIdMap.continuous(Enum::ordinal, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
         private final String name;
         private final Block planks;
+        private final boolean raft;
 
-        Type(Block pPlanks, String pName) {
+        Type(Block pPlanks, String pName, boolean raft) {
             this.name = pName;
             this.planks = pPlanks;
+            this.raft = raft;
         }
 
         public static AAChestBoatEntity.Type byId(int pId) {
@@ -97,6 +100,8 @@ public class AAChestBoatEntity extends ChestBoat {
         public String getName() {
             return this.name;
         }
+
+        public boolean isRaft() {return this.raft;}
 
         public Block getPlanks() {
             return this.planks;

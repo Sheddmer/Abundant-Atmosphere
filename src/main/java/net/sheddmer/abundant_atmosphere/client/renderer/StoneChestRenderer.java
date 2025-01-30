@@ -3,14 +3,15 @@ package net.sheddmer.abundant_atmosphere.client.renderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.client.resources.model.Material;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.api.distmarker.Dist;
@@ -20,26 +21,17 @@ import net.sheddmer.abundant_atmosphere.client.AAModelLayers;
 import net.sheddmer.abundant_atmosphere.common.block.StoneChestBlock;
 import net.sheddmer.abundant_atmosphere.common.blockentity.StoneChestBlockEntity;
 
-import java.util.Calendar;
-
 @OnlyIn(Dist.CLIENT)
 public class StoneChestRenderer implements BlockEntityRenderer<StoneChestBlockEntity> {
-    public static final ModelLayerLocation STONE_CHEST = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "stone_chest"), "main");
-    public static final ResourceLocation NORMAL = ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "textures/entity/stone_chest/normal.png");
-    public static final ResourceLocation NORMAL_LEFT = ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "textures/entity/stone_chest/normal_left.png");
-    public static final ResourceLocation NORMAL_RIGHT = ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "textures/entity/stone_chest/normal_right.png");
+    public static final Material NORMAL_STONE_LOCATION = new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID,"entity/stone_chest/"));
+    public static final Material LEFT_STONE_LOCATION = new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID,"entity/stone_chest/left.png"));
+    public static final Material RIGHT_STONE_LOCATION = new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID,"entity/stone_chest/right.png"));
 
     private final ModelPart body;
     private final ModelPart lid;
-    private boolean halloweenTextures;
     public StoneChestRenderer(BlockEntityRendererProvider.Context context) {
-        Calendar calendar = Calendar.getInstance();
-        if (calendar.get(2) + 1 == 10 && calendar.get(5) >= 24) {
-            calendar.get(5);
-            this.halloweenTextures = true;
-        }
 
-        ModelPart root = context.bakeLayer(STONE_CHEST);
+        ModelPart root = context.bakeLayer(AAModelLayers.STONE_CHEST);
         this.body = root.getChild("body");
         this.lid = root.getChild("lid");
     }
@@ -55,8 +47,7 @@ public class StoneChestRenderer implements BlockEntityRenderer<StoneChestBlockEn
 
     @Override
     public void render(StoneChestBlockEntity entity, float particleTick, PoseStack stack, MultiBufferSource source, int packedLight, int packedOverlay) {
-        stack.pushPose();
-        stack.translate(0.5, 0.5, 0.5);
+        stack.translate(0.5, 1.5, 0.5);
         stack.mulPose(Axis.XP.rotation((float) Math.PI));
 
         BlockState blockState = entity.getBlockState();
@@ -65,10 +56,8 @@ public class StoneChestRenderer implements BlockEntityRenderer<StoneChestBlockEn
             stack.mulPose(Axis.YP.rotationDegrees(-f1));
         }
 
-        VertexConsumer vertexconsumer = source.getBuffer(RenderType.entityCutoutNoCull(NORMAL));
+        VertexConsumer vertexconsumer = NORMAL_STONE_LOCATION.buffer(source, RenderType::entitySolid);
         this.body.render(stack, vertexconsumer, packedLight, packedOverlay);
         this.lid.render(stack, vertexconsumer, packedLight, packedOverlay);
-
-        stack.popPose();
     }
 }

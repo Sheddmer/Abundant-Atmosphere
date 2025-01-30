@@ -1,0 +1,17 @@
+{
+  "feature": "abundant_atmosphere:ashroot",
+  "placement": [
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:would_survive",
+        "state": {
+          "Name": "abundant_atmosphere:ashroot_sapling",
+          "Properties": {
+            "stage": "0"
+          }
+        }
+      }
+    }
+  ]
+}

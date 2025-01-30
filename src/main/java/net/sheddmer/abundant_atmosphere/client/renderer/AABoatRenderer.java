@@ -2,9 +2,7 @@ package net.sheddmer.abundant_atmosphere.client.renderer;
 
 import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.util.Pair;
-import net.minecraft.client.model.BoatModel;
-import net.minecraft.client.model.ChestBoatModel;
-import net.minecraft.client.model.ListModel;
+import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.entity.BoatRenderer;
@@ -37,6 +35,9 @@ public class AABoatRenderer extends BoatRenderer {
     private ListModel<Boat> createBoatModel(EntityRendererProvider.Context pContext, AABoatEntity.Type pType, boolean pChestBoat) {
         ModelLayerLocation modellayerlocation = pChestBoat ? AABoatRenderer.createChestBoatModelName(pType) : AABoatRenderer.createBoatModelName(pType);
         ModelPart modelpart = pContext.bakeLayer(modellayerlocation);
+        if (pType.isRaft()) {
+            return pChestBoat ? new ChestRaftModel(modelpart) : new RaftModel(modelpart);
+        }
         return pChestBoat ? new ChestBoatModel(modelpart) : new BoatModel(modelpart);
     }
 

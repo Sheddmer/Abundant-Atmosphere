@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:meadow",
+  "features": [
+    "abundant_atmosphere:flower_bushbuds"
+  ],
+  "step": "vegetal_decoration"
+}

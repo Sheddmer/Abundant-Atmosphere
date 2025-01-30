@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "abundant_atmosphere:block/trimmed_gourdrot_planks_top",
-    "side": "abundant_atmosphere:block/trimmed_gourdrot_planks_upper"
+    "end": "abundant_atmosphere:block/nml/trimmed_gourdrot_planks_top",
+    "side": "abundant_atmosphere:block/nml/trimmed_gourdrot_planks_upper"
   }
 }

@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "abundant_atmosphere:block/nml/red_bamboo_bookshelf"
+      },
+      {
+        "model": "abundant_atmosphere:block/nml/red_bamboo_bookshelf_alt"
+      }
+    ]
+  }
+}

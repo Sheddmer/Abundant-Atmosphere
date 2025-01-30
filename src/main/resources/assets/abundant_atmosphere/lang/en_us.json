@@ -26,7 +26,6 @@
   "block.abundant_atmosphere.shuffled_brick_slab": "Shuffled Brick Slab",
   "block.abundant_atmosphere.shuffled_brick_wall": "Shuffled Brick Wall",
   "block.abundant_atmosphere.cave_crud": "Cave Crud",
-  "block.abundant_atmosphere.cave_sprouts": "Cave Sprouts",
   "block.abundant_atmosphere.dowsite": "Dowsite",
   "block.abundant_atmosphere.polished_dowsite": "Polished Dowsite",
   "block.abundant_atmosphere.polished_dowsite_stairs": "Polished Dowsite Stairs",
@@ -39,8 +38,9 @@
   "block.abundant_atmosphere.soul_stone_brazier": "Soul Stone Brazier",
   "block.abundant_atmosphere.cerulean_froglight": "Cerulean Froglight",
   "block.abundant_atmosphere.chromatic_froglight": "Chromatic Froglight",
-  "item.abundant_atmosphere.mud_ball": "Mud Ball",
   "block.abundant_atmosphere.raw_amber_block": "Raw Amber Block",
+
+  "item.abundant_atmosphere.cooked_tropical_fish": "Cooked Tropical Fish",
 
   "block.abundant_atmosphere.trimmed_ashroot_planks": "Trimmed Ashroot Planks",
   "block.abundant_atmosphere.ashroot_bookshelf": "Ashroot Bookshelf",
@@ -48,6 +48,11 @@
   "block.abundant_atmosphere.trimmed_gourdrot_planks": "Trimmed Gourdrot Planks",
   "block.abundant_atmosphere.gourdrot_bookshelf": "Gourdrot Bookshelf",
   "block.abundant_atmosphere.gourdrot_cabinet": "Gourdrot Cabinet",
+  "block.abundant_atmosphere.trimmed_red_bamboo_planks": "Trimmed Red Bamboo Planks",
+  "block.abundant_atmosphere.red_bamboo_bookshelf": "Red Bamboo Bookshelf",
+  "block.abundant_atmosphere.red_bamboo_cabinet": "Red Bamboo Cabinet",
+
+  "block.abundant_atmosphere.red_bamboo": "Red Bamboo",
 
   "block.abundant_atmosphere.moss_clump": "Moss Clump",
   "block.abundant_atmosphere.mossy_stone": "Mossy Stone",
@@ -68,6 +73,13 @@
   "item.abundant_atmosphere.puffball_spores": "Puffball Spores",
   "block.abundant_atmosphere.puffball_mushroom": "Puffball Mushroom",
   "block.abundant_atmosphere.large_puffball_mushroom": "Large Puffball Mushroom",
+  "item.abundant_atmosphere.puffball_cutlet": "Puffball Cutlet",
+
+  "block.abundant_atmosphere.saffron_bushbuds": "Saffron Bushbuds",
+  "block.abundant_atmosphere.cherry_bushbuds": "Cherry Bushbuds",
+  "block.abundant_atmosphere.umbra_bushbuds": "Umbra Bushbuds",
+
+  "block.abundant_atmosphere.leaf_pile": "Leaf Pile",
 
   "block.abundant_atmosphere.ashroot_log": "Ashroot Log",
   "block.abundant_atmosphere.ashroot_wood": "Ashroot Wood",
@@ -85,11 +97,9 @@
   "block.abundant_atmosphere.ashroot_sign": "Ashroot Sign",
   "block.abundant_atmosphere.ashroot_hanging_sign": "Ashroot Hanging Sign",
   "item.abundant_atmosphere.ashroot_boat": "Ashroot Boat",
-  "item.abundant_atmosphere.ashroot_chest_boat": "Ashroot Chest Boat",
+  "item.abundant_atmosphere.ashroot_chest_boat": "Ashroot Boat with Chest",
   "block.abundant_atmosphere.ashroot_sapling": "Ashroot Sapling",
   "block.abundant_atmosphere.ashroot_leaves": "Ashroot Leaves",
-
-  "item.abundant_atmosphere.frog_bucket": "Frog Bucket",
 
   "block.abundant_atmosphere.gourdrot_log": "Gourdrot Log",
   "block.abundant_atmosphere.gourdrot_wood": "Gourdrot Wood",
@@ -107,11 +117,32 @@
   "block.abundant_atmosphere.gourdrot_sign": "Gourdrot Sign",
   "block.abundant_atmosphere.gourdrot_hanging_sign": "Gourdrot Hanging Sign",
   "item.abundant_atmosphere.gourdrot_boat": "Gourdrot Boat",
-  "item.abundant_atmosphere.gourdrot_chest_boat": "Gourdrot Chest Boat",
+  "item.abundant_atmosphere.gourdrot_chest_boat": "Gourdrot Boat with Chest",
   "block.abundant_atmosphere.gourdrot_leaves": "Gourdrot Leaves",
+
+  "block.abundant_atmosphere.red_bamboo_block": "Red Bamboo Block",
+  "block.abundant_atmosphere.stripped_red_bamboo_block": "Stripped Red Bamboo Block",
+  "block.abundant_atmosphere.red_bamboo_planks": "Red Bamboo Planks",
+  "block.abundant_atmosphere.red_bamboo_stairs": "Red Bamboo Stairs",
+  "block.abundant_atmosphere.red_bamboo_slab": "Red Bamboo Slab",
+  "block.abundant_atmosphere.red_bamboo_mosaic": "Red Bamboo Mosaic",
+  "block.abundant_atmosphere.red_bamboo_mosaic_stairs": "Red Bamboo Mosaic Stairs",
+  "block.abundant_atmosphere.red_bamboo_mosaic_slab": "Red Bamboo Mosaic Slab",
+  "block.abundant_atmosphere.red_bamboo_fence": "Red Bamboo Fence",
+  "block.abundant_atmosphere.red_bamboo_fence_gate": "Red Bamboo Fence Gate",
+  "block.abundant_atmosphere.red_bamboo_door": "Red Bamboo Door",
+  "block.abundant_atmosphere.red_bamboo_trapdoor": "Red Bamboo Trapdoor",
+  "block.abundant_atmosphere.red_bamboo_pressure_plate": "Red Bamboo Pressure Plate",
+  "block.abundant_atmosphere.red_bamboo_button": "Red Bamboo Button",
+  "block.abundant_atmosphere.red_bamboo_sign": "Red Bamboo Sign",
+  "block.abundant_atmosphere.red_bamboo_hanging_sign": "Red Bamboo Hanging Sign",
+  "item.abundant_atmosphere.red_bamboo_raft": "Red Bamboo Raft",
+  "item.abundant_atmosphere.red_bamboo_chest_raft": "Red Bamboo Raft with Chest",
 
   "block.abundant_atmosphere.gourdnut": "Gourdnut",
   "item.abundant_atmosphere.roasted_gourdnut": "Roasted Gourdnut",
+
+  "item.abundant_atmosphere.swamp_scran": "Swamp Scran",
 
   "block.abundant_atmosphere.stone_chest": "Stone Chest",
   "block.abundant_atmosphere.trapped_stone_chest": "Trapped Stone Chest",
@@ -125,6 +156,11 @@
   "subtitles.abundant_atmosphere.stone_chest_close": "Stone Chest shuts",
   "subtitles.abundant_atmosphere.stone_chest_open": "Stone Chest opens",
   "subtitles.abundant_atmosphere.brazier_crackles": "Brazier crackles",
+
+  "effect.abundant_atmosphere.wisp_guard": "Wisp Guard",
+
+  "biome.abundant_atmosphere.amber_caverns": "Amber Caverns",
+  "biome.abundant_atmosphere.basalt_hotsprings": "Basalt Hotsprings",
 
   "advancements.abundant_atmosphere.leash_frog_end.title": "Cosmic Conformity",
   "advancements.abundant_atmosphere.leash_frog_end.description": "Twist a Tadpole by growing it up in the End, and leash it",
