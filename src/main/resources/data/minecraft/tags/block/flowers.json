@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "abundant_atmosphere:midnight_lily"
+    "abundant_atmosphere:midnight_lily",
+    "abundant_atmosphere:saffron_bushbuds",
+    "abundant_atmosphere:cherry_bushbuds",
+    "abundant_atmosphere:umbra_bushbuds"
   ]
 }

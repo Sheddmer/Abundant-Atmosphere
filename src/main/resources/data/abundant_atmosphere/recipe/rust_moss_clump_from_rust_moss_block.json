@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "abundant_atmosphere:rust_moss_block"
+    }
+  ],
+  "result": {
+    "id": "abundant_atmosphere:rust_moss_clump",
+    "count": 4
+  }
+}

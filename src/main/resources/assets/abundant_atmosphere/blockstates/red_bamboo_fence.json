@@ -7,8 +7,8 @@
     },
     {
       "apply": {
-        "model": "abundant_atmosphere:block/red_bamboo_fence_side",
-        "uvlock": true
+        "model": "abundant_atmosphere:block/red_bamboo_fence_side_north",
+        "uvlock": false
       },
       "when": {
         "north": "true"
@@ -16,9 +16,8 @@
     },
     {
       "apply": {
-        "model": "abundant_atmosphere:block/red_bamboo_fence_side",
-        "uvlock": true,
-        "y": 90
+        "model": "abundant_atmosphere:block/red_bamboo_fence_side_east",
+        "uvlock": false
       },
       "when": {
         "east": "true"
@@ -26,9 +25,8 @@
     },
     {
       "apply": {
-        "model": "abundant_atmosphere:block/red_bamboo_fence_side",
-        "uvlock": true,
-        "y": 180
+        "model": "abundant_atmosphere:block/red_bamboo_fence_side_south",
+        "uvlock": false
       },
       "when": {
         "south": "true"
@@ -36,9 +34,8 @@
     },
     {
       "apply": {
-        "model": "abundant_atmosphere:block/red_bamboo_fence_side",
-        "uvlock": true,
-        "y": 270
+        "model": "abundant_atmosphere:block/red_bamboo_fence_side_west",
+        "uvlock": false
       },
       "when": {
         "west": "true"

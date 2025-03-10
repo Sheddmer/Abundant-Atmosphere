@@ -82,6 +82,27 @@ public class StoneChestBlock extends BaseEntityBlock implements SimpleWaterlogge
     }
 
     @Override
+    protected BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
+        if (state.getValue(WATERLOGGED)) {
+            level.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+        }
+        if (facingState.is(this) && facing.getAxis().isHorizontal()) {
+            ChestType chesttype = facingState.getValue(TYPE);
+            if (state.getValue(TYPE) == ChestType.SINGLE && chesttype != ChestType.SINGLE && state.getValue(FACING) == facingState.getValue(FACING) && getConnectedDirection(facingState) == facing.getOpposite()) {
+                return state.setValue(TYPE, chesttype.getOpposite());
+            }
+        } else if (getConnectedDirection(state) == facing) {
+            return state.setValue(TYPE, ChestType.SINGLE);
+        }
+        return super.updateShape(state, facing, facingState, level, currentPos, facingPos);
+    }
+
+    public static Direction getConnectedDirection(BlockState state) {
+        Direction direction = state.getValue(FACING);
+        return state.getValue(TYPE) == ChestType.LEFT ? direction.getClockWise() : direction.getCounterClockWise();
+    }
+
+    @Override
     protected boolean isPathfindable(BlockState state, PathComputationType type) {
         return false;
     }

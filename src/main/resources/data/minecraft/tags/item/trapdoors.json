@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "abundant_atmosphere:stone_trapdoor",
+    "abundant_atmosphere:deepslate_trapdoor",
+    "abundant_atmosphere:mud_trapdoor",
+    "abundant_atmosphere:blackstone_trapdoor",
+    "abundant_atmosphere:nether_brick_trapdoor"
+  ]
+}

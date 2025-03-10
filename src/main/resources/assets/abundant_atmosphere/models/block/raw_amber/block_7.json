@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "render_type": "minecraft:translucent",
-  "textures": {
-    "all": "abundant_atmosphere:block/raw_amber/amber_block_3"
-  }
-}

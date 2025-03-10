@@ -2,6 +2,6 @@
     "parent": "minecraft:block/cross",
     "render_type": "minecraft:cutout",
     "textures": {
-        "cross": "minecraft:block/bamboo_large_leaves"
+        "cross": "abundant_atmosphere:block/red_bamboo_leaves_large"
     }
 }

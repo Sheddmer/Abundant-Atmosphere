@@ -1,21 +1,38 @@
 {
   "variants": {
-    "": [
+    "level=1": [
       {
-        "model": "abundant_atmosphere:block/leaf_pile"
+        "model": "abundant_atmosphere:block/leaf_pile_1"
       },
       {
-        "model": "abundant_atmosphere:block/leaf_pile",
+        "model": "abundant_atmosphere:block/leaf_pile_1",
         "y": 90
       },
       {
-        "model": "abundant_atmosphere:block/leaf_pile",
+        "model": "abundant_atmosphere:block/leaf_pile_1",
         "y": 180
       },
       {
-        "model": "abundant_atmosphere:block/leaf_pile",
+        "model": "abundant_atmosphere:block/leaf_pile_1",
         "y": 270
       }
-      ]
+    ],
+    "level=2": [
+      {
+        "model": "abundant_atmosphere:block/leaf_pile_2"
+      },
+      {
+        "model": "abundant_atmosphere:block/leaf_pile_2",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/leaf_pile_2",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/leaf_pile_2",
+        "y": 270
+      }
+    ]
   }
 }

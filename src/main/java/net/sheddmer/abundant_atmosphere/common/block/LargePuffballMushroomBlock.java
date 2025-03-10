@@ -2,9 +2,7 @@ package net.sheddmer.abundant_atmosphere.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.DustParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
@@ -61,7 +59,7 @@ public class LargePuffballMushroomBlock extends Block {
     @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource source) {
         if (!level.isAreaLoaded(pos, 1)) return;
-        if (!this.isMaxAge(state) && level.getBlockState(pos.below()).is(AATags.PUFFBALL_GROW_ON)) {
+        if (!this.isMaxAge(state) && level.getBlockState(pos.below()).is(AATags.PUFFBALL_GROWS_ON)) {
             if (level.random.nextFloat() < 0.05) {
                 level.setBlock(pos, state.setValue(AGE, state.getValue(AGE) + 1), 2);
             }
@@ -69,15 +67,14 @@ public class LargePuffballMushroomBlock extends Block {
     }
 
     @Override
-    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+    public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
         if (state.getValue(AGE) >= 4 && entity instanceof Player) {
             level.destroyBlock(pos, true, entity);
             ParticleUtils.spawnParticlesOnBlockFaces(level, pos, new DustParticleOptions(Vec3.fromRGB24(8677966).toVector3f(), 2.0f), UniformInt.of(4, 12));
         } else if (entity instanceof Ravager && net.neoforged.neoforge.event.EventHooks.canEntityGrief(level, entity)) {
             level.destroyBlock(pos, true, entity);
         }
-
-        super.entityInside(state, level, pos, entity);
+        super.stepOn(level, pos, state, entity);
     }
 
     @Override

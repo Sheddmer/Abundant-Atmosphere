@@ -2,15 +2,9 @@ package net.sheddmer.abundant_atmosphere.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.monster.Ravager;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -25,11 +19,9 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.common.CommonHooks;
 import net.sheddmer.abundant_atmosphere.init.AABlocks;
-import net.sheddmer.abundant_atmosphere.init.AAParticleTypes;
-import net.sheddmer.abundant_atmosphere.init.AAProperties;
 import net.sheddmer.abundant_atmosphere.init.AATags;
-import org.checkerframework.checker.units.qual.A;
 
 public class PuffballMushroomBlock extends Block implements BonemealableBlock {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_4;
@@ -61,13 +53,11 @@ public class PuffballMushroomBlock extends Block implements BonemealableBlock {
 
     @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource source) {
-        if (!level.isAreaLoaded(pos, 1)) return;
-        if (level.getBlockState(pos.below()).is(AATags.PUFFBALL_GROW_ON)) {
-            if (level.random.nextFloat() < 0.05) {
-                if (state.getValue(AGE) == 4) {
-                    level.setBlock(pos, AABlocks.LARGE_PUFFBALL_MUSHROOM.get().defaultBlockState(), 2);
-                } else level.setBlock(pos, state.setValue(AGE, state.getValue(AGE) + 1), 2);
-            }
+        BlockState growthBlock = level.getBlockState(pos.below());
+        if (state.getValue(AGE) < 4 && growthBlock.is(AATags.PUFFBALL_GROWS_ON) && CommonHooks.canCropGrow(level, pos, state, source.nextInt(8) == 0)) {
+            level.setBlock(pos, state.setValue(AGE, state.getValue(AGE) + 1), 2);
+        } else if (state.getValue(AGE) == 4 && growthBlock.is(AATags.PUFFBALL_GROWS_ON) && CommonHooks.canCropGrow(level, pos, state, source.nextInt(8) == 0)) {
+            level.setBlock(pos, AABlocks.LARGE_PUFFBALL_MUSHROOM.get().defaultBlockState(), 2);
         }
     }
 
@@ -86,6 +76,7 @@ public class PuffballMushroomBlock extends Block implements BonemealableBlock {
         int j = this.isMaxBonemeal();
         if (i > j) {
             i = j;
+            level.setBlockAndUpdate(pos, AABlocks.LARGE_PUFFBALL_MUSHROOM.get().defaultBlockState());
         }
 
         level.setBlock(pos, state.setValue(AGE, i), 2);

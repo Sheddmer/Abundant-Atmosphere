@@ -4,11 +4,19 @@
     "abundant_atmosphere:cave_crud",
     "abundant_atmosphere:suspicious_dirt",
     "abundant_atmosphere:suspicious_red_sand",
-    "minecraft:packed_mud",
+    "abundant_atmosphere:chiseled_mud_bricks",
+    "abundant_atmosphere:mud_lamp",
+    "abundant_atmosphere:wall_mud_lamp",
     "minecraft:mud_bricks",
     "minecraft:mud_brick_stairs",
     "minecraft:mud_brick_slab",
     "minecraft:mud_brick_wall",
-    "abundant_atmosphere:chiseled_mud_bricks"
+    "minecraft:packed_mud",
+    "abundant_atmosphere:mossy_mud_bricks",
+    "abundant_atmosphere:mossy_mud_brick_stairs",
+    "abundant_atmosphere:mossy_mud_brick_slab",
+    "abundant_atmosphere:mossy_mud_brick_wall",
+    "abundant_atmosphere:damp_mud",
+    "abundant_atmosphere:wet_mud"
   ]
 }

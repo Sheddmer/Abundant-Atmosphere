@@ -3,9 +3,6 @@ package net.sheddmer.abundant_atmosphere.common.block;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
@@ -14,7 +11,6 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -25,7 +21,6 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.sheddmer.abundant_atmosphere.init.AABlocks;
 import net.sheddmer.abundant_atmosphere.init.AAParticleTypes;
 import net.sheddmer.abundant_atmosphere.init.AAProperties;
 
@@ -33,7 +28,7 @@ public class MidnightLilyBlock extends BushBlock implements BonemealableBlock {
     private static final VoxelShape SHAPE_ONE = Block.box(5.0, 0.0, 5.0, 11.0, 10.0, 11.0);
     private static final VoxelShape SHAPE_TWO = Block.box(3.0, 0.0, 3.0, 13.0, 10.0, 12.0);
     private static final VoxelShape SHAPE_THREE = Block.box(1.0, 0.0, 1.0, 15.0, 10.0, 15.0);
-    public static final IntegerProperty FLOWER_STACK = AAProperties.FLOWER_STACK;
+    public static final IntegerProperty FLOWER_STACK = AAProperties.FLOWER_AMOUNT_3;
     public static final BooleanProperty NIGHTLIGHT = AAProperties.NIGHTLIGHT;
     public static final BooleanProperty PERSISTENT = BlockStateProperties.PERSISTENT;
 

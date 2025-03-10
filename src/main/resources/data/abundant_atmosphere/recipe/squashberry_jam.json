@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "abundant_atmosphere:roasted_gourdnut"
+    },
+    {
+      "tag": "abundant_atmosphere:squashberry_jam_fruits"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:sugar_cane"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "id": "abundant_atmosphere:squashberry_jam",
+    "count": 1
+  }
+}

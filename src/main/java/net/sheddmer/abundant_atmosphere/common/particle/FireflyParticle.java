@@ -17,13 +17,12 @@ public class FireflyParticle extends SimpleAnimatedParticle {
         this.xd = vX + (Math.random() * 1.05D - 0.5D) * (double)0.01F;
         this.yd = vY + (Math.random() * 1.05D - 0.5D) * (double)0.01F;
         this.zd = vZ + (Math.random() * 1.05D - 0.5D) * (double)0.01F;
-        this.quadSize *= 0.5F;
-        this.lifetime = Mth.randomBetweenInclusive(level.random, 30, 60);
+        this.quadSize *= 0.65F;
+        this.lifetime = Mth.randomBetweenInclusive(level.random, 40, 70);
         this.gravity = 0.0F;
         this.friction = 1.0F;
         this.hasPhysics = true;
-        this.setColor(242.0F / 255.0F, 1.0F, 184.0F / 255.0F);
-        this.setFadeColor(0);
+        this.setFadeColor(7512064);
         this.setSpriteFromAge(set);
     }
 

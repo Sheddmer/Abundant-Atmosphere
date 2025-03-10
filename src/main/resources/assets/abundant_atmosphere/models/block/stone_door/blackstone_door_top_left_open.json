@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left_open",
+  "textures": {
+    "bottom": "abundant_atmosphere:block/stone_door/blackstone_door_bottom",
+    "top": "abundant_atmosphere:block/stone_door/blackstone_door_top"
+  }
+}

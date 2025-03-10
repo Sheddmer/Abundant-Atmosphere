@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "abundant_atmosphere:block/mossy_stone",
+    "side": "abundant_atmosphere:block/mossy_stone",
+    "top": "abundant_atmosphere:block/mossy_stone"
+  }
+}

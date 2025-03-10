@@ -1,26 +1,32 @@
 package net.sheddmer.abundant_atmosphere.common.block;
 
 import com.google.common.collect.ImmutableList;
+import com.mojang.serialization.MapCodec;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMaps;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
+import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -30,71 +36,147 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.sheddmer.abundant_atmosphere.common.blockentity.WispCandleBlockEntity;
 import net.sheddmer.abundant_atmosphere.init.AAParticleTypes;
-import net.sheddmer.abundant_atmosphere.init.AATags;
+import net.sheddmer.abundant_atmosphere.init.AAProperties;
+import net.sheddmer.abundant_atmosphere.init.AASounds;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
-public class WispCandleBlock extends Block implements SimpleWaterloggedBlock {
+public class WispCandleBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
+    public static final MapCodec<WispCandleBlock> CODEC = simpleCodec(WispCandleBlock::new);
     public static final IntegerProperty CANDLES = BlockStateProperties.CANDLES;
+    public static final BooleanProperty IGNITABLE = AAProperties.IGNITABLE;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    private static final VoxelShape SHAPE_ONE = Block.box(6.0, 0.0, 6.0, 10.0, 5.0, 10.0);
+    private static final VoxelShape SHAPE_TWO = Block.box(4.0, 0.0, 4.0, 12.0, 5.0, 12.0);
+    private static final VoxelShape SHAPE_THREE = Block.box(3.0, 0.0, 3.0, 13.0, 6.0, 13.0);
     private static final Int2ObjectMap<List<Vec3>> PARTICLE_OFFSETS = Util.make(() -> {
-        Int2ObjectOpenHashMap int2ObjectMap = new Int2ObjectOpenHashMap();
-        int2ObjectMap.defaultReturnValue(ImmutableList.of());
-        int2ObjectMap.put(1, ImmutableList.of(new Vec3(0.5, 0.5, 0.5)));
-        int2ObjectMap.put(2, ImmutableList.of(new Vec3(0.375, 0.44, 0.5), new Vec3(0.625, 0.5, 0.44)));
-        int2ObjectMap.put(3, ImmutableList.of(new Vec3(0.5, 0.313, 0.625), new Vec3(0.375, 0.44, 0.5), new Vec3(0.56, 0.5, 0.44)));
-        int2ObjectMap.put(4, ImmutableList.of(new Vec3(0.44, 0.313, 0.56), new Vec3(0.625, 0.44, 0.56), new Vec3(0.375, 0.44, 0.375), new Vec3(0.56, 0.5, 0.375)));
-        return Int2ObjectMaps.unmodifiable(int2ObjectMap);
+        Int2ObjectMap<List<Vec3>> int2objectmap = new Int2ObjectOpenHashMap<>();
+        int2objectmap.defaultReturnValue(ImmutableList.of());
+        int2objectmap.put(1, ImmutableList.of(new Vec3(0.5, 0.5, 0.5)));
+        int2objectmap.put(2, ImmutableList.of(new Vec3(0.625, 0.5, 0.375), new Vec3(0.375, 0.4, 0.56)));
+        int2objectmap.put(3, ImmutableList.of(new Vec3(0.56, 0.5, 0.375), new Vec3(0.313, 0.6, 0.56), new Vec3(0.688, 0.4, 0.625)));
+        int2objectmap.put(4, ImmutableList.of(new Vec3(0.688, 0.5, 0.56), new Vec3(0.313, 0.4, 0.375), new Vec3(0.375, 0.6, 0.688), new Vec3(0.688, 0.4, 0.625)));
+        return Int2ObjectMaps.unmodifiable(int2objectmap);
     });
+
+    @Override
+    protected MapCodec<WispCandleBlock> codec() {
+        return CODEC;
+    }
 
     public WispCandleBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.getStateDefinition().any().setValue(CANDLES, 1).setValue(LIT, false).setValue(WATERLOGGED, false));
-    }
-
-    protected Iterable<Vec3> getParticleOffsets(BlockState state) {
-        return (Iterable)PARTICLE_OFFSETS.get(state.getValue(CANDLES));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(CANDLES, 1).setValue(IGNITABLE, false).setValue(LIT, false).setValue(WATERLOGGED, false));
     }
 
     @Override
-    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        if (!state.getValue(LIT).booleanValue()) {
-            return;
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        switch (state.getValue(CANDLES)) {
+            case 1:
+            default:
+                return SHAPE_ONE;
+            case 2:
+                return SHAPE_TWO;
+            case 3, 4:
+                return SHAPE_THREE;
         }
-        this.getParticleOffsets(state).forEach(vec3 -> WispCandleBlock.addParticlesAndSound(level, vec3.add(pos.getX(), pos.getY(), pos.getZ()), random));
     }
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-        if (stack.is(Items.LAPIS_LAZULI)) {
-            stack.shrink(1);
-            level.playSound(player, pos, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 1.0f, 1.0f);
-            player.removeEffect(MobEffects.WEAKNESS);
+        if (player.getItemInHand(hand).is(Items.LAPIS_LAZULI) && !state.getValue(IGNITABLE) && !state.getValue(LIT)) {
+            level.playLocalSound(pos, AASounds.DUST_LAPIS.get(), SoundSource.BLOCKS, 1.0f, 1.0f, false);
+            if (!level.isClientSide && !player.isCreative())
+                stack.consume(1, player);
+            ParticleUtils.spawnParticles(level, pos, Mth.randomBetweenInclusive(RandomSource.create(), 8, 12), 0.5f, 0.3f, true, new DustParticleOptions(Vec3.fromRGB24(2117542).toVector3f(), 1.0f));
+            level.setBlock(pos, state.setValue(IGNITABLE, true), 2);
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
-        return ItemInteractionResult.sidedSuccess(level.isClientSide);
-    }
-
-    private static void addParticlesAndSound(Level level, Vec3 offset, RandomSource random) {
-        float f = random.nextFloat();
-        if (f < 0.3f) {
-            level.addParticle(ParticleTypes.SMOKE, offset.x, offset.y, offset.z, 0.0, 0.0, 0.0);
-            if (f < 0.17f) {
-                level.playLocalSound(offset.x + 0.5, offset.y + 0.5, offset.z + 0.5, SoundEvents.CANDLE_AMBIENT, SoundSource.BLOCKS, 1.0f + random.nextFloat(), random.nextFloat() * 0.7f + 0.3f, false);
+        if (player.getItemInHand(hand).canPerformAction(ItemAbilities.FIRESTARTER_LIGHT) && state.getValue(IGNITABLE) && !state.getValue(LIT)) {
+            if (stack.is(Items.FIRE_CHARGE)) {
+                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, (level.random.nextFloat() - level.random.nextFloat()) * 0.8F + 1.8F);
+                if (!level.isClientSide && !player.isCreative())
+                    stack.consume(1, player);
+            } else {
+                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, (level.random.nextFloat() - level.random.nextFloat()) * 0.8F + 1.8F);
             }
+            level.playLocalSound(pos, AASounds.WISP_CANDLE_ACTIVATE.get(), SoundSource.BLOCKS, 1.0f, 1.0f, false);
+            if (!level.isClientSide && !player.isCreative())
+                stack.hurtAndBreak(1, player, stack.getEquipmentSlot());
+            ParticleUtils.spawnParticles(level, pos, Mth.randomBetweenInclusive(RandomSource.create(), 6, 10), 0.5f, 0.3f, true, new DustParticleOptions(Vec3.fromRGB24(8090367).toVector3f(), 1.0f));
+            level.setBlock(pos, state.setValue(IGNITABLE, false).setValue(LIT, true), 2);
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
-        level.addParticle(AAParticleTypes.WISP_FLAME.get(), offset.x, offset.y, offset.z, 0.0, 0.0, 0.0);
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
     @Override
-    protected FluidState getFluidState(BlockState pState) {
-        return pState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource source) {
+        if (state.getValue(LIT)) {
+            this.getParticleOffsets(state).forEach(position -> addParticlesAndSound(level, position.add((double)pos.getX(), (double)pos.getY(), (double)pos.getZ()), source));
+        }
+    }
+
+    private static void addParticlesAndSound(Level level, Vec3 offset, RandomSource source) {
+        float f = source.nextFloat();
+        if (f < 0.3F) {
+            level.addParticle(ParticleTypes.SMOKE, offset.x, offset.y, offset.z, 0.0, 0.0, 0.0);
+            if (f < 0.17F) {
+                level.playLocalSound(offset.x + 0.5, offset.y + 0.5, offset.z + 0.5, SoundEvents.CANDLE_AMBIENT, SoundSource.BLOCKS, 1.0F + source.nextFloat(), source.nextFloat() * 0.7F + 0.3F, false
+                );
+            }
+        }
+        if (f < 0.5F) {
+            level.addParticle(AAParticleTypes.WISP_FLAME.get(), offset.x, offset.y, offset.z, 0.0, 0.0, 0.0);
+        }
+    }
+
+    @Override
+    public boolean canBeReplaced(BlockState state, BlockPlaceContext useContext) {
+        if (!useContext.isSecondaryUseActive() && useContext.getItemInHand().is(this.asItem()) && state.getValue(CANDLES) < 4) {
+            return true;
+        }
+        return super.canBeReplaced(state, useContext);
+    }
+
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        BlockState blockState = context.getLevel().getBlockState(context.getClickedPos());
+        if (blockState.is(this)) {
+            return blockState.setValue(CANDLES, Math.min(4, blockState.getValue(CANDLES) + 1));
+        }
+        return this.defaultBlockState();
+    }
+
+    @Override
+    protected FluidState getFluidState(BlockState state) {
+        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
+    }
+
+    protected Iterable<Vec3> getParticleOffsets(BlockState state) {
+        return PARTICLE_OFFSETS.get(state.getValue(CANDLES).intValue());
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state){
+        return new WispCandleBlockEntity(pos, state);
+    }
+
+    @Override
+    public RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(CANDLES, LIT, WATERLOGGED);
+        builder.add(CANDLES, IGNITABLE, LIT, WATERLOGGED);
     }
-
 }

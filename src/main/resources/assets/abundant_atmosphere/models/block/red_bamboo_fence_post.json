@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/fence_post",
+  "parent": "minecraft:block/custom_fence_post",
   "textures": {
-    "texture": "abundant_atmosphere:block/red_bamboo_planks"
+    "particle": "abundant_atmosphere:block/red_bamboo_particle",
+    "texture": "abundant_atmosphere:block/red_bamboo_fence"
   }
 }

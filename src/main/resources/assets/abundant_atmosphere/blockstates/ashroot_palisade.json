@@ -1,0 +1,81 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "abundant_atmosphere:block/bb/ashroot_palisade_post"
+      }
+    },
+    {
+      "apply": {
+        "model": "abundant_atmosphere:block/bb/ashroot_palisade_front",
+        "uvlock": true
+      },
+      "when": {
+        "north": "full"
+      }
+    },
+    {
+      "apply": {
+        "model": "abundant_atmosphere:block/bb/spiked_ashroot_palisade_front",
+        "uvlock": true
+      },
+      "when": {
+        "north": "spiked"
+      }
+    },
+    {
+      "apply": {
+        "model": "abundant_atmosphere:block/bb/ashroot_palisade_front",
+        "y": 270
+      },
+      "when": {
+        "west": "full"
+      }
+    },
+    {
+      "apply": {
+        "model": "abundant_atmosphere:block/bb/spiked_ashroot_palisade_front",
+        "y": 270
+      },
+      "when": {
+        "west": "spiked"
+      }
+    },
+    {
+      "apply": {
+        "model": "abundant_atmosphere:block/bb/ashroot_palisade_back",
+        "y": 270
+      },
+      "when": {
+        "east": "full"
+      }
+    },
+    {
+      "apply": {
+        "model": "abundant_atmosphere:block/bb/spiked_ashroot_palisade_back",
+        "y": 270
+      },
+      "when": {
+        "east": "spiked"
+      }
+    },
+    {
+      "apply": {
+        "model": "abundant_atmosphere:block/bb/ashroot_palisade_back",
+        "uvlock": true
+      },
+      "when": {
+        "south": "full"
+      }
+    },
+    {
+      "apply": {
+        "model": "abundant_atmosphere:block/bb/spiked_ashroot_palisade_back",
+        "uvlock": true
+      },
+      "when": {
+        "south": "spiked"
+      }
+    }
+  ]
+}

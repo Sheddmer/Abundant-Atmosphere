@@ -1,0 +1,22 @@
+{
+  "values": [
+    "#minecraft:dirt",
+    "minecraft:mossy_cobblestone",
+    "minecraft:mossy_stone_bricks",
+    "minecraft:infested_mossy_stone_bricks",
+    "abundant_atmosphere:mossy_basalt",
+    "abundant_atmosphere:mossy_stone",
+    "minecraft:packed_mud",
+    "minecraft:mud_bricks",
+    "abundant_atmosphere:chiseled_mud_bricks",
+    "minecraft:gravel",
+    {
+      "id": "nomansland:mossy_coarse_bricks",
+      "required":false
+    },
+    {
+      "id": "nomansland:mossy_cobblestone_bricks",
+      "required":false
+    }
+  ]
+}

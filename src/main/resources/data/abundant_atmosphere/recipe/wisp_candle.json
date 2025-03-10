@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "wisp_candle",
+  "ingredients": [
+    {
+      "tag": "minecraft:candles"
+    },
+    {
+      "tag": "minecraft:candles"
+    },
+    {
+      "tag": "c:mushrooms"
+    },
+    {
+      "item": "abundant_atmosphere:midnight_lily"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "abundant_atmosphere:wisp_candle"
+  }
+}

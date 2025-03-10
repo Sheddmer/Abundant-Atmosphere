@@ -1,0 +1,26 @@
+{
+  "values": [
+    "minecraft:mossy_cobblestone",
+    "minecraft:mossy_cobblestone_stairs",
+    "minecraft:mossy_cobblestone_slab",
+    "minecraft:mossy_cobblestone_wall",
+    "minecraft:mossy_stone_bricks",
+    "minecraft:mossy_stone_brick_stairs",
+    "minecraft:mossy_stone_brick_slab",
+    "minecraft:mossy_stone_brick_wall",
+    "minecraft:infested_mossy_stone_bricks",
+    "abundant_atmosphere:mossy_stone",
+    "abundant_atmosphere:mossy_stone_stairs",
+    "abundant_atmosphere:mossy_stone_slab",
+    "abundant_atmosphere:mossy_stone_wall",
+    "abundant_atmosphere:mossy_shuffled_bricks",
+    "abundant_atmosphere:mossy_shuffled_brick_stairs",
+    "abundant_atmosphere:mossy_shuffled_brick_slab",
+    "abundant_atmosphere:mossy_shuffled_brick_wall",
+    "abundant_atmosphere:mossy_mud_bricks",
+    "abundant_atmosphere:mossy_mud_brick_stairs",
+    "abundant_atmosphere:mossy_mud_brick_slab",
+    "abundant_atmosphere:mossy_mud_brick_wall",
+    "abundant_atmosphere:mossy_basalt"
+  ]
+}

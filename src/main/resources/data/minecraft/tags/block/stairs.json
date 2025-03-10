@@ -6,7 +6,15 @@
     "abundant_atmosphere:polished_dripstone_stairs",
     "abundant_atmosphere:dripstone_tile_stairs",
     "abundant_atmosphere:dripstone_shingle_stairs",
-    "abundant_atmosphere:mixed_brick_stairs",
-    "abundant_atmosphere:polished_dowsite_stairs"
+    "abundant_atmosphere:shuffled_brick_stairs",
+    "abundant_atmosphere:mossy_shuffled_brick_stairs",
+    "abundant_atmosphere:polished_dowsite_stairs",
+    "abundant_atmosphere:mossy_cobbled_deepslate_stairs",
+    "abundant_atmosphere:mossy_polished_deepslate_stairs",
+    "abundant_atmosphere:mossy_deepslate_brick_stairs",
+    "abundant_atmosphere:mossy_deepslate_tile_stairs",
+    "abundant_atmosphere:mossy_mud_brick_stairs",
+    "abundant_atmosphere:blacksalt_tile_stairs",
+    "abundant_atmosphere:mossy_stone_stairs"
   ]
 }

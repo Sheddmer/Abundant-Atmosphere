@@ -1,0 +1,9 @@
+{
+  "values": [
+    "minecraft:mangrove_swamp",
+    {
+      "id": "nomansland:bayou",
+      "required":false
+    }
+  ]
+}

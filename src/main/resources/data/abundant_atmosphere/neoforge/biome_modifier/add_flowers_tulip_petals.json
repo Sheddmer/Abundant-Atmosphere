@@ -1,0 +1,18 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:mod_loaded",
+        "modid": "nomansland"
+      }
+    }
+  ],
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:cherry_grove",
+  "features": [
+    "abundant_atmosphere:flowers_tulip_petals",
+    "abundant_atmosphere:patch_coarse_dirt"
+  ],
+  "step": "local_modifications"
+}

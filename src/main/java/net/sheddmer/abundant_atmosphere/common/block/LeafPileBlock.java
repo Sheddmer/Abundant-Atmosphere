@@ -2,9 +2,13 @@ package net.sheddmer.abundant_atmosphere.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -12,14 +16,24 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.sheddmer.abundant_atmosphere.init.AAProperties;
+
+import javax.annotation.Nullable;
+import java.util.Vector;
+import java.util.function.BiConsumer;
 
 public class LeafPileBlock extends Block implements SimpleWaterloggedBlock {
+    public static final IntegerProperty LEVEL = AAProperties.LEAF_LEVEL;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    private static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
+    private static final VoxelShape SHAPE_ONE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
+    private static final VoxelShape SHAPE_TWO = Block.box(0.0, 0.0, 0.0, 16.0, 3.0, 16.0);
 
     public LeafPileBlock(Properties properties) {
         super(properties);
@@ -28,7 +42,26 @@ public class LeafPileBlock extends Block implements SimpleWaterloggedBlock {
 
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-        return SHAPE;
+        switch (state.getValue(LEVEL)) {
+            case 1:
+            default:
+                return SHAPE_ONE;
+            case 2:
+                return SHAPE_TWO;
+        }
+    }
+
+    @Override
+    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+        if (entity.getDeltaMovement().length() < 0.05F) return;
+        if (!entity.onGround() && entity.getDeltaMovement().y > 0) return;
+        Vec3 entityPos = entity.position();
+        float radius = 0.5f;
+        if (entityPos.distanceTo(new Vec3(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5)) > radius) return;
+        if (level.random.nextFloat() < 0.3) {
+            level.addParticle(ParticleTypes.FLAME, entityPos.x, entityPos.y + 0.2, entityPos.z, 0.0, 0.0, 0.0);
+        }
+        super.entityInside(state, level, pos, entity);
     }
 
     @Override
@@ -41,13 +74,42 @@ public class LeafPileBlock extends Block implements SimpleWaterloggedBlock {
         return !this.canSurvive(state, accessor, pos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, direction, altState, accessor, pos, altPos);
     }
 
+    @Nullable
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
+        BlockState blockState = context.getLevel().getBlockState(context.getClickedPos());
+        if (blockState.is(this)) {
+            return blockState.setValue(LEVEL, Math.min(2, blockState.getValue(LEVEL) + 1));
+        }
+        return this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
+    }
+
+    @Override
+    public boolean canBeReplaced(BlockState state, BlockPlaceContext useContext) {
+        if (!useContext.isSecondaryUseActive() && useContext.getItemInHand().is(this.asItem()) && state.getValue(LEVEL) < 2) {
+            return true;
+        }
+        return super.canBeReplaced(state, useContext);
+    }
+
     @Override
     protected FluidState getFluidState(BlockState state) {
         return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
+    protected void onExplosionHit(BlockState state, Level level, BlockPos pos, Explosion explosion, BiConsumer<ItemStack, BlockPos> dropConsumer) {
+        level.destroyBlock(pos, true);
+        super.onExplosionHit(state, level, pos, explosion, dropConsumer);
+    }
+
+    @Override
+    protected boolean isPathfindable(BlockState state, PathComputationType type) {
+        return true;
+    }
+
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(WATERLOGGED);
+        builder.add(LEVEL, WATERLOGGED);
     }
 }

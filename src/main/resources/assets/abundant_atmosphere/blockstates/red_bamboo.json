@@ -40,6 +40,93 @@
       }
     },
     {
+      "apply": [
+        {
+          "model": "abundant_atmosphere:block/red_bamboo_leaves_empty",
+          "weight": 25
+        },
+        {
+          "model": "abundant_atmosphere:block/red_bamboo_leaves_accent1",
+          "weight": 1
+        },
+        {
+          "model": "abundant_atmosphere:block/red_bamboo_leaves_accent1",
+          "weight": 1,
+          "y": 90
+        },
+        {
+          "model": "abundant_atmosphere:block/red_bamboo_leaves_accent1",
+          "weight": 1,
+          "y": 180
+        },
+        {
+          "model": "abundant_atmosphere:block/red_bamboo_leaves_accent1",
+          "weight": 1,
+          "y": 270
+        },
+        {
+          "model": "abundant_atmosphere:block/red_bamboo_leaves_accent2",
+          "weight": 1
+        },
+        {
+          "model": "abundant_atmosphere:block/red_bamboo_leaves_accent2",
+          "weight": 1,
+          "y": 90
+        },
+        {
+          "model": "abundant_atmosphere:block/red_bamboo_leaves_accent2",
+          "weight": 1,
+          "y": 180
+        },
+        {
+          "model": "abundant_atmosphere:block/red_bamboo_leaves_accent2",
+          "weight": 1,
+          "y": 270
+        },
+        {
+          "model": "abundant_atmosphere:block/red_bamboo_leaves_accent3",
+          "weight": 1
+        },
+        {
+          "model": "abundant_atmosphere:block/red_bamboo_leaves_accent3",
+          "weight": 1,
+          "y": 90
+        },
+        {
+          "model": "abundant_atmosphere:block/red_bamboo_leaves_accent3",
+          "weight": 1,
+          "y": 180
+        },
+        {
+          "model": "abundant_atmosphere:block/red_bamboo_leaves_accent3",
+          "weight": 1,
+          "y": 270
+        },
+        {
+          "model": "abundant_atmosphere:block/red_bamboo_leaves_accent4",
+          "weight": 1
+        },
+        {
+          "model": "abundant_atmosphere:block/red_bamboo_leaves_accent4",
+          "weight": 1,
+          "y": 90
+        },
+        {
+          "model": "abundant_atmosphere:block/red_bamboo_leaves_accent4",
+          "weight": 1,
+          "y": 180
+        },
+        {
+          "model": "abundant_atmosphere:block/red_bamboo_leaves_accent4",
+          "weight": 1,
+          "y": 270
+        }
+      ],
+      "when": {
+        "age": "1"
+      }
+    },
+    {
       "apply": {
         "model": "abundant_atmosphere:block/red_bamboo_leaves_small"
       },

@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/template_fence_gate_open",
+  "parent": "minecraft:block/template_custom_fence_gate_open",
   "textures": {
-    "texture": "abundant_atmosphere:block/red_bamboo_planks"
+    "particle": "abundant_atmosphere:block/red_bamboo_particle",
+    "texture": "abundant_atmosphere:block/red_bamboo_fence_gate"
   }
 }

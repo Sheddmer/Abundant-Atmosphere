@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "abundant_atmosphere:block/shuffled_bricks/mossy_bricks_1"
+      },
+      {
+        "model": "abundant_atmosphere:block/shuffled_bricks/mossy_bricks_2"
+      },
+      {
+        "model": "abundant_atmosphere:block/shuffled_bricks/mossy_bricks_3"
+      },
+      {
+        "model": "abundant_atmosphere:block/shuffled_bricks/mossy_bricks_4"
+      }
+    ]
+  }
+}

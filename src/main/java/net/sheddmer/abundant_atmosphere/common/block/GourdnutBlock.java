@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -84,6 +85,11 @@ public class GourdnutBlock extends Block implements BonemealableBlock, SimpleWat
     @Override
     public void performBonemeal(ServerLevel level, RandomSource source, BlockPos pos, BlockState state) {
         level.setBlockAndUpdate(pos, Blocks.PUMPKIN.defaultBlockState());
+    }
+
+    @Override
+    protected boolean isPathfindable(BlockState state, PathComputationType type) {
+        return false;
     }
 
     @Override

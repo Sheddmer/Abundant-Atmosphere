@@ -1,18 +1,33 @@
 {
   "variants": {
-    "facing=north": {
+    "facing=north,lit=false": {
       "model": "abundant_atmosphere:block/mud_lamp"
     },
-    "facing=south": {
+    "facing=south,lit=false": {
       "model": "abundant_atmosphere:block/mud_lamp",
       "y": 180
     },
-    "facing=east": {
+    "facing=east,lit=false": {
       "model": "abundant_atmosphere:block/mud_lamp",
       "y": 90
     },
-    "facing=west": {
+    "facing=west,lit=false": {
       "model": "abundant_atmosphere:block/mud_lamp",
+      "y": 270
+    },
+    "facing=north,lit=true": {
+      "model": "abundant_atmosphere:block/mud_lamp_lit"
+    },
+    "facing=south,lit=true": {
+      "model": "abundant_atmosphere:block/mud_lamp_lit",
+      "y": 180
+    },
+    "facing=east,lit=true": {
+      "model": "abundant_atmosphere:block/mud_lamp_lit",
+      "y": 90
+    },
+    "facing=west,lit=true": {
+      "model": "abundant_atmosphere:block/mud_lamp_lit",
       "y": 270
     }
   }

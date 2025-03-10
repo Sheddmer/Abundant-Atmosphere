@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#abundant_atmosphere:is_lush_swamp",
+  "features": [
+    "abundant_atmosphere:flowers_midnight_lily"
+  ],
+  "step": "vegetal_decoration"
+}

@@ -6,20 +6,20 @@
       "minecraft:canyon"
     ]
   },
-  "downfall": 0.8,
+  "downfall": 0.6,
   "effects": {
     "sky_color": 7194319,
     "fog_color": 11071699,
-    "foliage_color": 8575061,
     "grass_color": 8702541,
+    "foliage_color": 8575061,
+    "water_color": 4627131,
+    "water_fog_color": 4102047,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
-    },
-    "water_color": 4627131,
-    "water_fog_color": 4102047
+    }
   },
   "features": [
     [],
@@ -28,7 +28,8 @@
       "minecraft:lake_lava_surface"
     ],
     [
-      "minecraft:amethyst_geode"
+      "minecraft:amethyst_geode",
+      "minecraft:forest_rock"
     ],
     [
       "minecraft:monster_room",
@@ -77,7 +78,9 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:patch_grass_plain"
+      "minecraft:patch_grass_taiga",
+      "minecraft:patch_large_fern",
+      "abundant_atmosphere:patch_coarse_dirt"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -97,22 +100,16 @@
     "axolotls": [],
     "creature": [
       {
-        "type": "minecraft:pig",
-        "maxCount": 2,
-        "minCount": 1,
-        "weight": 1
-      },
-      {
         "type": "minecraft:rabbit",
-        "maxCount": 6,
+        "maxCount": 5,
         "minCount": 2,
-        "weight": 2
+        "weight": 4
       },
       {
-        "type": "minecraft:sheep",
-        "maxCount": 4,
-        "minCount": 2,
-        "weight": 2
+        "type": "minecraft:goat",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 4
       }
     ],
     "misc": [],
@@ -174,8 +171,15 @@
         "weight": 10
       }
     ],
-    "water_ambient": [],
+    "water_ambient": [
+      {
+        "type": "minecraft:tropical_fish",
+        "maxCount": 8,
+        "minCount": 8,
+        "weight": 10
+      }
+    ],
     "water_creature": []
   },
-  "temperature": 0.5
+  "temperature": 0.3
 }

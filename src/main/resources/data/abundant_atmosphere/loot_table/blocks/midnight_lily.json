@@ -14,7 +14,7 @@
                   "block": "abundant_atmosphere:midnight_lily",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "flower_stack": "1"
+                    "flower_amount": "1"
                   }
                 }
               ],
@@ -28,7 +28,7 @@
                   "block": "abundant_atmosphere:midnight_lily",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "flower_stack": "2"
+                    "flower_amount": "2"
                   }
                 }
               ],
@@ -42,7 +42,7 @@
                   "block": "abundant_atmosphere:midnight_lily",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "flower_stack": "3"
+                    "flower_amount": "3"
                   }
                 }
               ],

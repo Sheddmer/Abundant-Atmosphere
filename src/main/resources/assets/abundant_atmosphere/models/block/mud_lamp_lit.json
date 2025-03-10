@@ -1,0 +1,7 @@
+{
+	"parent": "abundant_atmosphere:block/template_mud_lamp",
+	"textures": {
+		"body": "abundant_atmosphere:block/mud_lamp_body_lit",
+		"detail": "abundant_atmosphere:block/mud_lamp_detail_lit"
+	}
+}

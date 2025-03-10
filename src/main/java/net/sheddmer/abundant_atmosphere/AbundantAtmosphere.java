@@ -1,15 +1,12 @@
 package net.sheddmer.abundant_atmosphere;
 
-
 import net.sheddmer.abundant_atmosphere.common.entity.frogvariant.AAFrogVariants;
 import net.sheddmer.abundant_atmosphere.init.AAFoliagePlacerTypes;
 import net.sheddmer.abundant_atmosphere.init.AATrunkPlacerTypes;
 import net.sheddmer.abundant_atmosphere.init.*;
-import net.sheddmer.abundant_atmosphere.integration.biolith.AABiomeIntegration;
+import net.sheddmer.abundant_atmosphere.integration.*;
 import org.slf4j.Logger;
-
 import com.mojang.logging.LogUtils;
-
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -28,6 +25,7 @@ public class AbundantAtmosphere {
         bus.addListener(this::commonSetup);
 
         AABlocks.BLOCKS.register(bus);
+        AACreativeTabs.CREATIVE_TABS.register(bus);
         AABlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
         AAEntityTypes.ENTITY_TYPES.register(bus);
         AAFrogVariants.FROG_VARIANTS.register(bus);
@@ -37,9 +35,20 @@ public class AbundantAtmosphere {
         AASounds.SOUND_EVENTS.register(bus);
         AATrunkPlacerTypes.TRUNK_PLACER.register(bus);
         AAFoliagePlacerTypes.FOLIAGE_PLACER.register(bus);
-        AABiomeIntegration.registerBiomes();
+
+        if (AAModCompats.BLOCKBOX.isLoaded()) BBIntegration.register();
+        if (AAModCompats.CREATE.isLoaded()) CIntegration.register();
+
+        if (AAModCompats.FARMERSDELIGHT.isLoaded()) {
+            FDIntegration.register();
+            bus.addListener(FDIntegration::addBlockEntities);
+        }
+        if (AAModCompats.NOMANSLAND.isLoaded()) {
+            NMLIntegration.register();
+        }
 
         bus.addListener(AAItems::addCreative);
+        bus.addListener(AABlockEntityTypes::addBlockEntities);
         NeoForge.EVENT_BUS.register(this);
         modContainer.registerConfig(ModConfig.Type.COMMON, AAConfig.SPEC);
     }

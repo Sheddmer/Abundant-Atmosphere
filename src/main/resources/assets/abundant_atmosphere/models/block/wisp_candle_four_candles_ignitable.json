@@ -1,0 +1,6 @@
+{
+	"parent": "abundant_atmosphere:block/template_wisp_candle_four",
+	"textures": {
+		"texture": "abundant_atmosphere:block/wisp_candle_ignitable"
+	}
+}

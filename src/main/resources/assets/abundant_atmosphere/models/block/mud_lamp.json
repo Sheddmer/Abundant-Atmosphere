@@ -1,50 +1,7 @@
 {
+	"parent": "abundant_atmosphere:block/template_mud_lamp",
 	"textures": {
-		"particle": "abundant_atmosphere:block/mud_lamp"
-	},
-	"elements": [
-		{
-			"from": [4, 0, 4],
-			"to": [12, 4, 12],
-			"rotation": {"angle": 0, "axis": "y", "origin": [4, 0, 4]},
-			"faces": {
-				"north": {"uv": [0, 12, 8, 16], "texture": "#particle"},
-				"east": {"uv": [0, 8, 8, 12], "texture": "#particle"},
-				"south": {"uv": [0, 8, 8, 12], "texture": "#particle"},
-				"west": {"uv": [0, 8, 8, 12], "texture": "#particle"},
-				"up": {"uv": [0, 0, 8, 8], "texture": "#particle"},
-				"down": {"uv": [8, 0, 16, 8], "texture": "#particle", "cullface": "south"}
-			}
-		},
-		{
-			"from": [7, 2, 3],
-			"to": [9, 4, 4],
-			"rotation": {"angle": 0, "axis": "y", "origin": [7, 2, 3]},
-			"faces": {
-				"north": {"uv": [9, 8, 11, 10], "texture": "#particle"},
-				"east": {"uv": [8, 8, 9, 10], "texture": "#particle"},
-				"west": {"uv": [8, 8, 9, 10], "texture": "#particle"},
-				"up": {"uv": [11, 8, 13, 9], "texture": "#particle"},
-				"down": {"uv": [9, 9, 11, 10], "texture": "#particle"}
-			}
-		},
-		{
-			"from": [7.5, 4, 8],
-			"to": [8.5, 5, 8],
-			"rotation": {"angle": -45, "axis": "y", "origin": [8, 4, 8]},
-			"faces": {
-				"north": {"uv": [11, 9, 12, 10], "texture": "#particle"},
-				"south": {"uv": [11, 9, 12, 10], "texture": "#particle"}
-			}
-		},
-		{
-			"from": [7.5, 4, 8],
-			"to": [8.5, 5, 8],
-			"rotation": {"angle": 45, "axis": "y", "origin": [8, 4, 8]},
-			"faces": {
-				"north": {"uv": [11, 9, 12, 10], "texture": "#particle"},
-				"south": {"uv": [11, 9, 12, 10], "texture": "#particle"}
-			}
-		}
-	]
+		"body": "abundant_atmosphere:block/mud_lamp_body",
+		"detail": "abundant_atmosphere:block/mud_lamp_detail"
+	}
 }

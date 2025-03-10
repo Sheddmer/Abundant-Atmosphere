@@ -21,42 +21,26 @@ config="${mod_id}.mixins.json"
 #[[accessTransformers]]
 #file="META-INF/accesstransformer.cfg"
 [[dependencies.${mod_id}]]
-    modId="neoforge"
-    type="required"
-    versionRange="${neo_version_range}"
-    ordering="AFTER"
-    side="BOTH"
+modId="neoforge"
+type="required"
+versionRange="${neo_version_range}"
+ordering="AFTER"
+side="BOTH"
 
 [[dependencies.${mod_id}]]
-    modId="minecraft"
-    type="required"
-    versionRange="${minecraft_version_range}"
-    ordering="AFTER"
-    side="BOTH"
+modId="minecraft"
+type="required"
+versionRange="${minecraft_version_range}"
+ordering="AFTER"
+side="BOTH"
 
 [[dependencies.${mod_id}]]
-    modId="biolith"
-    type="required"
-    reason="${bl_reason}"
-    versionRange="${bl_version_range}"
-    ordering="AFTER"
-    side="BOTH"
-
-[[dependencies.${mod_id}]]
-    modId="farmersdelight"
-    type="optional"
-    reason="${fd_reason}"
-    versionRange="${fd_version_range}"
-    ordering="AFTER"
-    side="BOTH"
-
-[[dependencies.${mod_id}]]
-    modId="nomansland"
-    type="optional"
-    reason="${nml_reason}"
-    versionRange="${nml_version_range}"
-    ordering="AFTER"
-    side="BOTH"
+modId="biolith"
+type="required"
+reason="Required for world generation"
+versionRange="${bt_version_range}"
+ordering="NONE"
+side="BOTH"
 
 #[features.${mod_id}]
 #openGLVersion="[3.2,)"

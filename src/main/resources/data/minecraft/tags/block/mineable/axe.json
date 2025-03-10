@@ -35,6 +35,25 @@
     "abundant_atmosphere:gourdrot_wall_sign",
     "abundant_atmosphere:gourdrot_hanging_sign",
     "abundant_atmosphere:gourdrot_wall_hanging_sign",
-    "abundant_atmosphere:gourdnut"
+    "abundant_atmosphere:gourdnut",
+    "abundant_atmosphere:red_bamboo",
+    "abundant_atmosphere:red_bamboo_block",
+    "abundant_atmosphere:stripped_red_bamboo_block",
+    "abundant_atmosphere:red_bamboo_planks",
+    "abundant_atmosphere:red_bamboo_stairs",
+    "abundant_atmosphere:red_bamboo_slab",
+    "abundant_atmosphere:red_bamboo_mosaic",
+    "abundant_atmosphere:red_bamboo_mosaic_stairs",
+    "abundant_atmosphere:red_bamboo_mosaic_slab",
+    "abundant_atmosphere:red_bamboo_fence",
+    "abundant_atmosphere:red_bamboo_fence_gate",
+    "abundant_atmosphere:red_bamboo_door",
+    "abundant_atmosphere:red_bamboo_trapdoor",
+    "abundant_atmosphere:red_bamboo_pressure_plate",
+    "abundant_atmosphere:red_bamboo_button",
+    "abundant_atmosphere:red_bamboo_sign",
+    "abundant_atmosphere:red_bamboo_wall_sign",
+    "abundant_atmosphere:red_bamboo_hanging_sign",
+    "abundant_atmosphere:red_bamboo_wall_hanging_sign"
   ]
 }

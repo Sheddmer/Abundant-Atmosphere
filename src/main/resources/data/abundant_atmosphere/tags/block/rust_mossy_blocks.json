@@ -1,0 +1,21 @@
+{
+  "values": [
+    "abundant_atmosphere:mossy_deepslate",
+    "abundant_atmosphere:mossy_cobbled_deepslate",
+    "abundant_atmosphere:mossy_cobbled_deepslate_stairs",
+    "abundant_atmosphere:mossy_cobbled_deepslate_slab",
+    "abundant_atmosphere:mossy_cobbled_deepslate_wall",
+    "abundant_atmosphere:mossy_polished_deepslate",
+    "abundant_atmosphere:mossy_polished_deepslate_stairs",
+    "abundant_atmosphere:mossy_polished_deepslate_slab",
+    "abundant_atmosphere:mossy_polished_deepslate_wall",
+    "abundant_atmosphere:mossy_deepslate_bricks",
+    "abundant_atmosphere:mossy_deepslate_brick_stairs",
+    "abundant_atmosphere:mossy_deepslate_brick_slab",
+    "abundant_atmosphere:mossy_deepslate_brick_wall",
+    "abundant_atmosphere:mossy_deepslate_tiles",
+    "abundant_atmosphere:mossy_deepslate_tile_stairs",
+    "abundant_atmosphere:mossy_deepslate_tile_slab",
+    "abundant_atmosphere:mossy_deepslate_tile_wall"
+  ]
+}

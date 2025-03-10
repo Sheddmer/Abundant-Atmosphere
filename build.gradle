@@ -1,15 +1,10 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '1.0.17'
+    id 'net.neoforged.moddev' version '2.0.78'
 }
 
 tasks.named('wrapper', Wrapper).configure {
-    // Define wrapper values here so as to not have to always do so when updating gradlew.properties.
-    // Switching this to Wrapper.DistributionType.ALL will download the full gradle sources that comes with
-    // documentation attached on cursor hover of gradle classes and methods. However, this comes with increased
-    // file size for Gradle. If you do switch this to ALL, run the Gradle wrapper task twice afterwards.
-    // (Verify by checking gradle/wrapper/gradle-wrapper.properties to see if distributionUrl now points to `-all`)
     distributionType = Wrapper.DistributionType.BIN
 }
 
@@ -24,11 +19,9 @@ base {
     archivesName = mod_id
 }
 
-// Mojang ships Java 21 to end users starting in 1.20.5, so mods should target Java 21.
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 neoForge {
-    // Specify the version of NeoForge to use.
     version = project.neo_version
 
     parchment {
@@ -36,17 +29,13 @@ neoForge {
         minecraftVersion = project.parchment_minecraft_version
     }
 
-    // This line is optional. Access Transformers are automatically detected
-    // accessTransformers = project.files('src/main/resources/META-INF/accesstransformer.cfg')
-
-    // Default run configurations.
-    // These can be tweaked, removed, or duplicated as needed.
     runs {
         client {
             client()
 
-            // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            jvmArgument('-Ddevauth.enabled=true')
+            jvmArgument('-Ddevauth.account=main')
         }
 
         server {
@@ -55,9 +44,6 @@ neoForge {
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
 
-        // This run config launches GameTestServer and runs all registered gametests, then exits.
-        // By default, the server will crash when no gametests are provided.
-        // The gametest system is also enabled by default for other run configs under the /test command.
         gameTestServer {
             type = "gameTestServer"
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
@@ -66,34 +52,17 @@ neoForge {
         data {
             data()
 
-            // example of overriding the workingDirectory set in configureEach above, uncomment if you want to use it
-            // gameDirectory = project.file('run-data')
-
-            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
             programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
         }
 
-        // applies to all the run configs above
         configureEach {
-            // Recommended logging data for a userdev environment
-            // The markers can be added/remove as needed separated by commas.
-            // "SCAN": For mods scan.
-            // "REGISTRIES": For firing of registry events.
-            // "REGISTRYDUMP": For getting the contents of all registries.
             systemProperty 'forge.logging.markers', 'REGISTRIES'
 
-            // Recommended logging level for the console
-            // You can set various levels here.
-            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             logLevel = org.slf4j.event.Level.DEBUG
         }
     }
 
     mods {
-        // define mod <-> source bindings
-        // these are used to tell the game which sources are for which mod
-        // mostly optional in a single mod project
-        // but multi mod projects should define one per mod
         "${mod_id}" {
             sourceSet(sourceSets.main)
         }
@@ -107,33 +76,43 @@ configurations {
 }
 
 repositories {
+    mavenCentral()
     maven { url "https://maven.blamejared.com/" }
     maven { url "https://repo1.maven.org/maven2" }
     maven { url "https://api.modrinth.com/maven" }
+    maven { url "https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1" }
     maven { url 'https://maven.terraformersmc.com/' }
+    maven { url "https://cursemaven.com" }
     flatDir {
         dirs 'libs'
     }
 }
 
 dependencies {
-    // Required dependencies
-    implementation "com.terraformersmc:biolith-neoforge:${bl_version}"
 
-    // Optional dependencies
-    implementation "maven.modrinth:farmers-delight:1.21.1-$fd_version"
-    implementation "com.farcr:nomansland:0.1.0-beta"
+    implementation "com.terraformersmc:biolith-neoforge:$bt_version"
+    jarJar(implementation("com.moulberry:mixinconstraints:1.0.7") {
+        exclude group: "org.slf4j",
+                module: "slf4j-api"
+    }
+    )
+
+    implementation "maven.modrinth:farmers-delight:1.21.1-1.2.4a"
+    implementation "maven.modrinth:the-block-box:0.1.1"
+    implementation "maven.modrinth:create:1.21.1-6.0.2"
+    implementation "com.farcr:nomansland:0.1.3-beta"
 
     compileOnly "mezz.jei:jei-$minecraft_version-common-api:$jei_version"
     compileOnly "mezz.jei:jei-$minecraft_version-neoforge-api:$jei_version"
     localRuntime "mezz.jei:jei-$minecraft_version-neoforge:$jei_version"
 
-    // Mods that help in the development environment
-    localRuntime "maven.modrinth:xaeros-world-map:1.39.2_NeoForge_1.21"
+    localRuntime "maven.modrinth:xaeros-world-map:1.38.9_NeoForge_1.21"
     localRuntime "maven.modrinth:appleskin:3.0.5+mc1.21"
-    localRuntime "maven.modrinth:sodium:mc1.21-0.6.0-beta.2-neoforge"
-    localRuntime "maven.modrinth:iris:1.8.0-beta.5+1.21-neoforge"
+    localRuntime "maven.modrinth:sodium:mc1.21.1-0.6.9-neoforge"
     localRuntime "maven.modrinth:nbt-autocomplete:McjFDyOt"
+    localRuntime "maven.modrinth:cyanide:v4LiMGGH"
+    localRuntime "maven.modrinth:moonlight:neoforge_1.21-2.17.32"
+    localRuntime "me.djtheredstoner:DevAuth-neoforge:1.2.1"
 }
 
 tasks.withType(ProcessResources).configureEach {
@@ -149,12 +128,7 @@ tasks.withType(ProcessResources).configureEach {
             mod_version             : mod_version,
             mod_authors             : mod_authors,
             mod_description         : mod_description,
-            bl_version_range        : bl_version_range,
-            bl_reason               : bl_reason,
-            fd_version_range        : fd_version_range,
-            fd_reason               : fd_reason,
-            nml_version_range       : nml_version_range,
-            nml_reason              : nml_reason
+            bt_version_range        : bt_version_range,
     ]
     inputs.properties replaceProperties
 
@@ -178,11 +152,4 @@ publishing {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
-}
-
-idea {
-    module {
-        downloadSources = true
-        downloadJavadoc = true
-    }
 }

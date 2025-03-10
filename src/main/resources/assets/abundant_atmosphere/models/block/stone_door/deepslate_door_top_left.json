@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/door_top_left",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "abundant_atmosphere:block/stone_door/deepslate_door_bottom",
+    "top": "abundant_atmosphere:block/stone_door/deepslate_door_top"
+  }
+}

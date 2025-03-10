@@ -1,14 +1,10 @@
 package net.sheddmer.abundant_atmosphere.common.block;
 
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Maps;
-import com.mojang.datafixers.kinds.Kind1;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
@@ -30,6 +26,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.sheddmer.abundant_atmosphere.init.AASounds;
 
 import javax.annotation.Nullable;
 import java.util.function.BiConsumer;
@@ -38,10 +35,10 @@ public class MudLampBlock extends Block implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    private static final VoxelShape SHAPE_NORTH = Shapes.or(box(4.0, 0.0, 4.0, 12.0, 4.0, 12.0), box(7.0, 2.0, 3.0, 9.0, 4.0, 4.0));
-    private static final VoxelShape SHAPE_SOUTH = Shapes.or(box(4.0, 0.0, 4.0, 12.0, 4.0, 12.0), box(7.0, 2.0, 12.0, 9.0, 4.0, 13.0));
-    private static final VoxelShape SHAPE_EAST = Shapes.or(box(4.0, 0.0, 4.0, 12.0, 4.0, 12.0), box(12.0, 2.0, 7.0, 13.0, 4.0, 9.0));
-    private static final VoxelShape SHAPE_WEST = Shapes.or(box(4.0, 0.0, 4.0, 12.0, 4.0, 12.0), box(3.0, 2.0, 7.0, 4.0, 4.0, 9.0));
+    private static final VoxelShape SHAPE_NORTH = Shapes.or(box(4.0, 0.0, 4.0, 12.0, 5.0, 12.0), box(5.0, 5.0, 5.0, 11.0, 6.0, 11.0), box(7.0, 2.0, 2.0, 9.0, 6.0, 5.0));
+    private static final VoxelShape SHAPE_SOUTH = Shapes.or(box(4.0, 0.0, 4.0, 12.0, 5.0, 12.0), box(5.0, 5.0, 5.0, 11.0, 6.0, 11.0), box(7.0, 2.0, 11.0, 9.0, 6.0, 14.0));
+    private static final VoxelShape SHAPE_EAST = Shapes.or(box(4.0, 0.0, 4.0, 12.0, 5.0, 12.0), box(5.0, 5.0, 5.0, 11.0, 6.0, 11.0), box(11.0, 2.0, 7.0, 14.0, 6.0, 9.0));
+    private static final VoxelShape SHAPE_WEST = Shapes.or(box(4.0, 0.0, 4.0, 12.0, 5.0, 12.0), box(5.0, 5.0, 5.0, 11.0, 6.0, 11.0), box(2.0, 2.0, 7.0, 5.0, 6.0, 9.0));
 
     public MudLampBlock(Properties properties) {
         super(properties);
@@ -92,15 +89,21 @@ public class MudLampBlock extends Block implements SimpleWaterloggedBlock {
 
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource source) {
+        Direction direction = state.getValue(FACING);
+        double d0 = (double) pos.getX() + 0.5;
+        double d1 = (double) pos.getY() + 0.54;
+        double d2 = (double) pos.getZ() + 0.5;
+        Direction direction1 = direction.getOpposite();
         float f = source.nextFloat();
         if (state.getValue(LIT)) {
             if (f < 0.3F) {
-                level.addParticle(ParticleTypes.SMOKE, pos.getX() + 0.5, pos.getY() + 0.45, pos.getY() + 0.5, 0.0, 0.0, 0.0);
+                level.addParticle(ParticleTypes.SMOKE, d0 - 0.3125 * (double) direction1.getStepX(), d1, d2 - 0.3125 * (double) direction1.getStepZ(), 0.0, 0.0, 0.0);
                 if (f < 0.17F) {
-                    level.playLocalSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getY() + 0.5, SoundEvents.CANDLE_AMBIENT, SoundSource.BLOCKS, 1.0F + source.nextFloat(), source.nextFloat() * 0.7F + 0.3F, false);
+                    level.playLocalSound(d0 - 0.3125 * (double) direction1.getStepX(), d1, d2 - 0.3125 * (double) direction1.getStepZ(), AASounds.MUD_LAMP_AMBIENT.get(), SoundSource.BLOCKS, 1.0F + source.nextFloat(), source.nextFloat() * 0.7F + 0.3F, false
+                    );
                 }
             }
-            level.addParticle(ParticleTypes.FLAME,  pos.getX() + 0.5, pos.getY() + 0.45, pos.getZ() + 0.5, 0.0, 0.0, 0.0);
+            level.addParticle(ParticleTypes.FLAME, d0 - 0.3125 * (double) direction1.getStepX(), d1, d2 - 0.3125 * (double) direction1.getStepZ(), 0.0, 0.0, 0.0);
         }
     }
 

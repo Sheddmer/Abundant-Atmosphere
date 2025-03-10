@@ -1,5 +1,6 @@
 {
   "parent": "minecraft:block/door_bottom_left",
+  "render_type": "minecraft:cutout",
   "textures": {
     "bottom": "abundant_atmosphere:block/red_bamboo_door_bottom",
     "top": "abundant_atmosphere:block/red_bamboo_door_top"

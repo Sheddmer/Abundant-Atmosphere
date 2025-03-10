@@ -1,11 +1,11 @@
 {
   "variants": {
-    "flower_stack=1,nightlight=false": [
+    "flower_amount=1,nightlight=false": [
       {
         "model": "abundant_atmosphere:block/midnight_lily_1"
       }
     ],
-    "flower_stack=2,nightlight=false": [
+    "flower_amount=2,nightlight=false": [
       {
         "model": "abundant_atmosphere:block/midnight_lily_2"
       },
@@ -22,7 +22,7 @@
         "y": 270
       }
     ],
-    "flower_stack=3,nightlight=false": [
+    "flower_amount=3,nightlight=false": [
       {
         "model": "abundant_atmosphere:block/midnight_lily_3"
       },
@@ -39,12 +39,12 @@
         "y": 270
       }
     ],
-    "flower_stack=1,nightlight=true": [
+    "flower_amount=1,nightlight=true": [
       {
         "model": "abundant_atmosphere:block/midnight_lily_lit_1"
       }
     ],
-    "flower_stack=2,nightlight=true": [
+    "flower_amount=2,nightlight=true": [
       {
         "model": "abundant_atmosphere:block/midnight_lily_lit_2"
       },
@@ -61,7 +61,7 @@
         "y": 270
       }
     ],
-    "flower_stack=3,nightlight=true": [
+    "flower_amount=3,nightlight=true": [
       {
         "model": "abundant_atmosphere:block/midnight_lily_lit_3"
       },

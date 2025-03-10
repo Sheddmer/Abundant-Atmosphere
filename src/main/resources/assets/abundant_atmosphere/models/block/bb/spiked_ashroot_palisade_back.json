@@ -1,0 +1,9 @@
+{
+  "parent": "blockbox:block/template_spiked_palisade_back",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "core": "abundant_atmosphere:block/bb/ashroot_palisade_core",
+    "side": "abundant_atmosphere:block/bb/ashroot_palisade_side",
+    "top": "abundant_atmosphere:block/bb/ashroot_palisade_top"
+  }
+}

@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.sheddmer.abundant_atmosphere.init.AABlocks;
 import net.sheddmer.abundant_atmosphere.init.AAProperties;
 import net.sheddmer.abundant_atmosphere.init.AATags;
 
@@ -23,7 +24,7 @@ public class MossyBasaltBlock extends RotatedPillarBlock {
         return facing == Direction.UP ? state.setValue(OVERGROWN, isOvergrownSetting(facingState)) : super.updateShape(state, facing, facingState, level, currentPos, facingPos);
     }
     private static boolean isOvergrownSetting(BlockState state) {
-        return state.is(AATags.MOSSY_BASALT_OVERGROWABLE);
+        return state.is(AATags.MOSSY_BASALT_OVERGROWABLE) || state.is(AABlocks.MOSS_CLUMP) && state.getValue(MossClumpBlock.getFaceProperty(Direction.DOWN));
     }
 
     @Override

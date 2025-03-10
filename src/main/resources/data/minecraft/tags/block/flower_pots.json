@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
-    "abundant_atmosphere:potted_midnight_lily"
+    "abundant_atmosphere:potted_midnight_lily",
+    "abundant_atmosphere:potted_ashroot_sapling",
+    "abundant_atmosphere:potted_gourdnut",
+    "abundant_atmosphere:potted_red_bamboo",
+    "abundant_atmosphere:potted_saffron_bushbuds",
+    "abundant_atmosphere:potted_cherry_bushbuds",
+    "abundant_atmosphere:potted_umbra_bushbuds"
   ]
 }

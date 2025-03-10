@@ -1,12 +1,17 @@
 package net.sheddmer.abundant_atmosphere.init;
 
-import com.farcr.nomansland.common.registry.NMLBlocks;
-import com.farcr.nomansland.common.registry.NMLCreativeTabs;
+import com.farcr.nomansland.common.registry.blocks.NMLBlocks;
+import com.farcr.nomansland.common.registry.items.NMLCreativeTabs;
+import com.farcr.nomansland.common.registry.items.NMLItems;
+import com.google.common.collect.Sets;
 import net.minecraft.core.Direction;
-import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.world.food.Foods;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -15,41 +20,60 @@ import net.sheddmer.abundant_atmosphere.common.entity.AABoatEntity;
 import net.sheddmer.abundant_atmosphere.common.item.AABoatItem;
 import net.sheddmer.abundant_atmosphere.common.item.FungusSporeItem;
 import net.sheddmer.abundant_atmosphere.integration.AAModCompats;
+import net.sheddmer.abundant_atmosphere.integration.FDIntegration;
+import net.sheddmer.abundant_atmosphere.integration.NMLIntegration;
+
+import java.util.LinkedHashSet;
+import java.util.function.Supplier;
+
 
 public class AAItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(AbundantAtmosphere.MODID);
+    public static LinkedHashSet<DeferredItem<Item>> CREATIVE_TAB_ITEMS = Sets.newLinkedHashSet();
 
-    public static final DeferredItem<Item> ROASTED_GOURDNUT = ITEMS.register("roasted_gourdnut", () -> new Item(new Item.Properties().food(AAFoods.ROASTED_GOURDNUT)));
-    public static final DeferredItem<Item> MUD_LAMP = ITEMS.register("mud_lamp", () -> new StandingAndWallBlockItem(AABlocks.MUD_LAMP.get(), AABlocks.WALL_MUD_LAMP.get(), new Item.Properties(), Direction.DOWN));
-    public static final DeferredItem<Item> PUFFBALL_SPORES = ITEMS.register("puffball_spores", () -> new FungusSporeItem(AABlocks.PUFFBALL_MUSHROOM.get(), 8677966, new Item.Properties()));
-    public static final DeferredItem<Item> CHROMATIC_FROGLIGHT = ITEMS.register("chromatic_froglight", () -> new BlockItem(AABlocks.CHROMATIC_FROGLIGHT.get(), new Item.Properties().rarity(Rarity.UNCOMMON)));
-    public static final DeferredItem<Item> COOKED_TROPICAL_FISH = ITEMS.register("cooked_tropical_fish", () -> new Item(new Item.Properties().food(AAFoods.COOKED_TROPICAL_FISH)));
+    public static final DeferredItem<Item> MUD_LAMP = registerItem("mud_lamp", () -> new StandingAndWallBlockItem(AABlocks.MUD_LAMP.get(), AABlocks.WALL_MUD_LAMP.get(), new Item.Properties(), Direction.DOWN));
+    public static final DeferredItem<Item> PUFFBALL_SPORES = registerItem("puffball_spores", () -> new FungusSporeItem(AABlocks.PUFFBALL_MUSHROOM.get(), 8677966, new Item.Properties()));
+    public static final DeferredItem<Item> CHROMATIC_FROGLIGHT = registerItem("chromatic_froglight", () -> new BlockItem(AABlocks.CHROMATIC_FROGLIGHT.get(), new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final DeferredItem<Item> FROG_BUCKET = registerItem("frog_bucket", () -> new MobBucketItem(EntityType.FROG, Fluids.WATER, SoundEvents.BUCKET_EMPTY_TADPOLE, (new Item.Properties()).stacksTo(1).component(DataComponents.BUCKET_ENTITY_DATA, CustomData.EMPTY)));
 
-    // Woodset Items
-    public static final DeferredItem<Item> ASHROOT_SIGN = ITEMS.register("ashroot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), AABlocks.ASHROOT_SIGN.get(), AABlocks.ASHROOT_WALL_SIGN.get()));
-    public static final DeferredItem<Item> ASHROOT_HANGING_SIGN = ITEMS.register("ashroot_hanging_sign", () -> new HangingSignItem(AABlocks.ASHROOT_HANGING_SIGN.get(), AABlocks.ASHROOT_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
-    public static final DeferredItem<Item> ASHROOT_BOAT = ITEMS.register("ashroot_boat", () -> new AABoatItem(false, AABoatEntity.Type.ASHROOT, new Item.Properties().stacksTo(1)));
-    public static final DeferredItem<Item> ASHROOT_CHEST_BOAT = ITEMS.register("ashroot_chest_boat", () -> new AABoatItem(true, AABoatEntity.Type.ASHROOT, new Item.Properties().stacksTo(1)));
-    public static final DeferredItem<Item> GOURDROT_SIGN = ITEMS.register("gourdrot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), AABlocks.GOURDROT_SIGN.get(), AABlocks.GOURDROT_WALL_SIGN.get()));
-    public static final DeferredItem<Item> GOURDROT_HANGING_SIGN = ITEMS.register("gourdrot_hanging_sign", () -> new HangingSignItem(AABlocks.GOURDROT_HANGING_SIGN.get(), AABlocks.GOURDROT_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
-    public static final DeferredItem<Item> GOURDROT_BOAT = ITEMS.register("gourdrot_boat", () -> new AABoatItem(false, AABoatEntity.Type.GOURDROT, new Item.Properties().stacksTo(1)));
-    public static final DeferredItem<Item> GOURDROT_CHEST_BOAT = ITEMS.register("gourdrot_chest_boat", () -> new AABoatItem(true, AABoatEntity.Type.GOURDROT, new Item.Properties().stacksTo(1)));
-    public static final DeferredItem<Item> RED_BAMBOO_SIGN = ITEMS.register("red_bamboo_sign", () -> new SignItem(new Item.Properties().stacksTo(16), AABlocks.RED_BAMBOO_SIGN.get(), AABlocks.RED_BAMBOO_WALL_SIGN.get()));
-    public static final DeferredItem<Item> RED_BAMBOO_HANGING_SIGN = ITEMS.register("red_bamboo_hanging_sign", () -> new HangingSignItem(AABlocks.RED_BAMBOO_HANGING_SIGN.get(), AABlocks.RED_BAMBOO_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
-    public static final DeferredItem<Item> RED_BAMBOO_RAFT = ITEMS.register("red_bamboo_raft", () -> new AABoatItem(false, AABoatEntity.Type.RED_BAMBOO, new Item.Properties().stacksTo(1)));
-    public static final DeferredItem<Item> RED_BAMBOO_CHEST_RAFT = ITEMS.register("red_bamboo_chest_raft", () -> new AABoatItem(true, AABoatEntity.Type.RED_BAMBOO, new Item.Properties().stacksTo(1)));
+    // Woodset items
+    public static final DeferredItem<Item> ASHROOT_SIGN = registerItem("ashroot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), AABlocks.ASHROOT_SIGN.get(), AABlocks.ASHROOT_WALL_SIGN.get()));
+    public static final DeferredItem<Item> ASHROOT_HANGING_SIGN = registerItem("ashroot_hanging_sign", () -> new HangingSignItem(AABlocks.ASHROOT_HANGING_SIGN.get(), AABlocks.ASHROOT_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+    public static final DeferredItem<Item> ASHROOT_BOAT = registerItem("ashroot_boat", () -> new AABoatItem(false, AABoatEntity.Type.ASHROOT, new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> ASHROOT_CHEST_BOAT = registerItem("ashroot_chest_boat", () -> new AABoatItem(true, AABoatEntity.Type.ASHROOT, new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> GOURDROT_SIGN = registerItem("gourdrot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), AABlocks.GOURDROT_SIGN.get(), AABlocks.GOURDROT_WALL_SIGN.get()));
+    public static final DeferredItem<Item> GOURDROT_HANGING_SIGN = registerItem("gourdrot_hanging_sign", () -> new HangingSignItem(AABlocks.GOURDROT_HANGING_SIGN.get(), AABlocks.GOURDROT_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+    public static final DeferredItem<Item> GOURDROT_BOAT = registerItem("gourdrot_boat", () -> new AABoatItem(false, AABoatEntity.Type.GOURDROT, new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> GOURDROT_CHEST_BOAT = registerItem("gourdrot_chest_boat", () -> new AABoatItem(true, AABoatEntity.Type.GOURDROT, new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> RED_BAMBOO_SIGN = registerItem("red_bamboo_sign", () -> new SignItem(new Item.Properties().stacksTo(16), AABlocks.RED_BAMBOO_SIGN.get(), AABlocks.RED_BAMBOO_WALL_SIGN.get()));
+    public static final DeferredItem<Item> RED_BAMBOO_HANGING_SIGN = registerItem("red_bamboo_hanging_sign", () -> new HangingSignItem(AABlocks.RED_BAMBOO_HANGING_SIGN.get(), AABlocks.RED_BAMBOO_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+    public static final DeferredItem<Item> RED_BAMBOO_RAFT = registerItem("red_bamboo_raft", () -> new AABoatItem(false, AABoatEntity.Type.RED_BAMBOO, new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> RED_BAMBOO_CHEST_RAFT = registerItem("red_bamboo_chest_raft", () -> new AABoatItem(true, AABoatEntity.Type.RED_BAMBOO, new Item.Properties().stacksTo(1)));
+
+    // Food items
+    public static final DeferredItem<Item> ROASTED_GOURDNUT = registerItem("roasted_gourdnut", () -> new Item(new Item.Properties().food(AAFoods.ROASTED_GOURDNUT)));
+    public static final DeferredItem<Item> COOKED_TROPICAL_FISH = registerItem("cooked_tropical_fish", () -> new Item(new Item.Properties().food(AAFoods.COOKED_TROPICAL_FISH)));
+    public static final DeferredItem<Item> SQUASHBERRY_JAM = registerItem("squashberry_jam", () -> new Item(new Item.Properties().food(AAFoods.SQUASHBERRY_JAM).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
+    public static final DeferredItem<Item> SQUASHBERRY_BREAD = registerItem("squashberry_bread", () -> new Item(new Item.Properties().food(AAFoods.SQUASHBERRY_BREAD)));
 
     // Farmer's Delight items
-    public static final DeferredItem<Item> PUFFBALL_SLICE = ITEMS.register("puffball_slice", AAModCompats.FARMERSDELIGHT.isLoaded() ? () -> new Item(new Item.Properties().food(AAFoods.PUFFBALL_SLICE)) : null);
-    public static final DeferredItem<Item> PUFFBALL_CUTLET = ITEMS.register("puffball_cutlet", AAModCompats.FARMERSDELIGHT.isLoaded() ? () -> new Item(new Item.Properties().food(AAFoods.PUFFBALL_CUTLET)) : null);
-    public static final DeferredItem<Item> SWAMP_SCRAN = ITEMS.register("swamp_scran", AAModCompats.FARMERSDELIGHT.isLoaded() && AAModCompats.NOMANSLAND.isLoaded() ? () -> new Item(new Item.Properties().food(AAFoods.SWAMP_SCRAN).stacksTo(16)) : null);
+    public static final DeferredItem<Item> PUFFBALL_SLICE = registerItem("puffball_slice", AAModCompats.FARMERSDELIGHT.isLoaded() ? () -> new Item(new Item.Properties().food(AAFoods.PUFFBALL_SLICE)) : null);
+    public static final DeferredItem<Item> PUFFBALL_CUTLET = registerItem("puffball_cutlet", AAModCompats.FARMERSDELIGHT.isLoaded() ? () -> new Item(new Item.Properties().food(AAFoods.PUFFBALL_CUTLET)) : null);
+    public static final DeferredItem<Item> SWAMP_SCRAN = registerItem("swamp_scran", AAModCompats.FARMERSDELIGHT.isLoaded() && AAModCompats.NOMANSLAND.isLoaded() ? () -> new Item(new Item.Properties().food(AAFoods.SWAMP_SCRAN).stacksTo(16)) : null);
 
+    @SuppressWarnings("unchecked")
+    public static <T extends Item> DeferredItem<T> registerItem(String name, Supplier<? extends Item> item) {
+        DeferredItem<Item> toReturn = ITEMS.register(name, item);
+        CREATIVE_TAB_ITEMS.add(toReturn);
+        return (DeferredItem<T>) toReturn;
+    }
 
-    // Insert Items
     public static void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+        ResourceKey<CreativeModeTab> tabKey = event.getTabKey();
+        if (tabKey == CreativeModeTabs.BUILDING_BLOCKS) {
             event.insertAfter(Items.POLISHED_BASALT.getDefaultInstance(), AABlocks.BLACKSALT_TILES.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.MUD_BRICK_WALL.getDefaultInstance(), AABlocks.CHISELED_MUD_BRICKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.BLACKSALT_TILES.toStack(), AABlocks.BLACKSALT_TILE_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.BLACKSALT_TILE_STAIRS.toStack(), AABlocks.BLACKSALT_TILE_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             // Calcite blocks
             event.insertAfter(Items.POLISHED_ANDESITE_SLAB.getDefaultInstance(), Items.CALCITE.getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.CALCITE.getDefaultInstance(), AABlocks.POLISHED_CALCITE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
@@ -85,6 +109,10 @@ public class AAItems {
             event.insertAfter(AABlocks.SHUFFLED_BRICKS.toStack(), AABlocks.SHUFFLED_BRICK_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AABlocks.SHUFFLED_BRICK_STAIRS.toStack(), AABlocks.SHUFFLED_BRICK_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AABlocks.SHUFFLED_BRICK_SLAB.toStack(), AABlocks.SHUFFLED_BRICK_WALL.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.SHUFFLED_BRICK_WALL.toStack(), AABlocks.MOSSY_SHUFFLED_BRICKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_SHUFFLED_BRICKS.toStack(), AABlocks.MOSSY_SHUFFLED_BRICK_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_SHUFFLED_BRICK_STAIRS.toStack(), AABlocks.MOSSY_SHUFFLED_BRICK_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_SHUFFLED_BRICK_SLAB.toStack(), AABlocks.MOSSY_SHUFFLED_BRICK_WALL.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             // Ashroot woodset (added after cherry in building blocks)
             event.insertAfter(Items.MANGROVE_BUTTON.getDefaultInstance(), AABlocks.ASHROOT_LOG.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AABlocks.ASHROOT_LOG.toStack(), AABlocks.ASHROOT_WOOD.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
@@ -128,26 +156,59 @@ public class AAItems {
             event.insertAfter(AABlocks.RED_BAMBOO_DOOR.toStack(), AABlocks.RED_BAMBOO_TRAPDOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AABlocks.RED_BAMBOO_TRAPDOOR.toStack(), AABlocks.RED_BAMBOO_PRESSURE_PLATE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AABlocks.RED_BAMBOO_PRESSURE_PLATE.toStack(), AABlocks.RED_BAMBOO_BUTTON.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            // Mossy blocks
-            event.insertAfter(Items.STONE.getDefaultInstance(), AABlocks.MOSSY_STONE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            // Stone blocks
+            event.insertAfter(Items.STONE_SLAB.getDefaultInstance(), AABlocks.STONE_WALL.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.STONE_WALL.toStack(), AABlocks.STONE_DOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.STONE_DOOR.toStack(), AABlocks.STONE_TRAPDOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(Items.STONE_BUTTON.getDefaultInstance(), AABlocks.MOSSY_STONE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_STONE.toStack(), AABlocks.MOSSY_STONE_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_STONE_STAIRS.toStack(), AABlocks.MOSSY_STONE_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_STONE_SLAB.toStack(), AABlocks.MOSSY_STONE_WALL.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.BASALT.getDefaultInstance(), AABlocks.MOSSY_BASALT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            // Mud blocks
+            event.insertAfter(Items.MUD_BRICK_WALL.getDefaultInstance(), AABlocks.MUD_DOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MUD_DOOR.toStack(), AABlocks.MUD_TRAPDOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MUD_TRAPDOOR.toStack(), AABlocks.CHISELED_MUD_BRICKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.CHISELED_MUD_BRICKS.toStack(), AABlocks.MOSSY_MUD_BRICKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_MUD_BRICKS.toStack(), AABlocks.MOSSY_MUD_BRICK_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_MUD_BRICK_STAIRS.toStack(), AABlocks.MOSSY_MUD_BRICK_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_MUD_BRICK_SLAB.toStack(), AABlocks.MOSSY_MUD_BRICK_WALL.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             // Mossy deepslate blocks
             event.insertAfter(Items.DEEPSLATE.getDefaultInstance(), AABlocks.MOSSY_DEEPSLATE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.COBBLED_DEEPSLATE_WALL.getDefaultInstance(), AABlocks.MOSSY_COBBLED_DEEPSLATE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(Items.CHISELED_DEEPSLATE.getDefaultInstance(), AABlocks.MOSSY_COBBLED_DEEPSLATE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_COBBLED_DEEPSLATE.toStack(), AABlocks.MOSSY_COBBLED_DEEPSLATE_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_COBBLED_DEEPSLATE_STAIRS.toStack(), AABlocks.MOSSY_COBBLED_DEEPSLATE_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_COBBLED_DEEPSLATE_SLAB.toStack(), AABlocks.MOSSY_COBBLED_DEEPSLATE_WALL.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.POLISHED_DEEPSLATE_WALL.getDefaultInstance(), AABlocks.MOSSY_POLISHED_DEEPSLATE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_POLISHED_DEEPSLATE.toStack(), AABlocks.MOSSY_POLISHED_DEEPSLATE_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_POLISHED_DEEPSLATE_STAIRS.toStack(), AABlocks.MOSSY_POLISHED_DEEPSLATE_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_POLISHED_DEEPSLATE_SLAB.toStack(), AABlocks.MOSSY_POLISHED_DEEPSLATE_WALL.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.DEEPSLATE_BRICK_WALL.getDefaultInstance(), AABlocks.MOSSY_DEEPSLATE_BRICKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_DEEPSLATE_BRICKS.toStack(), AABlocks.MOSSY_DEEPSLATE_BRICK_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_DEEPSLATE_BRICK_STAIRS.toStack(), AABlocks.MOSSY_DEEPSLATE_BRICK_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_DEEPSLATE_BRICK_SLAB.toStack(), AABlocks.MOSSY_DEEPSLATE_BRICK_WALL.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.DEEPSLATE_TILE_WALL.getDefaultInstance(), AABlocks.MOSSY_DEEPSLATE_TILES.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_DEEPSLATE_TILES.toStack(), AABlocks.MOSSY_DEEPSLATE_TILE_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_DEEPSLATE_TILE_STAIRS.toStack(), AABlocks.MOSSY_DEEPSLATE_TILE_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.MOSSY_DEEPSLATE_TILE_SLAB.toStack(), AABlocks.MOSSY_DEEPSLATE_TILE_WALL.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            // Stone Doors & Trapdoors
+            event.insertAfter(Items.COBBLED_DEEPSLATE_WALL.getDefaultInstance(), AABlocks.DEEPSLATE_DOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.DEEPSLATE_DOOR.toStack(), AABlocks.DEEPSLATE_TRAPDOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(Items.POLISHED_BLACKSTONE_WALL.getDefaultInstance(), AABlocks.BLACKSTONE_DOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.BLACKSTONE_DOOR.toStack(), AABlocks.BLACKSTONE_TRAPDOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(Items.NETHER_BRICK_FENCE.getDefaultInstance(), AABlocks.NETHER_BRICK_DOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.NETHER_BRICK_DOOR.toStack(), AABlocks.NETHER_BRICK_TRAPDOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
             if (AAModCompats.NOMANSLAND.isLoaded()) {
-                event.insertAfter(AABlocks.ASHROOT_SLAB.toStack(), AABlocks.ASHROOT_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                event.insertAfter(AABlocks.ASHROOT_BOOKSHELF.toStack(), AABlocks.TRIMMED_ASHROOT_PLANKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                event.insertAfter(AABlocks.GOURDROT_SLAB.toStack(), AABlocks.GOURDROT_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                event.insertAfter(AABlocks.GOURDROT_BOOKSHELF.toStack(), AABlocks.TRIMMED_GOURDROT_PLANKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                event.insertAfter(AABlocks.RED_BAMBOO_MOSAIC_SLAB.toStack(), AABlocks.RED_BAMBOO_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                event.insertAfter(AABlocks.RED_BAMBOO_BOOKSHELF.toStack(), AABlocks.TRIMMED_RED_BAMBOO_PLANKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(AABlocks.ASHROOT_SLAB.toStack(), NMLIntegration.ASHROOT_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(NMLIntegration.ASHROOT_BOOKSHELF.toStack(), NMLIntegration.TRIMMED_ASHROOT_PLANKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(AABlocks.GOURDROT_SLAB.toStack(), NMLIntegration.GOURDROT_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(NMLIntegration.GOURDROT_BOOKSHELF.toStack(), NMLIntegration.TRIMMED_GOURDROT_PLANKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(AABlocks.RED_BAMBOO_MOSAIC_SLAB.toStack(), NMLIntegration.RED_BAMBOO_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(NMLIntegration.RED_BAMBOO_BOOKSHELF.toStack(), NMLIntegration.TRIMMED_RED_BAMBOO_PLANKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             }
         }
-        if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
+        if (tabKey == CreativeModeTabs.NATURAL_BLOCKS) {
             // general natural blocks
             event.insertAfter(Items.FARMLAND.getDefaultInstance(), AABlocks.CAVE_CRUD.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.POINTED_DRIPSTONE.getDefaultInstance(), AABlocks.DOWSITE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
@@ -155,11 +216,12 @@ public class AAItems {
             event.insertAfter(Items.PEARLESCENT_FROGLIGHT.getDefaultInstance(), AABlocks.CERULEAN_FROGLIGHT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AABlocks.CERULEAN_FROGLIGHT.toStack(), AAItems.CHROMATIC_FROGLIGHT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertBefore(Items.MOSS_BLOCK.getDefaultInstance(), AABlocks.MOSS_CLUMP.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.MOSS_CARPET.getDefaultInstance(), AABlocks.IRISH_MOSS_CLUMP.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.IRISH_MOSS_CLUMP.toStack(), AABlocks.IRISH_MOSS_BLOCK.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.IRISH_MOSS_BLOCK.toStack(), AABlocks.IRISH_MOSS_CARPET.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.AMETHYST_BLOCK.getDefaultInstance(), AABlocks.RAW_AMBER_BLOCK.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(Items.MOSS_CARPET.getDefaultInstance(), AABlocks.RUST_MOSS_CLUMP.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.RUST_MOSS_CLUMP.toStack(), AABlocks.RUST_MOSS_BLOCK.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.RUST_MOSS_BLOCK.toStack(), AABlocks.RUST_MOSS_CARPET.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             // ashroot natural blocks (added after azalea)
+            event.insertBefore(Items.MUD.getDefaultInstance(), AABlocks.DAMP_MUD.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.DAMP_MUD.toStack(), AABlocks.WET_MUD.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.MUDDY_MANGROVE_ROOTS.getDefaultInstance(), AABlocks.ASHROOT_LOG.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.MANGROVE_PROPAGULE.getDefaultInstance(), AABlocks.ASHROOT_SAPLING.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.MANGROVE_LEAVES.getDefaultInstance(), AABlocks.ASHROOT_LEAVES.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
@@ -178,7 +240,7 @@ public class AAItems {
             event.accept(AABlocks.LEAF_PILE);
             event.insertAfter(Items.BAMBOO.getDefaultInstance(), AABlocks.RED_BAMBOO.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
-        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+        if (tabKey == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
             event.insertAfter(Items.CANDLE.getDefaultInstance(), AABlocks.WISP_CANDLE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.SOUL_LANTERN.getDefaultInstance(), AAItems.MUD_LAMP.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.PEARLESCENT_FROGLIGHT.getDefaultInstance(), AABlocks.CERULEAN_FROGLIGHT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
@@ -199,24 +261,26 @@ public class AAItems {
             event.insertBefore(Items.SUSPICIOUS_SAND.getDefaultInstance(), AABlocks.SUSPICIOUS_DIRT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
             if (AAModCompats.FARMERSDELIGHT.isLoaded()) {
-                event.accept(AABlocks.ASHROOT_CABINET);
-                event.insertAfter(AABlocks.ASHROOT_CABINET.toStack(), AABlocks.GOURDROT_CABINET.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                event.insertAfter(AABlocks.GOURDROT_CABINET.toStack(), AABlocks.RED_BAMBOO_CABINET.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.accept(FDIntegration.ASHROOT_CABINET);
+                event.insertAfter(FDIntegration.ASHROOT_CABINET.toStack(), FDIntegration.GOURDROT_CABINET.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(FDIntegration.GOURDROT_CABINET.toStack(), FDIntegration.RED_BAMBOO_CABINET.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             }
             if (AAModCompats.NOMANSLAND.isLoaded()) {
-                event.insertAfter(NMLBlocks.MANGROVE_BOOKSHELF.toStack(), AABlocks.ASHROOT_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                event.insertAfter(AABlocks.ASHROOT_BOOKSHELF.toStack(), AABlocks.GOURDROT_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                event.insertAfter(NMLBlocks.BAMBOO_BOOKSHELF.toStack(), AABlocks.RED_BAMBOO_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(NMLBlocks.MANGROVE_BOOKSHELF.toStack(), NMLIntegration.ASHROOT_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(NMLIntegration.ASHROOT_BOOKSHELF.toStack(), NMLIntegration.GOURDROT_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(NMLBlocks.BAMBOO_BOOKSHELF.toStack(), NMLIntegration.RED_BAMBOO_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             }
         }
-        if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
+        if (tabKey == CreativeModeTabs.FOOD_AND_DRINKS) {
             event.insertBefore(Items.PUMPKIN_PIE.getDefaultInstance(), AAItems.ROASTED_GOURDNUT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AAItems.ROASTED_GOURDNUT.toStack(), AAItems.SQUASHBERRY_JAM.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AAItems.SQUASHBERRY_JAM.toStack(), AAItems.SQUASHBERRY_BREAD.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.POISONOUS_POTATO.getDefaultInstance(), AAItems.PUFFBALL_SLICE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AAItems.PUFFBALL_SLICE.toStack(), AAItems.PUFFBALL_CUTLET.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AAItems.PUFFBALL_CUTLET.toStack(), AAItems.SWAMP_SCRAN.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.TROPICAL_FISH.getDefaultInstance(), AAItems.COOKED_TROPICAL_FISH.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
-        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+        if (tabKey == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.insertAfter(Items.MANGROVE_CHEST_BOAT.getDefaultInstance(), AAItems.ASHROOT_BOAT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AAItems.ASHROOT_BOAT.toStack(), AAItems.ASHROOT_CHEST_BOAT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AAItems.ASHROOT_CHEST_BOAT.toStack(), AAItems.GOURDROT_BOAT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
@@ -224,19 +288,15 @@ public class AAItems {
             event.insertAfter(Items.BAMBOO_CHEST_RAFT.getDefaultInstance(), AAItems.RED_BAMBOO_RAFT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AAItems.RED_BAMBOO_RAFT.toStack(), AAItems.RED_BAMBOO_CHEST_RAFT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+        if (tabKey == CreativeModeTabs.INGREDIENTS) {
         }
-        if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
+        if (tabKey == CreativeModeTabs.REDSTONE_BLOCKS) {
             event.insertAfter(Items.CHEST.getDefaultInstance(), AABlocks.STONE_CHEST.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.TRAPPED_CHEST.getDefaultInstance(), AABlocks.TRAPPED_STONE_CHEST.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(Items.OAK_DOOR.getDefaultInstance(), AABlocks.STONE_DOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(Items.OAK_TRAPDOOR.getDefaultInstance(), AABlocks.STONE_TRAPDOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
-        if (AAModCompats.NOMANSLAND.isLoaded() && event.getTabKey() == NMLCreativeTabs.NO_MANS_TAB.getKey()) {
-            event.insertAfter(NMLBlocks.TRIMMED_MANGROVE_PLANKS.toStack(), AABlocks.TRIMMED_ASHROOT_PLANKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.TRIMMED_ASHROOT_PLANKS.toStack(), AABlocks.ASHROOT_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.ASHROOT_BOOKSHELF.toStack(), AABlocks.TRIMMED_GOURDROT_PLANKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.TRIMMED_GOURDROT_PLANKS.toStack(), AABlocks.GOURDROT_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(NMLBlocks.TRIMMED_BAMBOO_PLANKS.toStack(), AABlocks.RED_BAMBOO_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.RED_BAMBOO_BOOKSHELF.toStack(), AABlocks.TRIMMED_RED_BAMBOO_PLANKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+        if (tabKey == CreativeModeTabs.TOOLS_AND_UTILITIES){
+            event.insertAfter(Items.TADPOLE_BUCKET.getDefaultInstance(), AAItems.FROG_BUCKET.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
     }
 }

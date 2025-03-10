@@ -1,0 +1,26 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "nomansland"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "trimmed_planks",
+  "key": {
+    "#": {
+      "item": "abundant_atmosphere:red_bamboo_planks"
+    }
+  },
+  "pattern": [
+    " # ",
+    " # ",
+    " # "
+  ],
+  "result": {
+    "count": 3,
+    "id": "abundant_atmosphere:trimmed_red_bamboo_planks"
+  },
+  "show_notification": true
+}

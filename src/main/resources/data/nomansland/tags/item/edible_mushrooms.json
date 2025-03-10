@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "abundant_atmosphere:large_puffball_mushroom",
+    {
+      "id": "abundant_atmosphere:puffball_slice",
+      "required": false
+    }
+  ]
+}

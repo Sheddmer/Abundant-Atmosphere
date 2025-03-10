@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "abundant_atmosphere:block/bb/gourdrot_seat",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "abundant_atmosphere:block/bb/gourdrot_seat"
+    },
+    "facing=south": {
+      "model": "abundant_atmosphere:block/bb/gourdrot_seat",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "abundant_atmosphere:block/bb/gourdrot_seat",
+      "y": 270
+    }
+  }
+}

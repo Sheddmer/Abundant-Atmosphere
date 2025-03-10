@@ -1,0 +1,7 @@
+{
+  "parent": "blockbox:block/template_seat",
+  "textures": {
+    "side": "abundant_atmosphere:block/bb/gourdrot_seat_side",
+    "top": "abundant_atmosphere:block/bb/gourdrot_seat_top"
+  }
+}

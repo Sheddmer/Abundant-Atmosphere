@@ -1,27 +1,39 @@
 {
   "variants": {
-    "candles=1,lit=false": {
+    "candles=1,ignitable=false,lit=false": {
       "model": "abundant_atmosphere:block/wisp_candle_one_candle"
     },
-    "candles=1,lit=true": {
+    "candles=1,ignitable=true,lit=false": {
+      "model": "abundant_atmosphere:block/wisp_candle_one_candle_ignitable"
+    },
+    "candles=1,ignitable=false,lit=true": {
       "model": "abundant_atmosphere:block/wisp_candle_one_candle_lit"
     },
-    "candles=2,lit=false": {
+    "candles=2,ignitable=false,lit=false": {
       "model": "abundant_atmosphere:block/wisp_candle_two_candles"
     },
-    "candles=2,lit=true": {
+    "candles=2,ignitable=true,lit=false": {
+      "model": "abundant_atmosphere:block/wisp_candle_two_candles_ignitable"
+    },
+    "candles=2,ignitable=false,lit=true": {
       "model": "abundant_atmosphere:block/wisp_candle_two_candles_lit"
     },
-    "candles=3,lit=false": {
+    "candles=3,ignitable=false,lit=false": {
       "model": "abundant_atmosphere:block/wisp_candle_three_candles"
     },
-    "candles=3,lit=true": {
+    "candles=3,ignitable=true,lit=false": {
+      "model": "abundant_atmosphere:block/wisp_candle_three_candles_ignitable"
+    },
+    "candles=3,ignitable=false,lit=true": {
       "model": "abundant_atmosphere:block/wisp_candle_three_candles_lit"
     },
-    "candles=4,lit=false": {
+    "candles=4,ignitable=false,lit=false": {
       "model": "abundant_atmosphere:block/wisp_candle_four_candles"
     },
-    "candles=4,lit=true": {
+    "candles=4,ignitable=true,lit=false": {
+      "model": "abundant_atmosphere:block/wisp_candle_four_candles_ignitable"
+    },
+    "candles=4,ignitable=false,lit=true": {
       "model": "abundant_atmosphere:block/wisp_candle_four_candles_lit"
     }
   }

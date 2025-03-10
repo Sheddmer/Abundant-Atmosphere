@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "abundant_atmosphere:block/blacksalt_tile_slab"
+    },
+    "type=double": {
+      "model": "abundant_atmosphere:block/blacksalt_tiles"
+    },
+    "type=top": {
+      "model": "abundant_atmosphere:block/blacksalt_tile_slab_top"
+    }
+  }
+}

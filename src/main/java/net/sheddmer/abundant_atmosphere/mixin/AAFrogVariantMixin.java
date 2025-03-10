@@ -30,9 +30,9 @@ public abstract class AAFrogVariantMixin extends Animal {
     @Inject(at = @At("TAIL"), method = "finalizeSpawn")
     private void finalizeSpawn(ServerLevelAccessor accessor, DifficultyInstance instance, MobSpawnType type, SpawnGroupData data, CallbackInfoReturnable<SpawnGroupData> cir) {
         Holder<Biome> holder = accessor.getBiome(this.blockPosition());
-        if (holder.is(AATags.SPAWNS_TROPICAL_VARIANT_FROGS)) {
+        if (holder.is(AATags.SPAWNS_TROPICAL_FROGS)) {
             setVariant(AAFrogVariants.TROPICAL);
-        } else if (holder.is(AATags.SPAWNS_BUDGETT_VARIANT_FROGS)) {
+        } else if (holder.is(AATags.SPAWNS_BUDGETT_FROGS)) {
             setVariant(AAFrogVariants.BUDGETT);
         }
     }

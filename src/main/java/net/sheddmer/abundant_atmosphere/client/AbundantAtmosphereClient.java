@@ -33,8 +33,6 @@ public class AbundantAtmosphereClient {
 
     @SubscribeEvent
     public static void registerBlockEntities(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerBlockEntityRenderer(AABlockEntityTypes.AA_SIGN.get(), SignRenderer::new);
-        event.registerBlockEntityRenderer(AABlockEntityTypes.AA_HANGING_SIGN.get(), HangingSignRenderer::new);
 
         event.registerBlockEntityRenderer(AABlockEntityTypes.STONE_CHEST.get(), StoneChestRenderer::new);
     }

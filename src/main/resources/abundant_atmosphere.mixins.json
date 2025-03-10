@@ -5,9 +5,14 @@
   "minVersion": "0.8",
   "refmap": "abundant_atmosphere.refmap.json",
   "mixins": [
+    "AABushBlockMixin",
+    "AAFrogBucketMixin",
     "AAFrogVariantMixin",
-    "AALilypadMixin",
-    "AAThrownPotionMixin"
+    "AALilypadRotationMixin",
+    "AAMangroveRootsRotationMixin",
+    "AASaplingBlockMixin",
+    "AAThrownPotionMixin",
+    "PotionItemMudMixin"
   ],
   "client": [
   ],

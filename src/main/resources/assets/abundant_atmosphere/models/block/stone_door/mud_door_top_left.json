@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left",
+  "textures": {
+    "bottom": "abundant_atmosphere:block/stone_door/mud_door_bottom",
+    "top": "abundant_atmosphere:block/stone_door/mud_door_top"
+  }
+}
