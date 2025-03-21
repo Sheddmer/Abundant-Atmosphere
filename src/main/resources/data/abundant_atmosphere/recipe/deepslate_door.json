@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "stone_door",
+  "key": {
+    "#": {
+      "item": "minecraft:polished_deepslate_slab"
+    }
+  },
+  "pattern": [
+    "##",
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "id": "abundant_atmosphere:deepslate_door"
+  }
+}

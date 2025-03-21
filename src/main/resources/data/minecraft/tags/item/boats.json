@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "abundant_atmosphere:ashroot_boat",
+    "abundant_atmosphere:ashroot_chest_boat",
+    "abundant_atmosphere:gourdrot_boat",
+    "abundant_atmosphere:gourdrot_chest_boat",
+    "abundant_atmosphere:red_bamboo_raft",
+    "abundant_atmosphere:red_bamboo_chest_raft"
+  ]
+}

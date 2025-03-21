@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "mossy_mud_bricks",
+  "ingredients": [
+    {
+      "item": "minecraft:mud_bricks"
+    },
+    {
+      "item": "minecraft:vine"
+    }
+  ],
+  "result": {
+    "id": "abundant_atmosphere:mossy_mud_bricks",
+    "count": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "abundant_atmosphere:nether_brick_door"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "id": "minecraft:nether_bricks"
+      }
+    }
+  ],
+  "tool": {
+    "type": "farmersdelight:item_ability",
+    "action": "pickaxe_dig"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "blockbox"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "bb_palisades",
+  "ingredients": [
+    {
+      "item": "abundant_atmosphere:stripped_spiked_ashroot_palisade"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "abundant_atmosphere:stripped_ashroot_palisade"
+  }
+}

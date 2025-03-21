@@ -1,0 +1,24 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "blockbox"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "bb_palisades",
+  "key": {
+    "#": {
+      "item": "abundant_atmosphere:stripped_gourdrot_log"
+    }
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 12,
+    "id": "abundant_atmosphere:stripped_gourdrot_palisade"
+  }
+}

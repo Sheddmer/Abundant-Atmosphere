@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "abundant_atmosphere:ashroot_palisade",
+    "abundant_atmosphere:stripped_ashroot_palisade",
+    "abundant_atmosphere:gourdrot_palisade",
+    "abundant_atmosphere:stripped_gourdrot_palisade"
+  ]
+}

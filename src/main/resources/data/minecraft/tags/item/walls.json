@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "abundant_atmosphere:polished_calcite_wall",
+    "abundant_atmosphere:calcite_tile_wall",
+    "abundant_atmosphere:polished_dripstone_wall",
+    "abundant_atmosphere:dripstone_tile_wall",
+    "abundant_atmosphere:dripstone_shingle_wall",
+    "abundant_atmosphere:shuffled_brick_wall",
+    "abundant_atmosphere:mossy_shuffled_brick_wall",
+    "abundant_atmosphere:polished_dowsite_wall",
+    "abundant_atmosphere:mossy_cobbled_deepslate_wall",
+    "abundant_atmosphere:mossy_polished_deepslate_wall",
+    "abundant_atmosphere:mossy_deepslate_brick_wall",
+    "abundant_atmosphere:mossy_deepslate_tile_wall",
+    "abundant_atmosphere:mossy_mud_brick_wall",
+    "abundant_atmosphere:stone_wall",
+    "abundant_atmosphere:mossy_stone_wall"
+  ]
+}

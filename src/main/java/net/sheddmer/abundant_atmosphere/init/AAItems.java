@@ -1,8 +1,5 @@
 package net.sheddmer.abundant_atmosphere.init;
 
-import com.farcr.nomansland.common.registry.blocks.NMLBlocks;
-import com.farcr.nomansland.common.registry.items.NMLCreativeTabs;
-import com.farcr.nomansland.common.registry.items.NMLItems;
 import com.google.common.collect.Sets;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
@@ -20,6 +17,7 @@ import net.sheddmer.abundant_atmosphere.common.entity.AABoatEntity;
 import net.sheddmer.abundant_atmosphere.common.item.AABoatItem;
 import net.sheddmer.abundant_atmosphere.common.item.FungusSporeItem;
 import net.sheddmer.abundant_atmosphere.integration.AAModCompats;
+import net.sheddmer.abundant_atmosphere.integration.BBIntegration;
 import net.sheddmer.abundant_atmosphere.integration.FDIntegration;
 import net.sheddmer.abundant_atmosphere.integration.NMLIntegration;
 
@@ -57,9 +55,6 @@ public class AAItems {
     public static final DeferredItem<Item> SQUASHBERRY_BREAD = registerItem("squashberry_bread", () -> new Item(new Item.Properties().food(AAFoods.SQUASHBERRY_BREAD)));
 
     // Farmer's Delight items
-    public static final DeferredItem<Item> PUFFBALL_SLICE = registerItem("puffball_slice", AAModCompats.FARMERSDELIGHT.isLoaded() ? () -> new Item(new Item.Properties().food(AAFoods.PUFFBALL_SLICE)) : null);
-    public static final DeferredItem<Item> PUFFBALL_CUTLET = registerItem("puffball_cutlet", AAModCompats.FARMERSDELIGHT.isLoaded() ? () -> new Item(new Item.Properties().food(AAFoods.PUFFBALL_CUTLET)) : null);
-    public static final DeferredItem<Item> SWAMP_SCRAN = registerItem("swamp_scran", AAModCompats.FARMERSDELIGHT.isLoaded() && AAModCompats.NOMANSLAND.isLoaded() ? () -> new Item(new Item.Properties().food(AAFoods.SWAMP_SCRAN).stacksTo(16)) : null);
 
     @SuppressWarnings("unchecked")
     public static <T extends Item> DeferredItem<T> registerItem(String name, Supplier<? extends Item> item) {
@@ -207,6 +202,16 @@ public class AAItems {
                 event.insertAfter(AABlocks.RED_BAMBOO_MOSAIC_SLAB.toStack(), NMLIntegration.RED_BAMBOO_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 event.insertAfter(NMLIntegration.RED_BAMBOO_BOOKSHELF.toStack(), NMLIntegration.TRIMMED_RED_BAMBOO_PLANKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             }
+            if (AAModCompats.BLOCKBOX.isLoaded()) {
+                event.insertAfter(AABlocks.ASHROOT_BUTTON.toStack(), BBIntegration.ASHROOT_PALISADE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(BBIntegration.ASHROOT_PALISADE.toStack(), BBIntegration.SPIKED_ASHROOT_PALISADE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(BBIntegration.SPIKED_ASHROOT_PALISADE.toStack(), BBIntegration.STRIPPED_ASHROOT_PALISADE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(BBIntegration.STRIPPED_ASHROOT_PALISADE.toStack(), BBIntegration.STRIPPED_SPIKED_ASHROOT_PALISADE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(AABlocks.GOURDROT_BUTTON.toStack(), BBIntegration.GOURDROT_PALISADE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(BBIntegration.GOURDROT_PALISADE.toStack(), BBIntegration.SPIKED_GOURDROT_PALISADE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(BBIntegration.SPIKED_GOURDROT_PALISADE.toStack(), BBIntegration.STRIPPED_GOURDROT_PALISADE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(BBIntegration.STRIPPED_GOURDROT_PALISADE.toStack(), BBIntegration.STRIPPED_SPIKED_GOURDROT_PALISADE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            }
         }
         if (tabKey == CreativeModeTabs.NATURAL_BLOCKS) {
             // general natural blocks
@@ -265,20 +270,19 @@ public class AAItems {
                 event.insertAfter(FDIntegration.ASHROOT_CABINET.toStack(), FDIntegration.GOURDROT_CABINET.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 event.insertAfter(FDIntegration.GOURDROT_CABINET.toStack(), FDIntegration.RED_BAMBOO_CABINET.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             }
-            if (AAModCompats.NOMANSLAND.isLoaded()) {
-                event.insertAfter(NMLBlocks.MANGROVE_BOOKSHELF.toStack(), NMLIntegration.ASHROOT_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                event.insertAfter(NMLIntegration.ASHROOT_BOOKSHELF.toStack(), NMLIntegration.GOURDROT_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                event.insertAfter(NMLBlocks.BAMBOO_BOOKSHELF.toStack(), NMLIntegration.RED_BAMBOO_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            }
+
         }
         if (tabKey == CreativeModeTabs.FOOD_AND_DRINKS) {
             event.insertBefore(Items.PUMPKIN_PIE.getDefaultInstance(), AAItems.ROASTED_GOURDNUT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AAItems.ROASTED_GOURDNUT.toStack(), AAItems.SQUASHBERRY_JAM.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AAItems.SQUASHBERRY_JAM.toStack(), AAItems.SQUASHBERRY_BREAD.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.POISONOUS_POTATO.getDefaultInstance(), AAItems.PUFFBALL_SLICE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AAItems.PUFFBALL_SLICE.toStack(), AAItems.PUFFBALL_CUTLET.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AAItems.PUFFBALL_CUTLET.toStack(), AAItems.SWAMP_SCRAN.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.TROPICAL_FISH.getDefaultInstance(), AAItems.COOKED_TROPICAL_FISH.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+
+            if (AAModCompats.FARMERSDELIGHT.isLoaded()) {
+                event.insertAfter(Items.POISONOUS_POTATO.getDefaultInstance(), FDIntegration.PUFFBALL_SLICE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(FDIntegration.PUFFBALL_SLICE.toStack(), FDIntegration.PUFFBALL_CUTLET.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            }
+            if (AAModCompats.FARMERSDELIGHT.isLoaded() && AAModCompats.NOMANSLAND.isLoaded()) event.insertAfter(FDIntegration.PUFFBALL_CUTLET.toStack(), NMLIntegration.SWAMP_SCRAN.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
         if (tabKey == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.insertAfter(Items.MANGROVE_CHEST_BOAT.getDefaultInstance(), AAItems.ASHROOT_BOAT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);

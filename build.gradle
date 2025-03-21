@@ -91,27 +91,21 @@ repositories {
 dependencies {
 
     implementation "com.terraformersmc:biolith-neoforge:$bt_version"
-    jarJar(implementation("com.moulberry:mixinconstraints:1.0.7") {
-        exclude group: "org.slf4j",
-                module: "slf4j-api"
-    }
-    )
-
-    implementation "maven.modrinth:farmers-delight:1.21.1-1.2.4a"
+    implementation "maven.modrinth:farmers-delight:1.21.1-1.2.7"
     implementation "maven.modrinth:the-block-box:0.1.1"
-    implementation "maven.modrinth:create:1.21.1-6.0.2"
-    implementation "com.farcr:nomansland:0.1.3-beta"
+    implementation "maven.modrinth:create:1.21.1-6.0.3"
+    implementation "maven.modrinth:no-mans-land:1.0.3"
 
     compileOnly "mezz.jei:jei-$minecraft_version-common-api:$jei_version"
     compileOnly "mezz.jei:jei-$minecraft_version-neoforge-api:$jei_version"
     localRuntime "mezz.jei:jei-$minecraft_version-neoforge:$jei_version"
 
-    localRuntime "maven.modrinth:xaeros-world-map:1.38.9_NeoForge_1.21"
     localRuntime "maven.modrinth:appleskin:3.0.5+mc1.21"
     localRuntime "maven.modrinth:sodium:mc1.21.1-0.6.9-neoforge"
     localRuntime "maven.modrinth:nbt-autocomplete:McjFDyOt"
+    localRuntime "maven.modrinth:supplementaries:neoforge_1.21-3.0.43-beta"
+    localRuntime "maven.modrinth:moonlight:neoforge_1.21-2.17.36"
     localRuntime "maven.modrinth:cyanide:v4LiMGGH"
-    localRuntime "maven.modrinth:moonlight:neoforge_1.21-2.17.32"
     localRuntime "me.djtheredstoner:DevAuth-neoforge:1.2.1"
 }
 

@@ -16,7 +16,6 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 import net.sheddmer.abundant_atmosphere.common.block.*;
-import net.sheddmer.abundant_atmosphere.integration.AAModCompats;
 
 import java.util.LinkedHashSet;
 import java.util.function.Supplier;
@@ -159,8 +158,6 @@ public class AABlocks {
     public static final DeferredBlock<Block> BLACKSTONE_PATTERNED_VASE = registerBlock("blackstone_patterned_vase", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
     public static final DeferredBlock<Block> MUD_VASE = registerBlock("mud_vase", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
     public static final DeferredBlock<Block> MUD_PATTERNED_VASE = registerBlock("mud_patterned_vase", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
-    public static final DeferredBlock<Block> SILT_VASE = registerBlock("silt_vase", AAModCompats.NOMANSLAND.isLoaded() ? () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)) : null);
-    public static final DeferredBlock<Block> SILT_PATTERNED_VASE = registerBlock("silt_patterned_vase", AAModCompats.NOMANSLAND.isLoaded() ? () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)) : null);
 
     // Ashroot Woodset
     public static final DeferredBlock<Block> ASHROOT_LOG = registerBlock("ashroot_log", () ->  new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(2.0f, 2.0f).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).ignitedByLava()));

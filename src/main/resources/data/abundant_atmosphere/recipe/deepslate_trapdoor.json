@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "stone_trapdoor",
+  "key": {
+    "#": {
+      "item": "minecraft:polished_deepslate_slab"
+    }
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 2,
+    "id": "abundant_atmosphere:deepslate_trapdoor"
+  }
+}

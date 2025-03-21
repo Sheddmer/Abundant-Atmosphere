@@ -1,0 +1,27 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "blockbox"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "bb_chairs",
+  "key": {
+    "#": {
+      "item": "abundant_atmosphere:ashroot_planks"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "###",
+    "/ /"
+  ],
+  "result": {
+    "count": 1,
+    "id": "abundant_atmosphere:ashroot_seat"
+  }
+}

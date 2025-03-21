@@ -8,20 +8,18 @@
   "type": "farmersdelight:cutting",
   "ingredients": [
     {
-      "item": "abundant_atmosphere:ashroot_log"
+      "item": "abundant_atmosphere:red_bamboo_block"
     }
   ],
   "result": [
     {
       "item": {
-        "count": 1,
-        "id": "abundant_atmosphere:stripped_ashroot_log"
+        "id": "abundant_atmosphere:stripped_red_bamboo_block"
       }
     },
     {
       "item": {
-        "count": 1,
-        "id": "farmersdelight:tree_bark"
+        "id": "farmersdelight:straw"
       }
     }
   ],

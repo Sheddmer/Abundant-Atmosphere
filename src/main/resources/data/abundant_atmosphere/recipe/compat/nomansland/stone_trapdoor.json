@@ -1,0 +1,24 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "nomansland"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "stone_trapdoor",
+  "key": {
+    "#": {
+      "item": "nomansland:polished_stone_slab"
+    }
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 2,
+    "id": "abundant_atmosphere:stone_trapdoor"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "abundant_atmosphere:rust_moss_carpet",
+    "abundant_atmosphere:midnight_lily",
+    "abundant_atmosphere:moss_clump",
+    "abundant_atmosphere:rust_moss_clump",
+    "abundant_atmosphere:puffball_mushroom",
+    "abundant_atmosphere:leaf_pile"
+  ]
+}

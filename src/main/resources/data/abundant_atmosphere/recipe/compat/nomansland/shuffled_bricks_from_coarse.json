@@ -1,0 +1,27 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "nomansland"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "shuffled_bricks",
+  "key": {
+    "B": {
+      "item": "minecraft:bricks"
+    },
+    "N": {
+      "item": "nomansland:coarse_bricks"
+    }
+  },
+  "pattern": [
+    "BN",
+    "NB"
+  ],
+  "result": {
+    "count": 4,
+    "id": "abundant_atmosphere:shuffled_bricks"
+  }
+}
