@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "B": {
+      "item": "minecraft:granite"
+    },
+    "A": {
+      "item": "minecraft:dripstone_block"
+    }
+  },
+  "pattern": [
+    "BA",
+    "AB"
+  ],
+  "result": {
+    "count": 4,
+    "id": "abundant_atmosphere:dowsite"
+  }
+}

@@ -16,6 +16,7 @@ import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 import net.sheddmer.abundant_atmosphere.client.renderer.AABoatRenderer;
 import net.sheddmer.abundant_atmosphere.client.renderer.StoneChestRenderer;
+import net.sheddmer.abundant_atmosphere.common.particle.DriedLeafParticle;
 import net.sheddmer.abundant_atmosphere.common.particle.FireflyParticle;
 import net.sheddmer.abundant_atmosphere.common.particle.WispFlameParticle;
 import net.sheddmer.abundant_atmosphere.init.AABlockEntityTypes;
@@ -55,6 +56,7 @@ public class AbundantAtmosphereClient {
     public static void registerParticles(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(AAParticleTypes.FIREFLY.get(), FireflyParticle.Provider::new);
         event.registerSpriteSet(AAParticleTypes.WISP_FLAME.get(), WispFlameParticle.Provider::new);
+        event.registerSpriteSet(AAParticleTypes.DRIED_LEAF.get(), DriedLeafParticle.Provider::new);
     }
 
 }

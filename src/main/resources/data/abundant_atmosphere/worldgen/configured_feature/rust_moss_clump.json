@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:multiface_growth",
+  "config": {
+    "block": "abundant_atmosphere:rust_moss_clump",
+    "can_be_placed_on": [
+      "minecraft:stone",
+      "minecraft:andesite",
+      "minecraft:diorite",
+      "minecraft:granite",
+      "minecraft:dripstone_block",
+      "minecraft:calcite",
+      "minecraft:tuff",
+      "minecraft:deepslate",
+      "minecraft:dirt",
+      "minecraft:grass_block",
+      "minecraft:podzol",
+      "minecraft:coarse_dirt",
+      "minecraft:mycelium",
+      "minecraft:rooted_dirt",
+      "minecraft:moss_block",
+      "minecraft:mud",
+      "minecraft:muddy_mangrove_roots",
+      "abundant_atmosphere:cave_crud",
+      "abundant_atmosphere:damp_mud",
+      "abundant_atmosphere:wet_mud",
+      "abundant_atmosphere:rust_moss_block",
+      "abundant_atmosphere:suspicious_dirt"
+    ],
+    "can_place_on_ceiling": true,
+    "can_place_on_floor": true,
+    "can_place_on_wall": true,
+    "chance_of_spreading": 1.2,
+    "search_range": 8
+  }
+}

@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "abundant_atmosphere:ashroot_wood"
+          "name": "abundant_atmosphere:stripped_red_bamboo_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "abundant_atmosphere:blocks/ashroot_wood"
+  "random_sequence": "abundant_atmosphere:blocks/stripped_red_bamboo_block"
 }

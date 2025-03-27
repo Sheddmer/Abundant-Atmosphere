@@ -1,0 +1,16 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "nomansland"
+    }
+  ],
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "nomansland:polished_stone"
+  },
+  "result": {
+    "count": 1,
+    "id": "abundant_atmosphere:stone_trapdoor"
+  }
+}

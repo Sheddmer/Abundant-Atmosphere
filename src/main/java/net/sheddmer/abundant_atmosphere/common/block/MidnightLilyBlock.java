@@ -3,10 +3,13 @@ package net.sheddmer.abundant_atmosphere.common.block;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -21,6 +24,8 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
 import net.sheddmer.abundant_atmosphere.init.AAParticleTypes;
 import net.sheddmer.abundant_atmosphere.init.AAProperties;
 
@@ -53,6 +58,15 @@ public class MidnightLilyBlock extends BushBlock implements BonemealableBlock {
         if (!state.getValue(PERSISTENT) && state.getValue(NIGHTLIGHT) != night) {
             level.setBlock(pos, state.setValue(NIGHTLIGHT, night), 2);
         }
+    }
+
+    @Override
+    public BlockState getToolModifiedState(BlockState state, UseOnContext context, ItemAbility itemAbility, boolean simulate) {
+        if (itemAbility == ItemAbilities.SHEARS_TRIM && !state.getValue(PERSISTENT)) {
+            if (state.getValue(NIGHTLIGHT)) state.setValue(NIGHTLIGHT, false);
+            return state.setValue(PERSISTENT, true);
+        }
+        return null;
     }
 
     @Override

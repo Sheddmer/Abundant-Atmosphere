@@ -1,0 +1,28 @@
+{
+  "values": {
+    "#abundant_atmosphere:red_bamboo_blocks": {
+      "burn_time": 300
+    },
+    "abundant_atmosphere:red_bamboo": {
+      "burn_time": 100
+    },
+    "abundant_atmosphere:red_bamboo_mosaic": {
+      "burn_time": 300
+    },
+    "abundant_atmosphere:red_bamboo_mosaic_slab": {
+      "burn_time": 150
+    },
+    "abundant_atmosphere:red_bamboo_mosaic_stairs": {
+      "burn_time": 300
+    },
+    "abundant_atmosphere:rust_moss_block": {
+      "burn_time": 150
+    },
+    "abundant_atmosphere:rust_moss_carpet": {
+      "burn_time": 75
+    },
+    "abundant_atmosphere:rust_moss_clump": {
+      "burn_time": 50
+    }
+  }
+}

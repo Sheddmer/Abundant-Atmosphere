@@ -32,12 +32,16 @@
   "block.abundant_atmosphere.mossy_shuffled_brick_slab": "Mossy Shuffled Brick Slab",
   "block.abundant_atmosphere.mossy_shuffled_brick_wall": "Mossy Shuffled Brick Wall",
 
+  "block.abundant_atmosphere.potted_ashroot_sapling": "Potted Ashroot Sapling",
+  "block.abundant_atmosphere.potted_gourdnut": "Potted Gourdnut",
+  "block.abundant_atmosphere.potted_red_bamboo": "Potted Red Bamboo",
+  "block.abundant_atmosphere.potted_midnight_lily": "Potted Midnight Lily",
+  "block.abundant_atmosphere.potted_saffron_bushbuds": "Potted Saffron Bushbuds",
+  "block.abundant_atmosphere.potted_cherry_bushbuds": "Potted Cherry Bushbuds",
+  "block.abundant_atmosphere.potted_umbra_bushbuds": "Potted Umbra Bushbuds",
+
   "block.abundant_atmosphere.cave_crud": "Cave Crud",
   "block.abundant_atmosphere.dowsite": "Dowsite",
-  "block.abundant_atmosphere.polished_dowsite": "Polished Dowsite",
-  "block.abundant_atmosphere.polished_dowsite_stairs": "Polished Dowsite Stairs",
-  "block.abundant_atmosphere.polished_dowsite_slab": "Polished Dowsite Slab",
-  "block.abundant_atmosphere.polished_dowsite_wall": "Polished Dowsite Wall",
   "block.abundant_atmosphere.midnight_lily": "Midnight Lily",
   "block.abundant_atmosphere.wisp_candle": "Wisp Candle",
   "block.abundant_atmosphere.mud_lamp": "Mud Lamp",
@@ -163,8 +167,8 @@
   "item.abundant_atmosphere.frog_bucket": "Bucket of Frog",
 
   "block.abundant_atmosphere.red_bamboo": "Red Bamboo",
-  "block.abundant_atmosphere.red_bamboo_block": "Red Bamboo Block",
-  "block.abundant_atmosphere.stripped_red_bamboo_block": "Stripped Red Bamboo Block",
+  "block.abundant_atmosphere.red_bamboo_block": "Block of Red Bamboo",
+  "block.abundant_atmosphere.stripped_red_bamboo_block": "Block of Stripped Red Bamboo",
   "block.abundant_atmosphere.red_bamboo_planks": "Red Bamboo Planks",
   "block.abundant_atmosphere.red_bamboo_stairs": "Red Bamboo Stairs",
   "block.abundant_atmosphere.red_bamboo_slab": "Red Bamboo Slab",
@@ -214,12 +218,12 @@
   "subtitles.abundant_atmosphere.brazier_crackles": "Brazier crackles",
   "subtitles.abundant_atmosphere.mud_lamp_ambient": "Mud Lamp crackles",
   "subtitles.abundant_atmosphere.dusting_lapis": "Dusting Lapis Lazuli",
-  "subtitles.abundant_atmosphere.wisp_candle_activates": "Wisp Candle Activates",
+  "subtitles.abundant_atmosphere.wisp_candle_activates": "Wisp Candle activates",
 
   "effect.abundant_atmosphere.wisp_guard": "Wisp Guard",
 
   "biome.abundant_atmosphere.amber_caverns": "Amber Caverns",
-  "biome.abundant_atmosphere.basalt_hotsprings": "Basalt Hotsprings",
+  "biome.abundant_atmosphere.basalt_hot_springs": "Basalt Hot Springs",
 
   "itemGroup.abundant_atmosphere": "Abundant Atmosphere",
 

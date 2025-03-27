@@ -75,8 +75,7 @@ public class PuffballMushroomBlock extends Block implements BonemealableBlock {
         int i = state.getValue(AGE) + this.getBonemealAgeIncrease(level);
         int j = this.isMaxBonemeal();
         if (i > j) {
-            i = j;
-            level.setBlockAndUpdate(pos, AABlocks.LARGE_PUFFBALL_MUSHROOM.get().defaultBlockState());
+            level.setBlock(pos, AABlocks.LARGE_PUFFBALL_MUSHROOM.get().defaultBlockState(), 2);
         }
 
         level.setBlock(pos, state.setValue(AGE, i), 2);

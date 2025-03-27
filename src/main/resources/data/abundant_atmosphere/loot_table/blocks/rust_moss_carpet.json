@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "abundant_atmosphere:rust_moss_block"
+          "name": "abundant_atmosphere:rust_moss_carpet"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "abundant_atmosphere:blocks/rust_moss_block"
+  "random_sequence": "abundant_atmosphere:blocks/rust_moss_carpet"
 }

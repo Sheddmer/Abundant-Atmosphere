@@ -3,7 +3,7 @@
 	"textures": {
 		"top": "abundant_atmosphere:block/leaf_pile",
 		"bottom": "abundant_atmosphere:block/leaf_pile_under",
-		"particle": "#top"
+		"particle": "abundant_atmosphere:block/leaf_pile_particle"
 	},
 	"elements": [
 		{

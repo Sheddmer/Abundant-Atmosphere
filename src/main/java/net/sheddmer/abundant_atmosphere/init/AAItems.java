@@ -16,10 +16,10 @@ import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 import net.sheddmer.abundant_atmosphere.common.entity.AABoatEntity;
 import net.sheddmer.abundant_atmosphere.common.item.AABoatItem;
 import net.sheddmer.abundant_atmosphere.common.item.FungusSporeItem;
-import net.sheddmer.abundant_atmosphere.integration.AAModCompats;
-import net.sheddmer.abundant_atmosphere.integration.BBIntegration;
-import net.sheddmer.abundant_atmosphere.integration.FDIntegration;
-import net.sheddmer.abundant_atmosphere.integration.NMLIntegration;
+import net.sheddmer.abundant_atmosphere.common.integration.AAModCompats;
+import net.sheddmer.abundant_atmosphere.common.integration.BBIntegration;
+import net.sheddmer.abundant_atmosphere.common.integration.FDIntegration;
+import net.sheddmer.abundant_atmosphere.common.integration.NMLIntegration;
 
 import java.util.LinkedHashSet;
 import java.util.function.Supplier;
@@ -81,10 +81,6 @@ public class AAItems {
             event.insertAfter(AABlocks.CALCITE_TILE_SLAB.toStack(), AABlocks.CALCITE_TILE_WALL.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             // Dowsite blocks
             event.insertAfter(Items.POLISHED_GRANITE_SLAB.getDefaultInstance(), AABlocks.DOWSITE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.DOWSITE.toStack(), AABlocks.POLISHED_DOWSITE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.POLISHED_DOWSITE.toStack(), AABlocks.POLISHED_DOWSITE_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.POLISHED_DOWSITE_STAIRS.toStack(), AABlocks.POLISHED_DOWSITE_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.POLISHED_DOWSITE_SLAB.toStack(), AABlocks.POLISHED_DOWSITE_WALL.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             // Dripstone blocks
             event.insertAfter(AABlocks.CALCITE_TILE_WALL.toStack(), Items.DRIPSTONE_BLOCK.getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.DRIPSTONE_BLOCK.getDefaultInstance(), AABlocks.POLISHED_DRIPSTONE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);

@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "abundant_atmosphere:block/polished_dripstone",
-    "side": "abundant_atmosphere:block/polished_dripstone",
+    "side": "abundant_atmosphere:block/polished_dripstone_slab",
     "top": "abundant_atmosphere:block/polished_dripstone"
   }
 }

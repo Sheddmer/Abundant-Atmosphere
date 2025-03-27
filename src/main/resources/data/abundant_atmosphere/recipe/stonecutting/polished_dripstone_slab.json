@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "abundant_atmosphere:polished_dripstone"
+  },
+  "result": {
+    "count": 2,
+    "id": "abundant_atmosphere:polished_dripstone_slab"
+  }
+}

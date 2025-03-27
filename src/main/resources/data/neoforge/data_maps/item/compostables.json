@@ -1,0 +1,55 @@
+{
+  "values": {
+    "abundant_atmosphere:ashroot_leaves": {
+      "chance": 0.3
+    },
+    "abundant_atmosphere:ashroot_sapling": {
+      "chance": 0.3
+    },
+    "abundant_atmosphere:gourdrot_leaves": {
+      "chance": 0.3
+    },
+    "abundant_atmosphere:gourdnut": {
+      "chance": 0.5
+    },
+    "abundant_atmosphere:roasted_gourdnut": {
+      "chance": 0.65
+    },
+    "abundant_atmosphere:leaf_pile": {
+      "chance": 0.2
+    },
+    "abundant_atmosphere:rust_moss_block": {
+      "chance": 0.65
+    },
+    "abundant_atmosphere:rust_moss_carpet": {
+      "chance": 0.3
+    },
+    "abundant_atmosphere:rust_moss_clump": {
+      "chance": 0.3
+    },
+    "abundant_atmosphere:moss_clump": {
+      "chance": 0.3
+    },
+    "abundant_atmosphere:midnight_lily": {
+      "chance": 0.65
+    },
+    "abundant_atmosphere:saffron_bushbuds": {
+      "chance": 0.85
+    },
+    "abundant_atmosphere:cherry_bushbuds": {
+      "chance": 0.85
+    },
+    "abundant_atmosphere:umbra_bushbuds": {
+      "chance": 0.85
+    },
+    "abundant_atmosphere:puffball_mushroom": {
+      "chance": 0.65
+    },
+    "abundant_atmosphere:large_puffball_mushroom": {
+      "chance": 0.85
+    },
+    "minecraft:rotten_flesh": {
+      "chance": 0.3
+    }
+  }
+}

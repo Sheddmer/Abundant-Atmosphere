@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "chest_boat",
+  "ingredients": [
+    {
+      "item": "minecraft:chest"
+    },
+    {
+      "item": "abundant_atmosphere:gourdrot_boat"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "abundant_atmosphere:gourdrot_chest_boat"
+  }
+}

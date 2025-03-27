@@ -9,6 +9,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -26,7 +27,10 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
 import net.sheddmer.abundant_atmosphere.init.AASounds;
+import net.sheddmer.abundant_atmosphere.init.AATags;
 
 import javax.annotation.Nullable;
 
@@ -53,7 +57,6 @@ public class StoneBrazierBlock extends Block implements SimpleWaterloggedBlock {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
-
         for (Direction direction : context.getNearestLookingDirections()) {
             if (direction.getAxis() == Direction.Axis.Y) {
                 BlockState blockstate = this.defaultBlockState().setValue(HANGING, Boolean.valueOf(direction == Direction.UP));
@@ -61,6 +64,17 @@ public class StoneBrazierBlock extends Block implements SimpleWaterloggedBlock {
                     return blockstate.setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
                 }
             }
+        }
+        return null;
+    }
+
+    @Override
+    public BlockState getToolModifiedState(BlockState state, UseOnContext context, ItemAbility itemAbility, boolean simulate) {
+        if (itemAbility == ItemAbilities.FIRESTARTER_LIGHT && canLight(state)) {
+            return state.setValue(LIT, true);
+        }
+        if (itemAbility == ItemAbilities.SHOVEL_DOUSE && state.getValue(LIT)) {
+            return state.setValue(LIT, false);
         }
         return null;
     }
@@ -89,11 +103,13 @@ public class StoneBrazierBlock extends Block implements SimpleWaterloggedBlock {
 
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource source) {
-        if (source.nextInt(10) == 0) {
-            level.playLocalSound((double)pos.getX() + 0.5, (double)pos.getY() + 0.5, (double)pos.getZ() + 0.5, AASounds.BRAZIER_CRACKLES.get(), SoundSource.BLOCKS, 0.5F + source.nextFloat(), source.nextFloat() * 0.7F + 0.6F, false);
-        }
-        if (source.nextInt(5) == 0) {
-            level.addParticle(ParticleTypes.LARGE_SMOKE,(double)pos.getX() + Mth.randomBetween(source, 0.25F, 0.75F), (double)pos.getY() + 0.6, (double)pos.getZ() + Mth.randomBetween(source, 0.25F, 0.75F), 0, 0.0F, 0);
+        if (state.getValue(LIT)) {
+            if (source.nextInt(10) == 0) {
+                level.playLocalSound((double) pos.getX() + 0.5, (double) pos.getY() + 0.5, (double) pos.getZ() + 0.5, AASounds.BRAZIER_CRACKLES.get(), SoundSource.BLOCKS, 0.5F + source.nextFloat(), source.nextFloat() * 0.7F + 0.6F, false);
+            }
+            if (source.nextInt(5) == 0) {
+                level.addParticle(ParticleTypes.LARGE_SMOKE, (double) pos.getX() + Mth.randomBetween(source, 0.25F, 0.75F), (double) pos.getY() + 0.6, (double) pos.getZ() + Mth.randomBetween(source, 0.25F, 0.75F), 0, 0.0F, 0);
+            }
         }
     }
 
@@ -109,6 +125,12 @@ public class StoneBrazierBlock extends Block implements SimpleWaterloggedBlock {
     @Override
     protected boolean isPathfindable(BlockState state, PathComputationType type) {
         return false;
+    }
+
+    public static boolean canLight(BlockState state) {
+        return state.is(AATags.STONE_BRAZIERS, stateBase -> stateBase.hasProperty(WATERLOGGED) && stateBase.hasProperty(LIT))
+                && !state.getValue(WATERLOGGED)
+                && !state.getValue(LIT);
     }
 
     @Override

@@ -1,17 +1,24 @@
 package net.sheddmer.abundant_atmosphere;
 
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.event.config.ModConfigEvent;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
-@EventBusSubscriber(modid = AbundantAtmosphere.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class AAConfig {
-    private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
+    public static ModConfigSpec COMMON_CONFIG;
+    public static final String CATEGORY_BIOMES = "biomes";
+    public static ModConfigSpec.BooleanValue BIOMES;
+    public static ModConfigSpec.BooleanValue BASALT_HOT_SPRINGS;
 
-    static final ModConfigSpec SPEC = BUILDER.build();
+    static  {
+        ModConfigSpec.Builder COMMON_BUILDER = new ModConfigSpec.Builder();
+        COMMON_BUILDER.push(CATEGORY_BIOMES);
+        BIOMES = COMMON_BUILDER
+                .comment("If any custom biomes are enabled")
+                .define("biomes", true);
+        BASALT_HOT_SPRINGS = COMMON_BUILDER
+                .comment("If the basalt hot springs is enabled")
+                .define("basalt_hot_springs", true);
+        COMMON_BUILDER.pop();
 
-    @SubscribeEvent
-    static void onLoad(final ModConfigEvent event) {
+        COMMON_CONFIG = COMMON_BUILDER.build();
     }
 }

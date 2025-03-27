@@ -1,0 +1,16 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "nomansland"
+    }
+  ],
+  "type": "neoforge:add_features",
+  "biomes": "abundant_atmosphere:basalt_hot_springs",
+  "features": [
+    "nomansland:flower_patches/flowerbed_jungle",
+    "nomansland:flower_patches/flowerbed_autumnal",
+    "nomansland:pond_swamp"
+  ],
+  "step": "vegetal_decoration"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "abundant_atmosphere:gourdrot_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "abundant_atmosphere:gourdrot_planks"
+  }
+}

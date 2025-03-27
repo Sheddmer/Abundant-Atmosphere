@@ -18,6 +18,7 @@ public class AATags {
     public static final TagKey<Block> MOSSY_BASALT_OVERGROWABLE = registerBlockTag("mossy_basalt_overgrowable");
     public static final TagKey<Block> PLANT_PLACEABLE_ON = registerBlockTag("plant_placeable_on");
     public static final TagKey<Block> SAPLING_GROWS_ON = registerBlockTag("sapling_grows_on");
+    public static final TagKey<Block> STONE_BRAZIERS = registerBlockTag("stone_braziers");
     public static final TagKey<Block> MOSSY_BLOCKS = registerBlockTag("mossy_blocks");
     public static final TagKey<Block> RUST_MOSSY_BLOCKS = registerBlockTag("rust_mossy_blocks");
 

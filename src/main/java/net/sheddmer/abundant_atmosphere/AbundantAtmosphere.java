@@ -1,10 +1,12 @@
 package net.sheddmer.abundant_atmosphere;
 
 import net.sheddmer.abundant_atmosphere.common.entity.frogvariant.AAFrogVariants;
+import net.sheddmer.abundant_atmosphere.common.world.generation.AABiomePlacements;
+import net.sheddmer.abundant_atmosphere.common.world.generation.AASurfaceRules;
 import net.sheddmer.abundant_atmosphere.init.AAFoliagePlacerTypes;
 import net.sheddmer.abundant_atmosphere.init.AATrunkPlacerTypes;
 import net.sheddmer.abundant_atmosphere.init.*;
-import net.sheddmer.abundant_atmosphere.integration.*;
+import net.sheddmer.abundant_atmosphere.common.integration.*;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
@@ -35,6 +37,7 @@ public class AbundantAtmosphere {
         AASounds.SOUND_EVENTS.register(bus);
         AATrunkPlacerTypes.TRUNK_PLACER.register(bus);
         AAFoliagePlacerTypes.FOLIAGE_PLACER.register(bus);
+        AAFeatures.FEATURES.register(bus);
 
         if (AAModCompats.BLOCKBOX.isLoaded()) BBIntegration.register();
         if (AAModCompats.CREATE.isLoaded()) CIntegration.register();
@@ -49,11 +52,22 @@ public class AbundantAtmosphere {
 
         bus.addListener(AAItems::addCreative);
         bus.addListener(AABlockEntityTypes::addBlockEntities);
+        bus.addListener(this::commonSetup);
         NeoForge.EVENT_BUS.register(this);
-        modContainer.registerConfig(ModConfig.Type.COMMON, AAConfig.SPEC);
+        modContainer.registerConfig(ModConfig.Type.COMMON, AAConfig.COMMON_CONFIG);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            if (AAConfig.BIOMES.get()) {
+                AABiomePlacements.register();
+                AASurfaceRules.register();
+            }
+            AAFlammables.register();
+            AAPottables.register();
+        });
+        AABiomePlacements.register();
+        AASurfaceRules.register();
     }
 
     @SubscribeEvent

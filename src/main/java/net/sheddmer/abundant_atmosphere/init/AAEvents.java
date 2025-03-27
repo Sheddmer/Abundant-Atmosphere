@@ -53,19 +53,6 @@ public class AAEvents {
         }
         // Shearing events
         if (stack.canPerformAction(ItemAbilities.SHEARS_TRIM) && !player.isSpectator()) {
-            // Clipping Midnight Lilies
-            if (state.is(AABlocks.MIDNIGHT_LILY) && !state.getValue(MidnightLilyBlock.PERSISTENT)) {
-                level.playSound(player, pos, SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0f, 1.0f);
-                level.setBlockAndUpdate(pos, state.setValue(MidnightLilyBlock.PERSISTENT, true));
-                if (!level.isClientSide && !player.isCreative())
-                    stack.hurtAndBreak(1, player, stack.getEquipmentSlot());
-                if (state.getValue(MidnightLilyBlock.NIGHTLIGHT))
-                    level.setBlockAndUpdate(pos, state.setValue(MidnightLilyBlock.NIGHTLIGHT, false));
-
-                level.gameEvent(player, GameEvent.SHEAR, pos);
-                event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide()));
-                event.setCanceled(true);
-            }
             // Removing moss from Stone blocks
             if (state.is(Blocks.MOSSY_COBBLESTONE) || state.is(Blocks.MOSSY_COBBLESTONE_STAIRS) || state.is(Blocks.MOSSY_COBBLESTONE_SLAB) || state.is(Blocks.MOSSY_COBBLESTONE_WALL) || state.is(Blocks.MOSSY_STONE_BRICKS) || state.is(Blocks.MOSSY_STONE_BRICK_STAIRS) || state.is(Blocks.MOSSY_STONE_BRICK_SLAB) || state.is(Blocks.MOSSY_STONE_BRICK_WALL) || state.is(Blocks.INFESTED_MOSSY_STONE_BRICKS) || state.is(AABlocks.MOSSY_STONE) || state.is(AABlocks.MOSSY_STONE_STAIRS) || state.is(AABlocks.MOSSY_STONE_SLAB) || state.is(AABlocks.MOSSY_STONE_WALL) || state.is(AABlocks.MOSSY_BASALT) || state.is(AABlocks.MOSSY_MUD_BRICKS) || state.is(AABlocks.MOSSY_MUD_BRICK_STAIRS) || state.is(AABlocks.MOSSY_MUD_BRICK_SLAB) || state.is(AABlocks.MOSSY_MUD_BRICK_WALL) || state.is(AABlocks.MOSSY_SHUFFLED_BRICKS) || state.is(AABlocks.MOSSY_SHUFFLED_BRICK_STAIRS) || state.is(AABlocks.MOSSY_SHUFFLED_BRICK_SLAB) || state.is(AABlocks.MOSSY_SHUFFLED_BRICK_WALL)) {
                 level.playSound(player, pos, SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0f, 1.0f);

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "minecraft:coals"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "S": {
+      "tag": "minecraft:stone_crafting_materials"
+    }
+  },
+  "pattern": [
+    "ICI",
+    "SSS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "abundant_atmosphere:stone_brazier"
+  }
+}

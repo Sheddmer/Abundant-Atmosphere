@@ -1,9 +1,9 @@
 {
   "replace": false,
   "values": [
-    "minecraft:mossy_deepslate_bricks",
-    "minecraft:mossy_deepslate_tiles",
-    "minecraft:mossy_cobbled_deepslate",
-    "minecraft:mossy_polished_deepslate"
+    "abundant_atmosphere:mossy_deepslate_bricks",
+    "abundant_atmosphere:mossy_deepslate_tiles",
+    "abundant_atmosphere:mossy_cobbled_deepslate",
+    "abundant_atmosphere:mossy_polished_deepslate"
   ]
 }

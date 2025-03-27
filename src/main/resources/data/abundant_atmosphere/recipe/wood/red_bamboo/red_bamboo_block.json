@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "abundant_atmosphere:red_bamboo"
+    },
+    {
+      "item": "abundant_atmosphere:red_bamboo"
+    },
+    {
+      "item": "abundant_atmosphere:red_bamboo"
+    },
+    {
+      "item": "abundant_atmosphere:red_bamboo"
+    },
+    {
+      "item": "abundant_atmosphere:red_bamboo"
+    },
+    {
+      "item": "abundant_atmosphere:red_bamboo"
+    },
+    {
+      "item": "abundant_atmosphere:red_bamboo"
+    },
+    {
+      "item": "abundant_atmosphere:red_bamboo"
+    },
+    {
+      "item": "abundant_atmosphere:red_bamboo"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "abundant_atmosphere:red_bamboo_block"
+  }
+}

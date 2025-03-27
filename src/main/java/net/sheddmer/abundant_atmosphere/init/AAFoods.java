@@ -4,7 +4,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Items;
-import net.sheddmer.abundant_atmosphere.integration.AAModCompats;
+import net.sheddmer.abundant_atmosphere.common.integration.AAModCompats;
 
 public class AAFoods {
     public static final FoodProperties ROASTED_GOURDNUT = new FoodProperties.Builder().nutrition(4).saturationModifier(0.6F).build();

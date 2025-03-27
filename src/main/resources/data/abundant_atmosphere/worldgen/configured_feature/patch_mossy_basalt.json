@@ -1,0 +1,313 @@
+{
+  "type": "minecraft:simple_random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "allowed_placement": {
+              "type": "minecraft:matching_blocks",
+              "blocks": [
+                "minecraft:air",
+                "minecraft:water"
+              ]
+            },
+            "direction": "up",
+            "layers": [
+              {
+                "height": {
+                  "type": "minecraft:weighted_list",
+                  "distribution": [
+                    {
+                      "data": {
+                        "type": "minecraft:uniform",
+                        "max_inclusive": 4,
+                        "min_inclusive": 0
+                      },
+                      "weight": 2
+                    }
+                  ]
+                },
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:basalt",
+                    "Properties": {
+                    }
+                  }
+                }
+              },
+              {
+                "height": {
+                  "type": "minecraft:weighted_list",
+                  "distribution": [
+                    {
+                      "data": {
+                        "type": "minecraft:uniform",
+                        "max_inclusive": 2,
+                        "min_inclusive": 1
+                      },
+                      "weight": 2
+                    }
+                  ]
+                },
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "abundant_atmosphere:mossy_basalt",
+                    "Properties": {
+                    }
+                  }
+                }
+              },
+              {
+                "height": 1,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "abundant_atmosphere:mossy_basalt",
+                    "Properties": {
+                      "overgrown": "true"
+                    }
+                  }
+                }
+              },
+              {
+                "height": 1,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:moss_carpet",
+                    "Properties": {
+                    }
+                  }
+                }
+              }
+            ],
+            "prioritize_tip": true
+          }
+        },
+        "placement": []
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "allowed_placement": {
+              "type": "minecraft:matching_blocks",
+              "blocks": [
+                "minecraft:air",
+                "minecraft:water"
+              ]
+            },
+            "direction": "up",
+            "layers": [
+              {
+                "height": {
+                  "type": "minecraft:weighted_list",
+                  "distribution": [
+                    {
+                      "data": {
+                        "type": "minecraft:uniform",
+                        "max_inclusive": 6,
+                        "min_inclusive": 0
+                      },
+                      "weight": 2
+                    }
+                  ]
+                },
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:basalt",
+                    "Properties": {
+                    }
+                  }
+                }
+              },
+              {
+                "height": {
+                  "type": "minecraft:weighted_list",
+                  "distribution": [
+                    {
+                      "data": {
+                        "type": "minecraft:uniform",
+                        "max_inclusive": 3,
+                        "min_inclusive": 1
+                      },
+                      "weight": 2
+                    }
+                  ]
+                },
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "abundant_atmosphere:mossy_basalt",
+                    "Properties": {
+                    }
+                  }
+                }
+              },
+              {
+                "height": 1,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "abundant_atmosphere:mossy_basalt",
+                    "Properties": {
+                      "overgrown": "true"
+                    }
+                  }
+                }
+              },
+              {
+                "height": 1,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:moss_carpet",
+                    "Properties": {
+                    }
+                  }
+                }
+              }
+            ],
+            "prioritize_tip": true
+          }
+        },
+        "placement": []
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "allowed_placement": {
+              "type": "minecraft:matching_blocks",
+              "blocks": [
+                "minecraft:air",
+                "minecraft:water"
+              ]
+            },
+            "direction": "up",
+            "layers": [
+              {
+                "height": {
+                  "type": "minecraft:weighted_list",
+                  "distribution": [
+                    {
+                      "data": {
+                        "type": "minecraft:uniform",
+                        "max_inclusive": 4,
+                        "min_inclusive": 0
+                      },
+                      "weight": 2
+                    }
+                  ]
+                },
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:basalt",
+                    "Properties": {
+                    }
+                  }
+                }
+              },
+              {
+                "height": {
+                  "type": "minecraft:weighted_list",
+                  "distribution": [
+                    {
+                      "data": {
+                        "type": "minecraft:uniform",
+                        "max_inclusive": 2,
+                        "min_inclusive": 1
+                      },
+                      "weight": 2
+                    }
+                  ]
+                },
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "abundant_atmosphere:mossy_basalt",
+                    "Properties": {
+                    }
+                  }
+                }
+              }
+            ],
+            "prioritize_tip": true
+          }
+        },
+        "placement": []
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "allowed_placement": {
+              "type": "minecraft:matching_blocks",
+              "blocks": [
+                "minecraft:air",
+                "minecraft:water"
+              ]
+            },
+            "direction": "up",
+            "layers": [
+              {
+                "height": {
+                  "type": "minecraft:weighted_list",
+                  "distribution": [
+                    {
+                      "data": {
+                        "type": "minecraft:uniform",
+                        "max_inclusive": 6,
+                        "min_inclusive": 0
+                      },
+                      "weight": 2
+                    }
+                  ]
+                },
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:basalt",
+                    "Properties": {
+                    }
+                  }
+                }
+              },
+              {
+                "height": {
+                  "type": "minecraft:weighted_list",
+                  "distribution": [
+                    {
+                      "data": {
+                        "type": "minecraft:uniform",
+                        "max_inclusive": 3,
+                        "min_inclusive": 1
+                      },
+                      "weight": 2
+                    }
+                  ]
+                },
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "abundant_atmosphere:mossy_basalt",
+                    "Properties": {
+                    }
+                  }
+                }
+              }
+            ],
+            "prioritize_tip": true
+          }
+        },
+        "placement": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "minecraft:red_mushroom"
+          },
+          "weight": 5
+        },
+        {
+          "data": {
+            "Name": "minecraft:brown_mushroom"
+          },
+          "weight": 5
+        },
+        {
+          "data": {
+            "Name": "abundant_atmosphere:rust_moss_carpet"
+          },
+          "weight": 25
+        }
+      ]
+    }
+  }
+}
