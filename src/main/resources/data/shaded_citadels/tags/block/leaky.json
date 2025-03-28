@@ -1,4 +1,10 @@
 {
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "shaded_citadels"
+    }
+  ],
   "replace": false,
   "values": [
     "abundant_atmosphere:mossy_basalt"

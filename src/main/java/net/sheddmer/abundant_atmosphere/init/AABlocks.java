@@ -143,18 +143,6 @@ public class AABlocks {
     public static final DeferredBlock<DoorBlock> NETHER_BRICK_DOOR = registerBlock("nether_brick_door", () -> new DoorBlock(BlockSetType.POLISHED_BLACKSTONE, BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_BRICKS)));
     public static final DeferredBlock<TrapDoorBlock> NETHER_BRICK_TRAPDOOR = registerBlock("nether_brick_trapdoor", () -> new TrapDoorBlock(BlockSetType.POLISHED_BLACKSTONE, BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_BRICKS)));
 
-    // Patterned Vases
-    public static final DeferredBlock<Block> CERAMIC_VASE = registerBlock("ceramic_vase", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
-    public static final DeferredBlock<Block> CERAMIC_PATTERNED_VASE = registerBlock("ceramic_patterned_vase", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
-    public static final DeferredBlock<Block> STONE_VASE = registerBlock("stone_vase", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
-    public static final DeferredBlock<Block> STONE_PATTERNED_VASE = registerBlock("stone_patterned_vase", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
-    public static final DeferredBlock<Block> DEEPSLATE_VASE = registerBlock("deepslate_vase", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
-    public static final DeferredBlock<Block> DEEPSLATE_PATTERNED_VASE = registerBlock("deepslate_patterned_vase", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
-    public static final DeferredBlock<Block> BLACKSTONE_VASE = registerBlock("blackstone_vase", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
-    public static final DeferredBlock<Block> BLACKSTONE_PATTERNED_VASE = registerBlock("blackstone_patterned_vase", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
-    public static final DeferredBlock<Block> MUD_VASE = registerBlock("mud_vase", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
-    public static final DeferredBlock<Block> MUD_PATTERNED_VASE = registerBlock("mud_patterned_vase", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
-
     // Ashroot Woodset
     public static final DeferredBlock<LogBlock> ASHROOT_LOG = registerBlock("ashroot_log", () ->  new LogBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(2.0f, 2.0f).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).ignitedByLava()));
     public static final DeferredBlock<LogBlock> ASHROOT_WOOD = registerBlock("ashroot_wood", () ->  new LogBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(2.0f, 2.0f).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).ignitedByLava()));

@@ -1,4 +1,10 @@
 {
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
   "replace": false,
   "values": [
     "abundant_atmosphere:soul_stone_brazier"

@@ -278,7 +278,7 @@ public class AAItems {
                 event.insertAfter(Items.POISONOUS_POTATO.getDefaultInstance(), FDIntegration.PUFFBALL_SLICE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 event.insertAfter(FDIntegration.PUFFBALL_SLICE.toStack(), FDIntegration.PUFFBALL_CUTLET.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             }
-            if (AAModCompats.FARMERSDELIGHT.isLoaded() && AAModCompats.NOMANSLAND.isLoaded()) event.insertAfter(FDIntegration.PUFFBALL_CUTLET.toStack(), NMLIntegration.SWAMP_SCRAN.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            if (AAModCompats.FARMERSDELIGHT.isLoaded() && AAModCompats.NOMANSLAND.isLoaded()) event.insertAfter(FDIntegration.PUFFBALL_CUTLET.toStack(), FDIntegration.SWAMP_SCRAN.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
         if (tabKey == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.insertAfter(Items.MANGROVE_CHEST_BOAT.getDefaultInstance(), AAItems.ASHROOT_BOAT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);

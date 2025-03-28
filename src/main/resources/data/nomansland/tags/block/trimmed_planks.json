@@ -1,4 +1,10 @@
 {
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "nomansland"
+    }
+  ],
   "replace": false,
   "values": [
     "abundant_atmosphere:trimmed_ashroot_planks",

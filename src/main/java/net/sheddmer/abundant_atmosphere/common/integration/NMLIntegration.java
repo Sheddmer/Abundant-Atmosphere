@@ -21,10 +21,6 @@ public class NMLIntegration {
     public static final DeferredBlock<Block> GOURDROT_BOOKSHELF = registerBlock("gourdrot_bookshelf", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BOOKSHELF)));
     public static final DeferredBlock<Block> TRIMMED_RED_BAMBOO_PLANKS = registerBlock("trimmed_red_bamboo_planks", () -> new TrimmedPlankBlock(BlockBehaviour.Properties.ofFullCopy(AABlocks.RED_BAMBOO_PLANKS.get())));
     public static final DeferredBlock<Block> RED_BAMBOO_BOOKSHELF = registerBlock("red_bamboo_bookshelf", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BOOKSHELF).sound(AASounds.RED_BAMBOO_WOOD)));
-    public static final DeferredBlock<Block> SILT_VASE = registerBlock("silt_vase", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
-    public static final DeferredBlock<Block> SILT_PATTERNED_VASE = registerBlock("silt_patterned_vase", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
-
-    public static final DeferredItem<Item> SWAMP_SCRAN = registerItem("swamp_scran", AAModCompats.FARMERSDELIGHT.isLoaded() ? () -> new Item(new Item.Properties().food(AAFoods.SWAMP_SCRAN).stacksTo(16)) : null);
 
     public static void register() {
     }

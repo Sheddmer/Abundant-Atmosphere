@@ -21,6 +21,8 @@ public class FDIntegration {
     public static final DeferredItem<Item> PUFFBALL_SLICE = registerItem("puffball_slice", () -> new Item(new Item.Properties().food(AAFoods.PUFFBALL_SLICE)));
     public static final DeferredItem<Item> PUFFBALL_CUTLET = registerItem("puffball_cutlet", () -> new Item(new Item.Properties().food(AAFoods.PUFFBALL_CUTLET)));
 
+    public static final DeferredItem<Item> SWAMP_SCRAN = registerItem("swamp_scran", () -> new Item(new Item.Properties().food(AAFoods.SWAMP_SCRAN).stacksTo(16)));
+
     public static void addBlockEntities(final BlockEntityTypeAddBlocksEvent event) {
         event.modify(ModBlockEntityTypes.CABINET.get(), ASHROOT_CABINET.get(), GOURDROT_CABINET.get(), RED_BAMBOO_CABINET.get());
     }

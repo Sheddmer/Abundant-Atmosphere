@@ -35,6 +35,18 @@
     },
     "candles=4,ignitable=false,lit=true": {
       "model": "abundant_atmosphere:block/wisp_candle_four_candles_lit"
+    },
+    "candles=1,ignitable=true,lit=true": {
+      "model": "abundant_atmosphere:block/wisp_candle_four_candles"
+    },
+    "candles=2,ignitable=true,lit=true": {
+      "model": "abundant_atmosphere:block/wisp_candle_four_candles"
+    },
+    "candles=3,ignitable=true,lit=true": {
+      "model": "abundant_atmosphere:block/wisp_candle_four_candles"
+    },
+    "candles=4,ignitable=true,lit=true": {
+      "model": "abundant_atmosphere:block/wisp_candle_four_candles"
     }
   }
 }

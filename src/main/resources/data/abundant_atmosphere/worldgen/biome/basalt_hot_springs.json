@@ -80,8 +80,8 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:patch_grass_taiga",
       "minecraft:patch_large_fern",
+      "minecraft:patch_grass_taiga",
       "minecraft:flower_warm",
       "abundant_atmosphere:trees_hot_springs",
       "abundant_atmosphere:patch_coarse_dirt",

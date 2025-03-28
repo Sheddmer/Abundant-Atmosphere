@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "abundant_atmosphere:basalt_hotsprings"
+    {
+      "id": "abundant_atmosphere:basalt_hot_springs",
+      "required":false
+    }
   ]
 }

@@ -1,4 +1,10 @@
 {
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "blockbox"
+    }
+  ],
   "replace": false,
   "values": [
     "abundant_atmosphere:spiked_ashroot_palisade",
