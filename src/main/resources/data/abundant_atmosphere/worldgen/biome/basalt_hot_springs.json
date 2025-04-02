@@ -8,10 +8,10 @@
   },
   "downfall": 0.6,
   "effects": {
-    "sky_color": 6800872,
-    "fog_color": 11071699,
-    "grass_color": 11851346,
-    "foliage_color": 9093186,
+    "sky_color": 8307162,
+    "fog_color": 11992562,
+    "grass_color": 8173400,
+    "foliage_color": 7905607,
     "water_color": 4627131,
     "water_fog_color": 4102047,
     "mood_sound": {
@@ -30,14 +30,16 @@
     [
       "minecraft:amethyst_geode",
       "minecraft:forest_rock",
-      "abundant_atmosphere:mossy_basalt_cluster",
-      "abundant_atmosphere:mossy_basalt_cluster_small"
+      "abundant_atmosphere:mossy_basalt_cluster_hot_springs",
+      "abundant_atmosphere:mossy_basalt_cluster_small_hot_springs"
     ],
     [
       "minecraft:monster_room",
       "minecraft:monster_room_deep"
     ],
-    [],
+    [
+      "abundant_atmosphere:delta_overworld_water"
+    ],
     [],
     [
       "minecraft:ore_dirt",
@@ -83,8 +85,6 @@
       "minecraft:patch_large_fern",
       "minecraft:patch_grass_taiga",
       "minecraft:flower_warm",
-      "abundant_atmosphere:trees_hot_springs",
-      "abundant_atmosphere:patch_coarse_dirt",
       "abundant_atmosphere:red_bamboo"
     ],
     [

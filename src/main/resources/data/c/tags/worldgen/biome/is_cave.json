@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "abundant_atmosphere:ancient_spring_caves",
+      "required":false
+    }
+  ]
+}

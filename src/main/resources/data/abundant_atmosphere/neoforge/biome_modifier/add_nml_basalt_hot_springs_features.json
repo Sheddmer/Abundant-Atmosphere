@@ -8,9 +8,8 @@
   "type": "neoforge:add_features",
   "biomes": "abundant_atmosphere:basalt_hot_springs",
   "features": [
-    "nomansland:flower_patches/flowerbed_jungle",
-    "nomansland:flower_patches/flowerbed_autumnal",
-    "nomansland:pond_swamp"
+    "abundant_atmosphere:trees_hot_springs_nml",
+    "nomansland:flower_patches/flowerbed_red"
   ],
   "step": "vegetal_decoration"
 }

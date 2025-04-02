@@ -94,7 +94,8 @@ dependencies {
     implementation "maven.modrinth:farmers-delight:1.21.1-1.2.7"
     implementation "maven.modrinth:the-block-box:0.1.1"
     implementation "maven.modrinth:create:1.21.1-6.0.3"
-    implementation "maven.modrinth:no-mans-land:1.0.3"
+    implementation "maven.modrinth:no-mans-land:1.1.2"
+    implementation "maven.modrinth:mixed-litter:0.0.2"
 
     compileOnly "mezz.jei:jei-$minecraft_version-common-api:$jei_version"
     compileOnly "mezz.jei:jei-$minecraft_version-neoforge-api:$jei_version"

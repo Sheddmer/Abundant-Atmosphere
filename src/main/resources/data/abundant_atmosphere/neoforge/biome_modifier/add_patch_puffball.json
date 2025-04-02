@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#abundant_atmosphere:places_puffball_mushrooms",
+  "features": [
+    "abundant_atmosphere:patch_puffball_mushroom"
+  ],
+  "step": "local_modifications"
+}

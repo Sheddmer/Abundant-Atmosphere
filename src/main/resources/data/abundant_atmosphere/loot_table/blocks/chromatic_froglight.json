@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:chromatic_froglight"
+          "name": "abundant_atmosphere:chromatic_froglight"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "minecraft:blocks/chromatic_froglight"
+  "random_sequence": "abundant_atmosphere:blocks/chromatic_froglight"
 }

@@ -76,6 +76,9 @@ public class LeafPileBlock extends Block implements SimpleWaterloggedBlock {
 
     @Override
     protected BlockState updateShape(BlockState state, Direction direction, BlockState altState, LevelAccessor accessor, BlockPos pos, BlockPos altPos) {
+        if (!this.canSurvive(state, accessor, pos)) {
+            ParticleUtils.spawnParticles(accessor, pos, Mth.randomBetweenInclusive(RandomSource.create(), 10, 20), 0.5, 0.1, true, AAParticleTypes.DRIED_LEAF.get());
+        }
         return !this.canSurvive(state, accessor, pos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, direction, altState, accessor, pos, altPos);
     }
 
@@ -105,14 +108,14 @@ public class LeafPileBlock extends Block implements SimpleWaterloggedBlock {
 
     protected void onExplosionHit(BlockState state, Level level, BlockPos pos, Explosion explosion, BiConsumer<ItemStack, BlockPos> dropConsumer) {
         level.destroyBlock(pos, true);
-        ParticleUtils.spawnParticles(level, pos, Mth.randomBetweenInclusive(level.random, 10, 20), 0.5, 0.1, true, AAParticleTypes.DRIED_LEAF.get());
+        ParticleUtils.spawnParticles(level, pos, Mth.randomBetweenInclusive(RandomSource.create(), 10, 20), 0.5, 0.1, true, AAParticleTypes.DRIED_LEAF.get());
         super.onExplosionHit(state, level, pos, explosion, dropConsumer);
     }
 
     @Override
     protected void spawnDestroyParticles(Level level, Player player, BlockPos pos, BlockState state) {
         level.levelEvent(player, 2001, pos, getId(state));
-        ParticleUtils.spawnParticles(level, pos, Mth.randomBetweenInclusive(level.random, 10, 20), 0.4, 0.1, true, AAParticleTypes.DRIED_LEAF.get());
+        ParticleUtils.spawnParticles(level, pos, Mth.randomBetweenInclusive(RandomSource.create(), 10, 20), 0.4, 0.1, true, AAParticleTypes.DRIED_LEAF.get());
     }
 
     @Override

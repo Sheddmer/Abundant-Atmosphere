@@ -1,0 +1,91 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "data": {
+                  "Name": "abundant_atmosphere:large_puffball_mushroom",
+                  "Properties": {
+                    "age": "5"
+                  }
+                },
+                "weight": 3
+              },
+              {
+                "data": {
+                  "Name": "abundant_atmosphere:large_puffball_mushroom",
+                  "Properties": {
+                    "age": "4"
+                  }
+                },
+                "weight": 4
+              },
+              {
+                "data": {
+                  "Name": "abundant_atmosphere:large_puffball_mushroom",
+                  "Properties": {
+                    "age": "3"
+                  }
+                },
+                "weight": 2
+              },
+              {
+                "data": {
+                  "Name": "abundant_atmosphere:puffball_mushroom",
+                  "Properties": {
+                    "age": "0"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "abundant_atmosphere:puffball_mushroom",
+                  "Properties": {
+                    "age": "1"
+                  }
+                },
+                "weight": 1
+              }
+            ]
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": "minecraft:air"
+              },
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:grass_block",
+                  "minecraft:podzol"
+                ],
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "tries": 24,
+    "xz_spread": 5,
+    "y_spread": 1
+  }
+}

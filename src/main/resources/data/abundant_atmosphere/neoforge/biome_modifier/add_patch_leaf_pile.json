@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#abundant_atmosphere:places_leaf_piles",
+  "features": [
+    "abundant_atmosphere:patch_leaf_pile"
+  ],
+  "step": "vegetal_decoration"
+}

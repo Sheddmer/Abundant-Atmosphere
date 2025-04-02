@@ -20,6 +20,7 @@ import net.sheddmer.abundant_atmosphere.common.integration.AAModCompats;
 import net.sheddmer.abundant_atmosphere.common.integration.BBIntegration;
 import net.sheddmer.abundant_atmosphere.common.integration.FDIntegration;
 import net.sheddmer.abundant_atmosphere.common.integration.NMLIntegration;
+import vectorwing.blockbox.common.registry.ModItems;
 
 import java.util.LinkedHashSet;
 import java.util.function.Supplier;
@@ -235,10 +236,10 @@ public class AAItems {
             event.insertAfter(AABlocks.PUFFBALL_MUSHROOM.toStack(), AABlocks.LARGE_PUFFBALL_MUSHROOM.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.NETHER_WART.getDefaultInstance(), AAItems.PUFFBALL_SPORES.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
-            event.accept(AABlocks.SAFFRON_BUSHBUDS);
+            event.insertAfter(Items.WITHER_ROSE.getDefaultInstance(), AABlocks.SAFFRON_BUSHBUDS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AABlocks.SAFFRON_BUSHBUDS.toStack(), AABlocks.CHERRY_BUSHBUDS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AABlocks.CHERRY_BUSHBUDS.toStack(), AABlocks.UMBRA_BUSHBUDS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.accept(AABlocks.LEAF_PILE);
+            event.insertBefore(Items.BROWN_MUSHROOM_BLOCK.getDefaultInstance(), AABlocks.LEAF_PILE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.BAMBOO.getDefaultInstance(), AABlocks.RED_BAMBOO.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
         if (tabKey == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
@@ -266,7 +267,11 @@ public class AAItems {
                 event.insertAfter(FDIntegration.ASHROOT_CABINET.toStack(), FDIntegration.GOURDROT_CABINET.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 event.insertAfter(FDIntegration.GOURDROT_CABINET.toStack(), FDIntegration.RED_BAMBOO_CABINET.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             }
-
+            if (AAModCompats.BLOCKBOX.isLoaded()) {
+                event.accept(BBIntegration.ASHROOT_SEAT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(BBIntegration.ASHROOT_SEAT.toStack(), BBIntegration.GOURDROT_SEAT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(BBIntegration.GOURDROT_SEAT.toStack(), BBIntegration.RED_BAMBOO_SEAT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            }
         }
         if (tabKey == CreativeModeTabs.FOOD_AND_DRINKS) {
             event.insertBefore(Items.PUMPKIN_PIE.getDefaultInstance(), AAItems.ROASTED_GOURDNUT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);

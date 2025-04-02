@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:mod_loaded",
+        "modid": "nomansland"
+      }
+    }
+  ],
+  "type": "neoforge:add_features",
+  "biomes": "abundant_atmosphere:basalt_hot_springs",
+  "features": [
+    "abundant_atmosphere:trees_hot_springs"
+  ],
+  "step": "vegetal_decoration"
+}

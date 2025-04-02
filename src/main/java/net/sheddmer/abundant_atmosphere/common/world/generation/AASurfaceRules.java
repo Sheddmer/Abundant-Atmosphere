@@ -9,10 +9,10 @@ import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 import net.sheddmer.abundant_atmosphere.init.AABiomes;
 
 public class AASurfaceRules {
-    private static final SurfaceRules.RuleSource MOSS_BLOCK = SurfaceRules.state(Blocks.MOSS_BLOCK.defaultBlockState());
+    private static final SurfaceRules.RuleSource PODZOL = SurfaceRules.state(Blocks.PODZOL.defaultBlockState());
 
     public static void register() {
-        SurfaceRules.RuleSource basalt_hot_springs = SurfaceRules.ifTrue(SurfaceRules.isBiome(AABiomes.BASALT_HOT_SPRINGS), SurfaceRules.sequence(SurfaceRules.ifTrue(surfaceNoiseAbove(1.5), MOSS_BLOCK)));
+        SurfaceRules.RuleSource basalt_hot_springs = SurfaceRules.ifTrue(SurfaceRules.isBiome(AABiomes.BASALT_HOT_SPRINGS), SurfaceRules.sequence(SurfaceRules.ifTrue(surfaceNoiseAbove(0.5), PODZOL)));
 
         SurfaceGeneration.addOverworldSurfaceRules(
                 ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, "rules/overworld"),

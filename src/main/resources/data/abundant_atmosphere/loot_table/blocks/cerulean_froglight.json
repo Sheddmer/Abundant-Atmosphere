@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:cerulean_froglight"
+          "name": "abundant_atmosphere:cerulean_froglight"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "minecraft:blocks/cerulean_froglight"
+  "random_sequence": "abundant_atmosphere:blocks/cerulean_froglight"
 }

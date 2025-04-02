@@ -46,5 +46,109 @@
       }
     ],
     "subtitle": "subtitles.abundant_atmosphere.dusting_lapis"
+  },
+  "ambient.ancient_spring_caves.additions": {
+    "sounds": [
+      {
+        "name": "ambient/nether/basalt_deltas/active1",
+        "volume": 0.55,
+        "weight": 20
+      },
+      {
+        "name": "ambient/nether/basalt_deltas/active2",
+        "volume": 0.55,
+        "weight": 20
+      },
+      {
+        "name": "ambient/nether/basalt_deltas/active3",
+        "volume": 0.55,
+        "weight": 20
+      },
+      {
+        "name": "ambient/nether/basalt_deltas/active4",
+        "volume": 0.55,
+        "weight": 20
+      },
+      {
+        "name": "ambient/nether/basalt_deltas/basaltground1",
+        "volume": 0.55,
+        "weight": 10
+      },
+      {
+        "name": "ambient/nether/basalt_deltas/basaltground2",
+        "volume": 0.55,
+        "weight": 10
+      },
+      {
+        "name": "ambient/nether/basalt_deltas/basaltground3",
+        "volume": 0.55,
+        "weight": 10
+      },
+      {
+        "name": "ambient/nether/basalt_deltas/basaltground4",
+        "volume": 0.55,
+        "weight": 10
+      },
+      {
+        "name": "ambient/nether/basalt_deltas/debris1",
+        "volume": 0.35,
+        "weight": 30
+      },
+      {
+        "name": "ambient/nether/basalt_deltas/debris2",
+        "volume": 0.35,
+        "weight": 30
+      },
+      {
+        "name": "ambient/nether/basalt_deltas/debris3",
+        "volume": 0.35,
+        "weight": 30
+      },
+      {
+        "name": "ambient/nether/basalt_deltas/long_debris1",
+        "volume": 0.35,
+        "weight": 40
+      },
+      {
+        "name": "ambient/nether/basalt_deltas/long_debris2",
+        "volume": 0.35,
+        "weight": 40
+      },
+      {
+        "name": "ambient/nether/basalt_deltas/plode1",
+        "volume": 0.5,
+        "weight": 10
+      },
+      {
+        "name": "ambient/nether/basalt_deltas/plode2",
+        "volume": 0.5,
+        "weight": 10
+      },
+      {
+        "name": "ambient/nether/basalt_deltas/plode3",
+        "volume": 0.5,
+        "weight": 10
+      }
+    ]
+  },
+  "music.overworld.ancient_spring_caves": {
+    "sounds": [
+      {
+        "name": "music/game/deeper",
+        "stream": true,
+        "volume": 0.4,
+        "weight": 4
+      },
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4,
+        "weight": 4
+      },
+      {
+        "name": "music.game",
+        "type": "event"
+      }
+    ]
   }
 }

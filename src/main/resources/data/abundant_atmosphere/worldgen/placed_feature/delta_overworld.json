@@ -1,0 +1,12 @@
+{
+  "feature": "abundant_atmosphere:delta_overworld",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": 16
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

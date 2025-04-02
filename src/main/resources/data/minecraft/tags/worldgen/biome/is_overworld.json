@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "abundant_atmosphere:basalt_hot_springs",
+      "required":false
+    },
+    {
+      "id": "abundant_atmosphere:ancient_spring_caves",
+      "required":false
+    }
+  ]
+}

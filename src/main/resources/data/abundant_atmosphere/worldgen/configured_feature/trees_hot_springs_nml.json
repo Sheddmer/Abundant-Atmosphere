@@ -1,0 +1,30 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "nomansland"
+    }
+  ],
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "nomansland:maple_checked",
+    "features": [
+      {
+        "chance": 0.4,
+        "feature": "nomansland:red_maple_checked"
+      },
+      {
+        "chance": 0.1,
+        "feature": "nomansland:large_red_maple_checked"
+      },
+      {
+        "chance": 0.1,
+        "feature": "nomansland:large_maple_checked"
+      },
+      {
+        "chance": 0.4,
+        "feature": "minecraft:jungle_bush"
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "nomansland"
+    }
+  ],
+  "replace": false,
+  "values": [
+    {
+      "id": "abundant_atmosphere:basalt_hot_springs",
+      "required":false
+    }
+  ]
+}
