@@ -21,6 +21,8 @@ import net.sheddmer.abundant_atmosphere.client.AAModelLayers;
 import net.sheddmer.abundant_atmosphere.common.block.StoneChestBlock;
 import net.sheddmer.abundant_atmosphere.common.blockentity.StoneChestBlockEntity;
 
+import java.util.Calendar;
+
 @OnlyIn(Dist.CLIENT)
 public class StoneChestRenderer implements BlockEntityRenderer<StoneChestBlockEntity> {
     public static final Material NORMAL_STONE_LOCATION = new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID,"entity/stone_chest/"));
@@ -29,7 +31,14 @@ public class StoneChestRenderer implements BlockEntityRenderer<StoneChestBlockEn
 
     private final ModelPart body;
     private final ModelPart lid;
+    private boolean halloweenTextures;
+
+
     public StoneChestRenderer(BlockEntityRendererProvider.Context context) {
+        Calendar calendar = Calendar.getInstance();
+        if (calendar.get(2) + 1 == 12 && calendar.get(5) >= 24 && calendar.get(5) <= 26) {
+            this.halloweenTextures = true;
+        }
 
         ModelPart root = context.bakeLayer(AAModelLayers.STONE_CHEST);
         this.body = root.getChild("body");

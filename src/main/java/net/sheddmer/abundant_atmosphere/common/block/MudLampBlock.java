@@ -12,6 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,6 +27,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
 import net.sheddmer.abundant_atmosphere.init.AASounds;
 
 import javax.annotation.Nullable;
@@ -73,6 +76,17 @@ public class MudLampBlock extends Block implements SimpleWaterloggedBlock {
                     return blockstate.setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
                 }
             }
+        }
+        return null;
+    }
+
+    @Override
+    public BlockState getToolModifiedState(BlockState state, UseOnContext context, ItemAbility itemAbility, boolean simulate) {
+        if (itemAbility == ItemAbilities.FIRESTARTER_LIGHT && !state.getValue(LIT)) {
+            return state.setValue(LIT, true);
+        }
+        if (itemAbility == ItemAbilities.SHOVEL_DOUSE && state.getValue(LIT)) {
+            return state.setValue(LIT, false);
         }
         return null;
     }

@@ -1,21 +1,24 @@
 package net.sheddmer.abundant_atmosphere.common.block;
 
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.SuspiciousStewEffects;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.BonemealableBlock;
-import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -29,22 +32,34 @@ import net.neoforged.neoforge.common.ItemAbility;
 import net.sheddmer.abundant_atmosphere.init.AAParticleTypes;
 import net.sheddmer.abundant_atmosphere.init.AAProperties;
 
-public class MidnightLilyBlock extends BushBlock implements BonemealableBlock {
+import java.util.List;
+
+public class MidnightLilyBlock extends BushBlock implements BonemealableBlock, SuspiciousEffectHolder {
+    protected static final MapCodec<SuspiciousStewEffects> EFFECTS_FIELD = SuspiciousStewEffects.CODEC.fieldOf("suspicious_stew_effects");
+    public static final MapCodec<MidnightLilyBlock> CODEC = RecordCodecBuilder.mapCodec(
+            p_308824_ -> p_308824_.group(EFFECTS_FIELD.forGetter(MidnightLilyBlock::getSuspiciousEffects), propertiesCodec()).apply(p_308824_, MidnightLilyBlock::new)
+    );
     private static final VoxelShape SHAPE_ONE = Block.box(5.0, 0.0, 5.0, 11.0, 10.0, 11.0);
     private static final VoxelShape SHAPE_TWO = Block.box(3.0, 0.0, 3.0, 13.0, 10.0, 12.0);
     private static final VoxelShape SHAPE_THREE = Block.box(1.0, 0.0, 1.0, 15.0, 10.0, 15.0);
     public static final IntegerProperty FLOWER_STACK = AAProperties.FLOWER_AMOUNT_3;
     public static final BooleanProperty NIGHTLIGHT = AAProperties.NIGHTLIGHT;
     public static final BooleanProperty PERSISTENT = BlockStateProperties.PERSISTENT;
+    private final SuspiciousStewEffects suspiciousStewEffects;
 
-    public MidnightLilyBlock(Properties properties) {
+    public MidnightLilyBlock(SuspiciousStewEffects suspiciousStewEffects, Properties properties) {
         super(properties);
+        this.suspiciousStewEffects = suspiciousStewEffects;
         this.registerDefaultState(this.getStateDefinition().any().setValue(FLOWER_STACK, 1).setValue(NIGHTLIGHT, false).setValue(PERSISTENT, false));
+    }
+
+    public MidnightLilyBlock(Holder<MobEffect> effect, float seconds, BlockBehaviour.Properties properties) {
+        this(makeEffectList(effect, seconds), properties);
     }
 
     @Override
     protected MapCodec<? extends BushBlock> codec() {
-        return codec();
+        return CODEC;
     }
 
     @Override
@@ -134,6 +149,15 @@ public class MidnightLilyBlock extends BushBlock implements BonemealableBlock {
         } else {
             popResource(level, pos, new ItemStack(this));
         }
+    }
+
+    protected static SuspiciousStewEffects makeEffectList(Holder<MobEffect> effect, float seconds) {
+        return new SuspiciousStewEffects(List.of(new SuspiciousStewEffects.Entry(effect, Mth.floor(seconds * 20.0F))));
+    }
+
+    @Override
+    public SuspiciousStewEffects getSuspiciousEffects() {
+        return this.suspiciousStewEffects;
     }
 
     @Override

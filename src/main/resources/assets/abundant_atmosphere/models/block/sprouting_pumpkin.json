@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "abundant_atmosphere:block/sprouting_pumpkin_north",
+    "down": "minecraft:block/pumpkin_top",
+    "up": "abundant_atmosphere:block/sprouting_pumpkin_top",
+    "north": "abundant_atmosphere:block/sprouting_pumpkin_south",
+    "east": "abundant_atmosphere:block/sprouting_pumpkin_west",
+    "south": "abundant_atmosphere:block/sprouting_pumpkin_north",
+    "west": "abundant_atmosphere:block/sprouting_pumpkin_east"
+  }
+}

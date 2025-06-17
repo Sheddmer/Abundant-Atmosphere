@@ -48,6 +48,18 @@
     "abundant_atmosphere:large_puffball_mushroom": {
       "chance": 0.85
     },
+    "abundant_atmosphere:poreshroom": {
+      "chance": 0.65
+    },
+    "abundant_atmosphere:poreshroom_block": {
+      "chance": 0.85
+    },
+    "abundant_atmosphere:catsbane": {
+      "chance": 0.65
+    },
+    "abundant_atmosphere:cave_sprouts": {
+      "chance": 0.3
+    },
     "minecraft:rotten_flesh": {
       "chance": 0.3
     }

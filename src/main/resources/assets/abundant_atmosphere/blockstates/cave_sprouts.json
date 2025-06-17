@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "abundant_atmosphere:block/cave_sprouts_1"
+      },
+      {
+        "model": "abundant_atmosphere:block/cave_sprouts_2"
+      }
+    ]
+  }
+}

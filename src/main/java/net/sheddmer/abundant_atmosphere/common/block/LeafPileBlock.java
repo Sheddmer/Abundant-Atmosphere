@@ -94,11 +94,11 @@ public class LeafPileBlock extends Block implements SimpleWaterloggedBlock {
     }
 
     @Override
-    public boolean canBeReplaced(BlockState state, BlockPlaceContext useContext) {
-        if (!useContext.isSecondaryUseActive() && useContext.getItemInHand().is(this.asItem()) && state.getValue(LEVEL) < 2) {
+    public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
+        if (!context.isSecondaryUseActive() && context.getItemInHand().is(this.asItem()) && state.getValue(LEVEL) < 2) {
             return true;
         }
-        return super.canBeReplaced(state, useContext);
+        return super.canBeReplaced(state, context);
     }
 
     @Override

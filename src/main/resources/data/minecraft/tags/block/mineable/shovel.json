@@ -15,8 +15,6 @@
     "abundant_atmosphere:mossy_mud_bricks",
     "abundant_atmosphere:mossy_mud_brick_stairs",
     "abundant_atmosphere:mossy_mud_brick_slab",
-    "abundant_atmosphere:mossy_mud_brick_wall",
-    "abundant_atmosphere:damp_mud",
-    "abundant_atmosphere:wet_mud"
+    "abundant_atmosphere:mossy_mud_brick_wall"
   ]
 }

@@ -12,5 +12,7 @@ public class AAPottables {
         ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(AABlocks.SAFFRON_BUSHBUDS.getId(), AABlocks.POTTED_SAFFRON_BUSHBUDS);
         ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(AABlocks.CHERRY_BUSHBUDS.getId(), AABlocks.POTTED_CHERRY_BUSHBUDS);
         ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(AABlocks.UMBRA_BUSHBUDS.getId(), AABlocks.POTTED_UMBRA_BUSHBUDS);
+        ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(AABlocks.PORESHROOM.getId(), AABlocks.POTTED_PORESHROOM);
+        ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(AABlocks.CATSBANE.getId(), AABlocks.POTTED_CATSBANE);
     }
 }

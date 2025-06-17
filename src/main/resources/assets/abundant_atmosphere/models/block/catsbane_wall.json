@@ -1,0 +1,7 @@
+{
+  "parent": "abundant_atmosphere:block/template_fungus_wall",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cross": "abundant_atmosphere:block/catsbane_wall"
+  }
+}

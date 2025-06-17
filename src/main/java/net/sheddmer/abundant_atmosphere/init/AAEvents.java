@@ -37,20 +37,6 @@ public class AAEvents {
         BlockState state = level.getBlockState(pos);
         Player player = event.getEntity();
         ItemStack stack = event.getItemStack();
-        // Bonemealing events
-        if (stack.is(Items.BONE_MEAL) && !player.isSpectator()) {
-            // Growing trees from Pumpkins
-            if (state.is(Blocks.PUMPKIN) && level.getBlockState(pos.below()).is(BlockTags.DIRT)) {
-                level.playSound(player, pos, SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0f, 1.0f);
-                ParticleUtils.spawnParticlesOnBlockFaces(level, pos, ParticleTypes.HAPPY_VILLAGER, UniformInt.of(4, 10));
-                if (!level.isClientSide && !player.isCreative()) stack.shrink(1);
-                if (!level.isClientSide && level.random.nextFloat() < 0.35) {
-                    advancePumpkinTree((ServerLevel) level, pos, state, level.random);
-                }
-                event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide()));
-                event.setCanceled(true);
-            }
-        }
         // Shearing events
         if (stack.canPerformAction(ItemAbilities.SHEARS_TRIM) && !player.isSpectator()) {
             // Removing moss from Stone blocks
@@ -135,10 +121,6 @@ public class AAEvents {
                 event.setCanceled(true);
             }
         }
-    }
-
-    public static void advancePumpkinTree(ServerLevel level, BlockPos pPos, BlockState pState, RandomSource pRandom) {
-        AATreeGrower.GOURDROT.growTree(level, level.getChunkSource().getGenerator(), pPos, pState, pRandom);
     }
 
 }

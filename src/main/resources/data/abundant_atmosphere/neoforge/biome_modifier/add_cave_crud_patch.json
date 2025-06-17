@@ -1,7 +1,8 @@
 {
   "type": "neoforge:add_features",
-  "biomes": "minecraft:deep_dark",
+  "biomes": "#minecraft:is_overworld",
   "features": [
+    "abundant_atmosphere:patch_cave_crud_ashroot",
     "abundant_atmosphere:patch_cave_crud"
   ],
   "step": "local_modifications"

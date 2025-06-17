@@ -7,6 +7,9 @@
     "abundant_atmosphere:red_bamboo_mosaic",
     "abundant_atmosphere:red_bamboo_mosaic_stairs",
     "abundant_atmosphere:red_bamboo_mosaic_slab",
+    "abundant_atmosphere:poreshroom_block",
+    "abundant_atmosphere:poreshroom",
+    "abundant_atmosphere:catsbane",
     {
       "id": "abundant_atmosphere:ashroot_cabinet",
       "required":false

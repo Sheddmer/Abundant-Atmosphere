@@ -66,8 +66,6 @@ public class AbundantAtmosphere {
             AAFlammables.register();
             AAPottables.register();
         });
-        AABiomePlacements.register();
-        AASurfaceRules.register();
     }
 
     @SubscribeEvent

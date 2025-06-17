@@ -1,4 +1,5 @@
 {
+	"credit": "Made by Sheddmer",
 	"render_type": "minecraft:cutout",
 	"textures": {
 		"particle": "#bottom"

@@ -2,7 +2,7 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "bonus_rolls": 0.0,
+      "bonus_rolls": 0,
       "conditions": [
         {
           "condition": "minecraft:any_of",
@@ -34,10 +34,27 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "abundant_atmosphere:leaf_pile"
+          "name": "abundant_atmosphere:leaf_pile",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1,
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "abundant_atmosphere:leaf_pile",
+                  "properties": {
+                    "level": "2"
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": []
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "abundant_atmosphere:blocks/leaf_pile"

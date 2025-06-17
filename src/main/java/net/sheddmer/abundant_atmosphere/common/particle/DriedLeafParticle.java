@@ -29,8 +29,8 @@ public class DriedLeafParticle extends TextureSheetParticle {
     @Override
     public void tick() {
         super.tick();
+        this.oRoll = this.roll;
         if (!this.onGround) {
-            this.oRoll = this.roll;
             this.roll = this.roll + this.rotSpeed / 20.0F;
         }
     }

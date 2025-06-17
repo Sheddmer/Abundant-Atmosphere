@@ -33,6 +33,7 @@ public class RedBambooStalkBlock extends Block implements BonemealableBlock {
     public static final EnumProperty<BambooLeaves> LEAVES = BlockStateProperties.BAMBOO_LEAVES;
     public static final IntegerProperty STAGE = BlockStateProperties.STAGE;
     protected static final VoxelShape COLLISION_SHAPE = Block.box(5.5, 0.0, 5.5, 10.5, 16.0, 10.5);
+    protected static final VoxelShape COLLISION_SHAPE_TOP = Block.box(5.5, 0.0, 5.5, 10.5, 8.0, 10.5);
     protected static final VoxelShape SMALL_SHAPE = Block.box(4.0, 0.0, 4.0, 12.0, 16.0, 12.0);
     protected static final VoxelShape LARGE_SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 16.0, 14.0);
 
@@ -51,7 +52,7 @@ public class RedBambooStalkBlock extends Block implements BonemealableBlock {
     @Override
     protected VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         Vec3 vec3 = state.getOffset(level, pos);
-        return COLLISION_SHAPE.move(vec3.x, vec3.y, vec3.z);
+        return state.getValue(STAGE) == 1 ? COLLISION_SHAPE_TOP.move(vec3.x, vec3.y, vec3.z) : COLLISION_SHAPE.move(vec3.x, vec3.y, vec3.z);
     }
 
     @Override
@@ -174,7 +175,7 @@ public class RedBambooStalkBlock extends Block implements BonemealableBlock {
 
     protected void growBamboo(BlockState state, Level level, BlockPos pos, RandomSource random, int age) {
         BlockState blockstate = level.getBlockState(pos.below());
-        BlockPos blockpos = pos.below(3);
+        BlockPos blockpos = pos.below(4);
         BlockState blockstate1 = level.getBlockState(blockpos);
         BambooLeaves bambooleaves = BambooLeaves.NONE;
 
@@ -184,7 +185,7 @@ public class RedBambooStalkBlock extends Block implements BonemealableBlock {
             } else if (blockstate.is(AABlocks.RED_BAMBOO) && blockstate.getValue(LEAVES) != BambooLeaves.NONE) {
                 bambooleaves = BambooLeaves.LARGE;
                 if (blockstate1.is(AABlocks.RED_BAMBOO)) {
-                    level.setBlock(pos.below(), blockstate.setValue(LEAVES, BambooLeaves.SMALL), 3);
+                    level.setBlock(pos.below(2), blockstate.setValue(LEAVES, BambooLeaves.SMALL), 3);
                     level.setBlock(blockpos, blockstate1.setValue(LEAVES, BambooLeaves.NONE), 3);
                 }
             }

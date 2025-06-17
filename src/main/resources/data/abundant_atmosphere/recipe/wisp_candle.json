@@ -10,7 +10,7 @@
       "tag": "minecraft:candles"
     },
     {
-      "tag": "c:mushrooms"
+      "item": "abundant_atmosphere:catsbane"
     },
     {
       "item": "abundant_atmosphere:midnight_lily"

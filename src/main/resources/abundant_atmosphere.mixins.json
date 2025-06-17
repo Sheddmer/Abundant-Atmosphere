@@ -10,9 +10,9 @@
     "AAFrogVariantMixin",
     "AALilypadRotationMixin",
     "AAMangroveRootsRotationMixin",
+    "AAPumpkinBlockMixin",
     "AASaplingBlockMixin",
-    "AAThrownPotionMixin",
-    "PotionItemMudMixin"
+    "AAThrownPotionMixin"
   ],
   "client": [
   ],

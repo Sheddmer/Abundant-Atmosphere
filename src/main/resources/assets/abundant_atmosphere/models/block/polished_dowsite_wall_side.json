@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/template_wall_side",
-  "textures": {
-    "wall": "abundant_atmosphere:block/polished_dowsite"
-  }
-}
