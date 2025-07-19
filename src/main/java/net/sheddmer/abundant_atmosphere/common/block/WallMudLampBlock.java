@@ -19,7 +19,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.sheddmer.abundant_atmosphere.init.AASounds;
+import net.sheddmer.abundant_atmosphere.common.init.AASounds;
 
 public class WallMudLampBlock extends MudLampBlock {
     private static final VoxelShape SHAPE_NORTH = Shapes.or(box(6.0, 4.0, 12.0, 10.0, 6.0, 16.0), box(4.0, 6.0, 8.0, 12.0, 11.0, 16.0), box(5.0, 11.0, 9.0, 11.0, 12.0, 15.0), box(7.0, 8.0, 6.0, 9.0, 12.0,9.0));

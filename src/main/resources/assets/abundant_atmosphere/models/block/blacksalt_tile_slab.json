@@ -1,4 +1,5 @@
 {
+  "credit": "Made by Sheddmer",
   "parent": "block/block",
   "textures": {
     "side": "abundant_atmosphere:block/blacksalt_tiles",

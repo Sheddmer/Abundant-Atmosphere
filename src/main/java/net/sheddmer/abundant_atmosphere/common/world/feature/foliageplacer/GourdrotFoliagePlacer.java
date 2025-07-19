@@ -8,7 +8,7 @@ import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
-import net.sheddmer.abundant_atmosphere.init.AAFoliagePlacerTypes;
+import net.sheddmer.abundant_atmosphere.common.init.AAFoliagePlacerTypes;
 
 public class GourdrotFoliagePlacer extends FoliagePlacer {
     public static final MapCodec<GourdrotFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(gourdrotFoliagePlacerInstance -> foliagePlacerParts(gourdrotFoliagePlacerInstance).apply(gourdrotFoliagePlacerInstance, GourdrotFoliagePlacer::new));

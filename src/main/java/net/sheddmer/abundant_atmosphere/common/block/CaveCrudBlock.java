@@ -9,7 +9,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.sheddmer.abundant_atmosphere.init.AAFeatures;
+import net.sheddmer.abundant_atmosphere.common.init.AAFeatures;
 
 public class CaveCrudBlock extends Block implements BonemealableBlock {
 

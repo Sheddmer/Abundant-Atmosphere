@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.DeltaFeatureConfiguration;
-import net.sheddmer.abundant_atmosphere.init.AABlocks;
+import net.sheddmer.abundant_atmosphere.common.init.AABlocks;
 
 public class OverworldDeltaFeature extends Feature<DeltaFeatureConfiguration>  {
     private static final ImmutableList<Block> CAN_REPLACE = ImmutableList.of(Blocks.BASALT, Blocks.SMOOTH_BASALT, AABlocks.MOSSY_BASALT.get());

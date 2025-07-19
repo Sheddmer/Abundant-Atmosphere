@@ -2,12 +2,10 @@ package net.sheddmer.abundant_atmosphere.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.Mth;
 import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -26,11 +24,10 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.sheddmer.abundant_atmosphere.init.AAParticleTypes;
-import net.sheddmer.abundant_atmosphere.init.AAProperties;
+import net.sheddmer.abundant_atmosphere.common.init.AAParticleTypes;
+import net.sheddmer.abundant_atmosphere.common.init.AAProperties;
 
 import javax.annotation.Nullable;
-import java.util.Vector;
 import java.util.function.BiConsumer;
 
 public class LeafPileBlock extends Block implements SimpleWaterloggedBlock {

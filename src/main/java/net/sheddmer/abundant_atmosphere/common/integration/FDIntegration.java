@@ -7,19 +7,17 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
-import net.sheddmer.abundant_atmosphere.init.AAFoods;
+import net.sheddmer.abundant_atmosphere.common.init.AAFoods;
 import vectorwing.farmersdelight.common.block.CabinetBlock;
 import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
 
-import static net.sheddmer.abundant_atmosphere.init.AABlocks.registerBlock;
-import static net.sheddmer.abundant_atmosphere.init.AAItems.registerItem;
+import static net.sheddmer.abundant_atmosphere.common.init.AABlocks.registerBlock;
+import static net.sheddmer.abundant_atmosphere.common.init.AAItems.registerItem;
 
 public class FDIntegration {
     public static final DeferredBlock<Block> ASHROOT_CABINET = registerBlock("ashroot_cabinet", () -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL)));
     public static final DeferredBlock<Block> GOURDROT_CABINET = registerBlock("gourdrot_cabinet", () -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL)));
     public static final DeferredBlock<Block> RED_BAMBOO_CABINET = registerBlock("red_bamboo_cabinet", () -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL)));
-    public static final DeferredItem<Item> PUFFBALL_SLICE = registerItem("puffball_slice", () -> new Item(new Item.Properties().food(AAFoods.PUFFBALL_SLICE)));
-    public static final DeferredItem<Item> PUFFBALL_CUTLET = registerItem("puffball_cutlet", () -> new Item(new Item.Properties().food(AAFoods.PUFFBALL_CUTLET)));
 
     public static final DeferredItem<Item> SWAMP_SCRAN = registerItem("swamp_scran", () -> new Item(new Item.Properties().food(AAFoods.SWAMP_SCRAN).stacksTo(16)));
 

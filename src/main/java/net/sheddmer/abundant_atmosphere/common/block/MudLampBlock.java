@@ -29,7 +29,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
-import net.sheddmer.abundant_atmosphere.init.AASounds;
+import net.sheddmer.abundant_atmosphere.common.init.AASounds;
 
 import javax.annotation.Nullable;
 import java.util.function.BiConsumer;

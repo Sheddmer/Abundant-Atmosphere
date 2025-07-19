@@ -4,8 +4,6 @@ import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.ChestRaftModel;
 import net.minecraft.client.model.RaftModel;
-import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
-import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -19,9 +17,9 @@ import net.sheddmer.abundant_atmosphere.client.renderer.StoneChestRenderer;
 import net.sheddmer.abundant_atmosphere.common.particle.DriedLeafParticle;
 import net.sheddmer.abundant_atmosphere.common.particle.FireflyParticle;
 import net.sheddmer.abundant_atmosphere.common.particle.WispFlameParticle;
-import net.sheddmer.abundant_atmosphere.init.AABlockEntityTypes;
-import net.sheddmer.abundant_atmosphere.init.AAEntityTypes;
-import net.sheddmer.abundant_atmosphere.init.AAParticleTypes;
+import net.sheddmer.abundant_atmosphere.common.init.AABlockEntityTypes;
+import net.sheddmer.abundant_atmosphere.common.init.AAEntityTypes;
+import net.sheddmer.abundant_atmosphere.common.init.AAParticleTypes;
 
 @EventBusSubscriber(modid = AbundantAtmosphere.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class AbundantAtmosphereClient {

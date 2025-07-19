@@ -11,9 +11,9 @@ import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.sheddmer.abundant_atmosphere.init.AABlocks;
-import net.sheddmer.abundant_atmosphere.init.AAEntityTypes;
-import net.sheddmer.abundant_atmosphere.init.AAItems;
+import net.sheddmer.abundant_atmosphere.common.init.AABlocks;
+import net.sheddmer.abundant_atmosphere.common.init.AAEntityTypes;
+import net.sheddmer.abundant_atmosphere.common.init.AAItems;
 
 import java.util.function.IntFunction;
 

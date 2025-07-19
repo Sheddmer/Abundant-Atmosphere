@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "abundant_atmosphere:block/deepslate_pillar_vertical",
+    "down": "abundant_atmosphere:block/deepslate_pillar_top",
+    "up": "abundant_atmosphere:block/deepslate_pillar_top",
+    "north": "abundant_atmosphere:block/deepslate_pillar_vertical",
+    "east": "abundant_atmosphere:block/deepslate_pillar_vertical",
+    "south": "abundant_atmosphere:block/deepslate_pillar_vertical",
+    "west": "abundant_atmosphere:block/deepslate_pillar_vertical"
+  }
+}

@@ -53,10 +53,6 @@
   "block.abundant_atmosphere.cerulean_froglight": "Cerulean Froglight",
   "block.abundant_atmosphere.chromatic_froglight": "Chromatic Froglight",
 
-  "block.abundant_atmosphere.rusty_plating": "Rusty Plating",
-  "block.abundant_atmosphere.cut_rusty_plating": "Cut Rusty Plating",
-  "block.abundant_atmosphere.rusty_bars": "Rusty Bars",
-
   "block.abundant_atmosphere.trimmed_ashroot_planks": "Trimmed Ashroot Planks",
   "block.abundant_atmosphere.ashroot_bookshelf": "Ashroot Bookshelf",
   "block.abundant_atmosphere.ashroot_cabinet": "Ashroot Cabinet",
@@ -96,6 +92,9 @@
   "block.abundant_atmosphere.poreshroom": "Poreshroom",
   "block.abundant_atmosphere.wall_poreshroom": "Poreshroom",
   "block.abundant_atmosphere.poreshroom_block": "Poreshroom Block",
+
+  "block.abundant_atmosphere.deepslate_pillar": "Deepslate Pillar",
+  "block.abundant_atmosphere.chiseled_deepslate_tiles": "Chiseled Deepslate Tiles",
 
   "block.abundant_atmosphere.rust_moss_block": "Rust Moss Block",
   "block.abundant_atmosphere.rust_moss_carpet": "Rust Moss Carpet",

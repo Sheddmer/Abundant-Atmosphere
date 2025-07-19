@@ -18,8 +18,8 @@ import net.minecraft.world.level.block.state.properties.BambooLeaves;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.sheddmer.abundant_atmosphere.init.AABlocks;
-import net.sheddmer.abundant_atmosphere.init.AATags;
+import net.sheddmer.abundant_atmosphere.common.init.AABlocks;
+import net.sheddmer.abundant_atmosphere.common.init.AATags;
 
 public class RedBambooSaplingBlock extends Block implements BonemealableBlock {
     protected static final VoxelShape SHAPE = Block.box(4.0, 0.0, 4.0, 12.0, 12.0, 12.0);

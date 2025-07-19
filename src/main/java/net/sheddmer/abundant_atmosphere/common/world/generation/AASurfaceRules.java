@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Noises;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
-import net.sheddmer.abundant_atmosphere.init.AABiomes;
+import net.sheddmer.abundant_atmosphere.common.init.AABiomes;
 
 public class AASurfaceRules {
     private static final SurfaceRules.RuleSource PODZOL = SurfaceRules.state(Blocks.PODZOL.defaultBlockState());

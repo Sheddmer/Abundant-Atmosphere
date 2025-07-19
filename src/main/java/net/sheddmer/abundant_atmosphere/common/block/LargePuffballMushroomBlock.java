@@ -23,7 +23,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.sheddmer.abundant_atmosphere.init.AATags;
+import net.sheddmer.abundant_atmosphere.common.init.AATags;
 
 public class LargePuffballMushroomBlock extends Block {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_5;

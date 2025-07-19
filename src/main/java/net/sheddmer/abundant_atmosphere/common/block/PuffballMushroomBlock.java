@@ -20,8 +20,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.common.CommonHooks;
-import net.sheddmer.abundant_atmosphere.init.AABlocks;
-import net.sheddmer.abundant_atmosphere.init.AATags;
+import net.sheddmer.abundant_atmosphere.common.init.AABlocks;
+import net.sheddmer.abundant_atmosphere.common.init.AATags;
 
 public class PuffballMushroomBlock extends Block implements BonemealableBlock {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_4;

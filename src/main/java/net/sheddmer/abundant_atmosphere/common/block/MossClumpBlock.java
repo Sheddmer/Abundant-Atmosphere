@@ -5,7 +5,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -19,9 +18,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.sheddmer.abundant_atmosphere.init.AABlocks;
-
-import java.util.function.ToIntFunction;
 
 public class MossClumpBlock extends MultifaceBlock implements BonemealableBlock, SimpleWaterloggedBlock {
     public static final MapCodec<MossClumpBlock> CODEC = simpleCodec(MossClumpBlock::new);

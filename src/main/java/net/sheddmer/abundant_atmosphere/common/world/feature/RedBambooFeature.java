@@ -13,7 +13,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
 import net.sheddmer.abundant_atmosphere.common.block.RedBambooStalkBlock;
-import net.sheddmer.abundant_atmosphere.init.AABlocks;
+import net.sheddmer.abundant_atmosphere.common.init.AABlocks;
 
 public class RedBambooFeature extends Feature<ProbabilityFeatureConfiguration> {
     private static final BlockState BAMBOO_TRUNK = AABlocks.RED_BAMBOO.get().defaultBlockState().setValue(RedBambooStalkBlock.AGE, 1).setValue(RedBambooStalkBlock.LEAVES, BambooLeaves.NONE).setValue(RedBambooStalkBlock.STAGE, 0);

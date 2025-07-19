@@ -3,7 +3,7 @@ package net.sheddmer.abundant_atmosphere.common.blockentity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.sheddmer.abundant_atmosphere.init.AABlockEntityTypes;
+import net.sheddmer.abundant_atmosphere.common.init.AABlockEntityTypes;
 
 public class WispCandleBlockEntity extends BlockEntity {
 

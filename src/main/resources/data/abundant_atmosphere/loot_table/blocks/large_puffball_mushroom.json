@@ -15,6 +15,21 @@
               "properties": {
                 "age": "0"
               }
+            },
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "predicates": {
+                  "minecraft:enchantments": [
+                    {
+                      "enchantments": "minecraft:silk_touch",
+                      "levels": {
+                        "min": 1
+                      }
+                    }
+                  ]
+                }
+              }
             }
           ]
         },
@@ -28,6 +43,21 @@
               "block": "abundant_atmosphere:large_puffball_mushroom",
               "properties": {
                 "age": "1"
+              }
+            },
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "predicates": {
+                  "minecraft:enchantments": [
+                    {
+                      "enchantments": "minecraft:silk_touch",
+                      "levels": {
+                        "min": 1
+                      }
+                    }
+                  ]
+                }
               }
             }
           ]
@@ -43,13 +73,110 @@
               "properties": {
                 "age": "2"
               }
+            },
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "predicates": {
+                  "minecraft:enchantments": [
+                    {
+                      "enchantments": "minecraft:silk_touch",
+                      "levels": {
+                        "min": 1
+                      }
+                    }
+                  ]
+                }
+              }
             }
           ]
         },
         {
           "type": "minecraft:item",
-          "name": "abundant_atmosphere:puffball_spores",
-          "functions": [],
+          "name": "abundant_atmosphere:puffball_slice",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2,
+                "max": 4
+              },
+              "add": false
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "abundant_atmosphere:large_puffball_mushroom",
+              "properties": {
+                "age": "0"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "abundant_atmosphere:puffball_slice",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2,
+                "max": 4
+              },
+              "add": false
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "abundant_atmosphere:large_puffball_mushroom",
+              "properties": {
+                "age": "1"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "abundant_atmosphere:puffball_slice",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2,
+                "max": 3
+              },
+              "add": false
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "abundant_atmosphere:large_puffball_mushroom",
+              "properties": {
+                "age": "2"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "abundant_atmosphere:puffball_slice",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              },
+              "add": false
+            }
+          ],
           "conditions": [
             {
               "condition": "minecraft:block_state_property",
@@ -69,7 +196,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "min": 1,
-                "max": 3
+                "max": 4
               },
               "add": false
             }
@@ -112,5 +239,5 @@
       "rolls": 1
     }
   ],
-  "random_sequence": "minecraft:blocks/blue_candle"
+  "random_sequence": "abundant_atmosphere:blocks/large_puffball_mushroom"
 }

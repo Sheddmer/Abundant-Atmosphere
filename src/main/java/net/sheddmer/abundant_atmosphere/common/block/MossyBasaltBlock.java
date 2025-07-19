@@ -7,9 +7,9 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.sheddmer.abundant_atmosphere.init.AABlocks;
-import net.sheddmer.abundant_atmosphere.init.AAProperties;
-import net.sheddmer.abundant_atmosphere.init.AATags;
+import net.sheddmer.abundant_atmosphere.common.init.AABlocks;
+import net.sheddmer.abundant_atmosphere.common.init.AAProperties;
+import net.sheddmer.abundant_atmosphere.common.init.AATags;
 
 public class MossyBasaltBlock extends RotatedPillarBlock {
     public static final BooleanProperty OVERGROWN = AAProperties.OVERGROWN;

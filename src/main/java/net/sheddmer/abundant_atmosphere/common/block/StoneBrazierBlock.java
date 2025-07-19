@@ -29,8 +29,8 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
-import net.sheddmer.abundant_atmosphere.init.AASounds;
-import net.sheddmer.abundant_atmosphere.init.AATags;
+import net.sheddmer.abundant_atmosphere.common.init.AASounds;
+import net.sheddmer.abundant_atmosphere.common.init.AATags;
 
 import javax.annotation.Nullable;
 

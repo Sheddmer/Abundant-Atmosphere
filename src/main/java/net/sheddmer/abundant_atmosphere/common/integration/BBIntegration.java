@@ -4,14 +4,14 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredBlock;
-import net.sheddmer.abundant_atmosphere.init.AABlocks;
+import net.sheddmer.abundant_atmosphere.common.init.AABlocks;
 import vectorwing.blockbox.common.block.PalisadeBlock;
 import vectorwing.blockbox.common.block.SeatBlock;
 import vectorwing.blockbox.common.block.SpikedPalisadeBlock;
 import vectorwing.blockbox.common.registry.ModBlocks;
 
 import static net.minecraft.world.level.block.state.BlockBehaviour.Properties.ofFullCopy;
-import static net.sheddmer.abundant_atmosphere.init.AABlocks.registerBlock;
+import static net.sheddmer.abundant_atmosphere.common.init.AABlocks.registerBlock;
 
 public class BBIntegration {
     public static final DeferredBlock<Block> STRIPPED_SPIKED_ASHROOT_PALISADE = registerBlock("stripped_spiked_ashroot_palisade", () -> new SpikedPalisadeBlock(ModBlocks.PROPERTIES_PALISADE.mapColor(MapColor.WOOD).sound(SoundType.WOOD)));

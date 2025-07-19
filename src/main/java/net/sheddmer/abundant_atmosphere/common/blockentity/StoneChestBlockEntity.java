@@ -4,7 +4,6 @@ import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.CompoundContainer;
 import net.minecraft.world.Container;
@@ -16,13 +15,12 @@ import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.ChestBlock;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.ChestType;
 import net.sheddmer.abundant_atmosphere.common.block.StoneChestBlock;
-import net.sheddmer.abundant_atmosphere.init.AABlockEntityTypes;
-import net.sheddmer.abundant_atmosphere.init.AASounds;
+import net.sheddmer.abundant_atmosphere.common.init.AABlockEntityTypes;
+import net.sheddmer.abundant_atmosphere.common.init.AASounds;
 
 public class StoneChestBlockEntity extends RandomizableContainerBlockEntity {
     private NonNullList<ItemStack> items = NonNullList.withSize(27, ItemStack.EMPTY);

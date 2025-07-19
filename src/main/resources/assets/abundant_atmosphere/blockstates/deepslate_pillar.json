@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "abundant_atmosphere:block/deepslate_pillar_horizontal",
+      "y": 90
+    },
+    "axis=y": {
+      "model": "abundant_atmosphere:block/deepslate_pillar_vertical"
+    },
+    "axis=z": {
+      "model": "abundant_atmosphere:block/deepslate_pillar_horizontal"
+    }
+  }
+}

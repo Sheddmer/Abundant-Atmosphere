@@ -4,7 +4,7 @@ import com.terraformersmc.biolith.api.biome.BiomePlacement;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.Climate;
 import net.sheddmer.abundant_atmosphere.AAConfig;
-import net.sheddmer.abundant_atmosphere.init.AABiomes;
+import net.sheddmer.abundant_atmosphere.common.init.AABiomes;
 
 public class AABiomePlacements {
     public static void register() {

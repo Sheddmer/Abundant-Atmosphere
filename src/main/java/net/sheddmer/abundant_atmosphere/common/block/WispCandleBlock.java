@@ -40,9 +40,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.sheddmer.abundant_atmosphere.common.blockentity.WispCandleBlockEntity;
-import net.sheddmer.abundant_atmosphere.init.AAParticleTypes;
-import net.sheddmer.abundant_atmosphere.init.AAProperties;
-import net.sheddmer.abundant_atmosphere.init.AASounds;
+import net.sheddmer.abundant_atmosphere.common.init.AAParticleTypes;
+import net.sheddmer.abundant_atmosphere.common.init.AAProperties;
+import net.sheddmer.abundant_atmosphere.common.init.AASounds;
 
 import javax.annotation.Nullable;
 import java.util.List;

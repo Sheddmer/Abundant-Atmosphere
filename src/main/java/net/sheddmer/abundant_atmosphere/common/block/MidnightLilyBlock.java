@@ -5,8 +5,6 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
@@ -29,8 +27,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
-import net.sheddmer.abundant_atmosphere.init.AAParticleTypes;
-import net.sheddmer.abundant_atmosphere.init.AAProperties;
+import net.sheddmer.abundant_atmosphere.common.init.AAParticleTypes;
+import net.sheddmer.abundant_atmosphere.common.init.AAProperties;
 
 import java.util.List;
 
