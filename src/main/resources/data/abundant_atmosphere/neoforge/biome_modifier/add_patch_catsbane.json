@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:deep_dark",
+  "features": [
+    "abundant_atmosphere:patch_catsbane"
+  ],
+  "step": "vegetal_decoration"
+}

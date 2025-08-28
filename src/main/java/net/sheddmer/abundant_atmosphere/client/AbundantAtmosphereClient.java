@@ -15,6 +15,7 @@ import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 import net.sheddmer.abundant_atmosphere.client.renderer.AABoatRenderer;
 import net.sheddmer.abundant_atmosphere.client.renderer.StoneChestRenderer;
 import net.sheddmer.abundant_atmosphere.common.particle.DriedLeafParticle;
+import net.sheddmer.abundant_atmosphere.common.particle.MossParticle;
 import net.sheddmer.abundant_atmosphere.common.particle.FireflyParticle;
 import net.sheddmer.abundant_atmosphere.common.particle.WispFlameParticle;
 import net.sheddmer.abundant_atmosphere.common.init.AABlockEntityTypes;
@@ -55,6 +56,8 @@ public class AbundantAtmosphereClient {
         event.registerSpriteSet(AAParticleTypes.FIREFLY.get(), FireflyParticle.Provider::new);
         event.registerSpriteSet(AAParticleTypes.WISP_FLAME.get(), WispFlameParticle.Provider::new);
         event.registerSpriteSet(AAParticleTypes.DRIED_LEAF.get(), DriedLeafParticle.Provider::new);
+        event.registerSpriteSet(AAParticleTypes.FALLING_MOSS.get(), MossParticle.Provider::new);
+        event.registerSpriteSet(AAParticleTypes.FALLING_RUST_MOSS.get(), MossParticle.Provider::new);
     }
 
 }

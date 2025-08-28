@@ -6,7 +6,6 @@
   "refmap": "abundant_atmosphere.refmap.json",
   "mixins": [
     "AABushBlockMixin",
-    "AAFrogBucketMixin",
     "AAFrogVariantMixin",
     "AALilypadRotationMixin",
     "AAMangroveRootsRotationMixin",

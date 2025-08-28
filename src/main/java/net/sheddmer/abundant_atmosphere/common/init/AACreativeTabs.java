@@ -12,9 +12,15 @@ import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 public class AACreativeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, AbundantAtmosphere.MODID);
 
-    private static final Sets.SetView<DeferredHolder<Item, ? extends Item>> CREATIVE_TAB_ITEMS = Sets.union(AAItems.CREATIVE_TAB_ITEMS, AABlocks.CREATIVE_TAB_ITEMS);
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> ABUNDANT_ATMOSPHERE_TAB = CREATIVE_TABS.register(AbundantAtmosphere.MODID, () -> CreativeModeTab.builder()
+            .title(Component.translatable("itemGroup.abundant_atmosphere")).icon(AABlocks.ASHROOT_SAPLING::toStack)
+            .displayItems((parameters, output) -> {
+                output.accept(AABlocks.ASHROOT_LOG);
+                output.accept(AABlocks.STRIPPED_ASHROOT_LOG);
+                output.accept(AABlocks.ASHROOT_WOOD);
+                output.accept(AABlocks.STRIPPED_ASHROOT_WOOD);
 
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> ABUNDANT_ATMOSPHERE_TAB = CREATIVE_TABS.register(AbundantAtmosphere.MODID, () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.abundant_atmosphere")).icon(AABlocks.ASHROOT_SAPLING::toStack)
-            .displayItems((parameters, output) -> CREATIVE_TAB_ITEMS.forEach((item) -> output.accept(item.get()))).build());
+                output.accept(AAItems.ROASTED_GOURDNUT);
+            }).build());
 
 }

@@ -94,11 +94,11 @@
   "block.abundant_atmosphere.poreshroom_block": "Poreshroom Block",
 
   "block.abundant_atmosphere.deepslate_pillar": "Deepslate Pillar",
-  "block.abundant_atmosphere.chiseled_deepslate_tiles": "Chiseled Deepslate Tiles",
 
   "block.abundant_atmosphere.rust_moss_block": "Rust Moss Block",
   "block.abundant_atmosphere.rust_moss_carpet": "Rust Moss Carpet",
   "block.abundant_atmosphere.rust_moss_clump": "Rust Moss Clump",
+  "block.abundant_atmosphere.rust_moss_sprouts": "Rust Moss Sprouts",
   "block.abundant_atmosphere.mossy_deepslate": "Mossy Deepslate",
   "block.abundant_atmosphere.mossy_cobbled_deepslate": "Mossy Cobbled Deepslate",
   "block.abundant_atmosphere.mossy_cobbled_deepslate_stairs": "Mossy Cobbled Deepslate Stairs",
@@ -117,12 +117,12 @@
   "block.abundant_atmosphere.mossy_deepslate_tile_slab": "Mossy Deepslate Tile Slab",
   "block.abundant_atmosphere.mossy_deepslate_tile_wall": "Mossy Deepslate Tile Wall",
 
-  "block.abundant_atmosphere.suspicious_dirt": "Suspicious Dirt",
   "block.abundant_atmosphere.suspicious_red_sand": "Suspicious Red Sand",
 
   "item.abundant_atmosphere.puffball_spores": "Puffball Spores",
   "block.abundant_atmosphere.puffball_mushroom": "Puffball Mushroom",
   "block.abundant_atmosphere.large_puffball_mushroom": "Large Puffball Mushroom",
+  "item.abundant_atmosphere.puffball_slice": "Puffball Slice",
   "item.abundant_atmosphere.puffball_cutlet": "Puffball Cutlet",
 
   "block.abundant_atmosphere.saffron_bushbuds": "Saffron Bushbuds",
@@ -207,34 +207,39 @@
   "item.abundant_atmosphere.roasted_gourdnut": "Roasted Gourdnut",
   "item.abundant_atmosphere.squashberry_jam": "Squashberry Jam",
   "item.abundant_atmosphere.squashberry_bread": "Squashberry Bread",
-
   "item.abundant_atmosphere.swamp_scran": "Swamp Scran",
+
+  "entity.abundant_atmosphere.aa_chest_boat": "Boat with Chest",
 
   "block.abundant_atmosphere.stone_chest": "Stone Chest",
   "block.abundant_atmosphere.trapped_stone_chest": "Trapped Stone Chest",
   "container.abundant_atmosphere.stone_chest.single": "Stone Chest",
   "container.abundant_atmosphere.stone_chest.large": "Large Stone Chest",
 
-  "entity.abundant_atmosphere.aa_chest_boat": "Boat with Chest",
+  "subtitles.abundant_atmosphere.block.stone_chest.close": "Stone Chest closes",
+  "subtitles.abundant_atmosphere.block.stone_chest.open": "Stone Chest opens",
+  "subtitles.abundant_atmosphere.block.stone_brazier.crackle": "Brazier crackles",
+  "subtitles.abundant_atmosphere.block.mud_lamp.ambient": "Mud Lamp crackles",
+  "subtitles.abundant_atmosphere.block.wisp_candle.activate": "Wisp Candle activates",
+  "subtitles.abundant_atmosphere.block.wisp_candle.dusting_lapis": "Dusting Lapis Lazuli",
+  "subtitles.abundant_atmosphere.block.door.close": "Door closes",
+  "subtitles.abundant_atmosphere.block.door.open": "Door opens",
+  "subtitles.abundant_atmosphere.block.door.lock": "Door locks",
+  "subtitles.abundant_atmosphere.block.door.unlock": "Door unlocks",
+  "subtitles.abundant_atmosphere.block.trapdoor.close": "Trapdoor closes",
+  "subtitles.abundant_atmosphere.block.trapdoor.open": "Trapdoor opens",
+  "subtitles.abundant_atmosphere.block.trapdoor.lock": "Trapdoor locks",
+  "subtitles.abundant_atmosphere.block.trapdoor.unlock": "Trapdoor unlocks",
 
-  "item.abundant_atmosphere.puffball_slice": "Puffball Slice",
+  "block.abundant_atmosphere.door.locked": "Door is locked",
+  "block.abundant_atmosphere.trapdoor.locked": "Trapdoor is locked",
 
-  "subtitles.abundant_atmosphere.stone_chest_close": "Stone Chest shuts",
-  "subtitles.abundant_atmosphere.stone_chest_open": "Stone Chest opens",
-  "subtitles.abundant_atmosphere.brazier_crackles": "Brazier crackles",
-  "subtitles.abundant_atmosphere.mud_lamp_ambient": "Mud Lamp crackles",
-  "subtitles.abundant_atmosphere.dusting_lapis": "Dusting Lapis Lazuli",
-  "subtitles.abundant_atmosphere.wisp_candle_activates": "Wisp Candle activates",
-
-  "effect.abundant_atmosphere.wisp_guard": "Wisp Guard",
-
-  "biome.abundant_atmosphere.basalt_hot_springs": "Basalt Hot Springs",
-  "biome.abundant_atmosphere.ancient_spring_caves": "Ancient Spring Caves",
-
+  "biome.abundant_atmosphere.eroded_bamboo_jungle": "Eroded Bamboo Jungle",
+  "biome.abundant_atmosphere.geothermal_garden": "Geothermal Garden",
   "itemGroup.abundant_atmosphere": "Abundant Atmosphere",
 
   "advancements.abundant_atmosphere.leash_frog_end.title": "Cosmic Conformity",
-  "advancements.abundant_atmosphere.leash_frog_end.description": "Twist a Tadpole by growing it up in the End, and leash it",
+  "advancements.abundant_atmosphere.leash_frog_end.description": "Obtain a Budgett Frog by growing a tadpole in the End",
   "advancements.abundant_atmosphere.collect_chromatic_froglight.title": "In the Palm of My Hand",
   "advancements.abundant_atmosphere.collect_chromatic_froglight.description": "Obtain a Chromatic Froglight"
 

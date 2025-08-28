@@ -15,7 +15,7 @@ public class AABlockEntityTypes {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WispCandleBlockEntity>> WISP_CANDLE = BLOCK_ENTITY_TYPES.register("wisp_candle", () -> BlockEntityType.Builder.of(WispCandleBlockEntity::new, AABlocks.WISP_CANDLE.get()).build(null));
 
     public static void addBlockEntities(final BlockEntityTypeAddBlocksEvent event) {
-        event.modify(BlockEntityType.BRUSHABLE_BLOCK, AABlocks.SUSPICIOUS_DIRT.get(), AABlocks.SUSPICIOUS_RED_SAND.get());
+        event.modify(BlockEntityType.BRUSHABLE_BLOCK, AABlocks.SUSPICIOUS_RED_SAND.get());
         event.modify(BlockEntityType.SIGN, AABlocks.ASHROOT_SIGN.get(), AABlocks.ASHROOT_WALL_SIGN.get(), AABlocks.GOURDROT_SIGN.get(), AABlocks.GOURDROT_WALL_SIGN.get(), AABlocks.RED_BAMBOO_SIGN.get(), AABlocks.RED_BAMBOO_WALL_SIGN.get());
         event.modify(BlockEntityType.HANGING_SIGN, AABlocks.ASHROOT_HANGING_SIGN.get(), AABlocks.ASHROOT_WALL_HANGING_SIGN.get(), AABlocks.GOURDROT_HANGING_SIGN.get(), AABlocks.GOURDROT_WALL_HANGING_SIGN.get(), AABlocks.RED_BAMBOO_HANGING_SIGN.get(), AABlocks.RED_BAMBOO_WALL_HANGING_SIGN.get());
     }

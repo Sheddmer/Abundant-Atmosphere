@@ -8,8 +8,8 @@ import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 
 public class AABiomes {
 
-    public static final ResourceKey<Biome> BASALT_HOT_SPRINGS = createKey("basalt_hot_springs");
-    public static final ResourceKey<Biome> ANCIENT_SPRING_CAVES = createKey("ancient_spring_caves");
+    public static final ResourceKey<Biome> ERODED_BAMBOO_JUNGLE = createKey("eroded_bamboo_jungle");
+    public static final ResourceKey<Biome> GEOTHERMAL_GARDEN = createKey("geothermal_garden");
 
     public static ResourceKey<Biome> createKey(String name) {
         return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, name));

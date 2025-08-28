@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:mod_loaded",
+        "modid": "nomansland"
+      }
+    }
+  ],
+  "type": "neoforge:add_features",
+  "biomes": "abundant_atmosphere:eroded_bamboo_jungle",
+  "features": [
+    "abundant_atmosphere:trees_eroded_jungle"
+  ],
+  "step": "vegetal_decoration"
+}

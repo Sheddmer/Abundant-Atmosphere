@@ -8,8 +8,8 @@ public class AAConfig {
     public static ModConfigSpec.BooleanValue PLANT_PLACEMENT;
     public static final String CATEGORY_BIOMES = "biome generation";
     public static ModConfigSpec.BooleanValue BIOMES;
-    public static ModConfigSpec.BooleanValue BASALT_HOT_SPRINGS;
-    public static ModConfigSpec.BooleanValue ANCIENT_SPRING_CAVES;
+    public static ModConfigSpec.BooleanValue ERODED_BASALT_JUNGLE;
+    public static ModConfigSpec.BooleanValue GEOTHERMAL_GARDEN;
 
     static  {
         ModConfigSpec.Builder COMMON_BUILDER = new ModConfigSpec.Builder();
@@ -25,12 +25,12 @@ public class AAConfig {
         BIOMES = COMMON_BUILDER
                 .comment("Determines if custom biomes are enabled")
                 .define("biomes", true);
-        BASALT_HOT_SPRINGS = COMMON_BUILDER
-                .comment("Determines if Basalt Hot Springs are enabled")
-                .define("basalt_hot_springs", true);
-        ANCIENT_SPRING_CAVES = COMMON_BUILDER
-                .comment("Determines if Ancient Spring Caves are enabled")
-                .define("ancient_spring_caves", true);
+        ERODED_BASALT_JUNGLE = COMMON_BUILDER
+                .comment("Determines if Eroded Basalt Jungles are enabled")
+                .define("eroded_basalt_jungle", true);
+        GEOTHERMAL_GARDEN = COMMON_BUILDER
+                .comment("Determines if Geothermal Gardens are enabled")
+                .define("geothermal_garden", true);
         COMMON_BUILDER.pop();
 
         COMMON_CONFIG = COMMON_BUILDER.build();

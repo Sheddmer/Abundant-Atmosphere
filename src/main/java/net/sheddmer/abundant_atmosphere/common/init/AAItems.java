@@ -27,7 +27,6 @@ import java.util.function.Supplier;
 
 public class AAItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(AbundantAtmosphere.MODID);
-    public static LinkedHashSet<DeferredItem<Item>> CREATIVE_TAB_ITEMS = Sets.newLinkedHashSet();
 
     public static final DeferredItem<Item> MUD_LAMP = registerItem("mud_lamp", () -> new StandingAndWallBlockItem(AABlocks.MUD_LAMP.get(), AABlocks.WALL_MUD_LAMP.get(), new Item.Properties(), Direction.DOWN));
     public static final DeferredItem<Item> PUFFBALL_SPORES = registerItem("puffball_spores", () -> new FungusSporeItem(AABlocks.PUFFBALL_MUSHROOM.get(), 8677966, new Item.Properties()));
@@ -62,7 +61,6 @@ public class AAItems {
     @SuppressWarnings("unchecked")
     public static <T extends Item> DeferredItem<T> registerItem(String name, Supplier<? extends Item> item) {
         DeferredItem<Item> toReturn = ITEMS.register(name, item);
-        CREATIVE_TAB_ITEMS.add(toReturn);
         return (DeferredItem<T>) toReturn;
     }
 
@@ -168,8 +166,7 @@ public class AAItems {
             // Mossy deepslate blocks
             event.insertAfter(Items.DEEPSLATE.getDefaultInstance(), AABlocks.MOSSY_DEEPSLATE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertBefore(Items.CHISELED_DEEPSLATE.getDefaultInstance(), AABlocks.DEEPSLATE_PILLAR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(Items.CHISELED_DEEPSLATE.getDefaultInstance(), AABlocks.CHISELED_DEEPSLATE_TILES.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AABlocks.CHISELED_DEEPSLATE_TILES.toStack(), AABlocks.MOSSY_COBBLED_DEEPSLATE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(Items.CHISELED_DEEPSLATE.getDefaultInstance(), AABlocks.MOSSY_COBBLED_DEEPSLATE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AABlocks.MOSSY_COBBLED_DEEPSLATE.toStack(), AABlocks.MOSSY_COBBLED_DEEPSLATE_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AABlocks.MOSSY_COBBLED_DEEPSLATE_STAIRS.toStack(), AABlocks.MOSSY_COBBLED_DEEPSLATE_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AABlocks.MOSSY_COBBLED_DEEPSLATE_SLAB.toStack(), AABlocks.MOSSY_COBBLED_DEEPSLATE_WALL.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
@@ -245,6 +242,7 @@ public class AAItems {
 
             event.insertAfter(Items.RED_MUSHROOM_BLOCK.getDefaultInstance(), AABlocks.PORESHROOM_BLOCK.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.DEAD_BUSH.getDefaultInstance(), AABlocks.CAVE_SPROUTS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AABlocks.CAVE_SPROUTS.toStack(), AABlocks.RUST_MOSS_SPROUTS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
         if (tabKey == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
             event.insertAfter(Items.CANDLE.getDefaultInstance(), AABlocks.WISP_CANDLE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
@@ -263,7 +261,6 @@ public class AAItems {
             event.insertAfter(AABlocks.STONE_BRAZIER.toStack(), AABlocks.SOUL_STONE_BRAZIER.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             // suspicious blocks
             event.insertAfter(Items.SUSPICIOUS_SAND.getDefaultInstance(), AABlocks.SUSPICIOUS_RED_SAND.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertBefore(Items.SUSPICIOUS_SAND.getDefaultInstance(), AABlocks.SUSPICIOUS_DIRT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
             if (AAModCompats.FARMERSDELIGHT.isLoaded()) {
                 event.accept(FDIntegration.ASHROOT_CABINET);

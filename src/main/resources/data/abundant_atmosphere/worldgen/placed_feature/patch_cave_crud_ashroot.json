@@ -2,8 +2,8 @@
   "feature": "abundant_atmosphere:patch_cave_crud_ashroot",
   "placement": [
     {
-      "type": "minecraft:count",
-      "count": 2
+      "type": "minecraft:rarity_filter",
+      "chance": 5
     },
     {
       "type": "minecraft:in_square"

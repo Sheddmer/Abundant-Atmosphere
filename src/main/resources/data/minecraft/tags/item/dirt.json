@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "abundant_atmosphere:cave_crud",
-    "abundant_atmosphere:rust_moss_block",
-    "abundant_atmosphere:suspicious_dirt"
+    "abundant_atmosphere:rust_moss_block"
   ]
 }

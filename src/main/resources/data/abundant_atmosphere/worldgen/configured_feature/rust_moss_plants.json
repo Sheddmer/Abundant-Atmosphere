@@ -6,15 +6,9 @@
       "entries": [
         {
           "data": {
-            "Name": "minecraft:red_mushroom"
+            "Name": "abundant_atmosphere:rust_moss_sprouts"
           },
-          "weight": 5
-        },
-        {
-          "data": {
-            "Name": "minecraft:brown_mushroom"
-          },
-          "weight": 5
+          "weight": 45
         },
         {
           "data": {

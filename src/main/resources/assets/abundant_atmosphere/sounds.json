@@ -1,15 +1,15 @@
 {
   "block.stone_chest.close": {
     "sounds": [
-      "abundant_atmosphere:block/stone_chest/stone_chest_close"
+      "abundant_atmosphere:block/stone_chest/close"
     ],
-    "subtitle": "subtitles.abundant_atmosphere.stone_chest_close"
+    "subtitle": "subtitles.abundant_atmosphere.block.stone_chest.close"
   },
   "block.stone_chest.open": {
     "sounds": [
-      "abundant_atmosphere:block/stone_chest/stone_chest_open"
+      "abundant_atmosphere:block/stone_chest/open"
     ],
-    "subtitle": "subtitles.abundant_atmosphere.stone_chest_open"
+    "subtitle": "subtitles.abundant_atmosphere.block.stone_chest.open"
   },
   "block.stone_brazier.crackle": {
     "sounds": [
@@ -18,7 +18,7 @@
         "type": "event"
       }
     ],
-    "subtitle": "subtitles.abundant_atmosphere.brazier_crackles"
+    "subtitle": "subtitles.abundant_atmosphere.block.stone_brazier.crackle"
   },
   "block.mud_lamp.ambient": {
     "sounds": [
@@ -27,7 +27,7 @@
         "type": "event"
       }
     ],
-    "subtitle": "subtitles.abundant_atmosphere.mud_lamp_ambient"
+    "subtitle": "subtitles.abundant_atmosphere.block.mud_lamp.ambient"
   },
   "block.wisp_candle.activate": {
     "sounds": [
@@ -36,7 +36,7 @@
         "type": "event"
       }
     ],
-    "subtitle": "subtitles.abundant_atmosphere.wisp_candle_activates"
+    "subtitle": "subtitles.abundant_atmosphere.block.wisp_candle.activate"
   },
   "item.lapis_lazuli.dusting": {
     "sounds": [
@@ -45,9 +45,81 @@
         "type": "event"
       }
     ],
-    "subtitle": "subtitles.abundant_atmosphere.dusting_lapis"
+    "subtitle": "subtitles.abundant_atmosphere.block.wisp_candle.dusting_lapis"
   },
-  "ambient.ancient_spring_caves.additions": {
+  "block.stone_door.close": {
+    "sounds": [
+      {
+        "name": "block.iron_door.close",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.door.close"
+  },
+  "block.stone_door.open": {
+    "sounds": [
+      {
+        "name": "block.iron_door.open",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.door.open"
+  },
+  "block.stone_door.lock": {
+    "sounds": [
+      {
+        "name": "block.iron_trapdoor.close",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.door.lock"
+  },
+  "block.stone_door.unlock": {
+    "sounds": [
+      {
+        "name": "block.iron_trapdoor.open",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.door.unlock"
+  },
+  "block.stone_trapdoor.close": {
+    "sounds": [
+      {
+        "name": "block.iron_trapdoor.close",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.trapdoor.close"
+  },
+  "block.stone_trapdoor.open": {
+    "sounds": [
+      {
+        "name": "block.iron_trapdoor.open",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.trapdoor.open"
+  },
+  "block.stone_trapdoor.lock": {
+    "sounds": [
+      {
+        "name": "block.iron_trapdoor.close",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.trapdoor.lock"
+  },
+  "block.stone_trapdoor.unlock": {
+    "sounds": [
+      {
+        "name": "block.iron_trapdoor.open",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.trapdoor.unlock"
+  },
+  "ambient.geothermal_garden.additions": {
     "sounds": [
       {
         "name": "ambient/nether/basalt_deltas/active1",
@@ -131,7 +203,7 @@
       }
     ]
   },
-  "music.overworld.ancient_spring_caves": {
+  "music.overworld.geothermal_garden": {
     "sounds": [
       {
         "name": "music/game/deeper",

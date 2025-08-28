@@ -56,7 +56,7 @@ public class PuffballMushroomBlock extends Block implements BonemealableBlock {
         BlockState growthBlock = level.getBlockState(pos.below());
         if (state.getValue(AGE) < 4 && growthBlock.is(AATags.PUFFBALL_GROWS_ON) && CommonHooks.canCropGrow(level, pos, state, source.nextInt(8) == 0)) {
             level.setBlock(pos, state.setValue(AGE, state.getValue(AGE) + 1), 2);
-        } else if (state.getValue(AGE) == 4 && growthBlock.is(AATags.PUFFBALL_GROWS_ON) && CommonHooks.canCropGrow(level, pos, state, source.nextInt(8) == 0)) {
+        } else if (state.getValue(AGE) >= 4 && growthBlock.is(AATags.PUFFBALL_GROWS_ON) && CommonHooks.canCropGrow(level, pos, state, source.nextInt(8) == 0)) {
             level.setBlock(pos, AABlocks.LARGE_PUFFBALL_MUSHROOM.get().defaultBlockState(), 2);
         }
     }
@@ -75,9 +75,8 @@ public class PuffballMushroomBlock extends Block implements BonemealableBlock {
         int i = state.getValue(AGE) + this.getBonemealAgeIncrease(level);
         int j = this.isMaxBonemeal();
         if (i > j) {
-            level.setBlock(pos, AABlocks.LARGE_PUFFBALL_MUSHROOM.get().defaultBlockState(), 2);
+            i = 4;
         }
-
         level.setBlock(pos, state.setValue(AGE, i), 2);
     }
 
@@ -101,7 +100,11 @@ public class PuffballMushroomBlock extends Block implements BonemealableBlock {
 
     @Override
     public void performBonemeal(ServerLevel level, RandomSource source, BlockPos pos, BlockState state) {
-        this.growFungus(level, pos, state);
+        if (state.getValue(AGE) >= 4) {
+            level.setBlock(pos, AABlocks.LARGE_PUFFBALL_MUSHROOM.get().defaultBlockState(), 1);
+        } else {
+            this.growFungus(level, pos, state);
+        }
     }
 
         @Override

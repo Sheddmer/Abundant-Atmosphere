@@ -39,7 +39,7 @@ public class RustMossBlock extends Block implements BonemealableBlock {
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
         level.registryAccess()
                 .registry(Registries.CONFIGURED_FEATURE)
-                .flatMap(features -> features.getHolder(AAFeatures.RUST_MOSS_PATCH_BONEMEAL))
+                .flatMap(features -> features.getHolder(AAFeatures.PATCH_RUST_MOSS_BONEMEAL))
                 .ifPresent(var -> var.value().place(level, level.getChunkSource().getGenerator(), random, pos.above()));
     }
 

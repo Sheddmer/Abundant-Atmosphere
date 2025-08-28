@@ -1,0 +1,10 @@
+{
+  "values": [
+    "minecraft:lush_caves",
+    "minecraft:deep_dark",
+    {
+      "id": "abundant_atmosphere:geothermal_garden",
+      "required":false
+    }
+  ]
+}

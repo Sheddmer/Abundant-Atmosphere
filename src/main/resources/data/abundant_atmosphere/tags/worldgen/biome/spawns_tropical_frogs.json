@@ -1,10 +1,6 @@
 {
   "values": [
     "#minecraft:is_jungle",
-    "minecraft:mangrove_swamp",
-    {
-      "id": "abundant_atmosphere:basalt_hot_springs",
-      "required":false
-    }
+    "minecraft:mangrove_swamp"
   ]
 }

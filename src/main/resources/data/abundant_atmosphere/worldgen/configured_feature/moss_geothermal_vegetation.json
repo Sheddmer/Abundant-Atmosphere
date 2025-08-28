@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:random_boolean_selector",
+  "config": {
+    "feature_false": {
+      "feature": "minecraft:moss_clump",
+      "placement": []
+    },
+    "feature_true": {
+      "feature": "abundant_atmosphere:moss_geothermal_plants",
+      "placement": []
+    }
+  }
+}

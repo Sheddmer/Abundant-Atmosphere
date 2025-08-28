@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "abundant_atmosphere:eroded_bamboo_jungle",
+      "required":false
+    }
+  ]
+}

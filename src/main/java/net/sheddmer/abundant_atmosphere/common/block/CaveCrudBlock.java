@@ -29,7 +29,7 @@ public class CaveCrudBlock extends Block implements BonemealableBlock {
 
     @Override
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
-        level.registryAccess().registry(Registries.CONFIGURED_FEATURE).flatMap(features -> features.getHolder(AAFeatures.CAVE_SPROUTS_PATCH))
+        level.registryAccess().registry(Registries.CONFIGURED_FEATURE).flatMap(features -> features.getHolder(AAFeatures.PATCH_CAVE_SPROUTS))
                 .ifPresent(feature -> feature.value().place(level, level.getChunkSource().getGenerator(), random, pos.above()));
     }
 

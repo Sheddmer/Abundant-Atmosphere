@@ -1,0 +1,10 @@
+{
+  "values": [
+    "minecraft:forest",
+    "minecraft:sunflower_plains",
+    {
+      "id": "nomansland:autumnal_forest",
+      "required":false
+    }
+  ]
+}

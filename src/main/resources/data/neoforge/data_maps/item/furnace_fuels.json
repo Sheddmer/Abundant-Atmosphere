@@ -23,6 +23,9 @@
     },
     "abundant_atmosphere:rust_moss_clump": {
       "burn_time": 50
+    },
+    "abundant_atmosphere:rust_moss_sprouts": {
+      "burn_time": 25
     }
   }
 }

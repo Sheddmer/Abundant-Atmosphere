@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "abundant_atmosphere:cave_sprouts",
+    "abundant_atmosphere:rust_moss_sprouts",
+    "abundant_atmosphere:leaf_pile"
+  ]
+}

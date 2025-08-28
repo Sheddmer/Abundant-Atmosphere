@@ -27,6 +27,9 @@
     "abundant_atmosphere:rust_moss_clump": {
       "chance": 0.3
     },
+    "abundant_atmosphere:rust_moss_sprouts": {
+      "chance": 0.3
+    },
     "abundant_atmosphere:moss_clump": {
       "chance": 0.3
     },

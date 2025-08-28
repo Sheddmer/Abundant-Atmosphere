@@ -14,5 +14,7 @@ public class AAParticleTypes {
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> FIREFLY = PARTICLE_TYPES.register("firefly", () -> new SimpleParticleType(false));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> WISP_FLAME = PARTICLE_TYPES.register("wisp_flame", () -> new SimpleParticleType(false));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> DRIED_LEAF = PARTICLE_TYPES.register("dried_leaf", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> FALLING_MOSS = PARTICLE_TYPES.register("falling_moss", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> FALLING_RUST_MOSS = PARTICLE_TYPES.register("falling_rust_moss", () -> new SimpleParticleType(false));
 
 }

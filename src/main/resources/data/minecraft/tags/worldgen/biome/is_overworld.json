@@ -2,11 +2,11 @@
   "replace": false,
   "values": [
     {
-      "id": "abundant_atmosphere:basalt_hot_springs",
+      "id": "abundant_atmosphere:eroded_basalt_jungle",
       "required":false
     },
     {
-      "id": "abundant_atmosphere:ancient_spring_caves",
+      "id": "abundant_atmosphere:geothermal_garden",
       "required":false
     }
   ]

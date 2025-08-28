@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "abundant_atmosphere:patch_rust_moss_bonemeal"
+  ],
+  "step": "local_modifications"
+}

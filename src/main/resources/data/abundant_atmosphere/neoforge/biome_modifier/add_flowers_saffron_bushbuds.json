@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#abundant_atmosphere:places_saffron_bushbuds",
+  "features": [
+    "abundant_atmosphere:flowers_saffron_bushbuds"
+  ],
+  "step": "vegetal_decoration"
+}

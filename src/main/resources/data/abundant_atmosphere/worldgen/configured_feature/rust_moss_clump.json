@@ -21,8 +21,7 @@
       "minecraft:mud",
       "minecraft:muddy_mangrove_roots",
       "abundant_atmosphere:cave_crud",
-      "abundant_atmosphere:rust_moss_block",
-      "abundant_atmosphere:suspicious_dirt"
+      "abundant_atmosphere:rust_moss_block"
     ],
     "can_place_on_ceiling": true,
     "can_place_on_floor": true,

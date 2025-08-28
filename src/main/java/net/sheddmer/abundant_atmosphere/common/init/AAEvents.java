@@ -40,7 +40,7 @@ public class AAEvents {
                 level.playSound(player, pos, SoundEvents.MOSS_BREAK, SoundSource.BLOCKS, 1.0f, 1.0f);
                 if (!level.isClientSide && !player.isCreative())
                     stack.hurtAndBreak(1, player, stack.getEquipmentSlot());
-                ParticleUtils.spawnParticlesOnBlockFaces(level, pos, new BlockParticleOption(ParticleTypes.BLOCK, Blocks.MOSS_BLOCK.defaultBlockState()), UniformInt.of(2, 2));
+                ParticleUtils.spawnParticlesOnBlockFaces(level, pos, AAParticleTypes.FALLING_MOSS.get(), UniformInt.of(2, 4));
                 level.setBlockAndUpdate(pos,
                         state.is(Blocks.MOSSY_COBBLESTONE) ? Blocks.COBBLESTONE.withPropertiesOf(state) :
                                 state.is(Blocks.MOSSY_COBBLESTONE_STAIRS) ? Blocks.COBBLESTONE_STAIRS.withPropertiesOf(state) :
@@ -76,7 +76,7 @@ public class AAEvents {
                 level.playSound(player, pos, SoundEvents.MOSS_BREAK, SoundSource.BLOCKS, 1.0f, 1.0f);
                 if (!level.isClientSide && !player.isCreative())
                     stack.hurtAndBreak(1, player, stack.getEquipmentSlot());
-                ParticleUtils.spawnParticlesOnBlockFaces(level, pos, new BlockParticleOption(ParticleTypes.BLOCK, AABlocks.RUST_MOSS_BLOCK.get().defaultBlockState()), UniformInt.of(2, 2));
+                ParticleUtils.spawnParticlesOnBlockFaces(level, pos, AAParticleTypes.FALLING_RUST_MOSS.get(), UniformInt.of(2, 4));
                 level.setBlockAndUpdate(pos,
                         state.is(AABlocks.MOSSY_DEEPSLATE) ? Blocks.DEEPSLATE.withPropertiesOf(state) :
                                 state.is(AABlocks.MOSSY_COBBLED_DEEPSLATE) ? Blocks.COBBLED_DEEPSLATE.withPropertiesOf(state) :

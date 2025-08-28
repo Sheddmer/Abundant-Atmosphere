@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:remove_features",
+  "biomes": "#abundant_atmosphere:caves_without_rust_moss",
+  "features": [
+    "abundant_atmosphere:patch_rust_moss_bonemeal"
+  ],
+  "step": "local_modifications"
+}

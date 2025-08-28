@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "abundant_atmosphere:cave_crud",
-    "abundant_atmosphere:suspicious_dirt",
     "abundant_atmosphere:suspicious_red_sand",
     "abundant_atmosphere:chiseled_mud_bricks",
     "abundant_atmosphere:mud_lamp",
@@ -15,6 +14,8 @@
     "abundant_atmosphere:mossy_mud_bricks",
     "abundant_atmosphere:mossy_mud_brick_stairs",
     "abundant_atmosphere:mossy_mud_brick_slab",
-    "abundant_atmosphere:mossy_mud_brick_wall"
+    "abundant_atmosphere:mossy_mud_brick_wall",
+    "abundant_atmosphere:mud_door",
+    "abundant_atmosphere:mud_trapdoor"
   ]
 }

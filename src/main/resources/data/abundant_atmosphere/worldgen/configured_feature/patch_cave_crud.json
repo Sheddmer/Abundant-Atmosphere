@@ -16,7 +16,7 @@
       }
     },
     "vegetation_feature": {
-      "feature": "abundant_atmosphere:cave_sprouts_patch",
+      "feature": "abundant_atmosphere:patch_cave_sprouts",
       "placement": []
     }
   }

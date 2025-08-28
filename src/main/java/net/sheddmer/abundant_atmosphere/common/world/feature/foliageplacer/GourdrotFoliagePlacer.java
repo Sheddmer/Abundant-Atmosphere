@@ -23,17 +23,20 @@ public class GourdrotFoliagePlacer extends FoliagePlacer {
     }
 
     @Override
-    protected void createFoliage(LevelSimulatedReader level, FoliageSetter blockSetter, RandomSource random, TreeConfiguration config, int maxFreeTreeHeight, FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
-
+    protected void createFoliage(LevelSimulatedReader level, FoliageSetter blockSetter, RandomSource source, TreeConfiguration config, int maxFreeTreeHeight, FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
+        this.placeLeavesRow(level, blockSetter, source, config, attachment.pos().above(-2), 2, 0, attachment.doubleTrunk());
+        this.placeLeavesRow(level, blockSetter, source, config, attachment.pos().above(-1), 2, 0, attachment.doubleTrunk());
+        this.placeLeavesRow(level, blockSetter, source, config, attachment.pos().above(0), 2, 0, attachment.doubleTrunk());
+        this.placeLeavesRow(level, blockSetter, source, config, attachment.pos().above(1), 1, 0, attachment.doubleTrunk());
     }
 
     @Override
     public int foliageHeight(RandomSource random, int height, TreeConfiguration config) {
-        return 0;
+        return 4;
     }
 
     @Override
     protected boolean shouldSkipLocation(RandomSource random, int localX, int localY, int localZ, int range, boolean large) {
-        return false;
+        return localX > 1 && localZ > 1;
     }
 }

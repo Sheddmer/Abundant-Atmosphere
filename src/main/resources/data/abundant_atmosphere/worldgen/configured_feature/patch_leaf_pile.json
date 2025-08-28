@@ -21,15 +21,6 @@
                 "data": {
                   "Name": "abundant_atmosphere:leaf_pile",
                   "Properties": {
-                    "level": "1"
-                  }
-                },
-                "weight": 1
-              },
-              {
-                "data": {
-                  "Name": "abundant_atmosphere:leaf_pile",
-                  "Properties": {
                     "level": "2"
                   }
                 },
