@@ -1,0 +1,24 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "abundant_atmosphere:bamboo_config",
+      "value": true
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "planks",
+  "key": {
+    "#": {
+      "item": "minecraft:bamboo"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:bamboo_planks"
+  }
+}

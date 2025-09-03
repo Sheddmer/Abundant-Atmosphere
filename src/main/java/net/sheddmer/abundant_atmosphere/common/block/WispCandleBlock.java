@@ -9,6 +9,7 @@ import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
@@ -113,6 +114,10 @@ public class WispCandleBlock extends BaseEntityBlock implements SimpleWaterlogge
             ParticleUtils.spawnParticles(level, pos, Mth.randomBetweenInclusive(RandomSource.create(), 6, 10), 0.5f, 0.3f, true, new DustParticleOptions(Vec3.fromRGB24(8090367).toVector3f(), 1.0f));
             level.setBlock(pos, state.setValue(IGNITABLE, false).setValue(LIT, true), 2);
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (player.getItemInHand(hand).canPerformAction(ItemAbilities.FIRESTARTER_LIGHT) && !state.getValue(IGNITABLE) && !state.getValue(LIT)) {
+            player.displayClientMessage(Component.translatable("block.abundant_atmosphere.wisp_candle.fail"), true);
+            return ItemInteractionResult.FAIL;
         }
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }

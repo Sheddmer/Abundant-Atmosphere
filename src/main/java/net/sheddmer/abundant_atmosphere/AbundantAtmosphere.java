@@ -27,7 +27,6 @@ public class AbundantAtmosphere {
         bus.addListener(this::commonSetup);
 
         AABlocks.BLOCKS.register(bus);
-        AACreativeTabs.CREATIVE_TABS.register(bus);
         AABlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
         AAEntityTypes.ENTITY_TYPES.register(bus);
         AAFrogVariants.FROG_VARIANTS.register(bus);
@@ -37,6 +36,8 @@ public class AbundantAtmosphere {
         AATrunkPlacerTypes.TRUNK_PLACER.register(bus);
         AAFoliagePlacerTypes.FOLIAGE_PLACER.register(bus);
         AAFeatures.FEATURES.register(bus);
+        AACreativeTabs.CREATIVE_TABS.register(bus);
+        AAConditions.CONDITION_CODECS.register(bus);
 
         if (AAModCompats.BLOCKBOX.isLoaded()) BBIntegration.register();
         if (AAModCompats.CREATE.isLoaded()) CIntegration.register();

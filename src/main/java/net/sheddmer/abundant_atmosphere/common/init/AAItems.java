@@ -15,6 +15,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 import net.sheddmer.abundant_atmosphere.common.entity.AABoatEntity;
 import net.sheddmer.abundant_atmosphere.common.item.AABoatItem;
+import net.sheddmer.abundant_atmosphere.common.item.DrinkItem;
 import net.sheddmer.abundant_atmosphere.common.item.FungusSporeItem;
 import net.sheddmer.abundant_atmosphere.common.integration.AAModCompats;
 import net.sheddmer.abundant_atmosphere.common.integration.BBIntegration;
@@ -51,7 +52,7 @@ public class AAItems {
 
     // Food items
     public static final DeferredItem<Item> ROASTED_GOURDNUT = registerItem("roasted_gourdnut", () -> new Item(new Item.Properties().food(AAFoods.ROASTED_GOURDNUT)));
-    public static final DeferredItem<Item> SQUASHBERRY_JAM = registerItem("squashberry_jam", () -> new Item(new Item.Properties().food(AAFoods.SQUASHBERRY_JAM).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
+    public static final DeferredItem<Item> SQUASHBERRY_JAM = registerItem("squashberry_jam", () -> new DrinkItem(new Item.Properties().food(AAFoods.SQUASHBERRY_JAM).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
     public static final DeferredItem<Item> SQUASHBERRY_BREAD = registerItem("squashberry_bread", () -> new Item(new Item.Properties().food(AAFoods.SQUASHBERRY_BREAD)));
     public static final DeferredItem<Item> PUFFBALL_SLICE = registerItem("puffball_slice", () -> new Item(new Item.Properties().food(AAFoods.PUFFBALL_SLICE)));
     public static final DeferredItem<Item> PUFFBALL_CUTLET = registerItem("puffball_cutlet", () -> new Item(new Item.Properties().food(AAFoods.PUFFBALL_CUTLET)));
@@ -275,8 +276,8 @@ public class AAItems {
         }
         if (tabKey == CreativeModeTabs.FOOD_AND_DRINKS) {
             event.insertBefore(Items.PUMPKIN_PIE.getDefaultInstance(), AAItems.ROASTED_GOURDNUT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AAItems.ROASTED_GOURDNUT.toStack(), AAItems.SQUASHBERRY_JAM.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(AAItems.SQUASHBERRY_JAM.toStack(), AAItems.SQUASHBERRY_BREAD.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(AAItems.ROASTED_GOURDNUT.toStack(), AAItems.SQUASHBERRY_BREAD.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(Items.HONEY_BOTTLE.getDefaultInstance(), AAItems.SQUASHBERRY_JAM.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
             if (AAModCompats.FARMERSDELIGHT.isLoaded()) {
                 event.insertAfter(Items.POISONOUS_POTATO.getDefaultInstance(), AAItems.PUFFBALL_SLICE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);

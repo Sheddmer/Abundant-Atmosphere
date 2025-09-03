@@ -13,7 +13,7 @@ public class MossParticle extends TextureSheetParticle {
         this.setSprite(spriteSet.get(this.random.nextInt(12), 12));
         this.gravity = 1.0F;
         this.friction = 1.0F;
-        this.rotSpeed = (float)Math.toRadians(this.random.nextBoolean() ? -60.0 : 60.0);
+        this.rotSpeed = (float)Math.toRadians(this.random.nextBoolean() ? -90.0 : 90.0);
         float f = this.random.nextBoolean() ? 0.1F : 0.15F;
         this.lifetime = Mth.randomBetweenInclusive(level.random, 25, 40);
         this.quadSize = f;
@@ -30,7 +30,7 @@ public class MossParticle extends TextureSheetParticle {
         super.tick();
         this.oRoll = this.roll;
         if (!this.onGround) {
-            this.roll = this.roll + this.rotSpeed / 20.0F;
+            this.roll = this.roll + this.rotSpeed / 10.0F;
         }
     }
 

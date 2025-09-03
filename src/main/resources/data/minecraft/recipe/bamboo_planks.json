@@ -10,11 +10,11 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "abundant_atmosphere:red_bamboo_blocks"
+      "tag": "minecraft:bamboo_blocks"
     }
   ],
   "result": {
     "count": 2,
-    "id": "abundant_atmosphere:red_bamboo_planks"
+    "id": "minecraft:bamboo_planks"
   }
 }

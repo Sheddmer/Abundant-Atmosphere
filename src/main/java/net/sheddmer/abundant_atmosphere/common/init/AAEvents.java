@@ -106,9 +106,9 @@ public class AAEvents {
         if (stack.canPerformAction(ItemAbilities.SHOVEL_FLATTEN) && !player.isSpectator()) {
             // Emptying Mud from Muddy roots
             if (state.is(Blocks.MUDDY_MANGROVE_ROOTS)) {
-                level.playSound(player, pos, SoundEvents.MUD_BREAK, SoundSource.BLOCKS, 1.0f, 1.0f);
+                level.playSound(player, pos, SoundEvents.MUDDY_MANGROVE_ROOTS_BREAK, SoundSource.BLOCKS, 1.0f, 1.0f);
                 if (!level.isClientSide && !player.isCreative()) stack.hurtAndBreak(1, player, stack.getEquipmentSlot());
-                ParticleUtils.spawnParticlesOnBlockFaces(level, pos, new BlockParticleOption(ParticleTypes.BLOCK, Blocks.MUD.defaultBlockState()), UniformInt.of(3, 3));
+                ParticleUtils.spawnParticlesOnBlockFaces(level, pos, new BlockParticleOption(ParticleTypes.BLOCK, Blocks.MUD.defaultBlockState()), UniformInt.of(8, 10));
                 level.setBlockAndUpdate(pos, Blocks.MANGROVE_ROOTS.withPropertiesOf(state));
                 if (!level.isClientSide && level.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)) Block.popResourceFromFace(level, pos, event.getFace(), Items.MUD.getDefaultInstance());
 

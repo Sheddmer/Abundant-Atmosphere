@@ -16,10 +16,13 @@
     },
     {
       "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
     }
   ],
   "result": {
     "id": "abundant_atmosphere:squashberry_jam",
-    "count": 1
+    "count": 2
   }
 }

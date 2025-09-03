@@ -2,7 +2,7 @@
   "neoforge:conditions": [
     {
       "type": "abundant_atmosphere:bamboo_config",
-      "value": false
+      "value": true
     }
   ],
   "type": "minecraft:crafting_shapeless",
@@ -10,11 +10,11 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "abundant_atmosphere:red_bamboo_blocks"
+      "item": "minecraft:stripped_bamboo_block"
     }
   ],
   "result": {
-    "count": 2,
-    "id": "abundant_atmosphere:red_bamboo_planks"
+    "count": 3,
+    "id": "minecraft:bamboo_planks"
   }
 }

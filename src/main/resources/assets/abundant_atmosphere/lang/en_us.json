@@ -221,7 +221,7 @@
   "subtitles.abundant_atmosphere.block.stone_brazier.crackle": "Brazier crackles",
   "subtitles.abundant_atmosphere.block.mud_lamp.ambient": "Mud Lamp crackles",
   "subtitles.abundant_atmosphere.block.wisp_candle.activate": "Wisp Candle activates",
-  "subtitles.abundant_atmosphere.block.wisp_candle.dusting_lapis": "Dusting Lapis Lazuli",
+  "subtitles.abundant_atmosphere.block.wisp_candle.lapis_dusted_onto_candle": "Lapis Lazuli dusted onto Candle",
   "subtitles.abundant_atmosphere.block.door.close": "Door closes",
   "subtitles.abundant_atmosphere.block.door.open": "Door opens",
   "subtitles.abundant_atmosphere.block.door.lock": "Door locks",
@@ -233,13 +233,14 @@
 
   "block.abundant_atmosphere.door.locked": "Door is locked",
   "block.abundant_atmosphere.trapdoor.locked": "Trapdoor is locked",
+  "block.abundant_atmosphere.wisp_candle.fail": "Lapis Lazuli is needed to light this candle",
 
   "biome.abundant_atmosphere.eroded_bamboo_jungle": "Eroded Bamboo Jungle",
   "biome.abundant_atmosphere.geothermal_garden": "Geothermal Garden",
   "itemGroup.abundant_atmosphere": "Abundant Atmosphere",
 
   "advancements.abundant_atmosphere.leash_frog_end.title": "Cosmic Conformity",
-  "advancements.abundant_atmosphere.leash_frog_end.description": "Obtain a Budgett Frog by growing a tadpole in the End",
+  "advancements.abundant_atmosphere.leash_frog_end.description": "Obtain a Budgett Frog by growing up a tadpole in the End",
   "advancements.abundant_atmosphere.collect_chromatic_froglight.title": "In the Palm of My Hand",
   "advancements.abundant_atmosphere.collect_chromatic_froglight.description": "Obtain a Chromatic Froglight"
 

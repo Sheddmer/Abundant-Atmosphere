@@ -38,14 +38,14 @@
     ],
     "subtitle": "subtitles.abundant_atmosphere.block.wisp_candle.activate"
   },
-  "item.lapis_lazuli.dusting": {
+  "item.lapis_lazuli.dusted_onto_candle": {
     "sounds": [
       {
         "name": "item.brush.brushing.sand",
         "type": "event"
       }
     ],
-    "subtitle": "subtitles.abundant_atmosphere.block.wisp_candle.dusting_lapis"
+    "subtitle": "subtitles.abundant_atmosphere.block.wisp_candle.lapis_dusted_onto_candle"
   },
   "block.stone_door.close": {
     "sounds": [
