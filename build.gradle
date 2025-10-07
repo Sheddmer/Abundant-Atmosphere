@@ -110,7 +110,7 @@ dependencies {
     localRuntime "maven.modrinth:cyanide:v4LiMGGH"
     localRuntime "me.djtheredstoner:DevAuth-neoforge:1.2.1"
 
-    localRuntime "maven.modrinth:feature-recycler:2.0.0-neoforge"
+    // localRuntime "maven.modrinth:feature-recycler:2.0.0-neoforge"
 }
 
 tasks.withType(ProcessResources).configureEach {

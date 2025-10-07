@@ -1,4 +1,13 @@
 {
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:mod_loaded",
+        "modid": "nomansland"
+      }
+    }
+  ],
   "feature": "abundant_atmosphere:trees_eroded_jungle",
   "placement": [
     {

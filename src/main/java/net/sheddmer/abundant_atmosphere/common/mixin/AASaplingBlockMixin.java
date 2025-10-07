@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.Shadow;
 @Mixin(SaplingBlock.class)
 public class AASaplingBlockMixin extends BushBlock {
 
-    // Modifies saplings to only grow on certain blocks under the sapling_grows_on tag, so they cannot grow on every block they are placed on.
+    // Modifies saplings to only grow on dirt type blocks, unlike other plants like Short Grass or Flowers.
 
     protected AASaplingBlockMixin(Properties properties) {
         super(properties);

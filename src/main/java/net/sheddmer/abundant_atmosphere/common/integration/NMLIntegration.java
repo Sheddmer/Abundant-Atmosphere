@@ -20,5 +20,4 @@ public class NMLIntegration {
 
     public static void register() {
     }
-
 }
