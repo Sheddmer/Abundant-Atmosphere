@@ -1,0 +1,49 @@
+{
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"texture": "abundant_atmosphere:block/leaf_pile_full",
+		"particle": "abundant_atmosphere:block/leaf_pile_particle"
+	},
+	"elements": [
+		{
+			"from": [4, 5, 0],
+			"to": [17, 5, 16],
+			"shade": false,
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [4, 5, 0]},
+			"faces": {
+				"up": {"uv": [16, 13, 0, 0], "rotation": 90, "texture": "#texture"},
+				"down": {"uv": [0, 13, 16, 0], "rotation": 90, "texture": "#texture"}
+			}
+		},
+		{
+			"from": [-1, 5, 0],
+			"to": [12, 5, 16],
+			"shade": false,
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [12, 5, 0]},
+			"faces": {
+				"up": {"uv": [16, 15, 0, 2], "rotation": 270, "texture": "#texture"},
+				"down": {"uv": [0, 13, 16, 0], "rotation": 270, "texture": "#texture"}
+			}
+		},
+		{
+			"from": [0, 5, 4],
+			"to": [16, 5, 17],
+			"shade": false,
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [0, 5, 4]},
+			"faces": {
+				"up": {"uv": [16, 16, 0, 3], "texture": "#texture"},
+				"down": {"uv": [16, 3, 0, 16], "texture": "#texture"}
+			}
+		},
+		{
+			"from": [0, 5, -1],
+			"to": [16, 5, 12],
+			"shade": false,
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [0, 5, 12]},
+			"faces": {
+				"up": {"uv": [16, 16, 0, 3], "rotation": 180, "texture": "#texture"},
+				"down": {"uv": [16, 3, 0, 16], "rotation": 180, "texture": "#texture"}
+			}
+		}
+	]
+}

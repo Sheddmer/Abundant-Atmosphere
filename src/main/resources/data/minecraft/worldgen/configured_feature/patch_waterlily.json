@@ -43,6 +43,42 @@
                   }
                 },
                 "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "abundant_atmosphere:small_lily_pad",
+                  "Properties": {
+                    "facing": "north"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "abundant_atmosphere:small_lily_pad",
+                  "Properties": {
+                    "facing": "east"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "abundant_atmosphere:small_lily_pad",
+                  "Properties": {
+                    "facing": "south"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "abundant_atmosphere:small_lily_pad",
+                  "Properties": {
+                    "facing": "west"
+                  }
+                },
+                "weight": 1
               }
             ]
           }
@@ -58,7 +94,7 @@
         }
       ]
     },
-    "tries": 10,
+    "tries": 15,
     "xz_spread": 7,
     "y_spread": 3
   }

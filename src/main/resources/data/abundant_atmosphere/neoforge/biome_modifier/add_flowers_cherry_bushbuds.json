@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_features",
-  "biomes": "#abundant_atmosphere:places_cherry_bushbuds",
+  "biomes": "#abundant_atmosphere:has_cherry_bushbuds",
   "features": [
     "abundant_atmosphere:flowers_cherry_bushbuds"
   ],

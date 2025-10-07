@@ -6,12 +6,16 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.util.ByIdMap;
 import net.minecraft.util.StringRepresentable;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.entity.vehicle.ChestBoat;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.phys.Vec3;
 import net.sheddmer.abundant_atmosphere.common.init.AABlocks;
 import net.sheddmer.abundant_atmosphere.common.init.AAEntityTypes;
 import net.sheddmer.abundant_atmosphere.common.init.AAItems;
@@ -33,6 +37,26 @@ public class AAChestBoatEntity extends ChestBoat {
         this.xo = pX;
         this.yo = pY;
         this.zo = pZ;
+    }
+
+    @Override
+    protected Vec3 getPassengerAttachmentPoint(Entity entity, EntityDimensions dimensions, float partialTick) {
+        float f = this.getSinglePassengerXOffset();
+        if (this.getPassengers().size() > 1) {
+            int i = this.getPassengers().indexOf(entity);
+            if (i == 0) {
+                f = 0.2F;
+            } else {
+                f = -0.6F;
+            }
+
+            if (entity instanceof Animal) {
+                f += 0.2F;
+            }
+        }
+
+        return new Vec3(0.0, this.getModVariant().isRaft() ? (double)(dimensions.height() * 0.8888889F) : (double)(dimensions.height() / 3.0F), (double)f)
+                .yRot(-this.getYRot() * (float) (Math.PI / 180.0));
     }
 
     @Override

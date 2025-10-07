@@ -17,7 +17,6 @@
       "minecraft:coarse_dirt",
       "minecraft:mycelium",
       "minecraft:rooted_dirt",
-      "minecraft:moss_block",
       "minecraft:mud",
       "minecraft:muddy_mangrove_roots",
       "abundant_atmosphere:cave_crud",
@@ -26,7 +25,7 @@
     "can_place_on_ceiling": true,
     "can_place_on_floor": true,
     "can_place_on_wall": true,
-    "chance_of_spreading": 1.2,
+    "chance_of_spreading": 1.5,
     "search_range": 8
   }
 }

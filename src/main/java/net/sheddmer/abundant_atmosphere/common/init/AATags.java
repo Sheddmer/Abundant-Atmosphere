@@ -4,6 +4,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
@@ -21,6 +22,8 @@ public class AATags {
     public static final TagKey<Block> STONE_BRAZIERS = registerBlockTag("stone_braziers");
     public static final TagKey<Block> MOSSY_BLOCKS = registerBlockTag("mossy_blocks");
     public static final TagKey<Block> RUST_MOSSY_BLOCKS = registerBlockTag("rust_mossy_blocks");
+    public static final TagKey<EntityType<?>> PASS_THROUGH_LILY_PADS = registerEntityTypeTag("pass_through_lily_pads");
+    public static final TagKey<EntityType<?>> BREAK_THROUGH_LILY_PADS = registerEntityTypeTag("break_through_lily_pads");
 
     private static TagKey<Biome> registerBiomeTag(String name) {
         return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, name));
@@ -30,6 +33,9 @@ public class AATags {
     }
     private static TagKey<Item> registerItemTag(String name) {
         return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, name));
+    }
+    private static TagKey<EntityType<?>> registerEntityTypeTag(String name) {
+        return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, name));
     }
     private static TagKey<MobEffect> registerEffectTag(String name) {
         return TagKey.create(Registries.MOB_EFFECT, ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID, name));

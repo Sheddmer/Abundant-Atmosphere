@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,hanging=false": {
+      "model": "abundant_atmosphere:block/carved_gourdnut"
+    },
+    "facing=south,hanging=false": {
+      "model": "abundant_atmosphere:block/carved_gourdnut",
+      "y": 180
+    },
+    "facing=east,hanging=false": {
+      "model": "abundant_atmosphere:block/carved_gourdnut",
+      "y": 90
+    },
+    "facing=west,hanging=false": {
+      "model": "abundant_atmosphere:block/carved_gourdnut",
+      "y": 270
+    },
+    "facing=north,hanging=true": {
+      "model": "abundant_atmosphere:block/carved_gourdnut_hanging"
+    },
+    "facing=south,hanging=true": {
+      "model": "abundant_atmosphere:block/carved_gourdnut_hanging",
+      "y": 180
+    },
+    "facing=east,hanging=true": {
+      "model": "abundant_atmosphere:block/carved_gourdnut_hanging",
+      "y": 90
+    },
+    "facing=west,hanging=true": {
+      "model": "abundant_atmosphere:block/carved_gourdnut_hanging",
+      "y": 270
+    }
+  }
+}

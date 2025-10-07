@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_features",
-  "biomes": "#abundant_atmosphere:is_leafy",
+  "biomes": "#abundant_atmosphere:has_leaf_patch",
   "features": [
     "abundant_atmosphere:patch_leaf_pile"
   ],

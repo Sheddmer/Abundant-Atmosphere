@@ -25,9 +25,9 @@ import java.util.Calendar;
 
 @OnlyIn(Dist.CLIENT)
 public class StoneChestRenderer implements BlockEntityRenderer<StoneChestBlockEntity> {
-    public static final Material NORMAL_STONE_LOCATION = new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID,"entity/stone_chest/"));
-    public static final Material LEFT_STONE_LOCATION = new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID,"entity/stone_chest/left.png"));
-    public static final Material RIGHT_STONE_LOCATION = new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID,"entity/stone_chest/right.png"));
+    public static final Material NORMAL_STONE_LOCATION = new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID,"entity/stone_chest/normal.png"));
+    public static final Material LEFT_STONE_LOCATION = new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID,"entity/stone_chest/normal_left.png"));
+    public static final Material RIGHT_STONE_LOCATION = new Material(Sheets.CHEST_SHEET, ResourceLocation.fromNamespaceAndPath(AbundantAtmosphere.MODID,"entity/stone_chest/normal_right.png"));
 
     private final ModelPart body;
     private final ModelPart lid;

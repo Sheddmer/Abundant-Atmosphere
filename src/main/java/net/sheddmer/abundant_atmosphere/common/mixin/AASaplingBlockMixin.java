@@ -3,9 +3,12 @@ package net.sheddmer.abundant_atmosphere.common.mixin;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.sheddmer.abundant_atmosphere.AAConfig;
@@ -18,9 +21,6 @@ public class AASaplingBlockMixin extends BushBlock {
 
     // Modifies saplings to only grow on certain blocks under the sapling_grows_on tag, so they cannot grow on every block they are placed on.
 
-    @Shadow
-    public void advanceTree(ServerLevel level, BlockPos pos, BlockState state, RandomSource random) {}
-
     protected AASaplingBlockMixin(Properties properties) {
         super(properties);
     }
@@ -29,24 +29,7 @@ public class AASaplingBlockMixin extends BushBlock {
         return SaplingBlock.CODEC;
     }
 
-    @Override
-    protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        if (!level.isAreaLoaded(pos, 1)) return;
-        if (AAConfig.PLANT_PLACEMENT.get()) {
-            if (level.getMaxLocalRawBrightness(pos.above()) >= 9 && random.nextInt(7) == 0 && level.getBlockState(pos.below()).is(AATags.SAPLING_GROWS_ON)) {
-                this.advanceTree(level, pos, state, random);
-            }
-        } else {
-            if (level.getMaxLocalRawBrightness(pos.above()) >= 9 && random.nextInt(7) == 0) {
-                this.advanceTree(level, pos, state, random);
-            }
-        }
-    }
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
-        if (AAConfig.PLANT_PLACEMENT.get()) {
-            return level.getBlockState(pos.below()).is(AATags.SAPLING_GROWS_ON);
-        } else {
-            return true;
-        }
+    protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
+        return state.is(BlockTags.DIRT) || state.getBlock() instanceof FarmBlock;
     }
 }

@@ -47,7 +47,7 @@ public class LeafPileBlock extends Block implements SimpleWaterloggedBlock {
             case 1:
             default:
                 return SHAPE_ONE;
-            case 2:
+            case 3:
                 return SHAPE_TWO;
         }
     }
@@ -85,14 +85,14 @@ public class LeafPileBlock extends Block implements SimpleWaterloggedBlock {
         FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
         BlockState blockState = context.getLevel().getBlockState(context.getClickedPos());
         if (blockState.is(this)) {
-            return blockState.setValue(LEVEL, Math.min(2, blockState.getValue(LEVEL) + 1));
+            return blockState.setValue(LEVEL, Math.min(3, blockState.getValue(LEVEL) + 1));
         }
         return this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
     }
 
     @Override
     public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
-        if (!context.isSecondaryUseActive() && context.getItemInHand().is(this.asItem()) && state.getValue(LEVEL) < 2) {
+        if (!context.isSecondaryUseActive() && context.getItemInHand().is(this.asItem()) && state.getValue(LEVEL) < 3) {
             return true;
         }
         return super.canBeReplaced(state, context);

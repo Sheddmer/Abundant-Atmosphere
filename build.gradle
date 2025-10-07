@@ -91,23 +91,26 @@ repositories {
 dependencies {
 
     implementation "com.terraformersmc:biolith-neoforge:$bt_version"
-    implementation "maven.modrinth:farmers-delight:1.21.1-1.2.7"
+    implementation "maven.modrinth:farmers-delight:1.21.1-1.2.9"
     implementation "maven.modrinth:the-block-box:0.1.1"
-    implementation "maven.modrinth:create:1.21.1-6.0.3"
-    implementation "maven.modrinth:no-mans-land:1.1.2"
-    implementation "maven.modrinth:mixed-litter:0.0.2"
+    implementation "maven.modrinth:create:1.21.1-6.0.6"
+    implementation "maven.modrinth:no-mans-land:1.4.3"
+    implementation "maven.modrinth:mixed-litter:1.0.2"
 
     compileOnly "mezz.jei:jei-$minecraft_version-common-api:$jei_version"
     compileOnly "mezz.jei:jei-$minecraft_version-neoforge-api:$jei_version"
     localRuntime "mezz.jei:jei-$minecraft_version-neoforge:$jei_version"
 
-    localRuntime "maven.modrinth:appleskin:3.0.5+mc1.21"
-    localRuntime "maven.modrinth:sodium:mc1.21.1-0.6.9-neoforge"
+    localRuntime "maven.modrinth:appleskin:3.0.7+mc1.21"
+    localRuntime "maven.modrinth:sodium:mc1.21.1-0.6.13-neoforge"
     localRuntime "maven.modrinth:nbt-autocomplete:McjFDyOt"
-    localRuntime "maven.modrinth:supplementaries:neoforge_1.21-3.0.43-beta"
-    localRuntime "maven.modrinth:moonlight:neoforge_1.21-2.17.36"
+    localRuntime "maven.modrinth:supplementaries:neoforge_1.21-3.4.14"
+    localRuntime "maven.modrinth:amendments:neoforge_1.21-2.0.5"
+    localRuntime "maven.modrinth:moonlight:1.21-2.23.7-neoforge"
     localRuntime "maven.modrinth:cyanide:v4LiMGGH"
     localRuntime "me.djtheredstoner:DevAuth-neoforge:1.2.1"
+
+    localRuntime "maven.modrinth:feature-recycler:2.0.0-neoforge"
 }
 
 tasks.withType(ProcessResources).configureEach {

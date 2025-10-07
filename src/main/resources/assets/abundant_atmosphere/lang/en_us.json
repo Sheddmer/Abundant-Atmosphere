@@ -93,12 +93,14 @@
   "block.abundant_atmosphere.wall_poreshroom": "Poreshroom",
   "block.abundant_atmosphere.poreshroom_block": "Poreshroom Block",
 
+  "block.abundant_atmosphere.small_lily_pad": "Small Lily Pads",
+
   "block.abundant_atmosphere.deepslate_pillar": "Deepslate Pillar",
 
-  "block.abundant_atmosphere.rust_moss_block": "Rust Moss Block",
-  "block.abundant_atmosphere.rust_moss_carpet": "Rust Moss Carpet",
-  "block.abundant_atmosphere.rust_moss_clump": "Rust Moss Clump",
-  "block.abundant_atmosphere.rust_moss_sprouts": "Rust Moss Sprouts",
+  "block.abundant_atmosphere.rust_moss_block": "Grim Moss Block",
+  "block.abundant_atmosphere.rust_moss_carpet": "Grim Moss Carpet",
+  "block.abundant_atmosphere.rust_moss_clump": "Grim Moss Clump",
+  "block.abundant_atmosphere.rust_moss_sprouts": "Grim Moss Sprouts",
   "block.abundant_atmosphere.mossy_deepslate": "Mossy Deepslate",
   "block.abundant_atmosphere.mossy_cobbled_deepslate": "Mossy Cobbled Deepslate",
   "block.abundant_atmosphere.mossy_cobbled_deepslate_stairs": "Mossy Cobbled Deepslate Stairs",
@@ -204,9 +206,13 @@
   "block.abundant_atmosphere.nether_brick_trapdoor": "Nether Brick Trapdoor",
 
   "block.abundant_atmosphere.gourdnut": "Gourdnut",
+  "block.abundant_atmosphere.carved_gourdnut": "Carved Gourdnut",
+  "block.abundant_atmosphere.lamp_o_gourd": "Lamp o'Gourd",
   "item.abundant_atmosphere.roasted_gourdnut": "Roasted Gourdnut",
-  "item.abundant_atmosphere.squashberry_jam": "Squashberry Jam",
+  "item.abundant_atmosphere.squashberry_jam": "Squashberry Jam Bottle",
   "item.abundant_atmosphere.squashberry_bread": "Squashberry Bread",
+  "item.abundant_atmosphere.gourdnut_pudding": "Gourdnut Pudding",
+  "item.abundant_atmosphere.squashberry_cookie": "Squashberry Cookie",
   "item.abundant_atmosphere.swamp_scran": "Swamp Scran",
 
   "entity.abundant_atmosphere.aa_chest_boat": "Boat with Chest",

@@ -4,5 +4,5 @@
   "features": [
     "abundant_atmosphere:patch_rust_moss_bonemeal"
   ],
-  "step": "local_modifications"
+  "step": "vegetal_decoration"
 }

@@ -49,6 +49,20 @@
                   }
                 }
               ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 2,
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "abundant_atmosphere:leaf_pile",
+                  "properties": {
+                    "level": "3"
+                  }
+                }
+              ]
             }
           ],
           "conditions": []

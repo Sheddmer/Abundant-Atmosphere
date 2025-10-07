@@ -76,8 +76,7 @@ public class MidnightLilyBlock extends BushBlock implements BonemealableBlock, S
     @Override
     public BlockState getToolModifiedState(BlockState state, UseOnContext context, ItemAbility itemAbility, boolean simulate) {
         if (itemAbility == ItemAbilities.SHEARS_TRIM && !state.getValue(PERSISTENT)) {
-            if (state.getValue(NIGHTLIGHT)) state.setValue(NIGHTLIGHT, false);
-            return state.setValue(PERSISTENT, true);
+            return state.setValue(PERSISTENT, true).setValue(NIGHTLIGHT, false);
         }
         return null;
     }
@@ -91,7 +90,7 @@ public class MidnightLilyBlock extends BushBlock implements BonemealableBlock, S
         int k = pos.getZ();
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
         if (!state.getValue(PERSISTENT) && state.getValue(NIGHTLIGHT)) {
-            if (source.nextFloat() < 0.3F * h) {
+            if (source.nextFloat() < 0.5F * h) {
                 blockpos$mutableblockpos.set(i + Mth.nextInt(source, h * -5, h * 5), j + Mth.nextInt(source, h * -5, h * 5), k + Mth.nextInt(source, h * -5, h * 5));
                 level.addParticle(AAParticleTypes.FIREFLY.get(), (double) blockpos$mutableblockpos.getX() + source.nextDouble(), (double) blockpos$mutableblockpos.getY() + source.nextDouble(), (double) blockpos$mutableblockpos.getZ() + source.nextDouble(), 0.0D, 0.0D, 0.0D);
             }

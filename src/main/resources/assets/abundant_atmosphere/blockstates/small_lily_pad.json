@@ -1,0 +1,57 @@
+{
+  "variants": {
+    "facing=north": [
+      {
+        "model": "abundant_atmosphere:block/small_lily_pad_1"
+      },
+      {
+        "model": "abundant_atmosphere:block/small_lily_pad_2"
+      },
+      {
+        "model": "abundant_atmosphere:block/small_lily_pad_3"
+      }
+    ],
+    "facing=south": [
+      {
+        "model": "abundant_atmosphere:block/small_lily_pad_1",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/small_lily_pad_2",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/small_lily_pad_3",
+        "y": 180
+      }
+    ],
+    "facing=east": [
+      {
+        "model": "abundant_atmosphere:block/small_lily_pad_1",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/small_lily_pad_2",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/small_lily_pad_3",
+        "y": 90
+      }
+    ],
+    "facing=west": [
+      {
+        "model": "abundant_atmosphere:block/small_lily_pad_1",
+        "y": 270
+      },
+      {
+        "model": "abundant_atmosphere:block/small_lily_pad_2",
+        "y": 270
+      },
+      {
+        "model": "abundant_atmosphere:block/small_lily_pad_3",
+        "y": 270
+      }
+    ]
+  }
+}

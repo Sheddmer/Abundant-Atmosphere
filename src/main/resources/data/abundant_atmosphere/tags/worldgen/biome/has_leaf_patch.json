@@ -1,0 +1,17 @@
+{
+  "values": [
+    "minecraft:forest",
+    "minecraft:flower_forest",
+    "minecraft:dark_forest",
+    "minecraft:jungle",
+    "minecraft:wooded_badlands",
+    {
+      "id": "nomansland:boreal_forest",
+      "required":false
+    },
+    {
+      "id": "#nomansland:old_growth_forest",
+      "required":false
+    }
+  ]
+}

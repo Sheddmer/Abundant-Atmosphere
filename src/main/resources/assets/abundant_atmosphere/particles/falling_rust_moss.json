@@ -1,12 +1,12 @@
 {
   "textures": [
-    "abundant_atmosphere:falling_rust_moss_0",
-    "abundant_atmosphere:falling_rust_moss_1",
-    "abundant_atmosphere:falling_rust_moss_2",
-    "abundant_atmosphere:falling_rust_moss_3",
-    "abundant_atmosphere:falling_rust_moss_4",
-    "abundant_atmosphere:falling_rust_moss_5",
-    "abundant_atmosphere:falling_rust_moss_6",
-    "abundant_atmosphere:falling_rust_moss_7"
+    "abundant_atmosphere:falling_moss/rust_0",
+    "abundant_atmosphere:falling_moss/rust_1",
+    "abundant_atmosphere:falling_moss/rust_2",
+    "abundant_atmosphere:falling_moss/rust_3",
+    "abundant_atmosphere:falling_moss/rust_4",
+    "abundant_atmosphere:falling_moss/rust_5",
+    "abundant_atmosphere:falling_moss/rust_6",
+    "abundant_atmosphere:falling_moss/rust_7"
   ]
 }

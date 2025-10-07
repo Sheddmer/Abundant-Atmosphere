@@ -1,11 +1,8 @@
 package net.sheddmer.abundant_atmosphere.common.init;
 
-import com.google.common.collect.Sets;
-import com.mojang.datafixers.kinds.IdF;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
@@ -80,6 +77,8 @@ public class AACreativeTabs {
                 output.accept(AAItems.GOURDROT_CHEST_BOAT);
                 output.accept(AABlocks.GOURDROT_LEAVES);
                 output.accept(AABlocks.GOURDNUT);
+                output.accept(AABlocks.CARVED_GOURDNUT);
+                output.accept(AABlocks.LAMP_O_GOURD);
                 output.accept(AABlocks.RED_BAMBOO_BLOCK);
                 output.accept(AABlocks.STRIPPED_RED_BAMBOO_BLOCK);
                 output.accept(AABlocks.RED_BAMBOO_PLANKS);
@@ -202,8 +201,11 @@ public class AACreativeTabs {
                 output.accept(AAItems.PUFFBALL_CUTLET);
                 if (AAModCompats.FARMERSDELIGHT.isLoaded() && AAModCompats.NOMANSLAND.isLoaded()) output.accept(FDIntegration.SWAMP_SCRAN);
                 output.accept(AAItems.ROASTED_GOURDNUT);
+                if (AAModCompats.FARMERSDELIGHT.isLoaded()) output.accept(FDIntegration.GOURDNUT_PUDDING);
                 output.accept(AAItems.SQUASHBERRY_JAM);
                 output.accept(AAItems.SQUASHBERRY_BREAD);
+                if (AAModCompats.FARMERSDELIGHT.isLoaded()) output.accept(FDIntegration.SQUASHBERRY_COOKIE);
+                output.accept(AABlocks.STONE_CHEST);
 
                 if (AAModCompats.FARMERSDELIGHT.isLoaded()) {
                     output.accept(FDIntegration.ASHROOT_CABINET);

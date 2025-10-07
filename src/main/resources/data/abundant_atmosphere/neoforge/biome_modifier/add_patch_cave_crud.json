@@ -5,5 +5,5 @@
     "abundant_atmosphere:patch_cave_crud",
     "abundant_atmosphere:patch_cave_crud_ashroot"
   ],
-  "step": "local_modifications"
+  "step": "underground_decoration"
 }

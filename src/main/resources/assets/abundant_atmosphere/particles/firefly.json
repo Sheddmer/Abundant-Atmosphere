@@ -1,7 +1,7 @@
 {
   "textures": [
-    "abundant_atmosphere:firefly_0",
-    "abundant_atmosphere:firefly_1",
-    "abundant_atmosphere:firefly_2"
+    "abundant_atmosphere:firefly/firefly_0",
+    "abundant_atmosphere:firefly/firefly_1",
+    "abundant_atmosphere:firefly/firefly_2"
   ]
 }

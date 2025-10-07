@@ -20,6 +20,8 @@ public class FDIntegration {
     public static final DeferredBlock<Block> RED_BAMBOO_CABINET = registerBlock("red_bamboo_cabinet", () -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL)));
 
     public static final DeferredItem<Item> SWAMP_SCRAN = registerItem("swamp_scran", () -> new Item(new Item.Properties().food(AAFoods.SWAMP_SCRAN).stacksTo(16)));
+    public static final DeferredItem<Item> GOURDNUT_PUDDING = registerItem("gourdnut_pudding", () -> new Item(new Item.Properties().food(AAFoods.GOURDNUT_PUDDING).stacksTo(16)));
+    public static final DeferredItem<Item> SQUASHBERRY_COOKIE = registerItem("squashberry_cookie", () -> new Item(new Item.Properties().food(AAFoods.SQUASHBERRY_COOKIE)));
 
     public static void addBlockEntities(final BlockEntityTypeAddBlocksEvent event) {
         event.modify(ModBlockEntityTypes.CABINET.get(), ASHROOT_CABINET.get(), GOURDROT_CABINET.get(), RED_BAMBOO_CABINET.get());

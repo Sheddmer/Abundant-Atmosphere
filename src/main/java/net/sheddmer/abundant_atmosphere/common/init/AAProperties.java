@@ -8,5 +8,5 @@ public class AAProperties {
     public static final BooleanProperty NIGHTLIGHT = BooleanProperty.create("nightlight");
     public static final BooleanProperty OVERGROWN = BooleanProperty.create("overgrown");
     public static final BooleanProperty IGNITABLE = BooleanProperty.create("ignitable");
-    public static final IntegerProperty LEAF_LEVEL = IntegerProperty.create("level", 1, 2);
+    public static final IntegerProperty LEAF_LEVEL = IntegerProperty.create("level", 1, 3);
 }

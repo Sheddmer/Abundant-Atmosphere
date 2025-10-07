@@ -6,7 +6,7 @@
       "item": "minecraft:coarse_dirt"
     },
     "A": {
-      "item": "minecraft:cobblestone"
+      "item": "minecraft:clay_ball"
     }
   },
   "pattern": [
@@ -14,7 +14,7 @@
     "AB"
   ],
   "result": {
-    "count": 4,
+    "count": 2,
     "id": "abundant_atmosphere:cave_crud"
   }
 }

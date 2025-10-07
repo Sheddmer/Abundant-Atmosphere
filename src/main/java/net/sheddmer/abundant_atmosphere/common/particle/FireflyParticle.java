@@ -17,7 +17,7 @@ public class FireflyParticle extends SimpleAnimatedParticle {
         this.xd = vX + (Math.random() * 1.05D - 0.5D) * (double)0.01F;
         this.yd = vY + (Math.random() * 1.05D - 0.5D) * (double)0.01F;
         this.zd = vZ + (Math.random() * 1.05D - 0.5D) * (double)0.01F;
-        this.quadSize *= 0.65F;
+        this.quadSize *= 0.7F;
         this.lifetime = Mth.randomBetweenInclusive(level.random, 40, 70);
         this.gravity = 0.0F;
         this.friction = 1.0F;
