@@ -41,7 +41,7 @@ public class StoneTrapDoorBlock extends TrapDoorBlock implements SimpleWaterlogg
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (state.getValue(POWERED)) {
             level.playSound(null, pos, SoundEvents.DECORATED_POT_STEP, SoundSource.BLOCKS, 1.0F, 0.35F + level.getRandom().nextFloat() * 0.1F);
-            player.displayClientMessage(Component.translatable("block.abundant_atmosphere.trapdoor.locked"), true);
+            player.displayClientMessage(Component.translatable("subtitles.abundant_atmosphere.trapdoor.locked"), true);
             return InteractionResult.sidedSuccess(level.isClientSide);
         } else {
             this.toggle(state, level, pos, player);

@@ -45,7 +45,7 @@
         "type": "event"
       }
     ],
-    "subtitle": "subtitles.abundant_atmosphere.block.wisp_candle.lapis_dusted_onto_candle"
+    "subtitle": "subtitles.abundant_atmosphere.block.wisp_candle.lapis_used_on_candle"
   },
   "block.stone_door.close": {
     "sounds": [

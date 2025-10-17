@@ -115,6 +115,15 @@ public class AAEvents {
                 event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide()));
                 event.setCanceled(true);
             }
+            // Cave Crud pathing
+            if (state.is(AABlocks.CAVE_CRUD) && (level.isEmptyBlock(pos.above()) || level.getBlockState(pos.above()).canBeReplaced())) {
+                level.playSound(player, pos, SoundEvents.SHOVEL_FLATTEN, SoundSource.BLOCKS, 1.0f, 1.0f);
+                if (!level.isClientSide && !player.isCreative()) stack.hurtAndBreak(1, player, stack.getEquipmentSlot());
+                level.setBlockAndUpdate(pos, AABlocks.CAVE_CRUD_PATH.get().defaultBlockState());
+
+                event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide()));
+                event.setCanceled(true);
+            }
         }
     }
 

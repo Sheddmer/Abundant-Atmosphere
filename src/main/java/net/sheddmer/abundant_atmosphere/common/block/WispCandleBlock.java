@@ -44,6 +44,7 @@ import net.sheddmer.abundant_atmosphere.common.blockentity.WispCandleBlockEntity
 import net.sheddmer.abundant_atmosphere.common.init.AAParticleTypes;
 import net.sheddmer.abundant_atmosphere.common.init.AAProperties;
 import net.sheddmer.abundant_atmosphere.common.init.AASounds;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -61,9 +62,9 @@ public class WispCandleBlock extends BaseEntityBlock implements SimpleWaterlogge
         Int2ObjectMap<List<Vec3>> int2objectmap = new Int2ObjectOpenHashMap<>();
         int2objectmap.defaultReturnValue(ImmutableList.of());
         int2objectmap.put(1, ImmutableList.of(new Vec3(0.5, 0.5, 0.5)));
-        int2objectmap.put(2, ImmutableList.of(new Vec3(0.625, 0.5, 0.375), new Vec3(0.375, 0.4, 0.56)));
-        int2objectmap.put(3, ImmutableList.of(new Vec3(0.56, 0.5, 0.375), new Vec3(0.313, 0.6, 0.56), new Vec3(0.688, 0.4, 0.625)));
-        int2objectmap.put(4, ImmutableList.of(new Vec3(0.688, 0.5, 0.56), new Vec3(0.313, 0.4, 0.375), new Vec3(0.375, 0.6, 0.688), new Vec3(0.688, 0.4, 0.625)));
+        int2objectmap.put(2, ImmutableList.of(new Vec3(0.375, 0.375, 0.5625), new Vec3(0.625, 0.5, 0.375)));
+        int2objectmap.put(3, ImmutableList.of(new Vec3(0.3125, 0.5625, 0.5625), new Vec3(0.5625, 0.5, 0.375), new Vec3(0.6875, 0.375, 0.625)));
+        int2objectmap.put(4, ImmutableList.of(new Vec3(0.3125, 0.4375, 0.375), new Vec3(0.625, 0.5, 0.3125), new Vec3(0.375, 0.5625, 0.6875), new Vec3(0.6875, 0.375, 0.625)));
         return Int2ObjectMaps.unmodifiable(int2objectmap);
     });
 
@@ -92,32 +93,34 @@ public class WispCandleBlock extends BaseEntityBlock implements SimpleWaterlogge
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-        if (player.getItemInHand(hand).is(Items.LAPIS_LAZULI) && !state.getValue(IGNITABLE) && !state.getValue(LIT)) {
-            level.playLocalSound(pos, AASounds.DUST_LAPIS.get(), SoundSource.BLOCKS, 1.0f, 1.0f, false);
-            if (!level.isClientSide && !player.isCreative())
-                stack.consume(1, player);
-            ParticleUtils.spawnParticles(level, pos, Mth.randomBetweenInclusive(RandomSource.create(), 8, 12), 0.5f, 0.3f, true, new DustParticleOptions(Vec3.fromRGB24(2117542).toVector3f(), 1.0f));
-            level.setBlock(pos, state.setValue(IGNITABLE, true), 2);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-        if (player.getItemInHand(hand).canPerformAction(ItemAbilities.FIRESTARTER_LIGHT) && state.getValue(IGNITABLE) && !state.getValue(LIT)) {
-            if (stack.is(Items.FIRE_CHARGE)) {
-                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, (level.random.nextFloat() - level.random.nextFloat()) * 0.8F + 1.8F);
+        if (!state.getValue(WATERLOGGED)) {
+            if (player.getItemInHand(hand).is(Items.LAPIS_LAZULI) && !state.getValue(IGNITABLE) && !state.getValue(LIT)) {
+                level.playLocalSound(pos, AASounds.DUST_LAPIS.get(), SoundSource.BLOCKS, 1.0f, 1.0f, false);
                 if (!level.isClientSide && !player.isCreative())
                     stack.consume(1, player);
-            } else {
-                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, (level.random.nextFloat() - level.random.nextFloat()) * 0.8F + 1.8F);
+                ParticleUtils.spawnParticles(level, pos, Mth.randomBetweenInclusive(RandomSource.create(), 8, 12), 0.5f, 0.3f, true, new DustParticleOptions(Vec3.fromRGB24(2117542).toVector3f(), 1.0f));
+                level.setBlock(pos, state.setValue(IGNITABLE, true), 2);
+                return ItemInteractionResult.sidedSuccess(level.isClientSide);
             }
-            level.playLocalSound(pos, AASounds.WISP_CANDLE_ACTIVATE.get(), SoundSource.BLOCKS, 1.0f, 1.0f, false);
-            if (!level.isClientSide && !player.isCreative())
-                stack.hurtAndBreak(1, player, stack.getEquipmentSlot());
-            ParticleUtils.spawnParticles(level, pos, Mth.randomBetweenInclusive(RandomSource.create(), 6, 10), 0.5f, 0.3f, true, new DustParticleOptions(Vec3.fromRGB24(8090367).toVector3f(), 1.0f));
-            level.setBlock(pos, state.setValue(IGNITABLE, false).setValue(LIT, true), 2);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-        if (player.getItemInHand(hand).canPerformAction(ItemAbilities.FIRESTARTER_LIGHT) && !state.getValue(IGNITABLE) && !state.getValue(LIT)) {
-            player.displayClientMessage(Component.translatable("block.abundant_atmosphere.wisp_candle.fail"), true);
-            return ItemInteractionResult.FAIL;
+            if (player.getItemInHand(hand).canPerformAction(ItemAbilities.FIRESTARTER_LIGHT) && state.getValue(IGNITABLE) && !state.getValue(LIT)) {
+                if (stack.is(Items.FIRE_CHARGE)) {
+                    level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, (level.random.nextFloat() - level.random.nextFloat()) * 0.8F + 1.8F);
+                    if (!level.isClientSide && !player.isCreative())
+                        stack.consume(1, player);
+                } else {
+                    level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, (level.random.nextFloat() - level.random.nextFloat()) * 0.8F + 1.8F);
+                }
+                level.playLocalSound(pos, AASounds.WISP_CANDLE_ACTIVATE.get(), SoundSource.BLOCKS, 1.0f, 1.0f, false);
+                if (!level.isClientSide && !player.isCreative())
+                    stack.hurtAndBreak(1, player, stack.getEquipmentSlot());
+                ParticleUtils.spawnParticles(level, pos, Mth.randomBetweenInclusive(RandomSource.create(), 6, 10), 0.5f, 0.3f, true, new DustParticleOptions(Vec3.fromRGB24(8090367).toVector3f(), 1.0f));
+                level.setBlock(pos, state.setValue(IGNITABLE, false).setValue(LIT, true), 2);
+                return ItemInteractionResult.sidedSuccess(level.isClientSide);
+            }
+            if (player.getItemInHand(hand).canPerformAction(ItemAbilities.FIRESTARTER_LIGHT) && !state.getValue(IGNITABLE) && !state.getValue(LIT)) {
+                player.displayClientMessage(Component.translatable("subtitles.abundant_atmosphere.wisp_candle.fail"), true);
+                return ItemInteractionResult.FAIL;
+            }
         }
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
@@ -156,8 +159,11 @@ public class WispCandleBlock extends BaseEntityBlock implements SimpleWaterlogge
         BlockState blockState = context.getLevel().getBlockState(context.getClickedPos());
         if (blockState.is(this)) {
             return blockState.setValue(CANDLES, Math.min(4, blockState.getValue(CANDLES) + 1));
+        } else {
+            FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
+            boolean flag = fluidstate.getType() == Fluids.WATER;
+            return super.getStateForPlacement(context).setValue(WATERLOGGED, Boolean.valueOf(flag));
         }
-        return this.defaultBlockState();
     }
 
     @Override

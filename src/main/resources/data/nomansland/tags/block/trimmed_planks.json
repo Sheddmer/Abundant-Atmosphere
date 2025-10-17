@@ -7,8 +7,17 @@
   ],
   "replace": false,
   "values": [
-    "abundant_atmosphere:trimmed_ashroot_planks",
-    "abundant_atmosphere:trimmed_gourdrot_planks",
-    "abundant_atmosphere:trimmed_red_bamboo_planks"
+    {
+      "id": "abundant_atmosphere:trimmed_ashroot_planks",
+      "required": false
+    },
+    {
+      "id": "abundant_atmosphere:trimmed_gourdrot_planks",
+      "required": false
+    },
+    {
+      "id": "abundant_atmosphere:trimmed_red_bamboo_planks",
+      "required": false
+    }
   ]
 }

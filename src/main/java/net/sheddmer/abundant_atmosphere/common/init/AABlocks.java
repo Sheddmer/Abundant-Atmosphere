@@ -69,6 +69,7 @@ public class AABlocks {
 
     // Natural blocks
     public static final DeferredBlock<CaveCrudBlock> CAVE_CRUD = registerBlock("cave_crud", () ->  new CaveCrudBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).strength(0.75f, 0.75f).sound(SoundType.ROOTED_DIRT)));
+    public static final DeferredBlock<CaveCrudPathBlock> CAVE_CRUD_PATH = registerBlock("cave_crud_path", () -> new CaveCrudPathBlock(BlockBehaviour.Properties.ofFullCopy(CAVE_CRUD.get())));
     public static final DeferredBlock<CaveSproutsBlock> CAVE_SPROUTS = registerBlock("cave_sprouts", () ->  new CaveSproutsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).instabreak().noCollission().noOcclusion().replaceable().offsetType(BlockBehaviour.OffsetType.XYZ).sound(SoundType.NETHER_SPROUTS).ignitedByLava()));
     public static final DeferredBlock<PuffballMushroomBlock> PUFFBALL_MUSHROOM = registerBlock("puffball_mushroom", () -> new PuffballMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).instabreak().noOcclusion().randomTicks().sound(SoundType.FUNGUS).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<LargePuffballMushroomBlock> LARGE_PUFFBALL_MUSHROOM = registerBlock("large_puffball_mushroom", () -> new LargePuffballMushroomBlock(BlockBehaviour.Properties.ofFullCopy(PUFFBALL_MUSHROOM.get())));
@@ -87,7 +88,9 @@ public class AABlocks {
     public static final DeferredBlock<CatsbaneBlock> CATSBANE = BLOCKS.register("catsbane", () ->  new CatsbaneBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).instabreak().noCollission().noOcclusion().sound(SoundType.FUNGUS).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<WallFungusBlock> WALL_CATSBANE = BLOCKS.register("wall_catsbane", () ->  new WallFungusBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).instabreak().noCollission().noOcclusion().sound(SoundType.FUNGUS).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<FlowerPotBlock> POTTED_CATSBANE = BLOCKS.register("potted_catsbane", () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), AABlocks.CATSBANE, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_RED_MUSHROOM)));
-    public static final DeferredBlock<WaterlilyBlock> SMALL_LILY_PAD = BLOCKS.register("small_lily_pad", () -> new WaterlilyBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instabreak().sound(SoundType.LILY_PAD).noOcclusion().pushReaction(PushReaction.DESTROY)));
+    public static final DeferredBlock<WaterlilyBlock> SMALL_LILY_PAD = BLOCKS.register("small_lily_pad", () -> new WaterlilyBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instabreak().noOcclusion().sound(SoundType.LILY_PAD).pushReaction(PushReaction.DESTROY)));
+
+    public static final DeferredBlock<Block> CREEPING_CLOVERS = registerBlock("creeping_clovers", () -> new Block(BlockBehaviour.Properties.of().instabreak().noCollission().noOcclusion().sound(SoundType.NETHER_SPROUTS).pushReaction(PushReaction.DESTROY)));
 
     // Flowers
     public static final DeferredBlock<MidnightLilyBlock> MIDNIGHT_LILY = registerBlock("midnight_lily", () ->  new MidnightLilyBlock(MobEffects.BLINDNESS, 6.0F, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instabreak().noCollission().randomTicks().offsetType(BlockBehaviour.OffsetType.XZ).lightLevel(state -> state.getValue(MidnightLilyBlock.NIGHTLIGHT) ? 2 + state.getValue(MidnightLilyBlock.FLOWER_STACK) : 0).sound(SoundType.PINK_PETALS).pushReaction(PushReaction.DESTROY)));

@@ -176,6 +176,7 @@ public class AACreativeTabs {
                 output.accept(AABlocks.STONE_BRAZIER);
                 output.accept(AABlocks.SOUL_STONE_BRAZIER);
                 output.accept(AABlocks.CAVE_CRUD);
+                output.accept(AABlocks.CAVE_CRUD_PATH);
                 output.accept(AABlocks.CAVE_SPROUTS);
                 output.accept(AABlocks.SUSPICIOUS_RED_SAND);
                 output.accept(AABlocks.MOSS_CLUMP);
@@ -194,6 +195,8 @@ public class AACreativeTabs {
                 output.accept(AABlocks.CHERRY_BUSHBUDS);
                 output.accept(AABlocks.UMBRA_BUSHBUDS);
                 output.accept(AABlocks.MIDNIGHT_LILY);
+                output.accept(AABlocks.CREEPING_CLOVERS);
+                output.accept(AAItems.CREEPIE_SPROUT);
                 output.accept(AABlocks.WISP_CANDLE);
                 output.accept(AABlocks.CERULEAN_FROGLIGHT);
                 output.accept(AABlocks.CHROMATIC_FROGLIGHT);

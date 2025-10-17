@@ -7,8 +7,17 @@
   ],
   "replace": false,
   "values": [
-    "abundant_atmosphere:ashroot_bookshelf",
-    "abundant_atmosphere:gourdrot_bookshelf",
-    "abundant_atmosphere:red_bamboo_bookshelf"
+    {
+      "id": "abundant_atmosphere:ashroot_bookshelf",
+      "required": false
+    },
+    {
+      "id": "abundant_atmosphere:gourdrot_bookshelf",
+      "required": false
+    },
+    {
+      "id": "abundant_atmosphere:red_bamboo_bookshelf",
+      "required": false
+    }
   ]
 }

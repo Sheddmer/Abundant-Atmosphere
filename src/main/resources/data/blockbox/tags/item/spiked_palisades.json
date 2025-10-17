@@ -7,9 +7,21 @@
   ],
   "replace": false,
   "values": [
-    "abundant_atmosphere:spiked_ashroot_palisade",
-    "abundant_atmosphere:stripped_spiked_ashroot_palisade",
-    "abundant_atmosphere:spiked_gourdrot_palisade",
-    "abundant_atmosphere:stripped_spiked_gourdrot_palisade"
+    {
+      "id": "abundant_atmosphere:spiked_ashroot_palisade",
+      "required": false
+    },
+    {
+      "id": "abundant_atmosphere:spiked_gourdrot_palisade",
+      "required": false
+    },
+    {
+      "id": "abundant_atmosphere:stripped_spiked_ashroot_palisade",
+      "required": false
+    },
+    {
+      "id": "abundant_atmosphere:stripped_spiked_gourdrot_palisade",
+      "required": false
+    }
   ]
 }

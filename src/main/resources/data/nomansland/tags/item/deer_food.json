@@ -7,9 +7,6 @@
   ],
   "replace": false,
   "values": [
-    {
-      "id": "abundant_atmosphere:gourdnut",
-      "required": false
-    }
+    "abundant_atmosphere:gourdnut"
   ]
 }
