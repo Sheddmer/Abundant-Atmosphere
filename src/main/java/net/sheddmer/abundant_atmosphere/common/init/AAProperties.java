@@ -9,4 +9,6 @@ public class AAProperties {
     public static final BooleanProperty OVERGROWN = BooleanProperty.create("overgrown");
     public static final BooleanProperty IGNITABLE = BooleanProperty.create("ignitable");
     public static final IntegerProperty LEAF_LEVEL = IntegerProperty.create("level", 1, 3);
+    public static final IntegerProperty STAGE_3 = IntegerProperty.create("stage", 0, 3);
+    public static final BooleanProperty WILTING = BooleanProperty.create("wilting");
 }
