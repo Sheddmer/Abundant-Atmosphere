@@ -12,6 +12,6 @@ import java.util.function.Supplier;
 public class AAEntityTypes {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, AbundantAtmosphere.MODID);
 
-    public static final Supplier<EntityType<Nutling>> NUTLING = ENTITY_TYPES.register("nutling", () -> EntityType.Builder.of(Nutling::new, MobCategory.CREATURE).sized(0.6f, 0.8f).build("nutling"));
+    public static final Supplier<EntityType<Nutling>> NUTLING = ENTITY_TYPES.register("nutling", () -> EntityType.Builder.of(Nutling::new, MobCategory.MISC).sized(0.6f, 0.8f).eyeHeight(0.7f).clientTrackingRange(10).build("nutling"));
 
 }

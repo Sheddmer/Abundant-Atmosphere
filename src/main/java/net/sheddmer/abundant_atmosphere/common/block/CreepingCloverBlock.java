@@ -25,12 +25,10 @@ public class CreepingCloverBlock extends Block {
 
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-        switch (state.getValue(AGE)) {
-            default:
-                return SHAPE;
-            case 5:
-                return SHAPE_GROWN;
+        if (state.getValue(AGE) == 5) {
+            return SHAPE_GROWN;
         }
+        return SHAPE;
     }
 
 

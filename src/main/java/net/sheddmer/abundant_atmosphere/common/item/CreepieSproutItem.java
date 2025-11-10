@@ -11,8 +11,7 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 
 public class CreepieSproutItem extends Item implements ProjectileItem {
-    protected static final int DEFAULT_THROW_TIME = 10;
-    private static final int COOLDOWN_TIME = 40;
+    protected static final int DEFAULT_THROW_TIME = 15;
 
     public CreepieSproutItem(Properties properties) {
         super(properties);
@@ -31,7 +30,7 @@ public class CreepieSproutItem extends Item implements ProjectileItem {
 
     @Override
     public UseAnim getUseAnimation(ItemStack arg) {
-        return UseAnim.CROSSBOW;
+        return UseAnim.SPEAR;
     }
 
     @Override
