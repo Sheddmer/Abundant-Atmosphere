@@ -4,6 +4,7 @@ import net.neoforged.fml.ModList;
 
 public enum AAModCompats {
     BLOCKBOX,
+    BOATLOAD,
     CREATE,
     FARMERSDELIGHT,
     NOMANSLAND;

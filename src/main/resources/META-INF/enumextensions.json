@@ -1,0 +1,31 @@
+{
+  "entries": [
+    {
+      "enum": "net/minecraft/world/entity/vehicle/Boat$Type",
+      "name": "ABUNDANT_ATMOSPHERE_ASHROOT",
+      "constructor": "(Ljava/util/function/Supplier;Ljava/lang/String;Ljava/util/function/Supplier;Ljava/util/function/Supplier;Ljava/util/function/Supplier;Z)V",
+      "parameters": {
+        "class": "net/sheddmer/abundant_atmosphere/common/AAEnumParams",
+        "field": "ASHROOT_BOAT_TYPE"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/entity/vehicle/Boat$Type",
+      "name": "ABUNDANT_ATMOSPHERE_GOURDROT",
+      "constructor": "(Ljava/util/function/Supplier;Ljava/lang/String;Ljava/util/function/Supplier;Ljava/util/function/Supplier;Ljava/util/function/Supplier;Z)V",
+      "parameters": {
+        "class": "net/sheddmer/abundant_atmosphere/common/AAEnumParams",
+        "field": "GOURDROT_BOAT_TYPE"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/entity/vehicle/Boat$Type",
+      "name": "ABUNDANT_ATMOSPHERE_RED_BAMBOO",
+      "constructor": "(Ljava/util/function/Supplier;Ljava/lang/String;Ljava/util/function/Supplier;Ljava/util/function/Supplier;Ljava/util/function/Supplier;Z)V",
+      "parameters": {
+        "class": "net/sheddmer/abundant_atmosphere/common/AAEnumParams",
+        "field": "RED_BAMBOO_RAFT_TYPE"
+      }
+    }
+  ]
+}

@@ -3,6 +3,9 @@
     "": [
       {
         "model": "abundant_atmosphere:block/rust_moss_sprouts"
+      },
+      {
+        "model": "abundant_atmosphere:block/rust_moss_sprouts_alt"
       }
     ]
   }

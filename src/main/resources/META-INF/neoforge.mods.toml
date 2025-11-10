@@ -14,6 +14,7 @@ logoFile="${mod_id}.png"
 #credits=""
 authors="${mod_authors}"
 description='''${mod_description}'''
+enumExtensions="META-INF/enumextensions.json"
 
 [[mixins]]
 config="${mod_id}.mixins.json"
@@ -41,6 +42,3 @@ reason="Required for world generation"
 versionRange="${bt_version_range}"
 ordering="NONE"
 side="BOTH"
-
-#[features.${mod_id}]
-#openGLVersion="[3.2,)"

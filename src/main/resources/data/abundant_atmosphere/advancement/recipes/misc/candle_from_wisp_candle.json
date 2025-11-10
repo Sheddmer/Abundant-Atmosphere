@@ -3,15 +3,15 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "abundant_atmosphere:wisp_candle_from_brown_mushroom"
+        "recipe": "abundant_atmosphere:wisp_candle"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_midnight_lily": {
+    "has_gourdnut": {
       "conditions": {
         "items": [
           {
-            "items": "abundant_atmosphere:midnight_lily"
+            "items": "abundant_atmosphere:wisp_candle"
           }
         ]
       },
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_midnight_lily"
+      "has_gourdnut"
     ]
   ],
   "rewards": {
     "recipes": [
-      "abundant_atmosphere:wisp_candle_from_brown_mushroom"
+      "abundant_atmosphere:wisp_candle"
     ]
   }
 }

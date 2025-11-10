@@ -107,7 +107,7 @@ public class PuffballMushroomBlock extends Block implements BonemealableBlock {
         }
     }
 
-        @Override
+    @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(AGE);
     }

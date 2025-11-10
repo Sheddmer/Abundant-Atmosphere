@@ -4,20 +4,11 @@
   "group": "wisp_candle",
   "ingredients": [
     {
-      "tag": "minecraft:candles"
-    },
-    {
-      "tag": "minecraft:candles"
-    },
-    {
-      "item": "abundant_atmosphere:catsbane"
-    },
-    {
-      "item": "abundant_atmosphere:midnight_lily"
+      "item": "abundant_atmosphere:wisp_candle"
     }
   ],
   "result": {
-    "count": 2,
-    "id": "abundant_atmosphere:wisp_candle"
+    "count": 1,
+    "id": "minecraft:candle"
   }
 }

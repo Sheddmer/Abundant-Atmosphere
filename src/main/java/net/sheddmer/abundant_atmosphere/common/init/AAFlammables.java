@@ -37,6 +37,9 @@ public class AAFlammables {
 
         fireBlock.setFlammable(AABlocks.LEAF_PILE.get(), 30, 60);
 
-
+        fireBlock.setFlammable(AABlocks.RUST_MOSS_BLOCK.get(), 100, 160);
+        fireBlock.setFlammable(AABlocks.RUST_MOSS_CARPET.get(), 120, 200);
+        fireBlock.setFlammable(AABlocks.RUST_MOSS_CLUMP.get(), 120, 200);
+        fireBlock.setFlammable(AABlocks.RUST_MOSS_SPROUTS.get(), 120, 200);
     }
 }

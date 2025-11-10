@@ -1,6 +1,8 @@
 package net.sheddmer.abundant_atmosphere;
 
+import net.minecraft.resources.ResourceLocation;
 import net.sheddmer.abundant_atmosphere.common.entity.frogvariant.AAFrogVariants;
+import net.sheddmer.abundant_atmosphere.common.integration.boatload.BLIntegration;
 import net.sheddmer.abundant_atmosphere.common.world.generation.AABiomePlacements;
 import net.sheddmer.abundant_atmosphere.common.world.generation.AASurfaceRules;
 import net.sheddmer.abundant_atmosphere.common.init.AAFoliagePlacerTypes;
@@ -40,15 +42,12 @@ public class AbundantAtmosphere {
         AAConditions.CONDITION_CODECS.register(bus);
 
         if (AAModCompats.BLOCKBOX.isLoaded()) BBIntegration.register();
-        if (AAModCompats.CREATE.isLoaded()) CIntegration.register();
-
+        if (AAModCompats.BOATLOAD.isLoaded()) BLIntegration.register();
         if (AAModCompats.FARMERSDELIGHT.isLoaded()) {
             FDIntegration.register();
             bus.addListener(FDIntegration::addBlockEntities);
         }
-        if (AAModCompats.NOMANSLAND.isLoaded()) {
-            NMLIntegration.register();
-        }
+        if (AAModCompats.NOMANSLAND.isLoaded()) NMLIntegration.register();
 
         bus.addListener(AAItems::addCreative);
         bus.addListener(AABlockEntityTypes::addBlockEntities);
@@ -70,5 +69,9 @@ public class AbundantAtmosphere {
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
+    }
+
+    public static ResourceLocation location(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MODID, path);
     }
 }

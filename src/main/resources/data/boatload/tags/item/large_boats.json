@@ -1,0 +1,23 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "boatload"
+    }
+  ],
+  "replace": false,
+  "values": [
+    {
+      "id": "abundant_atmosphere:large_ashroot_boat",
+      "required": false
+    },
+    {
+      "id": "abundant_atmosphere:large_gourdrot_boat",
+      "required": false
+    },
+    {
+      "id": "abundant_atmosphere:wide_red_bamboo_raft",
+      "required": false
+    }
+  ]
+}
