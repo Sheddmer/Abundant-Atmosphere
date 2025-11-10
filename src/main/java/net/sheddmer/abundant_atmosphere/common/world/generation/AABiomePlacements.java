@@ -12,7 +12,7 @@ public class AABiomePlacements {
             BiomePlacement.addOverworld(AABiomes.ERODED_BAMBOO_JUNGLE,
                     Climate.parameters(
                             Climate.Parameter.span(0.2F, 0.55F),
-                            Climate.Parameter.span(0.2F, 9.0F),
+                            Climate.Parameter.span(0.2F, 0.9F),
                             Climate.Parameter.span(0.0F, 0.35F),
                             Climate.Parameter.span(-0.05F, 0.35F),
                             Climate.Parameter.span(0.0F, 0.0F),
