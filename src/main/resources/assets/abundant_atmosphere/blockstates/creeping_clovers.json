@@ -1,0 +1,106 @@
+{
+  "variants": {
+    "age=0": [
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage0"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage0",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage0",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage0",
+        "y": 270
+      }
+    ],
+    "age=1": [
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage1"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage1",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage1",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage1",
+        "y": 270
+      }
+    ],
+    "age=2": [
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage2"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage2",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage2",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage2",
+        "y": 270
+      }
+    ],
+    "age=3": [
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage3"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage3",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage3",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage3",
+        "y": 270
+      }
+    ],
+    "age=4": [
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage4"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage4",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage4",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage4",
+        "y": 270
+      }
+    ],
+    "age=5": [
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage5"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage5",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage5",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/creeping_clovers_stage5",
+        "y": 270
+      }
+    ]
+  }
+}

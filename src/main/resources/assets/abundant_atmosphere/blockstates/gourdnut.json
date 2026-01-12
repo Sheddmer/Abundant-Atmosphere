@@ -1,10 +1,10 @@
 {
   "variants": {
     "hanging=false": {
-      "model": "abundant_atmosphere:block/gourdnut"
+      "model": "abundant_atmosphere:block/vegetation/gourdnut"
     },
     "hanging=true": {
-      "model": "abundant_atmosphere:block/gourdnut_hanging"
+      "model": "abundant_atmosphere:block/vegetation/gourdnut_hanging"
     }
   }
 }

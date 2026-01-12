@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "abundant_atmosphere:block/ashroot_planks",
-    "side": "abundant_atmosphere:block/nml/ashroot_bookshelf"
-  }
-}

@@ -1,0 +1,187 @@
+{
+  "variants": {
+    "orientation=down_east": [
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt0",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt1",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt2",
+        "x": 90,
+        "y": 90
+      }
+    ],
+    "orientation=down_north": [
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt0",
+        "x": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt1",
+        "x": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt2",
+        "x": 90
+      }
+    ],
+    "orientation=down_south": [
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt0",
+        "x": 90,
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt1",
+        "x": 90,
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt2",
+        "x": 90,
+        "y": 180
+      }
+    ],
+    "orientation=down_west": [
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt0",
+        "x": 90,
+        "y": 270
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt1",
+        "x": 90,
+        "y": 270
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt2",
+        "x": 90,
+        "y": 270
+      }
+    ],
+    "orientation=east_up": [
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt0",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt1",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt2",
+        "y": 90
+      }
+    ],
+    "orientation=north_up": [
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt0"
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt1"
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt2"
+      }
+    ],
+    "orientation=south_up": [
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt0",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt1",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt2",
+        "y": 180
+      }
+    ],
+    "orientation=up_east": [
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt0",
+        "x": 270,
+        "y": 270
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt1",
+        "x": 270,
+        "y": 270
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt2",
+        "x": 270,
+        "y": 270
+      }
+    ],
+    "orientation=up_north": [
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt0",
+        "x": 270,
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt1",
+        "x": 270,
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt2",
+        "x": 270,
+        "y": 180
+      }
+    ],
+    "orientation=up_south": [
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt0",
+        "x": 270
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt1",
+        "x": 270
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt2",
+        "x": 270
+      }
+    ],
+    "orientation=up_west": [
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt0",
+        "x": 270,
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt1",
+        "x": 270,
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt2",
+        "x": 270,
+        "y": 90
+      }
+    ],
+    "orientation=west_up": [
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt0",
+        "y": 270
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt1",
+        "y": 270
+      },
+      {
+        "model": "abundant_atmosphere:block/inscribed_basalt2",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "ambientocclusion": false,
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "#texture",
+    "texture": "abundant_atmosphere:block/vegetation/small_lily_pad1"
+  },
+  "elements": [
+    {   "from": [  0, 0.01,  0 ],
+      "to":   [ 16, 0.01, 16 ],
+      "faces": {
+        "down":  { "uv": [  0, 16, 16,  0 ], "texture": "#texture", "tintindex": 0 },
+        "up":  { "uv": [  0,  0, 16, 16 ], "texture": "#texture", "tintindex": 0 }
+      }
+    }
+  ]
+}

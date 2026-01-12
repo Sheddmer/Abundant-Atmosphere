@@ -14,6 +14,10 @@
     "abundant_atmosphere:mossy_deepslate_tile_wall",
     "abundant_atmosphere:mossy_mud_brick_wall",
     "abundant_atmosphere:stone_wall",
-    "abundant_atmosphere:mossy_stone_wall"
+    "abundant_atmosphere:mossy_stone_wall",
+    {
+      "id": "abundant_atmosphere:mossy_cobbled_deepslate_brick_wall",
+      "required":false
+    }
   ]
 }

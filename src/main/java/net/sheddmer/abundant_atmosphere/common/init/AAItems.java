@@ -1,5 +1,7 @@
 package net.sheddmer.abundant_atmosphere.common.init;
 
+import com.farcr.nomansland.common.registry.blocks.NMLBlocks;
+import com.farcr.nomansland.common.registry.items.NMLItems;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceKey;
@@ -35,14 +37,17 @@ public class AAItems {
     public static final DeferredItem<Item> CREEPIE_SPROUT = registerItem("creepie_sprout", () -> new CreepieSproutItem(new Item.Properties().stacksTo(16)));
 
     // Woodset items
+    public static final DeferredItem<Item> ASHROOT_PLANKS = registerItem("ashroot_planks", () -> new BlockItem(AABlocks.ASHROOT_PLANKS.get(), new Item.Properties()));
     public static final DeferredItem<Item> ASHROOT_SIGN = registerItem("ashroot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), AABlocks.ASHROOT_SIGN.get(), AABlocks.ASHROOT_WALL_SIGN.get()));
     public static final DeferredItem<Item> ASHROOT_HANGING_SIGN = registerItem("ashroot_hanging_sign", () -> new HangingSignItem(AABlocks.ASHROOT_HANGING_SIGN.get(), AABlocks.ASHROOT_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> ASHROOT_BOAT = registerItem("ashroot_boat", () -> new BoatItem(false, AAEnumParams.ASHROOT_BOAT_TYPE.getValue(), new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> ASHROOT_CHEST_BOAT = registerItem("ashroot_chest_boat", () -> new BoatItem(true, AAEnumParams.ASHROOT_BOAT_TYPE.getValue(), new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> GOURDROT_PLANKS = registerItem("gourdrot_planks", () -> new BlockItem(AABlocks.GOURDROT_PLANKS.get(), new Item.Properties()));
     public static final DeferredItem<Item> GOURDROT_SIGN = registerItem("gourdrot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), AABlocks.GOURDROT_SIGN.get(), AABlocks.GOURDROT_WALL_SIGN.get()));
     public static final DeferredItem<Item> GOURDROT_HANGING_SIGN = registerItem("gourdrot_hanging_sign", () -> new HangingSignItem(AABlocks.GOURDROT_HANGING_SIGN.get(), AABlocks.GOURDROT_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> GOURDROT_BOAT = registerItem("gourdrot_boat", () -> new BoatItem(false, AAEnumParams.GOURDROT_BOAT_TYPE.getValue(), new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> GOURDROT_CHEST_BOAT = registerItem("gourdrot_chest_boat", () -> new BoatItem(true, AAEnumParams.GOURDROT_BOAT_TYPE.getValue(), new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> RED_BAMBOO_PLANKS = registerItem("red_bamboo_planks", () -> new BlockItem(AABlocks.RED_BAMBOO_PLANKS.get(), new Item.Properties()));
     public static final DeferredItem<Item> RED_BAMBOO_SIGN = registerItem("red_bamboo_sign", () -> new SignItem(new Item.Properties().stacksTo(16), AABlocks.RED_BAMBOO_SIGN.get(), AABlocks.RED_BAMBOO_WALL_SIGN.get()));
     public static final DeferredItem<Item> RED_BAMBOO_HANGING_SIGN = registerItem("red_bamboo_hanging_sign", () -> new HangingSignItem(AABlocks.RED_BAMBOO_HANGING_SIGN.get(), AABlocks.RED_BAMBOO_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> RED_BAMBOO_RAFT = registerItem("red_bamboo_raft", () -> new BoatItem(false, AAEnumParams.RED_BAMBOO_RAFT_TYPE.getValue(), new Item.Properties().stacksTo(1)));
@@ -194,6 +199,10 @@ public class AAItems {
                 event.insertAfter(NMLIntegration.GOURDROT_BOOKSHELF.toStack(), NMLIntegration.TRIMMED_GOURDROT_PLANKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 event.insertAfter(AABlocks.RED_BAMBOO_MOSAIC_SLAB.toStack(), NMLIntegration.RED_BAMBOO_BOOKSHELF.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 event.insertAfter(NMLIntegration.RED_BAMBOO_BOOKSHELF.toStack(), NMLIntegration.TRIMMED_RED_BAMBOO_PLANKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(Items.COBBLED_DEEPSLATE_WALL.getDefaultInstance(), NMLIntegration.MOSSY_COBBLED_DEEPSLATE_BRICKS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(NMLIntegration.MOSSY_COBBLED_DEEPSLATE_BRICKS.toStack(), NMLIntegration.MOSSY_COBBLED_DEEPSLATE_BRICK_STAIRS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(NMLIntegration.MOSSY_COBBLED_DEEPSLATE_BRICK_STAIRS.toStack(), NMLIntegration.MOSSY_COBBLED_DEEPSLATE_BRICK_SLAB.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(NMLIntegration.MOSSY_COBBLED_DEEPSLATE_BRICK_SLAB.toStack(), NMLIntegration.MOSSY_COBBLED_DEEPSLATE_BRICK_WALL.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             }
             if (AAModCompats.BLOCKBOX.isLoaded()) {
                 event.insertAfter(AABlocks.ASHROOT_BUTTON.toStack(), BBIntegration.ASHROOT_PALISADE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
@@ -252,7 +261,6 @@ public class AAItems {
             event.insertAfter(Items.CACTUS.getDefaultInstance(), AABlocks.CREEPING_CLOVERS.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
         if (tabKey == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
-            event.insertAfter(Items.CANDLE.getDefaultInstance(), AABlocks.WISP_CANDLE.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.SOUL_LANTERN.getDefaultInstance(), AAItems.MUD_LAMP.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.PEARLESCENT_FROGLIGHT.getDefaultInstance(), AABlocks.CERULEAN_FROGLIGHT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(AABlocks.CERULEAN_FROGLIGHT.toStack(), AAItems.CHROMATIC_FROGLIGHT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);

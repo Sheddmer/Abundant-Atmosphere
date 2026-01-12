@@ -1,4 +1,4 @@
 {
-  "parent": "abundant_atmosphere:block/bb/ashroot_palisade_post",
+  "parent": "abundant_atmosphere:block/integration/blockbox/ashroot_palisade_post",
   "gui_light": "front"
 }

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "abundant_atmosphere:block/integration/farmersdelight/gourdrot_cabinet_front_open",
+    "side": "abundant_atmosphere:block/integration/farmersdelight/gourdrot_cabinet_side",
+    "top": "abundant_atmosphere:block/integration/farmersdelight/gourdrot_cabinet_top"
+  }
+}

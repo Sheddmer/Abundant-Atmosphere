@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=east": {
-      "model": "abundant_atmosphere:block/bb/red_bamboo_seat",
+      "model": "abundant_atmosphere:block/integration/blockbox/red_bamboo_seat",
       "y": 90
     },
     "facing=north": {
-      "model": "abundant_atmosphere:block/bb/red_bamboo_seat"
+      "model": "abundant_atmosphere:block/integration/blockbox/red_bamboo_seat"
     },
     "facing=south": {
-      "model": "abundant_atmosphere:block/bb/red_bamboo_seat",
+      "model": "abundant_atmosphere:block/integration/blockbox/red_bamboo_seat",
       "y": 180
     },
     "facing=west": {
-      "model": "abundant_atmosphere:block/bb/red_bamboo_seat",
+      "model": "abundant_atmosphere:block/integration/blockbox/red_bamboo_seat",
       "y": 270
     }
   }

@@ -3,10 +3,13 @@
   "category": "building",
   "ingredients": [
     {
-      "tag": "c:mud"
+      "item": "minecraft:mud"
     },
     {
-      "tag": "c:mud"
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:mud"
     },
     {
       "item": "minecraft:wheat"

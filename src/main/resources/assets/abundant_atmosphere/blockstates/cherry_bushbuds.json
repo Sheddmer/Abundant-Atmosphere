@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "abundant_atmosphere:block/cherry_bushbuds"
+      "model": "abundant_atmosphere:block/vegetation/cherry_bushbuds"
     }
   }
 }

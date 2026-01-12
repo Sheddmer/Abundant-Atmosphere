@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "abundant_atmosphere:block/potted_gourdnut"
+      "model": "abundant_atmosphere:block/vegetation/potted_gourdnut"
     }
   }
 }

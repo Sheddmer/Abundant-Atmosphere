@@ -2,79 +2,79 @@
   "variants": {
     "flower_amount=1,nightlight=false": [
       {
-        "model": "abundant_atmosphere:block/midnight_lily_1"
+        "model": "abundant_atmosphere:block/vegetation/midnight_lily0"
       }
     ],
     "flower_amount=2,nightlight=false": [
       {
-        "model": "abundant_atmosphere:block/midnight_lily_2"
+        "model": "abundant_atmosphere:block/vegetation/midnight_lily1"
       },
       {
-        "model": "abundant_atmosphere:block/midnight_lily_2",
+        "model": "abundant_atmosphere:block/vegetation/midnight_lily1",
         "y": 90
       },
       {
-        "model": "abundant_atmosphere:block/midnight_lily_2",
+        "model": "abundant_atmosphere:block/vegetation/midnight_lily1",
         "y": 180
       },
       {
-        "model": "abundant_atmosphere:block/midnight_lily_2",
+        "model": "abundant_atmosphere:block/vegetation/midnight_lily1",
         "y": 270
       }
     ],
     "flower_amount=3,nightlight=false": [
       {
-        "model": "abundant_atmosphere:block/midnight_lily_3"
+        "model": "abundant_atmosphere:block/vegetation/midnight_lily2"
       },
       {
-        "model": "abundant_atmosphere:block/midnight_lily_3",
+        "model": "abundant_atmosphere:block/vegetation/midnight_lily2",
         "y": 90
       },
       {
-        "model": "abundant_atmosphere:block/midnight_lily_3",
+        "model": "abundant_atmosphere:block/vegetation/midnight_lily2",
         "y": 180
       },
       {
-        "model": "abundant_atmosphere:block/midnight_lily_3",
+        "model": "abundant_atmosphere:block/vegetation/midnight_lily2",
         "y": 270
       }
     ],
     "flower_amount=1,nightlight=true": [
       {
-        "model": "abundant_atmosphere:block/midnight_lily_lit_1"
+        "model": "abundant_atmosphere:block/vegetation/midnight_lily0_lit"
       }
     ],
     "flower_amount=2,nightlight=true": [
       {
-        "model": "abundant_atmosphere:block/midnight_lily_lit_2"
+        "model": "abundant_atmosphere:block/vegetation/midnight_lily1_lit"
       },
       {
-        "model": "abundant_atmosphere:block/midnight_lily_lit_2",
+        "model": "abundant_atmosphere:block/vegetation/midnight_lily1_lit",
         "y": 90
       },
       {
-        "model": "abundant_atmosphere:block/midnight_lily_lit_2",
+        "model": "abundant_atmosphere:block/vegetation/midnight_lily1_lit",
         "y": 180
       },
       {
-        "model": "abundant_atmosphere:block/midnight_lily_lit_2",
+        "model": "abundant_atmosphere:block/vegetation/midnight_lily1_lit",
         "y": 270
       }
     ],
     "flower_amount=3,nightlight=true": [
       {
-        "model": "abundant_atmosphere:block/midnight_lily_lit_3"
+        "model": "abundant_atmosphere:block/vegetation/midnight_lily2_lit"
       },
       {
-        "model": "abundant_atmosphere:block/midnight_lily_lit_3",
+        "model": "abundant_atmosphere:block/vegetation/midnight_lily2_lit",
         "y": 90
       },
       {
-        "model": "abundant_atmosphere:block/midnight_lily_lit_3",
+        "model": "abundant_atmosphere:block/vegetation/midnight_lily2_lit",
         "y": 180
       },
       {
-        "model": "abundant_atmosphere:block/midnight_lily_lit_3",
+        "model": "abundant_atmosphere:block/vegetation/midnight_lily2_lit",
         "y": 270
       }
     ]

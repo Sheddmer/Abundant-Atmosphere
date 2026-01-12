@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "abundant_atmosphere:block/potted_red_bamboo"
+      "model": "abundant_atmosphere:block/vegetation/potted_red_bamboo"
     }
   }
 }

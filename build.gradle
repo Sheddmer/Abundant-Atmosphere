@@ -97,8 +97,8 @@ dependencies {
     implementation "maven.modrinth:every-compat:jUq5MG3r"
     implementation "maven.modrinth:the-block-box:0.1.1"
     implementation "maven.modrinth:create:1.21.1-6.0.6"
-    implementation "maven.modrinth:no-mans-land:1.4.4"
-    implementation "maven.modrinth:mixed-litter:1.0.2"
+    implementation "maven.modrinth:no-mans-land:1.4.5"
+    implementation "maven.modrinth:mixed-litter:1.0.3"
     implementation "maven.modrinth:moonlight:1.21-2.25.3-neoforge"
 
     compileOnly "mezz.jei:jei-$minecraft_version-common-api:$jei_version"

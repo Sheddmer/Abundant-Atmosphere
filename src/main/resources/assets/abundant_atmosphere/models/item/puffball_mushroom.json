@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "abundant_atmosphere:block/puffball_mushroom/puffball_stage0"
+    "layer0": "abundant_atmosphere:block/vegetation/puffball_stage0"
   }
 }

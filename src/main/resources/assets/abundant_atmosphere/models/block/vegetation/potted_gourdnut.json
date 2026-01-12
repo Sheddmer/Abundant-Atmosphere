@@ -1,0 +1,35 @@
+{
+	"credit": "Made by Sheddmer",
+	"textures": {
+		"top": "abundant_atmosphere:block/vegetation/gourdnut_top",
+		"side": "abundant_atmosphere:block/vegetation/gourdnut_side",
+		"particle": "#flowerpot",
+		"flowerpot": "minecraft:block/flower_pot"
+	},
+	"elements": [
+		{   "from": [ 5, 0, 5 ],
+			"to": [ 11, 6, 11 ],
+			"faces": {
+				"north": { "texture": "#flowerpot" },
+				"south": { "texture": "#flowerpot" },
+				"west":  { "texture": "#flowerpot" },
+				"east":  { "texture": "#flowerpot" },
+				"up":    { "texture": "#flowerpot" },
+				"down":  { "uv": [ 5, 5, 6, 11 ], "texture": "#flowerpot", "cullface": "down" }
+			}
+		},
+		{
+			"from": [3, 6, 3],
+			"to": [13, 16, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [3, 6, 3]},
+			"faces": {
+				"north": {"uv": [3, 6, 13, 16], "texture": "#side"},
+				"east": {"uv": [3, 6, 13, 16], "texture": "#side"},
+				"south": {"uv": [3, 6, 13, 16], "texture": "#side"},
+				"west": {"uv": [3, 6, 13, 16], "texture": "#side"},
+				"up": {"uv": [3, 3, 13, 13], "texture": "#top", "cullface": "up"},
+				"down": {"uv": [3, 3, 13, 13], "texture": "#top"}
+			}
+		}
+	]
+}

@@ -2,10 +2,10 @@
   "variants": {
     "": [
       {
-        "model": "abundant_atmosphere:block/cave_crud_path_1"
+        "model": "abundant_atmosphere:block/cave_crud_path"
       },
       {
-        "model": "abundant_atmosphere:block/cave_crud_path_2"
+        "model": "abundant_atmosphere:block/cave_crud_path_alt"
       }
     ]
   }

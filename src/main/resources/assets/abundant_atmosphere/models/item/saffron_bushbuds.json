@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "abundant_atmosphere:block/saffron_bushbuds"
+    "layer0": "abundant_atmosphere:block/vegetation/saffron_bushbuds"
   }
 }

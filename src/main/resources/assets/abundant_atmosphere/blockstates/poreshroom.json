@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "abundant_atmosphere:block/poreshroom"
+      "model": "abundant_atmosphere:block/vegetation/poreshroom"
     }
   }
 }

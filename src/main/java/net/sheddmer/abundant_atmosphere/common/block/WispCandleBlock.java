@@ -23,7 +23,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -44,12 +43,11 @@ import net.sheddmer.abundant_atmosphere.common.blockentity.WispCandleBlockEntity
 import net.sheddmer.abundant_atmosphere.common.init.AAParticleTypes;
 import net.sheddmer.abundant_atmosphere.common.init.AAProperties;
 import net.sheddmer.abundant_atmosphere.common.init.AASounds;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class WispCandleBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
+public class WispCandleBlock extends Block implements SimpleWaterloggedBlock {
     public static final MapCodec<WispCandleBlock> CODEC = simpleCodec(WispCandleBlock::new);
     public static final IntegerProperty CANDLES = BlockStateProperties.CANDLES;
     public static final BooleanProperty IGNITABLE = AAProperties.IGNITABLE;
@@ -173,12 +171,6 @@ public class WispCandleBlock extends BaseEntityBlock implements SimpleWaterlogge
 
     protected Iterable<Vec3> getParticleOffsets(BlockState state) {
         return PARTICLE_OFFSETS.get(state.getValue(CANDLES).intValue());
-    }
-
-    @Nullable
-    @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state){
-        return new WispCandleBlockEntity(pos, state);
     }
 
     @Override

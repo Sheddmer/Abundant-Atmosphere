@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "abundant_atmosphere:block/small_lily_pad_3"
+    "layer0": "abundant_atmosphere:block/vegetation/small_lily_pad2"
   }
 }

@@ -15,6 +15,10 @@
     "abundant_atmosphere:mossy_mud_brick_stairs",
     "abundant_atmosphere:blacksalt_tile_stairs",
     "abundant_atmosphere:mossy_stone_stairs",
-    "abundant_atmosphere:red_bamboo_mosaic_stairs"
+    "abundant_atmosphere:red_bamboo_mosaic_stairs",
+    {
+      "id": "abundant_atmosphere:mossy_cobbled_deepslate_brick_stairs",
+      "required":false
+    }
   ]
 }

@@ -1,33 +1,33 @@
 {
   "variants": {
     "facing=north,hanging=false": {
-      "model": "abundant_atmosphere:block/lamp_o_gourd"
+      "model": "abundant_atmosphere:block/vegetation/lamp_o_gourd"
     },
     "facing=south,hanging=false": {
-      "model": "abundant_atmosphere:block/lamp_o_gourd",
+      "model": "abundant_atmosphere:block/vegetation/lamp_o_gourd",
       "y": 180
     },
     "facing=east,hanging=false": {
-      "model": "abundant_atmosphere:block/lamp_o_gourd",
+      "model": "abundant_atmosphere:block/vegetation/lamp_o_gourd",
       "y": 90
     },
     "facing=west,hanging=false": {
-      "model": "abundant_atmosphere:block/lamp_o_gourd",
+      "model": "abundant_atmosphere:block/vegetation/lamp_o_gourd",
       "y": 270
     },
     "facing=north,hanging=true": {
-      "model": "abundant_atmosphere:block/lamp_o_gourd_hanging"
+      "model": "abundant_atmosphere:block/vegetation/lamp_o_gourd_hanging"
     },
     "facing=south,hanging=true": {
-      "model": "abundant_atmosphere:block/lamp_o_gourd_hanging",
+      "model": "abundant_atmosphere:block/vegetation/lamp_o_gourd_hanging",
       "y": 180
     },
     "facing=east,hanging=true": {
-      "model": "abundant_atmosphere:block/lamp_o_gourd_hanging",
+      "model": "abundant_atmosphere:block/vegetation/lamp_o_gourd_hanging",
       "y": 90
     },
     "facing=west,hanging=true": {
-      "model": "abundant_atmosphere:block/lamp_o_gourd_hanging",
+      "model": "abundant_atmosphere:block/vegetation/lamp_o_gourd_hanging",
       "y": 270
     }
   }

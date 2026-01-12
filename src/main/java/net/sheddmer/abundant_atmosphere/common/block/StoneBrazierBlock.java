@@ -3,11 +3,13 @@ package net.sheddmer.abundant_atmosphere.common.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
@@ -24,6 +26,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -56,12 +59,13 @@ public class StoneBrazierBlock extends Block implements SimpleWaterloggedBlock {
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
+        LevelAccessor levelaccessor = context.getLevel();
+        boolean flag = levelaccessor.getFluidState(context.getClickedPos()).getType() == Fluids.WATER;
         for (Direction direction : context.getNearestLookingDirections()) {
             if (direction.getAxis() == Direction.Axis.Y) {
                 BlockState blockstate = this.defaultBlockState().setValue(HANGING, Boolean.valueOf(direction == Direction.UP));
                 if (blockstate.canSurvive(context.getLevel(), context.getClickedPos())) {
-                    return blockstate.setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
+                    return blockstate.setValue(WATERLOGGED, flag).setValue(LIT, !flag);
                 }
             }
         }
@@ -113,7 +117,35 @@ public class StoneBrazierBlock extends Block implements SimpleWaterloggedBlock {
         }
     }
 
-        public static boolean isLit(BlockState state) {
+    @Override
+    public boolean placeLiquid(LevelAccessor level, BlockPos pos, BlockState state, FluidState fluidState) {
+        if (!state.getValue(BlockStateProperties.WATERLOGGED) && fluidState.getType() == Fluids.WATER) {
+            boolean flag = state.getValue(LIT);
+            if (flag) {
+                if (!level.isClientSide()) {
+                    level.playSound(null, pos, SoundEvents.GENERIC_EXTINGUISH_FIRE, SoundSource.BLOCKS, 1.0F, 1.0F);
+                }
+                if (level.isClientSide()) {
+                    level.addParticle(ParticleTypes.LARGE_SMOKE, (double) pos.getX() + Mth.randomBetween(RandomSource.create(), 0.25F, 0.75F), (double) pos.getY() + 0.6, (double) pos.getZ() + Mth.randomBetween(RandomSource.create(), 0.25F, 0.75F), 0, 0.0F, 0);
+                }
+            }
+            level.setBlock(pos, state.setValue(WATERLOGGED, Boolean.valueOf(true)).setValue(LIT, Boolean.valueOf(false)), 3);
+            level.scheduleTick(pos, fluidState.getType(), fluidState.getType().getTickDelay(level));
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    protected void onProjectileHit(Level level, BlockState state, BlockHitResult hit, Projectile projectile) {
+        BlockPos blockpos = hit.getBlockPos();
+        if (!level.isClientSide && projectile.isOnFire() && projectile.mayInteract(level, blockpos) && !state.getValue(LIT) && !state.getValue(WATERLOGGED)) {
+            level.setBlock(blockpos, state.setValue(LIT, true), 11);
+        }
+    }
+
+    public static boolean isLit(BlockState state) {
         return state.hasProperty(LIT) && state.getValue(LIT);
     }
 

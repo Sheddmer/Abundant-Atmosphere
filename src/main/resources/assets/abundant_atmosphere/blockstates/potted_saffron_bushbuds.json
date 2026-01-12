@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "abundant_atmosphere:block/potted_saffron_bushbuds"
+      "model": "abundant_atmosphere:block/vegetation/potted_saffron_bushbuds"
     }
   }
 }

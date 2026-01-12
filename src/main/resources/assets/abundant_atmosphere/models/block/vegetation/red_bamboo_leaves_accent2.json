@@ -1,0 +1,20 @@
+{
+	"credit": "Made by Sheddmer",
+	"ambientocclusion": false,
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"particle": "abundant_atmosphere:block/vegetation/red_bamboo_leaves_accent"
+	},
+	"elements": [
+		{
+			"from": [8, 4, -1.5],
+			"to": [8, 12, 5.5],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 5.5], "rescale": true},
+			"faces": {
+				"east": {"uv": [8, 0, 16, 8], "texture": "#particle"},
+				"west": {"uv": [16, 0, 8, 8], "texture": "#particle"}
+			}
+		}
+	]
+}

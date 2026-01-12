@@ -1,22 +1,22 @@
 {
   "variants": {
     "age=0": {
-      "model": "abundant_atmosphere:block/puffball_mushroom_stage5"
+      "model": "abundant_atmosphere:block/vegetation/puffball_mushroom_stage5"
     },
     "age=1": {
-      "model": "abundant_atmosphere:block/puffball_mushroom_stage6"
+      "model": "abundant_atmosphere:block/vegetation/puffball_mushroom_stage6"
     },
     "age=2": {
-      "model": "abundant_atmosphere:block/puffball_mushroom_stage7"
+      "model": "abundant_atmosphere:block/vegetation/puffball_mushroom_stage7"
     },
     "age=3": {
-      "model": "abundant_atmosphere:block/puffball_mushroom_stage8"
+      "model": "abundant_atmosphere:block/vegetation/puffball_mushroom_stage8"
     },
     "age=4": {
-      "model": "abundant_atmosphere:block/puffball_mushroom_stage9"
+      "model": "abundant_atmosphere:block/vegetation/puffball_mushroom_stage9"
     },
     "age=5": {
-      "model": "abundant_atmosphere:block/puffball_mushroom_stage10"
+      "model": "abundant_atmosphere:block/vegetation/puffball_mushroom_stage10"
     }
   }
 }

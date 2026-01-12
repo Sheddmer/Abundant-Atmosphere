@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "abundant_atmosphere:block/catsbane"
+    "layer0": "abundant_atmosphere:block/vegetation/catsbane"
   }
 }

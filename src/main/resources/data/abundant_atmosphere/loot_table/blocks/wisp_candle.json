@@ -53,7 +53,7 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "abundant_atmosphere:wisp_candle"
+          "name": "minecraft:candle"
         }
       ],
       "rolls": 1.0

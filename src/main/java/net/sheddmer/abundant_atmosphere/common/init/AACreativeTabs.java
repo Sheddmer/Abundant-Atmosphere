@@ -10,6 +10,7 @@ import net.sheddmer.abundant_atmosphere.common.integration.AAModCompats;
 import net.sheddmer.abundant_atmosphere.common.integration.BBIntegration;
 import net.sheddmer.abundant_atmosphere.common.integration.FDIntegration;
 import net.sheddmer.abundant_atmosphere.common.integration.NMLIntegration;
+import net.sheddmer.abundant_atmosphere.common.integration.boatload.BLIntegration;
 
 public class AACreativeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, AbundantAtmosphere.MODID);
@@ -134,6 +135,7 @@ public class AACreativeTabs {
                 output.accept(AABlocks.BLACKSALT_TILE_STAIRS);
                 output.accept(AABlocks.BLACKSALT_TILE_SLAB);
                 output.accept(AABlocks.MOSSY_BASALT);
+                output.accept(AABlocks.INSCRIBED_BASALT);
                 output.accept(AABlocks.STONE_DOOR);
                 output.accept(AABlocks.STONE_TRAPDOOR);
                 output.accept(AABlocks.STONE_WALL);
@@ -195,6 +197,7 @@ public class AACreativeTabs {
                 output.accept(AABlocks.CHERRY_BUSHBUDS);
                 output.accept(AABlocks.UMBRA_BUSHBUDS);
                 output.accept(AABlocks.MIDNIGHT_LILY);
+                output.accept(AAItems.SMALL_LILY_PAD);
                 output.accept(AABlocks.CREEPING_CLOVERS);
                 output.accept(AAItems.CREEPIE_SPROUT);
                 output.accept(AABlocks.WISP_CANDLE);
@@ -214,6 +217,14 @@ public class AACreativeTabs {
                     output.accept(FDIntegration.ASHROOT_CABINET);
                     output.accept(FDIntegration.GOURDROT_CABINET);
                     output.accept(FDIntegration.RED_BAMBOO_CABINET);
+                }
+                if (AAModCompats.BOATLOAD.isLoaded()) {
+                    output.accept(BLIntegration.ASHROOT_FURNACE_BOAT);
+                    output.accept(BLIntegration.LARGE_ASHROOT_BOAT);
+                    output.accept(BLIntegration.GOURDROT_FURNACE_BOAT);
+                    output.accept(BLIntegration.LARGE_GOURDROT_BOAT);
+                    output.accept(BLIntegration.RED_BAMBOO_FURNACE_RAFT);
+                    output.accept(BLIntegration.WIDE_RED_BAMBOO_RAFT);
                 }
             }).build());
 

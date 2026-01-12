@@ -2,10 +2,10 @@
   "variants": {
     "": [
       {
-        "model": "abundant_atmosphere:block/nml/gourdrot_bookshelf"
+        "model": "abundant_atmosphere:block/integration/nomansland/gourdrot_bookshelf"
       },
       {
-        "model": "abundant_atmosphere:block/nml/gourdrot_bookshelf_alt"
+        "model": "abundant_atmosphere:block/integration/nomansland/gourdrot_bookshelf_alt"
       }
     ]
   }

@@ -75,6 +75,23 @@
     "abundant_atmosphere:nether_brick_trapdoor",
     "abundant_atmosphere:blackstone_door",
     "abundant_atmosphere:blackstone_trapdoor",
-    "abundant_atmosphere:deepslate_pillar"
+    "abundant_atmosphere:deepslate_pillar",
+    "abundant_atmosphere:inscribed_basalt",
+    {
+      "id": "abundant_atmosphere:mossy_cobbled_deepslate_bricks",
+      "required":false
+    },
+    {
+      "id": "abundant_atmosphere:mossy_cobbled_deepslate_brick_stairs",
+      "required":false
+    },
+    {
+      "id": "abundant_atmosphere:mossy_cobbled_deepslate_brick_slab",
+      "required":false
+    },
+    {
+      "id": "abundant_atmosphere:mossy_cobbled_deepslate_brick_wall",
+      "required":false
+    }
   ]
 }
