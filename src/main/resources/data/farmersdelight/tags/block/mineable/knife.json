@@ -1,0 +1,14 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "replace": false,
+  "values": [
+    "abundant_atmosphere:gourdnut",
+    "abundant_atmosphere:carved_gourdnut",
+    "abundant_atmosphere:lamp_o_gourd"
+  ]
+}

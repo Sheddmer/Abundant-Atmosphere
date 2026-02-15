@@ -9,7 +9,7 @@ import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
-import net.sheddmer.abundant_atmosphere.common.init.AAFoliagePlacerTypes;
+import net.sheddmer.abundant_atmosphere.common.init.AAFoliagePlacers;
 
 public class BulbFoliagePlacer extends FoliagePlacer {
     public static final MapCodec<BulbFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(bulbFoliagePlacerInstance -> foliagePlacerParts(bulbFoliagePlacerInstance).apply(bulbFoliagePlacerInstance, BulbFoliagePlacer::new));
@@ -20,7 +20,7 @@ public class BulbFoliagePlacer extends FoliagePlacer {
 
     @Override
     protected FoliagePlacerType<?> type() {
-        return AAFoliagePlacerTypes.BULB_FOLIAGE_PLACER.get();
+        return AAFoliagePlacers.BULB_FOLIAGE_PLACER.get();
     }
 
     @Override

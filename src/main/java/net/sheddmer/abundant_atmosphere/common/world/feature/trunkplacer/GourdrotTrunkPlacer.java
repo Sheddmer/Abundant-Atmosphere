@@ -10,7 +10,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
-import net.sheddmer.abundant_atmosphere.common.init.AATrunkPlacerTypes;
+import net.sheddmer.abundant_atmosphere.common.init.AATrunkPlacers;
 
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -27,7 +27,7 @@ public class GourdrotTrunkPlacer extends TrunkPlacer {
 
     @Override
     protected TrunkPlacerType<?> type() {
-        return AATrunkPlacerTypes.GOURDROT_TRUNK_PLACER.get();
+        return AATrunkPlacers.GOURDROT_TRUNK_PLACER.get();
     }
 
     @Override

@@ -97,7 +97,7 @@ dependencies {
     implementation "maven.modrinth:every-compat:jUq5MG3r"
     implementation "maven.modrinth:the-block-box:0.1.1"
     implementation "maven.modrinth:create:1.21.1-6.0.6"
-    implementation "maven.modrinth:no-mans-land:1.4.5"
+    implementation "maven.modrinth:no-mans-land:1.4.6"
     implementation "maven.modrinth:mixed-litter:1.0.3"
     implementation "maven.modrinth:moonlight:1.21-2.25.3-neoforge"
 
@@ -108,8 +108,8 @@ dependencies {
     localRuntime "maven.modrinth:appleskin:3.0.7+mc1.21"
     localRuntime "maven.modrinth:sodium:mc1.21.1-0.6.13-neoforge"
     localRuntime "maven.modrinth:nbt-autocomplete:XMsa6AUE"
-    localRuntime "maven.modrinth:supplementaries:neoforge_1.21-3.4.20"
-    localRuntime "maven.modrinth:amendments:neoforge_1.21-2.0.8"
+    // localRuntime "maven.modrinth:supplementaries:neoforge_1.21-3.4.20"
+    // localRuntime "maven.modrinth:amendments:neoforge_1.21-2.0.8"
     localRuntime "maven.modrinth:cyanide:v4LiMGGH"
     localRuntime "me.djtheredstoner:DevAuth-neoforge:1.2.1"
 

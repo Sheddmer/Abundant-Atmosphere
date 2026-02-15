@@ -19,7 +19,7 @@ import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.ChestType;
 import net.sheddmer.abundant_atmosphere.common.block.StoneChestBlock;
-import net.sheddmer.abundant_atmosphere.common.init.AABlockEntityTypes;
+import net.sheddmer.abundant_atmosphere.common.init.AABlockEntities;
 import net.sheddmer.abundant_atmosphere.common.init.AASounds;
 
 public class StoneChestBlockEntity extends RandomizableContainerBlockEntity {
@@ -49,7 +49,7 @@ public class StoneChestBlockEntity extends RandomizableContainerBlockEntity {
     };
 
     public StoneChestBlockEntity(BlockPos pos, BlockState blockState) {
-        super(AABlockEntityTypes.STONE_CHEST.get(), pos, blockState);
+        super(AABlockEntities.STONE_CHEST.get(), pos, blockState);
     }
 
     @Override

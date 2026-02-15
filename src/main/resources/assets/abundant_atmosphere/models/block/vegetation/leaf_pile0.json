@@ -2,7 +2,7 @@
 	"render_type": "minecraft:cutout",
 	"textures": {
 		"texture": "abundant_atmosphere:block/vegetation/leaf_pile0",
-		"particle": "abundant_atmosphere:block/vegetation/leaf_pile_particle"
+		"particle": "#texture"
 	},
 	"elements": [
 		{

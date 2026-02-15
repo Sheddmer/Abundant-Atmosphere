@@ -24,7 +24,7 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.sheddmer.abundant_atmosphere.common.init.AAParticleTypes;
+import net.sheddmer.abundant_atmosphere.common.init.AAParticles;
 import net.sheddmer.abundant_atmosphere.common.init.AAProperties;
 
 import javax.annotation.Nullable;
@@ -61,7 +61,7 @@ public class LeafPileBlock extends Block implements SimpleWaterloggedBlock {
         float radius = 0.5f;
         if (entityPos.distanceTo(new Vec3(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5)) > radius) return;
         if (level.random.nextFloat() < 0.3 && level.isClientSide) {
-            level.addParticle(AAParticleTypes.DRIED_LEAF.get(), entityPos.x, entityPos.y + 0.2, entityPos.z, Mth.randomBetween(level.random, -1.0F, 1.0F) * entity.getDeltaMovement().x, 0.05f, Mth.randomBetween(level.random, -1.0F, 1.0F) * entity.getDeltaMovement().z);
+            level.addParticle(AAParticles.DRIED_LEAF.get(), entityPos.x, entityPos.y + 0.2, entityPos.z, Mth.randomBetween(level.random, -1.0F, 1.0F) * entity.getDeltaMovement().x, 0.05f, Mth.randomBetween(level.random, -1.0F, 1.0F) * entity.getDeltaMovement().z);
         }
         super.entityInside(state, level, pos, entity);
     }
@@ -74,7 +74,7 @@ public class LeafPileBlock extends Block implements SimpleWaterloggedBlock {
     @Override
     protected BlockState updateShape(BlockState state, Direction direction, BlockState altState, LevelAccessor accessor, BlockPos pos, BlockPos altPos) {
         if (!this.canSurvive(state, accessor, pos)) {
-            ParticleUtils.spawnParticles(accessor, pos, Mth.randomBetweenInclusive(RandomSource.create(), 10, 20), 0.5, 0.1, true, AAParticleTypes.DRIED_LEAF.get());
+            ParticleUtils.spawnParticles(accessor, pos, Mth.randomBetweenInclusive(RandomSource.create(), 10, 20), 0.5, 0.1, true, AAParticles.DRIED_LEAF.get());
         }
         return !this.canSurvive(state, accessor, pos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, direction, altState, accessor, pos, altPos);
     }
@@ -105,14 +105,13 @@ public class LeafPileBlock extends Block implements SimpleWaterloggedBlock {
 
     protected void onExplosionHit(BlockState state, Level level, BlockPos pos, Explosion explosion, BiConsumer<ItemStack, BlockPos> dropConsumer) {
         level.destroyBlock(pos, true);
-        ParticleUtils.spawnParticles(level, pos, Mth.randomBetweenInclusive(RandomSource.create(), 10, 20), 0.5, 0.1, true, AAParticleTypes.DRIED_LEAF.get());
+        ParticleUtils.spawnParticles(level, pos, Mth.randomBetweenInclusive(RandomSource.create(), 10, 20), 0.5, 0.1, true, AAParticles.DRIED_LEAF.get());
         super.onExplosionHit(state, level, pos, explosion, dropConsumer);
     }
 
     @Override
     protected void spawnDestroyParticles(Level level, Player player, BlockPos pos, BlockState state) {
-        level.levelEvent(player, 2001, pos, getId(state));
-        ParticleUtils.spawnParticles(level, pos, Mth.randomBetweenInclusive(RandomSource.create(), 10, 20), 0.4, 0.1, true, AAParticleTypes.DRIED_LEAF.get());
+        ParticleUtils.spawnParticles(level, pos, Mth.randomBetweenInclusive(RandomSource.create(), 10, 20), 0.4, 0.1, true, AAParticles.DRIED_LEAF.get());
     }
 
     @Override

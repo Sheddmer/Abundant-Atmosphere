@@ -1,11 +1,9 @@
 package net.sheddmer.abundant_atmosphere.common.init;
 
-import com.farcr.nomansland.common.registry.blocks.NMLBlocks;
-import com.farcr.nomansland.common.registry.items.NMLItems;
 import net.minecraft.core.Direction;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
+import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -32,8 +30,8 @@ public class AAItems {
     public static final DeferredItem<Item> PORESHROOM = registerItem("poreshroom", () -> new StandingAndWallBlockItem(AABlocks.PORESHROOM.get(), AABlocks.WALL_PORESHROOM.get(), new Item.Properties().food(AAFoods.PORESHROOM), Direction.DOWN));
     public static final DeferredItem<Item> SMALL_LILY_PAD = registerItem("small_lily_pad", () -> new PlaceOnWaterBlockItem(AABlocks.SMALL_LILY_PAD.get(), new Item.Properties()));
     // public static final DeferredItem<Item> FROG_BUCKET = ITEMS.register("frog_bucket", () -> new MobBucketItem(EntityType.FROG, Fluids.WATER, SoundEvents.BUCKET_EMPTY_TADPOLE, (new Item.Properties()).stacksTo(1).component(DataComponents.BUCKET_ENTITY_DATA, CustomData.EMPTY)));
-    public static final DeferredItem<Item> WISP_CANDLE = registerItem("wisp_candle", () -> new BlockItem(AABlocks.WISP_CANDLE.get(), new Item.Properties()));
 
+    // Useable items
     public static final DeferredItem<Item> CREEPIE_SPROUT = registerItem("creepie_sprout", () -> new CreepieSproutItem(new Item.Properties().stacksTo(16)));
 
     // Woodset items
@@ -59,6 +57,9 @@ public class AAItems {
     public static final DeferredItem<Item> SQUASHBERRY_BREAD = registerItem("squashberry_bread", () -> new Item(new Item.Properties().food(AAFoods.SQUASHBERRY_BREAD)));
     public static final DeferredItem<Item> PUFFBALL_SLICE = registerItem("puffball_slice", () -> new Item(new Item.Properties().food(AAFoods.PUFFBALL_SLICE)));
     public static final DeferredItem<Item> PUFFBALL_CUTLET = registerItem("puffball_cutlet", () -> new Item(new Item.Properties().food(AAFoods.PUFFBALL_CUTLET)));
+
+    // Mob items
+    public static final DeferredItem<Item> NUTLING_SPAWN_EGG = registerItem("nutling_spawn_egg", () -> new DeferredSpawnEggItem(AAEntities.NUTLING, 13890547, 15312451, new Item.Properties()));
 
     @SuppressWarnings("unchecked")
     public static <T extends Item> DeferredItem<T> registerItem(String name, Supplier<? extends Item> item) {
@@ -324,6 +325,9 @@ public class AAItems {
         if (tabKey == CreativeModeTabs.REDSTONE_BLOCKS) {
             event.insertAfter(Items.OAK_DOOR.getDefaultInstance(), AABlocks.STONE_DOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.OAK_TRAPDOOR.getDefaultInstance(), AABlocks.STONE_TRAPDOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+        }
+        if (tabKey == CreativeModeTabs.SPAWN_EGGS) {
+            event.insertAfter(Items.SNOW_GOLEM_SPAWN_EGG.getDefaultInstance(), AAItems.NUTLING_SPAWN_EGG.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
     }
 }

@@ -1,124 +1,4 @@
 {
-  "block.stone_chest.close": {
-    "sounds": [
-      "abundant_atmosphere:block/stone_chest/close"
-    ],
-    "subtitle": "subtitles.abundant_atmosphere.block.stone_chest.close"
-  },
-  "block.stone_chest.open": {
-    "sounds": [
-      "abundant_atmosphere:block/stone_chest/open"
-    ],
-    "subtitle": "subtitles.abundant_atmosphere.block.stone_chest.open"
-  },
-  "block.stone_brazier.crackle": {
-    "sounds": [
-      {
-        "name": "minecraft:block.campfire.crackle",
-        "type": "event"
-      }
-    ],
-    "subtitle": "subtitles.abundant_atmosphere.block.stone_brazier.crackle"
-  },
-  "block.mud_lamp.ambient": {
-    "sounds": [
-      {
-        "name": "minecraft:block.candle.ambient",
-        "type": "event"
-      }
-    ],
-    "subtitle": "subtitles.abundant_atmosphere.block.mud_lamp.ambient"
-  },
-  "block.wisp_candle.activate": {
-    "sounds": [
-      {
-        "name": "block.enchantment_table.use",
-        "type": "event"
-      }
-    ],
-    "subtitle": "subtitles.abundant_atmosphere.block.wisp_candle.activate"
-  },
-  "item.lapis_lazuli.dusted_onto_candle": {
-    "sounds": [
-      {
-        "name": "item.brush.brushing.sand",
-        "type": "event"
-      }
-    ],
-    "subtitle": "subtitles.abundant_atmosphere.block.wisp_candle.lapis_used_on_candle"
-  },
-  "block.stone_door.close": {
-    "sounds": [
-      {
-        "name": "block.iron_door.close",
-        "type": "event"
-      }
-    ],
-    "subtitle": "subtitles.abundant_atmosphere.block.door.close"
-  },
-  "block.stone_door.open": {
-    "sounds": [
-      {
-        "name": "block.iron_door.open",
-        "type": "event"
-      }
-    ],
-    "subtitle": "subtitles.abundant_atmosphere.block.door.open"
-  },
-  "block.stone_door.lock": {
-    "sounds": [
-      {
-        "name": "block.iron_trapdoor.close",
-        "type": "event"
-      }
-    ],
-    "subtitle": "subtitles.abundant_atmosphere.block.door.lock"
-  },
-  "block.stone_door.unlock": {
-    "sounds": [
-      {
-        "name": "block.iron_trapdoor.open",
-        "type": "event"
-      }
-    ],
-    "subtitle": "subtitles.abundant_atmosphere.block.door.unlock"
-  },
-  "block.stone_trapdoor.close": {
-    "sounds": [
-      {
-        "name": "block.iron_trapdoor.close",
-        "type": "event"
-      }
-    ],
-    "subtitle": "subtitles.abundant_atmosphere.block.trapdoor.close"
-  },
-  "block.stone_trapdoor.open": {
-    "sounds": [
-      {
-        "name": "block.iron_trapdoor.open",
-        "type": "event"
-      }
-    ],
-    "subtitle": "subtitles.abundant_atmosphere.block.trapdoor.open"
-  },
-  "block.stone_trapdoor.lock": {
-    "sounds": [
-      {
-        "name": "block.iron_trapdoor.close",
-        "type": "event"
-      }
-    ],
-    "subtitle": "subtitles.abundant_atmosphere.block.trapdoor.lock"
-  },
-  "block.stone_trapdoor.unlock": {
-    "sounds": [
-      {
-        "name": "block.iron_trapdoor.open",
-        "type": "event"
-      }
-    ],
-    "subtitle": "subtitles.abundant_atmosphere.block.trapdoor.unlock"
-  },
   "ambient.geothermal_garden.additions": {
     "sounds": [
       {
@@ -202,6 +82,145 @@
         "weight": 10
       }
     ]
+  },
+  "block.mud_lamp.ambient": {
+    "sounds": [
+      {
+        "name": "minecraft:block.candle.ambient",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.mud_lamp.ambient"
+  },
+  "block.stone_brazier.crackle": {
+    "sounds": [
+      {
+        "name": "minecraft:block.campfire.crackle",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.stone_brazier.crackle"
+  },
+  "block.stone_chest.close": {
+    "sounds": [
+      "abundant_atmosphere:block/stone_chest/close"
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.stone_chest.close"
+  },
+  "block.stone_chest.open": {
+    "sounds": [
+      "abundant_atmosphere:block/stone_chest/open"
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.stone_chest.open"
+  },
+  "block.stone_door.close": {
+    "sounds": [
+      {
+        "name": "block.iron_door.close",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.door.close"
+  },
+  "block.stone_door.lock": {
+    "sounds": [
+      {
+        "name": "block.iron_trapdoor.close",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.door.lock"
+  },
+  "block.stone_door.open": {
+    "sounds": [
+      {
+        "name": "block.iron_door.open",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.door.open"
+  },
+  "block.stone_door.unlock": {
+    "sounds": [
+      {
+        "name": "block.iron_trapdoor.open",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.door.unlock"
+  },
+  "block.stone_trapdoor.close": {
+    "sounds": [
+      {
+        "name": "block.iron_trapdoor.close",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.trapdoor.close"
+  },
+  "block.stone_trapdoor.lock": {
+    "sounds": [
+      {
+        "name": "block.iron_trapdoor.close",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.trapdoor.lock"
+  },
+  "block.stone_trapdoor.open": {
+    "sounds": [
+      {
+        "name": "block.iron_trapdoor.open",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.trapdoor.open"
+  },
+  "block.stone_trapdoor.unlock": {
+    "sounds": [
+      {
+        "name": "block.iron_trapdoor.open",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.block.trapdoor.unlock"
+  },
+  "entity.nutling.ambient": {
+    "sounds": []
+  },
+  "entity.nutling.hurt": {
+    "sounds": [
+      {
+        "name": "entity/snowman/hurt1",
+        "pitch": 1.6
+      },
+      {
+        "name": "entity/snowman/hurt2",
+        "pitch": 1.6
+      },
+      {
+        "name": "entity/snowman/hurt2",
+        "pitch": 1.6
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.entity.nutling.hurt"
+  },
+  "entity.nutling.death": {
+    "sounds": [
+      {
+        "name": "entity/snowman/death1",
+        "pitch": 1.5
+      },
+      {
+        "name": "entity/snowman/death2",
+        "pitch": 1.5
+      },
+      {
+        "name": "entity/snowman/death3",
+        "pitch": 1.5
+      }
+    ],
+    "subtitle": "subtitles.abundant_atmosphere.entity.nutling.death"
   },
   "music.overworld.geothermal_garden": {
     "sounds": [

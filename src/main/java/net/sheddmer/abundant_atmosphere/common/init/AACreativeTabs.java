@@ -187,6 +187,7 @@ public class AACreativeTabs {
                 output.accept(AABlocks.RUST_MOSS_CARPET);
                 output.accept(AABlocks.RUST_MOSS_SPROUTS);
                 output.accept(AABlocks.LEAF_PILE);
+                output.accept(AABlocks.BLOODROOT_BUSH);
                 output.accept(AAItems.PUFFBALL_SPORES);
                 output.accept(AABlocks.PUFFBALL_MUSHROOM);
                 output.accept(AABlocks.LARGE_PUFFBALL_MUSHROOM);
@@ -200,7 +201,6 @@ public class AACreativeTabs {
                 output.accept(AAItems.SMALL_LILY_PAD);
                 output.accept(AABlocks.CREEPING_CLOVERS);
                 output.accept(AAItems.CREEPIE_SPROUT);
-                output.accept(AABlocks.WISP_CANDLE);
                 output.accept(AABlocks.CERULEAN_FROGLIGHT);
                 output.accept(AABlocks.CHROMATIC_FROGLIGHT);
                 output.accept(AAItems.PUFFBALL_SLICE);

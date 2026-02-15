@@ -21,9 +21,12 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 import net.sheddmer.abundant_atmosphere.common.init.AABlocks;
 import net.sheddmer.abundant_atmosphere.common.init.AATags;
 import org.spongepowered.asm.mixin.Mixin;
+
+import java.util.logging.Logger;
 
 @Mixin(WaterlilyBlock.class)
 public class AALilypadBlockMixin extends BushBlock implements BonemealableBlock {
@@ -99,9 +102,9 @@ public class AALilypadBlockMixin extends BushBlock implements BonemealableBlock 
         for (BlockPos blockPos : BlockPos.betweenClosed(x - 3, y - 1, z - 3, x + 3, y + 2, z + 3)) {
             if (source.nextFloat() < 0.2F && state.canSurvive(level, blockPos) && level.isEmptyBlock(blockPos)) {
                 if (source.nextFloat() < 0.4F) {
-                    level.setBlockAndUpdate(blockPos, Blocks.LILY_PAD.defaultBlockState().setValue(FACING, Direction.getRandom(source)));
+                    level.setBlockAndUpdate(blockPos, Blocks.LILY_PAD.withPropertiesOf(state));
                 } else {
-                    level.setBlockAndUpdate(blockPos, AABlocks.SMALL_LILY_PAD.get().defaultBlockState().setValue(FACING, Direction.getRandom(source)));
+                    level.setBlockAndUpdate(blockPos, AABlocks.SMALL_LILY_PAD.get().withPropertiesOf(state));
                 }
             }
         }

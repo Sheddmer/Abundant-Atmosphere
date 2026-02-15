@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "abundant_atmosphere:item/gourdnut_pudding"
+    "layer0": "abundant_atmosphere:item/gourdnut_pudding",
+    "particle": "abundant_atmosphere:item/gourdnut_pudding_particle"
   }
 }

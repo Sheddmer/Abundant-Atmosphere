@@ -29,6 +29,7 @@
   "block.abundant_atmosphere.blacksalt_tiles": "Blacksalt Tiles",
   "block.abundant_atmosphere.blackstone_door": "Blackstone Door",
   "block.abundant_atmosphere.blackstone_trapdoor": "Blackstone Trapdoor",
+  "block.abundant_atmosphere.bloodroot_bush": "Bloodroot Bush",
   "block.abundant_atmosphere.calcite_tile_slab": "Calcite Tile Slab",
   "block.abundant_atmosphere.calcite_tile_stairs": "Calcite Tile Stairs",
   "block.abundant_atmosphere.calcite_tile_wall": "Calcite Tile Wall",
@@ -193,7 +194,6 @@
   "block.abundant_atmosphere.wall_catsbane": "Catsbane",
   "block.abundant_atmosphere.wall_mud_lamp": "Mud Lamp",
   "block.abundant_atmosphere.wall_poreshroom": "Poreshroom",
-  "block.abundant_atmosphere.wisp_candle": "Wisp Candle",
   "container.abundant_atmosphere.stone_chest.large": "Large Chest",
   "container.abundant_atmosphere.stone_chest.single": "Chest",
   "entity.abundant_atmosphere.nutling": "Nutling",
@@ -208,6 +208,7 @@
   "item.abundant_atmosphere.gourdrot_furnace_boat": "Gourdrot Boat with Furnace",
   "item.abundant_atmosphere.large_ashroot_boat": "Large Ashroot Boat",
   "item.abundant_atmosphere.large_gourdrot_boat": "Large Gourdrot Boat",
+  "item.abundant_atmosphere.nutling_spawn_egg": "Nutling Spawn Egg",
   "item.abundant_atmosphere.puffball_cutlet": "Puffball Cutlet",
   "item.abundant_atmosphere.puffball_slice": "Puffball Slice",
   "item.abundant_atmosphere.puffball_spores": "Puffball Spores",
@@ -233,9 +234,8 @@
   "subtitles.abundant_atmosphere.block.trapdoor.lock": "Trapdoor locks",
   "subtitles.abundant_atmosphere.block.trapdoor.open": "Trapdoor opens",
   "subtitles.abundant_atmosphere.block.trapdoor.unlock": "Trapdoor unlocks",
-  "subtitles.abundant_atmosphere.block.wisp_candle.activate": "Wisp Candle lights",
-  "subtitles.abundant_atmosphere.block.wisp_candle.lapis_used_on_candle": "Lapis Lazuli used on Candle",
-  "subtitles.abundant_atmosphere.door.locked": "Door is locked",
-  "subtitles.abundant_atmosphere.trapdoor.locked": "Trapdoor is locked",
-  "subtitles.abundant_atmosphere.wisp_candle.fail": "Lapis Lazuli is needed to light this candle"
+  "subtitles.abundant_atmosphere.entity.nutling.death": "Nutling dies",
+  "subtitles.abundant_atmosphere.entity.nutling.hurt": "Nutling hurts",
+  "subtitles.abundant_atmosphere.generic.door.locked": "Door is locked",
+  "subtitles.abundant_atmosphere.generic.trapdoor.locked": "Trapdoor is locked"
 }

@@ -25,6 +25,14 @@
                   }
                 },
                 "weight": 2
+              },
+              {
+                "data": {
+                  "Name": "abundant_atmosphere:gourdnut",
+                  "Properties": {
+                  }
+                },
+                "weight": 1
               }
             ]
           }

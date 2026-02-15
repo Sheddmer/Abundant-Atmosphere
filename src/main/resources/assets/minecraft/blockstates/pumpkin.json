@@ -5,18 +5,18 @@
     },
     "stage=1": [
       {
-        "model": "abundant_atmosphere:block/sprouting_pumpkin"
+        "model": "abundant_atmosphere:block/vegetation/sprouting_pumpkin"
       },
       {
-        "model": "abundant_atmosphere:block/sprouting_pumpkin",
+        "model": "abundant_atmosphere:block/vegetation/sprouting_pumpkin",
         "y": 90
       },
       {
-        "model": "abundant_atmosphere:block/sprouting_pumpkin",
+        "model": "abundant_atmosphere:block/vegetation/sprouting_pumpkin",
         "y": 180
       },
       {
-        "model": "abundant_atmosphere:block/sprouting_pumpkin",
+        "model": "abundant_atmosphere:block/vegetation/sprouting_pumpkin",
         "y": 270
       }
     ]

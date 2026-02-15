@@ -27,7 +27,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
-import net.sheddmer.abundant_atmosphere.common.init.AAParticleTypes;
+import net.sheddmer.abundant_atmosphere.common.init.AAParticles;
 import net.sheddmer.abundant_atmosphere.common.init.AAProperties;
 
 import java.util.List;
@@ -92,7 +92,7 @@ public class MidnightLilyBlock extends BushBlock implements BonemealableBlock, S
         if (!state.getValue(PERSISTENT) && state.getValue(NIGHTLIGHT)) {
             if (source.nextFloat() < 0.5F * h) {
                 blockpos$mutableblockpos.set(i + Mth.nextInt(source, h * -5, h * 5), j + Mth.nextInt(source, h * -5, h * 5), k + Mth.nextInt(source, h * -5, h * 5));
-                level.addParticle(AAParticleTypes.FIREFLY.get(), (double) blockpos$mutableblockpos.getX() + source.nextDouble(), (double) blockpos$mutableblockpos.getY() + source.nextDouble(), (double) blockpos$mutableblockpos.getZ() + source.nextDouble(), 0.0D, 0.0D, 0.0D);
+                level.addParticle(AAParticles.FIREFLY.get(), (double) blockpos$mutableblockpos.getX() + source.nextDouble(), (double) blockpos$mutableblockpos.getY() + source.nextDouble(), (double) blockpos$mutableblockpos.getZ() + source.nextDouble(), 0.0D, 0.0D, 0.0D);
             }
         }
     }

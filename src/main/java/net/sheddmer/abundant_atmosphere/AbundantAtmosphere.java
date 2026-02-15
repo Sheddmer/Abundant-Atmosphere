@@ -5,8 +5,8 @@ import net.sheddmer.abundant_atmosphere.common.entity.frogvariant.AAFrogVariants
 import net.sheddmer.abundant_atmosphere.common.integration.boatload.BLIntegration;
 import net.sheddmer.abundant_atmosphere.common.world.generation.AABiomePlacements;
 import net.sheddmer.abundant_atmosphere.common.world.generation.AASurfaceRules;
-import net.sheddmer.abundant_atmosphere.common.init.AAFoliagePlacerTypes;
-import net.sheddmer.abundant_atmosphere.common.init.AATrunkPlacerTypes;
+import net.sheddmer.abundant_atmosphere.common.init.AAFoliagePlacers;
+import net.sheddmer.abundant_atmosphere.common.init.AATrunkPlacers;
 import net.sheddmer.abundant_atmosphere.common.init.*;
 import net.sheddmer.abundant_atmosphere.common.integration.*;
 import org.slf4j.Logger;
@@ -26,17 +26,15 @@ public class AbundantAtmosphere {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public AbundantAtmosphere(IEventBus bus, ModContainer modContainer) {
-        bus.addListener(this::commonSetup);
-
         AABlocks.BLOCKS.register(bus);
-        AABlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
-        AAEntityTypes.ENTITY_TYPES.register(bus);
+        AABlockEntities.BLOCK_ENTITIES.register(bus);
+        AAEntities.ENTITIES.register(bus);
         AAFrogVariants.FROG_VARIANTS.register(bus);
         AAItems.ITEMS.register(bus);
-        AAParticleTypes.PARTICLE_TYPES.register(bus);
+        AAParticles.PARTICLES.register(bus);
         AASounds.SOUND_EVENTS.register(bus);
-        AATrunkPlacerTypes.TRUNK_PLACER.register(bus);
-        AAFoliagePlacerTypes.FOLIAGE_PLACER.register(bus);
+        AATrunkPlacers.TRUNK_PLACER.register(bus);
+        AAFoliagePlacers.FOLIAGE_PLACER.register(bus);
         AAFeatures.FEATURES.register(bus);
         AACreativeTabs.CREATIVE_TABS.register(bus);
         AAConditions.CONDITION_CODECS.register(bus);
@@ -50,21 +48,9 @@ public class AbundantAtmosphere {
         if (AAModCompats.NOMANSLAND.isLoaded()) NMLIntegration.register();
 
         bus.addListener(AAItems::addCreative);
-        bus.addListener(AABlockEntityTypes::addBlockEntities);
-        bus.addListener(this::commonSetup);
+        bus.addListener(AABlockEntities::addBlockEntities);
         NeoForge.EVENT_BUS.register(this);
         modContainer.registerConfig(ModConfig.Type.COMMON, AAConfig.COMMON_CONFIG);
-    }
-
-    private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-            if (AAConfig.BIOMES.get()) {
-                AABiomePlacements.register();
-                AASurfaceRules.register();
-            }
-            AAFlammables.register();
-            AAPottables.register();
-        });
     }
 
     @SubscribeEvent

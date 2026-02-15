@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "abundant_atmosphere:gourdnut",
+    "abundant_atmosphere:carved_gourdnut",
+    "abundant_atmosphere:lamp_o_gourd",
     "abundant_atmosphere:red_bamboo",
     "#abundant_atmosphere:red_bamboo_blocks",
     "abundant_atmosphere:red_bamboo_mosaic",
