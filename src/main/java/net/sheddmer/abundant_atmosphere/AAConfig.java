@@ -16,7 +16,7 @@ public class AAConfig {
         ModConfigSpec.Builder COMMON_BUILDER = new ModConfigSpec.Builder();
         COMMON_BUILDER.push(CATEGORY_VANILLA_CHANGES);
         PLANT_PLACEMENT = COMMON_BUILDER
-                .comment("Changes plants so they are placeable on more block types, like mossy blocks & packed mud. These use new block tags, abundant_atmosphere/plant_placeable_on & sapling_grows_on")
+                .comment("Changes plants so they are placeable on more block types, like mossy blocks & packed mud. These use a new block tag : abundant_atmosphere:plant_placeable_on")
                 .define("plant_placement_changes", true);
         BAMBOO_RECIPE_REBALANCE = COMMON_BUILDER
                 .comment("Changes bamboo recipes so you can un-craft bamboo blocks & craft planks from regular bamboo, applies to Bamboo and Red Bamboo")
