@@ -1,0 +1,17 @@
+{
+  "values": [
+    "#abundant_atmosphere:plant_placeable",
+    "#c:stones",
+    "#c:ores",
+    "minecraft:gravel",
+    "minecraft:clay",
+    "minecraft:dripstone_block",
+    "minecraft:basalt",
+    "minecraft:blackstone",
+    "minecraft:calcite",
+    {
+      "id": "nomansland:gravel_path",
+      "required":false
+    }
+  ]
+}

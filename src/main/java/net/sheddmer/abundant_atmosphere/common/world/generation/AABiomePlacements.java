@@ -23,12 +23,12 @@ public class AABiomePlacements {
         if (AAConfig.GEOTHERMAL_GARDEN.get()) {
             BiomePlacement.addOverworld(AABiomes.GEOTHERMAL_GARDEN,
                     Climate.parameters(
-                            Climate.Parameter.span(-0.1F, 0.9F),
-                            Climate.Parameter.span(-1.0F, 0.1F),
-                            Climate.Parameter.span(-0.1F, 1.0F),
+                            Climate.Parameter.span(0.15F, 0.8F),
+                            Climate.Parameter.span(-0.9F, 0.05F),
                             Climate.Parameter.span(0.25F, 1.0F),
+                            Climate.Parameter.span(0.1F, 0.6F),
                             Climate.Parameter.span(0.85F, 2.0F),
-                            Climate.Parameter.span(-0.6F, 0.4F),
+                            Climate.Parameter.span(-0.4F, 0.1F),
                             0.0F));
         }
     }

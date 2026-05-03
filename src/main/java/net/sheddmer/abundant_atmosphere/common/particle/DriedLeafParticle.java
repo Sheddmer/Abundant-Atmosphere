@@ -5,6 +5,7 @@ import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import org.jetbrains.annotations.NotNull;
 
 public class DriedLeafParticle extends TextureSheetParticle {
     private final float rotSpeed;
@@ -22,6 +23,7 @@ public class DriedLeafParticle extends TextureSheetParticle {
     }
 
     @Override
+    @NotNull
     public ParticleRenderType getRenderType() {
         return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
     }
@@ -43,7 +45,8 @@ public class DriedLeafParticle extends TextureSheetParticle {
         }
 
         @Override
-        public Particle createParticle(SimpleParticleType type, ClientLevel level, double d, double e, double f, double g, double h, double i) {
+        @NotNull
+        public Particle createParticle(@NotNull SimpleParticleType type, @NotNull ClientLevel level, double d, double e, double f, double g, double h, double i) {
             return new DriedLeafParticle(level, d, e, f, this.sprite);
         }
     }

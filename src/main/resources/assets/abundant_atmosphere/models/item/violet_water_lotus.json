@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "abundant_atmosphere:block/vegetation/violet_water_lotus_flower"
+  }
+}

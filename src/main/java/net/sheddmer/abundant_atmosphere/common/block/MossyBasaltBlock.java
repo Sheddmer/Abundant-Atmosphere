@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.sheddmer.abundant_atmosphere.common.init.AABlocks;
 import net.sheddmer.abundant_atmosphere.common.init.AAProperties;
 import net.sheddmer.abundant_atmosphere.common.init.AATags;
+import org.jetbrains.annotations.NotNull;
 
 public class MossyBasaltBlock extends RotatedPillarBlock {
     public static final BooleanProperty OVERGROWN = AAProperties.OVERGROWN;
@@ -20,9 +21,11 @@ public class MossyBasaltBlock extends RotatedPillarBlock {
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
+    @NotNull
+    protected BlockState updateShape(@NotNull BlockState state, @NotNull Direction facing, @NotNull BlockState facingState, @NotNull LevelAccessor level, @NotNull BlockPos currentPos, @NotNull BlockPos facingPos) {
         return facing == Direction.UP ? state.setValue(OVERGROWN, isOvergrownSetting(facingState)) : super.updateShape(state, facing, facingState, level, currentPos, facingPos);
     }
+
     private static boolean isOvergrownSetting(BlockState state) {
         return state.is(AATags.MOSSY_BASALT_OVERGROWABLE) || state.is(AABlocks.MOSS_CLUMP) && state.getValue(MultifacePlantBlock.getFaceProperty(Direction.DOWN));
     }

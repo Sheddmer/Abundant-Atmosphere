@@ -30,6 +30,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
 import net.sheddmer.abundant_atmosphere.common.init.AASounds;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.function.BiConsumer;
@@ -49,31 +50,26 @@ public class MudLampBlock extends Block implements SimpleWaterloggedBlock {
     }
 
     @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-        switch (state.getValue(FACING)) {
-            case NORTH:
-            default:
-                return SHAPE_NORTH;
-            case SOUTH:
-                return SHAPE_SOUTH;
-            case EAST:
-                return SHAPE_EAST;
-            case WEST:
-                return SHAPE_WEST;
-        }
+    @NotNull
+    protected VoxelShape getShape(BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull CollisionContext context) {
+        return switch (state.getValue(FACING)) {
+            case SOUTH -> SHAPE_SOUTH;
+            case EAST -> SHAPE_EAST;
+            case WEST -> SHAPE_WEST;
+            default -> SHAPE_NORTH;
+        };
     }
 
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
-
         for (Direction direction : context.getNearestLookingDirections()) {
             Direction rotation = direction.getOpposite();
             if (direction.getAxis().isHorizontal()) {
                 BlockState blockstate = this.defaultBlockState().setValue(FACING, rotation);
                 if (blockstate.canSurvive(context.getLevel(), context.getClickedPos())) {
-                    return blockstate.setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
+                    return blockstate.setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
                 }
             }
         }
@@ -81,7 +77,7 @@ public class MudLampBlock extends Block implements SimpleWaterloggedBlock {
     }
 
     @Override
-    public BlockState getToolModifiedState(BlockState state, UseOnContext context, ItemAbility itemAbility, boolean simulate) {
+    public BlockState getToolModifiedState(@NotNull BlockState state, @NotNull UseOnContext context, @NotNull ItemAbility itemAbility, boolean simulate) {
         if (itemAbility == ItemAbilities.FIRESTARTER_LIGHT && !state.getValue(LIT)) {
             return state.setValue(LIT, true);
         }
@@ -92,16 +88,18 @@ public class MudLampBlock extends Block implements SimpleWaterloggedBlock {
     }
 
     @Override
-    protected boolean canSurvive(BlockState state, LevelReader reader, BlockPos pos) {
+    protected boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader reader, BlockPos pos) {
         return canSupportCenter(reader, pos.below(), Direction.UP);
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, Direction direction, BlockState altState, LevelAccessor accessor, BlockPos pos, BlockPos altPos) {
+    @NotNull
+    protected BlockState updateShape( BlockState state, Direction direction, BlockState altState, LevelAccessor accessor, BlockPos pos, BlockPos altPos) {
         return direction == Direction.DOWN && !this.canSurvive(state, accessor, pos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, direction, altState, accessor, pos, altPos);
     }
 
     @Override
+    @NotNull
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource source) {
         Direction direction = state.getValue(FACING);
         double d0 = (double) pos.getX() + 0.5;

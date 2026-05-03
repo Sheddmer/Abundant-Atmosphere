@@ -29,14 +29,13 @@ import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
 import net.sheddmer.abundant_atmosphere.common.init.AAParticles;
 import net.sheddmer.abundant_atmosphere.common.init.AAProperties;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 public class MidnightLilyBlock extends BushBlock implements BonemealableBlock, SuspiciousEffectHolder {
     protected static final MapCodec<SuspiciousStewEffects> EFFECTS_FIELD = SuspiciousStewEffects.CODEC.fieldOf("suspicious_stew_effects");
-    public static final MapCodec<MidnightLilyBlock> CODEC = RecordCodecBuilder.mapCodec(
-            p_308824_ -> p_308824_.group(EFFECTS_FIELD.forGetter(MidnightLilyBlock::getSuspiciousEffects), propertiesCodec()).apply(p_308824_, MidnightLilyBlock::new)
-    );
+    public static final MapCodec<MidnightLilyBlock> CODEC = RecordCodecBuilder.mapCodec(codecProperties -> codecProperties.group(EFFECTS_FIELD.forGetter(MidnightLilyBlock::getSuspiciousEffects), propertiesCodec()).apply(codecProperties, MidnightLilyBlock::new));
     private static final VoxelShape SHAPE_ONE = Block.box(5.0, 0.0, 5.0, 11.0, 10.0, 11.0);
     private static final VoxelShape SHAPE_TWO = Block.box(3.0, 0.0, 3.0, 13.0, 10.0, 12.0);
     private static final VoxelShape SHAPE_THREE = Block.box(1.0, 0.0, 1.0, 15.0, 10.0, 15.0);
@@ -44,6 +43,12 @@ public class MidnightLilyBlock extends BushBlock implements BonemealableBlock, S
     public static final BooleanProperty NIGHTLIGHT = AAProperties.NIGHTLIGHT;
     public static final BooleanProperty PERSISTENT = BlockStateProperties.PERSISTENT;
     private final SuspiciousStewEffects suspiciousStewEffects;
+
+    @Override
+    @NotNull
+    protected MapCodec<? extends BushBlock> codec() {
+        return CODEC;
+    }
 
     public MidnightLilyBlock(SuspiciousStewEffects suspiciousStewEffects, Properties properties) {
         super(properties);
@@ -56,25 +61,20 @@ public class MidnightLilyBlock extends BushBlock implements BonemealableBlock, S
     }
 
     @Override
-    protected MapCodec<? extends BushBlock> codec() {
-        return CODEC;
-    }
-
-    @Override
     protected boolean isRandomlyTicking(BlockState state) {
         return !state.getValue(PERSISTENT);
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource source) {
-        boolean night = level.isNight();
+    public void randomTick(BlockState state, ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource source) {
+        boolean night = level.dimensionType().hasSkyLight() && level.isNight();
         if (!state.getValue(PERSISTENT) && state.getValue(NIGHTLIGHT) != night) {
             level.setBlock(pos, state.setValue(NIGHTLIGHT, night), 2);
         }
     }
 
     @Override
-    public BlockState getToolModifiedState(BlockState state, UseOnContext context, ItemAbility itemAbility, boolean simulate) {
+    public BlockState getToolModifiedState(@NotNull BlockState state, @NotNull UseOnContext context, @NotNull ItemAbility itemAbility, boolean simulate) {
         if (itemAbility == ItemAbilities.SHEARS_TRIM && !state.getValue(PERSISTENT)) {
             return state.setValue(PERSISTENT, true).setValue(NIGHTLIGHT, false);
         }
@@ -82,7 +82,7 @@ public class MidnightLilyBlock extends BushBlock implements BonemealableBlock, S
     }
 
     @Override
-    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource source) {
+    public void animateTick(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull RandomSource source) {
         super.animateTick(state, level, pos, source);
         int h = state.getValue(FLOWER_STACK);
         int i = pos.getX();
@@ -91,14 +91,14 @@ public class MidnightLilyBlock extends BushBlock implements BonemealableBlock, S
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
         if (!state.getValue(PERSISTENT) && state.getValue(NIGHTLIGHT)) {
             if (source.nextFloat() < 0.5F * h) {
-                blockpos$mutableblockpos.set(i + Mth.nextInt(source, h * -5, h * 5), j + Mth.nextInt(source, h * -5, h * 5), k + Mth.nextInt(source, h * -5, h * 5));
+                blockpos$mutableblockpos.set(i + Mth.nextInt(source, h * -4, h * 4), j + Mth.nextInt(source, h * -4, h * 4), k + Mth.nextInt(source, h * -4, h * 4));
                 level.addParticle(AAParticles.FIREFLY.get(), (double) blockpos$mutableblockpos.getX() + source.nextDouble(), (double) blockpos$mutableblockpos.getY() + source.nextDouble(), (double) blockpos$mutableblockpos.getZ() + source.nextDouble(), 0.0D, 0.0D, 0.0D);
             }
         }
     }
 
     @Override
-    public boolean canBeReplaced(BlockState state, BlockPlaceContext useContext) {
+    public boolean canBeReplaced(@NotNull BlockState state, BlockPlaceContext useContext) {
         if (!useContext.isSecondaryUseActive() && useContext.getItemInHand().is(this.asItem()) && state.getValue(FLOWER_STACK) < 3) {
             return true;
         }
@@ -106,17 +106,14 @@ public class MidnightLilyBlock extends BushBlock implements BonemealableBlock, S
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    @NotNull
+    public VoxelShape getShape(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         Vec3 vec3 = state.getOffset(level, pos);
-        switch (state.getValue(FLOWER_STACK)) {
-            case 1:
-            default:
-                return SHAPE_ONE.move(vec3.x, vec3.y, vec3.z);
-            case 2:
-                return SHAPE_TWO.move(vec3.x, vec3.y, vec3.z);
-            case 3:
-                return SHAPE_THREE.move(vec3.x, vec3.y, vec3.z);
-        }
+        return switch (state.getValue(FLOWER_STACK)) {
+            case 2 -> SHAPE_TWO.move(vec3.x, vec3.y, vec3.z);
+            case 3 -> SHAPE_THREE.move(vec3.x, vec3.y, vec3.z);
+            default -> SHAPE_ONE.move(vec3.x, vec3.y, vec3.z);
+        };
     }
 
     @Override
@@ -129,17 +126,17 @@ public class MidnightLilyBlock extends BushBlock implements BonemealableBlock, S
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state) {
         return true;
     }
 
     @Override
-    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(@NotNull Level level, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
         return true;
     }
 
     @Override
-    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+    public void performBonemeal(@NotNull ServerLevel level, @NotNull RandomSource random, @NotNull BlockPos pos, BlockState state) {
         int i = state.getValue(FLOWER_STACK);
         if (i < 3) {
             level.setBlock(pos, state.setValue(FLOWER_STACK, i + 1), 2);
@@ -153,6 +150,7 @@ public class MidnightLilyBlock extends BushBlock implements BonemealableBlock, S
     }
 
     @Override
+    @NotNull
     public SuspiciousStewEffects getSuspiciousEffects() {
         return this.suspiciousStewEffects;
     }

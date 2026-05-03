@@ -12,19 +12,25 @@
                 "data": {
                   "Name": "abundant_atmosphere:cave_sprouts"
                 },
+                "weight": 80
+              },
+              {
+                "data": {
+                  "Name": "abundant_atmosphere:short_cave_sprouts"
+                },
                 "weight": 60
               },
               {
                 "data": {
                   "Name": "minecraft:red_mushroom"
                 },
-                "weight": 2
+                "weight": 1
               },
               {
                 "data": {
                   "Name": "minecraft:brown_mushroom"
                 },
-                "weight": 2
+                "weight": 1
               },
               {
                 "data": {

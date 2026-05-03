@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
 import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 import net.sheddmer.abundant_atmosphere.common.entity.Nutling;
+import org.jetbrains.annotations.NotNull;
 
 public class NutlingHeadLayer extends RenderLayer<Nutling, NutlingModel<Nutling>> {
 
@@ -21,7 +22,7 @@ public class NutlingHeadLayer extends RenderLayer<Nutling, NutlingModel<Nutling>
     }
 
     @Override
-    public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, Nutling nutling, float limbSwing, float limbSwingAmount, float partialTick, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void render(@NotNull PoseStack poseStack, @NotNull MultiBufferSource bufferSource, int packedLight, Nutling nutling, float limbSwing, float limbSwingAmount, float partialTick, float ageInTicks, float netHeadYaw, float headPitch) {
         if (nutling.hasGourdnut() && !nutling.isInvisible()) {
             String string = ChatFormatting.stripFormatting(nutling.getName().getString());
             int overlay = LivingEntityRenderer.getOverlayCoords(nutling, 0.0F);

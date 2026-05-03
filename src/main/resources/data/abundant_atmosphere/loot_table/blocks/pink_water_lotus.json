@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "abundant_atmosphere:pink_water_lotus",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "half": "upper",
+                "age": "1"
+              }
+            }
+          ],
+          "name": "abundant_atmosphere:pink_water_lotus"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "abundant_atmosphere:pink_water_lotus",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "half": "upper",
+                "age": "2"
+              }
+            }
+          ],
+          "name": "abundant_atmosphere:pink_water_lotus"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "abundant_atmosphere:blocks/pink_water_lotus"
+}

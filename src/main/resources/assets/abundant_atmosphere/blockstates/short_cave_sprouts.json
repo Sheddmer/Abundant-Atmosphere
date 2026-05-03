@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "abundant_atmosphere:block/vegetation/short_cave_sprouts0"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/short_cave_sprouts1"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/short_cave_sprouts2"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/short_cave_sprouts3"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/short_cave_sprouts4"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/short_cave_sprouts5"
+      }
+    ]
+  }
+}

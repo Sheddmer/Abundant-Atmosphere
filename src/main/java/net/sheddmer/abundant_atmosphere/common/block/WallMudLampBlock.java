@@ -20,6 +20,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sheddmer.abundant_atmosphere.common.init.AASounds;
+import org.jetbrains.annotations.NotNull;
 
 public class WallMudLampBlock extends MudLampBlock {
     private static final VoxelShape SHAPE_NORTH = Shapes.or(box(6.0, 4.0, 12.0, 10.0, 6.0, 16.0), box(4.0, 6.0, 8.0, 12.0, 11.0, 16.0), box(5.0, 11.0, 9.0, 11.0, 12.0, 15.0), box(7.0, 8.0, 6.0, 9.0, 12.0,9.0));
@@ -68,13 +69,13 @@ public class WallMudLampBlock extends MudLampBlock {
     }
 
     @Override
-    protected boolean canSurvive(BlockState state, LevelReader reader, BlockPos pos) {
+    protected boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader reader, BlockPos pos) {
         Direction direction = getConnectedDirection(state).getOpposite();
         return Block.canSupportCenter(reader, pos.relative(direction), direction.getOpposite());
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor accessor, BlockPos pos, BlockPos neighborPos) {
+    protected @NotNull BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor accessor, BlockPos pos, BlockPos neighborPos) {
         if (state.getValue(WATERLOGGED)) {
             accessor.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(accessor));
         }

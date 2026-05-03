@@ -10,7 +10,4 @@ public class AAModelLayers {
 
     public static final ModelLayerLocation NUTLING_LAYER = new ModelLayerLocation(AbundantAtmosphere.location("nutling"), "main");
 
-    public static final ModelLayerLocation GOURDNUT_LAYER = new ModelLayerLocation(AbundantAtmosphere.location("gourdnut"), "main");
-
-    public static final ModelLayerLocation STONE_CHEST_LAYER = new ModelLayerLocation(AbundantAtmosphere.location("stone_chest"), "main");
 }

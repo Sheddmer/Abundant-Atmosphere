@@ -62,9 +62,7 @@
       {
         "model": "abundant_atmosphere:block/vegetation/leaf_pile3",
         "y": 270
-      }
-    ],
-    "level=3": [
+      },
       {
         "model": "abundant_atmosphere:block/vegetation/leaf_pile4"
       },
@@ -78,6 +76,85 @@
       },
       {
         "model": "abundant_atmosphere:block/vegetation/leaf_pile4",
+        "y": 270
+      }
+    ],
+    "level=3": [
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile5"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile5",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile5",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile5",
+        "y": 270
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile6"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile6",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile6",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile6",
+        "y": 270
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile7"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile7",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile7",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile7",
+        "y": 270
+      }
+    ],
+    "level=4": [
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile8"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile8",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile8",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile8",
+        "y": 270
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile9"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile9",
+        "y": 90
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile9",
+        "y": 180
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/leaf_pile9",
         "y": 270
       }
     ]

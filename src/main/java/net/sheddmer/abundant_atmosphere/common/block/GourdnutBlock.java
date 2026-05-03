@@ -5,19 +5,15 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -27,7 +23,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
@@ -36,9 +31,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.common.ItemAbilities;
-import net.neoforged.neoforge.common.ItemAbility;
 import net.sheddmer.abundant_atmosphere.common.init.AABlocks;
-import net.sheddmer.abundant_atmosphere.common.init.AAItems;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
@@ -61,7 +55,7 @@ public class GourdnutBlock extends Block implements BonemealableBlock, SimpleWat
             if (direction.getAxis().isVertical()) {
                 BlockState blockstate = this.defaultBlockState().setValue(HANGING, context.getClickLocation().y - (double) context.getClickedPos().getY() > 0.5);
                 if (blockstate.canSurvive(context.getLevel(), context.getClickedPos())) {
-                    return blockstate.setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
+                    return blockstate.setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
                 }
             }
         }
@@ -69,12 +63,13 @@ public class GourdnutBlock extends Block implements BonemealableBlock, SimpleWat
     }
 
     @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
+    @NotNull
+    protected VoxelShape getShape(BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return state.getValue(HANGING) ? SHAPE_HANGING : SHAPE;
     }
 
     @Override
-    protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+    protected boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
         Direction direction = getConnectedDirection(state).getOpposite();
         if (state.getValue(HANGING) && level.getBlockState(pos.above()).is(BlockTags.LEAVES)) {return true;}
         return Block.canSupportCenter(level, pos.relative(direction), direction.getOpposite());
@@ -85,30 +80,22 @@ public class GourdnutBlock extends Block implements BonemealableBlock, SimpleWat
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+    @NotNull
+    protected BlockState updateShape(BlockState state, @NotNull Direction direction, @NotNull BlockState neighborState, @NotNull LevelAccessor level, @NotNull BlockPos pos, @NotNull BlockPos neighborPos) {
         if (state.getValue(WATERLOGGED)) {level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));}
         return getConnectedDirection(state).getOpposite() == direction && !state.canSurvive(level, pos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, direction, neighborState, level, pos, neighborPos);
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+    @NotNull
+    protected ItemInteractionResult useItemOn(ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, BlockHitResult hitResult) {
         Direction direction = hitResult.getDirection();
         Direction direction1 = direction.getAxis() == Direction.Axis.Y ? player.getDirection().getOpposite() : direction;
         if (stack.canPerformAction(ItemAbilities.SHEARS_CARVE) && state.is(AABlocks.GOURDNUT)) {
             level.playSound(null, pos, SoundEvents.PUMPKIN_CARVE, SoundSource.BLOCKS, 1.0F, 2.0F);
             level.setBlock(pos, AABlocks.CARVED_GOURDNUT.get().defaultBlockState().setValue(CarvedGourdnutBlock.FACING, direction1).setValue(CarvedGourdnutBlock.HANGING, state.getValue(HANGING)), 11);
-            ItemEntity itementity = new ItemEntity(
-                    level,
-                    (double)pos.getX() + 0.5 + (double)direction1.getStepX() * 0.65,
-                    (double)pos.getY() + 0.1,
-                    (double)pos.getZ() + 0.5 + (double)direction1.getStepZ() * 0.65,
-                    new ItemStack(Items.PUMPKIN_SEEDS, 4)
-            );
-            itementity.setDeltaMovement(
-                    0.05 * (double)direction1.getStepX() + level.random.nextDouble() * 0.02,
-                    0.05,
-                    0.05 * (double)direction1.getStepZ() + level.random.nextDouble() * 0.02
-            );
+            ItemEntity itementity = new ItemEntity(level, (double)pos.getX() + 0.5 + (double)direction1.getStepX() * 0.65, (double)pos.getY() + 0.1, (double)pos.getZ() + 0.5 + (double)direction1.getStepZ() * 0.65, new ItemStack(Items.PUMPKIN_SEEDS, 4));
+            itementity.setDeltaMovement(0.05 * (double)direction1.getStepX() + level.random.nextDouble() * 0.02, 0.05, 0.05 * (double)direction1.getStepZ() + level.random.nextDouble() * 0.02);
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
         return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
@@ -120,22 +107,23 @@ public class GourdnutBlock extends Block implements BonemealableBlock, SimpleWat
     }
 
     @Override
-    public boolean isBonemealSuccess(Level level, RandomSource source, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(Level level, @NotNull RandomSource source, @NotNull BlockPos pos, @NotNull BlockState state) {
         return (double)level.random.nextFloat() < 0.4;
     }
 
     @Override
-    public void performBonemeal(ServerLevel level, RandomSource source, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel level, @NotNull RandomSource source, @NotNull BlockPos pos, @NotNull BlockState state) {
         level.setBlockAndUpdate(pos, Blocks.PUMPKIN.defaultBlockState());
     }
 
     @Override
+    @NotNull
     protected FluidState getFluidState(BlockState state) {
         return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
     @Override
-    protected boolean isPathfindable(BlockState state, PathComputationType type) {
+    protected boolean isPathfindable(@NotNull BlockState state, @NotNull PathComputationType type) {
         return false;
     }
 

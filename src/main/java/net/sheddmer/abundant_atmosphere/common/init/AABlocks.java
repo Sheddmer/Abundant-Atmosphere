@@ -10,7 +10,6 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 import net.sheddmer.abundant_atmosphere.common.block.*;
@@ -64,7 +63,8 @@ public class AABlocks {
     // Natural blocks
     public static final DeferredBlock<CaveCrudBlock> CAVE_CRUD = registerBlock("cave_crud", () ->  new CaveCrudBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).strength(0.75f, 0.75f).sound(SoundType.ROOTED_DIRT)));
     public static final DeferredBlock<CaveCrudPathBlock> CAVE_CRUD_PATH = registerBlock("cave_crud_path", () -> new CaveCrudPathBlock(BlockBehaviour.Properties.ofFullCopy(CAVE_CRUD.get())));
-    public static final DeferredBlock<CaveSproutsBlock> CAVE_SPROUTS = registerBlock("cave_sprouts", () ->  new CaveSproutsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).instabreak().noCollission().noOcclusion().replaceable().offsetType(BlockBehaviour.OffsetType.XYZ).sound(SoundType.NETHER_SPROUTS).ignitedByLava()));
+    public static final DeferredBlock<CaveSproutsBlock> CAVE_SPROUTS = registerBlock("cave_sprouts", () ->  new CaveSproutsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NONE).instabreak().noCollission().noOcclusion().replaceable().offsetType(BlockBehaviour.OffsetType.XYZ).sound(SoundType.NETHER_SPROUTS).ignitedByLava()));
+    public static final DeferredBlock<CaveSproutsBlock> SHORT_CAVE_SPROUTS = registerBlock("short_cave_sprouts", () ->  new CaveSproutsBlock(BlockBehaviour.Properties.ofFullCopy(CAVE_SPROUTS.get()).offsetType(BlockBehaviour.OffsetType.XYZ).ignitedByLava()));
     public static final DeferredBlock<PuffballMushroomBlock> PUFFBALL_MUSHROOM = registerBlock("puffball_mushroom", () -> new PuffballMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).instabreak().noOcclusion().randomTicks().sound(SoundType.FUNGUS).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<LargePuffballMushroomBlock> LARGE_PUFFBALL_MUSHROOM = registerBlock("large_puffball_mushroom", () -> new LargePuffballMushroomBlock(BlockBehaviour.Properties.ofFullCopy(PUFFBALL_MUSHROOM.get())));
     public static final DeferredBlock<MultifacePlantBlock> MOSS_CLUMP = registerBlock("moss_clump", () -> new MultifacePlantBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instabreak().noCollission().noOcclusion().replaceable().sound(SoundType.MOSS).pushReaction(PushReaction.DESTROY)));
@@ -74,7 +74,7 @@ public class AABlocks {
     public static final DeferredBlock<CaveSproutsBlock> RUST_MOSS_SPROUTS = registerBlock("rust_moss_sprouts", () ->  new CaveSproutsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).instabreak().noCollission().noOcclusion().replaceable().offsetType(BlockBehaviour.OffsetType.XYZ).sound(SoundType.MOSS_CARPET).ignitedByLava()));
     public static final DeferredBlock<RotatedPillarBlock> CERULEAN_FROGLIGHT = registerBlock("cerulean_froglight", () ->  new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).strength(0.3f, 0.3f).lightLevel(value -> 15).sound(SoundType.FROGLIGHT)));
     public static final DeferredBlock<RotatedPillarBlock> CHROMATIC_FROGLIGHT = registerBlockNoItem("chromatic_froglight", () ->  new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.3f, 0.3f).lightLevel(value -> 15).sound(SoundType.FROGLIGHT)));
-    public static final DeferredBlock<LeafPileBlock> LEAF_PILE = registerBlock("leaf_pile", () -> new LeafPileBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).instabreak().noCollission().noOcclusion().replaceable().sound(SoundType.CHERRY_LEAVES).pushReaction(PushReaction.DESTROY)));
+    public static final DeferredBlock<LeafPileBlock> LEAF_PILE = registerBlockNoItem("leaf_pile", () -> new LeafPileBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).instabreak().noCollission().noOcclusion().replaceable().sound(SoundType.CHERRY_LEAVES).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<MushroomBlock> PORESHROOM = registerBlockNoItem("poreshroom", () ->  new MushroomBlock(AAFeatures.HUGE_PORESHROOM_CHECKED, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).instabreak().noCollission().noOcclusion().sound(SoundType.FUNGUS).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<WallFungusBlock> WALL_PORESHROOM = registerBlockNoItem("wall_poreshroom", () ->  new WallFungusBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).instabreak().noCollission().noOcclusion().sound(SoundType.FUNGUS).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<FlowerPotBlock> POTTED_PORESHROOM = registerBlockNoItem("potted_poreshroom", () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), AABlocks.PORESHROOM, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_RED_MUSHROOM)));
@@ -83,6 +83,8 @@ public class AABlocks {
     public static final DeferredBlock<WallFungusBlock> WALL_CATSBANE = registerBlockNoItem("wall_catsbane", () ->  new WallFungusBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).instabreak().noCollission().noOcclusion().sound(SoundType.FUNGUS).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<FlowerPotBlock> POTTED_CATSBANE = registerBlockNoItem("potted_catsbane", () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), AABlocks.CATSBANE, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_RED_MUSHROOM)));
     public static final DeferredBlock<WaterlilyBlock> SMALL_LILY_PAD = registerBlockNoItem("small_lily_pad", () -> new WaterlilyBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instabreak().noOcclusion().sound(SoundType.LILY_PAD).pushReaction(PushReaction.DESTROY)));
+    public static final DeferredBlock<WaterLotusBlock> PINK_WATER_LOTUS = registerBlockNoItem("pink_water_lotus", () -> new WaterLotusBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).instabreak().noOcclusion().noCollission().sound(SoundType.PINK_PETALS).pushReaction(PushReaction.DESTROY)));
+    public static final DeferredBlock<WaterLotusBlock> VIOLET_WATER_LOTUS = registerBlockNoItem("violet_water_lotus", () -> new WaterLotusBlock(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).instabreak().noOcclusion().noCollission().sound(SoundType.PINK_PETALS).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<MidnightLilyBlock> MIDNIGHT_LILY = registerBlock("midnight_lily", () ->  new MidnightLilyBlock(MobEffects.BLINDNESS, 6.0F, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instabreak().noCollission().randomTicks().offsetType(BlockBehaviour.OffsetType.XZ).lightLevel(state -> state.getValue(MidnightLilyBlock.NIGHTLIGHT) ? 2 + state.getValue(MidnightLilyBlock.FLOWER_STACK) : 0).sound(SoundType.PINK_PETALS).pushReaction(PushReaction.DESTROY)));
     public static final DeferredBlock<FlowerPotBlock> POTTED_MIDNIGHT_LILY = registerBlockNoItem("potted_midnight_lily", () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), AABlocks.MIDNIGHT_LILY, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
     public static final DeferredBlock<BushFlowerBlock> SAFFRON_BUSHBUDS = registerBlock("saffron_bushbuds", () -> new BushFlowerBlock(MobEffects.DAMAGE_RESISTANCE, 2.0F ,BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
@@ -133,6 +135,7 @@ public class AABlocks {
 
     // Stone Chests
     public static final DeferredBlock<StoneChestBlock> STONE_CHEST = registerBlock("stone_chest", () -> new StoneChestBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).strength(4.0f, 8.0f).requiresCorrectToolForDrops().sound(SoundType.POLISHED_DEEPSLATE)));
+
     // Stone Doors
     public static final DeferredBlock<DoorBlock> STONE_DOOR = registerBlock("stone_door", () -> new StoneDoorBlock(AABlockSetTypes.STONE_DOOR, BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
     public static final DeferredBlock<TrapDoorBlock> STONE_TRAPDOOR = registerBlock("stone_trapdoor", () -> new StoneTrapDoorBlock(AABlockSetTypes.STONE_DOOR, BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
@@ -227,7 +230,7 @@ public class AABlocks {
         return (DeferredBlock<T>) toReturn;
     }
 
-    public static DeferredHolder<Item, BlockItem> registerBlockItem(String name, Supplier<? extends Block> block) {
-        return AAItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    public static void registerBlockItem(String name, Supplier<? extends Block> block) {
+        AAItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 }

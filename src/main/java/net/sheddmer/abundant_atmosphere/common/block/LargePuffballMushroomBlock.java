@@ -24,6 +24,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sheddmer.abundant_atmosphere.common.init.AATags;
+import org.jetbrains.annotations.NotNull;
 
 public class LargePuffballMushroomBlock extends Block {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_5;
@@ -33,8 +34,7 @@ public class LargePuffballMushroomBlock extends Block {
             Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
             Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
             Block.box(2.0, 0.0, 2.0, 14.0, 5.0, 14.0),
-            Block.box(2.0, 0.0, 2.0, 14.0, 5.0, 14.0)
-    };
+            Block.box(2.0, 0.0, 2.0, 14.0, 5.0, 14.0)};
 
     public LargePuffballMushroomBlock(Properties properties) {
         super(properties);
@@ -42,24 +42,25 @@ public class LargePuffballMushroomBlock extends Block {
     }
 
     @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
+    @NotNull
+    protected VoxelShape getShape(BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return SHAPE_BY_AGE[state.getValue(AGE)];
     }
 
     @Override
-    protected VoxelShape getCollisionShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
+    @NotNull
+    protected VoxelShape getCollisionShape(BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return SHAPE_BY_AGE[state.getValue(AGE)];
     }
 
-    public final boolean isMaxAge(BlockState state) {
-        return state.getValue(AGE) == 5;
+    public final boolean isNotMaxAge(BlockState state) {
+        return state.getValue(AGE) != 5;
     }
 
-
     @Override
-    protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource source) {
+    protected void randomTick(@NotNull BlockState state, ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource source) {
         if (!level.isAreaLoaded(pos, 1)) return;
-        if (!this.isMaxAge(state) && level.getBlockState(pos.below()).is(AATags.PUFFBALL_GROWS_ON)) {
+        if (this.isNotMaxAge(state) && level.getBlockState(pos.below()).is(AATags.PUFFBALL_GROWS)) {
             if (level.random.nextFloat() < 0.05) {
                 level.setBlock(pos, state.setValue(AGE, state.getValue(AGE) + 1), 2);
             }
@@ -67,7 +68,7 @@ public class LargePuffballMushroomBlock extends Block {
     }
 
     @Override
-    public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
+    public void stepOn(@NotNull Level level, @NotNull BlockPos pos, BlockState state, @NotNull Entity entity) {
         if (state.getValue(AGE) >= 4 && entity instanceof Player) {
             level.destroyBlock(pos, true, entity);
             ParticleUtils.spawnParticlesOnBlockFaces(level, pos, new DustParticleOptions(Vec3.fromRGB24(8677966).toVector3f(), 2.0f), UniformInt.of(4, 12));
@@ -78,18 +79,19 @@ public class LargePuffballMushroomBlock extends Block {
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, Direction direction, BlockState altState, LevelAccessor accessor, BlockPos pos, BlockPos altPos) {
+    @NotNull
+    protected BlockState updateShape(@NotNull BlockState state, @NotNull Direction direction, @NotNull BlockState altState, @NotNull LevelAccessor accessor, @NotNull BlockPos pos, @NotNull BlockPos altPos) {
         return !this.canSurvive(state, accessor, pos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, direction, altState, accessor, pos, altPos);
     }
 
     @Override
-    protected boolean canSurvive(BlockState state, LevelReader reader, BlockPos pos) {
+    protected boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader reader, BlockPos pos) {
         return Block.canSupportRigidBlock(reader, pos.below());
     }
 
     @Override
-    protected boolean isRandomlyTicking(BlockState state) {
-        return !this.isMaxAge(state);
+    protected boolean isRandomlyTicking(@NotNull BlockState state) {
+        return this.isNotMaxAge(state);
     }
 
     @Override

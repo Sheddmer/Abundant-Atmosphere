@@ -26,6 +26,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sheddmer.abundant_atmosphere.common.init.AAParticles;
 import net.sheddmer.abundant_atmosphere.common.init.AAProperties;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.function.BiConsumer;
@@ -33,30 +34,23 @@ import java.util.function.BiConsumer;
 public class LeafPileBlock extends Block implements SimpleWaterloggedBlock {
     public static final IntegerProperty LEVEL = AAProperties.LEAF_LEVEL;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    private static final VoxelShape SHAPE_ONE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
-    private static final VoxelShape SHAPE_TWO = Block.box(0.0, 0.0, 0.0, 16.0, 3.0, 16.0);
+    private static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
 
     public LeafPileBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.getStateDefinition().any().setValue(WATERLOGGED, false));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(LEVEL, 1).setValue(WATERLOGGED, false));
     }
 
     @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-        switch (state.getValue(LEVEL)) {
-            case 1:
-            default:
-                return SHAPE_ONE;
-            case 3:
-                return SHAPE_TWO;
-        }
+    @NotNull
+    protected VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull CollisionContext context) {
+        return SHAPE;
     }
 
     @Override
-    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+    protected void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, Entity entity) {
         if (entity.getDeltaMovement().length() < 0.1F) return;
         if (!entity.onGround() && entity.getDeltaMovement().y > 0) return;
-        if (state.getValue(WATERLOGGED)) return;
         Vec3 entityPos = entity.position();
         float radius = 0.5f;
         if (entityPos.distanceTo(new Vec3(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5)) > radius) return;
@@ -66,13 +60,21 @@ public class LeafPileBlock extends Block implements SimpleWaterloggedBlock {
         super.entityInside(state, level, pos, entity);
     }
 
-    @Override
-    protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-        return Block.canSupportRigidBlock(level, pos.below());
+    @SuppressWarnings("unused")
+    protected boolean mayPlaceOn( BlockState state, BlockGetter level, BlockPos pos) {
+        FluidState fluidstate = level.getFluidState(pos.below());
+        FluidState fluidstate1 = level.getFluidState(pos);
+        return Block.canSupportRigidBlock(level, pos.below()) || fluidstate.getType() == Fluids.WATER && fluidstate1.isEmpty();
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, Direction direction, BlockState altState, LevelAccessor accessor, BlockPos pos, BlockPos altPos) {
+    public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
+        return this.mayPlaceOn(level.getBlockState(pos.below()), level, pos);
+    }
+
+    @Override
+    @NotNull
+    protected BlockState updateShape(@NotNull BlockState state, @NotNull Direction direction, @NotNull BlockState altState, @NotNull LevelAccessor accessor, @NotNull BlockPos pos, @NotNull BlockPos altPos) {
         if (!this.canSurvive(state, accessor, pos)) {
             ParticleUtils.spawnParticles(accessor, pos, Mth.randomBetweenInclusive(RandomSource.create(), 10, 20), 0.5, 0.1, true, AAParticles.DRIED_LEAF.get());
         }
@@ -82,40 +84,40 @@ public class LeafPileBlock extends Block implements SimpleWaterloggedBlock {
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
-        BlockState blockState = context.getLevel().getBlockState(context.getClickedPos());
-        if (blockState.is(this)) {
-            return blockState.setValue(LEVEL, Math.min(3, blockState.getValue(LEVEL) + 1));
-        }
-        return this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
+        BlockPos blockPos = context.getClickedPos();
+        FluidState fluidstate = context.getLevel().getFluidState(blockPos);
+        BlockState state = context.getLevel().getBlockState(blockPos);
+        if (state.is(this)) return state.setValue(LEVEL, Math.min(4, state.getValue(LEVEL) + 1));
+        return this.defaultBlockState().setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
     }
 
     @Override
-    public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
-        if (!context.isSecondaryUseActive() && context.getItemInHand().is(this.asItem()) && state.getValue(LEVEL) < 3) {
+    public boolean canBeReplaced(@NotNull BlockState state, BlockPlaceContext context) {
+        if (!context.isSecondaryUseActive() && context.getItemInHand().is(this.asItem()) && state.getValue(LEVEL) < 4) {
             return true;
         }
         return super.canBeReplaced(state, context);
     }
 
-    @Override
-    protected FluidState getFluidState(BlockState state) {
-        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
-    }
-
-    protected void onExplosionHit(BlockState state, Level level, BlockPos pos, Explosion explosion, BiConsumer<ItemStack, BlockPos> dropConsumer) {
+    protected void onExplosionHit(@NotNull BlockState state, Level level, @NotNull BlockPos pos, @NotNull Explosion explosion, @NotNull BiConsumer<ItemStack, BlockPos> dropConsumer) {
         level.destroyBlock(pos, true);
         ParticleUtils.spawnParticles(level, pos, Mth.randomBetweenInclusive(RandomSource.create(), 10, 20), 0.5, 0.1, true, AAParticles.DRIED_LEAF.get());
         super.onExplosionHit(state, level, pos, explosion, dropConsumer);
     }
 
     @Override
-    protected void spawnDestroyParticles(Level level, Player player, BlockPos pos, BlockState state) {
+    @NotNull
+    protected FluidState getFluidState(BlockState state) {
+        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
+    }
+
+    @Override
+    protected void spawnDestroyParticles(@NotNull Level level, @NotNull Player player, @NotNull BlockPos pos, @NotNull BlockState state) {
         ParticleUtils.spawnParticles(level, pos, Mth.randomBetweenInclusive(RandomSource.create(), 10, 20), 0.4, 0.1, true, AAParticles.DRIED_LEAF.get());
     }
 
     @Override
-    protected boolean isPathfindable(BlockState state, PathComputationType type) {
+    protected boolean isPathfindable(@NotNull BlockState state, @NotNull PathComputationType type) {
         return true;
     }
 

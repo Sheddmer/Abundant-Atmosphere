@@ -1,0 +1,44 @@
+{
+  "values": [
+    "#minecraft:dirt",
+    "minecraft:mossy_cobblestone",
+    "minecraft:mossy_stone_bricks",
+    "minecraft:packed_mud",
+    "minecraft:mud_bricks",
+    "minecraft:infested_mossy_stone_bricks",
+    "minecraft:dirt_path",
+    "abundant_atmosphere:mossy_basalt",
+    "abundant_atmosphere:mossy_stone",
+    "abundant_atmosphere:chiseled_mud_bricks",
+    "abundant_atmosphere:mossy_deepslate",
+    "abundant_atmosphere:mossy_cobbled_deepslate",
+    "abundant_atmosphere:mossy_polished_deepslate",
+    "abundant_atmosphere:mossy_deepslate_bricks",
+    "abundant_atmosphere:mossy_deepslate_tiles",
+    "abundant_atmosphere:cave_crud_path",
+    {
+      "id": "nomansland:mossy_coarse_bricks",
+      "required":false
+    },
+    {
+      "id": "nomansland:mossy_cobblestone_bricks",
+      "required":false
+    },
+    {
+      "id": "nomansland:dirt_path",
+      "required":false
+    },
+    {
+      "id": "nomansland:mycelium_path",
+      "required":false
+    },
+    {
+      "id": "nomansland:podzol_path",
+      "required":false
+    },
+    {
+      "id": "nomansland:silt_path",
+      "required":false
+    }
+  ]
+}

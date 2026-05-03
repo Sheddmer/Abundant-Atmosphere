@@ -21,7 +21,7 @@ public class AABushBlockMixin extends Block {
     }
     protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
         if (AAConfig.PLANT_PLACEMENT.get()) {
-            return state.is(AATags.PLANT_PLACEABLE_ON) || state.getBlock() instanceof net.minecraft.world.level.block.FarmBlock;
+            return state.is(AATags.PLANT_PLACEABLE) || state.getBlock() instanceof net.minecraft.world.level.block.FarmBlock;
         } else {
             return state.is(BlockTags.DIRT) || state.getBlock() instanceof FarmBlock;
         }

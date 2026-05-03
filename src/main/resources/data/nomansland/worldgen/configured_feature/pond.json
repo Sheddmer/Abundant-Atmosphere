@@ -29,7 +29,7 @@
                   "facing": "east"
                 }
               },
-              "weight": 1
+              "weight": 2
             },
             {
               "data": {
@@ -38,7 +38,7 @@
                   "facing": "south"
                 }
               },
-              "weight": 1
+              "weight": 2
             },
             {
               "data": {
@@ -47,7 +47,7 @@
                   "facing": "west"
                 }
               },
-              "weight": 1
+              "weight": 2
             },
             {
               "data": {
@@ -65,7 +65,7 @@
                   "facing": "east"
                 }
               },
-              "weight": 1
+              "weight": 2
             },
             {
               "data": {
@@ -74,7 +74,7 @@
                   "facing": "south"
                 }
               },
-              "weight": 1
+              "weight": 2
             },
             {
               "data": {
@@ -83,7 +83,7 @@
                   "facing": "west"
                 }
               },
-              "weight": 1
+              "weight": 2
             }
           ]
         },

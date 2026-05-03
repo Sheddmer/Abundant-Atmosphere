@@ -1,12 +1,7 @@
 package net.sheddmer.abundant_atmosphere.common.block;
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.FrontAndTop;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -25,7 +20,6 @@ public class OrientedPillarBlock extends Block {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         Direction direction = context.getNearestLookingDirection().getOpposite();
-
         Direction direction1 = switch (direction) {
             case DOWN -> context.getHorizontalDirection().getOpposite();
             case UP -> context.getHorizontalDirection();

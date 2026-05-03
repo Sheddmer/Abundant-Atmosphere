@@ -1,6 +1,7 @@
 package net.sheddmer.abundant_atmosphere.common.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -14,6 +15,8 @@ import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
 import net.sheddmer.abundant_atmosphere.common.init.AABlocks;
 import net.sheddmer.abundant_atmosphere.common.init.AAFeatures;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class CaveCrudBlock extends Block implements BonemealableBlock {
 
@@ -22,22 +25,33 @@ public class CaveCrudBlock extends Block implements BonemealableBlock {
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+    public @Nullable BlockState getToolModifiedState(@NotNull BlockState state, @NotNull UseOnContext context, ItemAbility itemAbility, boolean simulate) {
+        if (itemAbility.equals(ItemAbilities.SHOVEL_FLATTEN)) {
+            if (context.getClickedFace() != Direction.DOWN && context.getLevel().getBlockState(context.getClickedPos().above()).canBeReplaced()) {
+                return AABlocks.CAVE_CRUD_PATH.get().defaultBlockState();
+            }
+        }
+        return super.getToolModifiedState(state, context, itemAbility, simulate);
+    }
+
+    @Override
+    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, @NotNull BlockState state) {
         return level.getBlockState(pos.above()).isAir();
     }
 
     @Override
-    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(@NotNull Level level, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
         return true;
     }
 
     @Override
-    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel level, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
         level.registryAccess().registry(Registries.CONFIGURED_FEATURE).flatMap(features -> features.getHolder(AAFeatures.PATCH_CAVE_SPROUTS))
                 .ifPresent(feature -> feature.value().place(level, level.getChunkSource().getGenerator(), random, pos.above()));
     }
 
     @Override
+    @NotNull
     public BonemealableBlock.Type getType() {
         return BonemealableBlock.Type.NEIGHBOR_SPREADER;
     }

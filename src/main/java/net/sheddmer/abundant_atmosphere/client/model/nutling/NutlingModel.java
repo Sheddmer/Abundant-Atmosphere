@@ -9,6 +9,7 @@ import net.minecraft.client.model.geom.builders.*;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.sheddmer.abundant_atmosphere.common.entity.Nutling;
+import org.jetbrains.annotations.NotNull;
 
 @OnlyIn(Dist.CLIENT)
 public class NutlingModel<T extends Nutling> extends EntityModel<T> {
@@ -44,14 +45,14 @@ public class NutlingModel<T extends Nutling> extends EntityModel<T> {
     }
 
     @Override
-    public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setupAnim(@NotNull T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.head.yRot = netHeadYaw * (float) (Math.PI / 180.0);
         this.head.xRot = headPitch * (float) (Math.PI / 180.0);
 
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
+    public void renderToBuffer(@NotNull PoseStack poseStack,@NotNull  VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
         root.render(poseStack, buffer, packedLight, packedOverlay);
     }
 

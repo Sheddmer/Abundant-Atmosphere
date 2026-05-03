@@ -1,17 +1,6 @@
 {
-	"render_type": "minecraft:cutout",
+	"parent": "abundant_atmosphere:block/vegetation/template_floor_plane",
 	"textures": {
-		"texture": "abundant_atmosphere:block/vegetation/leaf_pile2",
-		"particle": "#texture"
-	},
-	"elements": [
-		{
-			"from": [0, 0.25, 0],
-			"to": [16, 0.25, 16],
-			"faces": {
-				"up": {"uv": [0, 0, 16, 16], "texture": "#texture"},
-				"down": {"uv": [0, 16, 16, 0], "texture": "#texture"}
-			}
-		}
-	]
+		"texture": "abundant_atmosphere:block/vegetation/leaf_pile2"
+	}
 }

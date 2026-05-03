@@ -1,6 +1,7 @@
 package net.sheddmer.abundant_atmosphere;
 
 import net.minecraft.resources.ResourceLocation;
+import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 import net.sheddmer.abundant_atmosphere.common.entity.frogvariant.AAFrogVariants;
 import net.sheddmer.abundant_atmosphere.common.integration.boatload.BLIntegration;
 import net.sheddmer.abundant_atmosphere.common.world.generation.AABiomePlacements;

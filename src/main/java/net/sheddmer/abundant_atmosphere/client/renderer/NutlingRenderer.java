@@ -21,7 +21,7 @@ public class NutlingRenderer extends MobRenderer<Nutling, NutlingModel<Nutling>>
     }
 
     @Override
-    public @NotNull ResourceLocation getTextureLocation(Nutling nutling) {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull Nutling nutling) {
         return AbundantAtmosphere.location("textures/entity/nutling/nutling.png");
     }
 }

@@ -1,0 +1,37 @@
+{
+  "variants": {
+    "age=0,half=upper": {
+      "model": "abundant_atmosphere:block/vegetation/violet_water_lotus_bud"
+    },
+    "age=0,half=lower": [
+      {
+        "model": "abundant_atmosphere:block/vegetation/water_lotus_bud_roots0"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/water_lotus_bud_roots1"
+      }
+    ],
+    "age=1,half=upper": {
+      "model": "abundant_atmosphere:block/vegetation/violet_water_lotus_flower"
+    },
+    "age=1,half=lower": [
+      {
+        "model": "abundant_atmosphere:block/vegetation/violet_water_lotus_roots_small0"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/violet_water_lotus_roots_small1"
+      }
+    ],
+    "age=2,half=upper": {
+      "model": "abundant_atmosphere:block/vegetation/violet_water_lotus_flower"
+    },
+    "age=2,half=lower": [
+      {
+        "model": "abundant_atmosphere:block/vegetation/violet_water_lotus_roots0"
+      },
+      {
+        "model": "abundant_atmosphere:block/vegetation/violet_water_lotus_roots1"
+      }
+    ]
+  }
+}

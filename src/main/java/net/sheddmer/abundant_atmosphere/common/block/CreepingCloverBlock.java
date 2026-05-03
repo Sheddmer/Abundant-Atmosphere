@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.common.CommonHooks;
 import net.sheddmer.abundant_atmosphere.AAConfig;
 import net.sheddmer.abundant_atmosphere.common.init.AATags;
 
@@ -44,7 +43,7 @@ public class CreepingCloverBlock extends Block {
     @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource source) {
         BlockState belowPos = level.getBlockState(pos.below());
-        if (state.getValue(BLOOM) && belowPos.is(AATags.PLANT_PLACEABLE_ON) && source.nextInt(8) == 0) {
+        if (state.getValue(BLOOM) && belowPos.is(AATags.PLANT_PLACEABLE) && source.nextInt(8) == 0) {
             if (state.getValue(AGE) == 2 || state.getValue(AGE) == 4) {
                 level.setBlock(pos, state.setValue(BLOOM, false), 2);
             }
@@ -57,7 +56,7 @@ public class CreepingCloverBlock extends Block {
         BlockPos blockpos = pos.below();
         BlockState belowstate = reader.getBlockState(blockpos);
         if (AAConfig.PLANT_PLACEMENT.get()) {
-            return belowstate.is(AATags.PLANT_PLACEABLE_ON);
+            return belowstate.is(AATags.PLANT_PLACEABLE);
         } else {
             return belowstate.is(BlockTags.DIRT);
         }

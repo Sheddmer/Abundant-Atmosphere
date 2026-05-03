@@ -199,6 +199,8 @@ public class AACreativeTabs {
                 output.accept(AABlocks.UMBRA_BUSHBUDS);
                 output.accept(AABlocks.MIDNIGHT_LILY);
                 output.accept(AAItems.SMALL_LILY_PAD);
+                output.accept(AAItems.PINK_WATER_LOTUS);
+                output.accept(AAItems.VIOLET_WATER_LOTUS);
                 output.accept(AABlocks.CREEPING_CLOVERS);
                 output.accept(AAItems.CREEPIE_SPROUT);
                 output.accept(AABlocks.CERULEAN_FROGLIGHT);
@@ -211,8 +213,6 @@ public class AACreativeTabs {
                 output.accept(AAItems.SQUASHBERRY_JAM);
                 output.accept(AAItems.SQUASHBERRY_BREAD);
                 if (AAModCompats.FARMERSDELIGHT.isLoaded()) output.accept(FDIntegration.SQUASHBERRY_COOKIE);
-                output.accept(AABlocks.STONE_CHEST);
-
                 if (AAModCompats.FARMERSDELIGHT.isLoaded()) {
                     output.accept(FDIntegration.ASHROOT_CABINET);
                     output.accept(FDIntegration.GOURDROT_CABINET);
@@ -227,5 +227,4 @@ public class AACreativeTabs {
                     output.accept(BLIntegration.WIDE_RED_BAMBOO_RAFT);
                 }
             }).build());
-
 }

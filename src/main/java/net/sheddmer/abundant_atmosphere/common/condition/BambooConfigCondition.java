@@ -5,12 +5,13 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.neoforged.neoforge.common.conditions.ICondition;
 import net.sheddmer.abundant_atmosphere.AAConfig;
+import org.jetbrains.annotations.NotNull;
 
 public record BambooConfigCondition(Boolean value) implements ICondition {
     public static final MapCodec<BambooConfigCondition> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(Codec.BOOL.fieldOf("value").forGetter(BambooConfigCondition::value)).apply(inst, BambooConfigCondition::new));
 
     @Override
-    public boolean test(ICondition.IContext context) {
+    public boolean test(@NotNull ICondition.IContext context) {
         if (AAConfig.BAMBOO_RECIPE_REBALANCE.isTrue() && value) {
             return true;
         } else if (AAConfig.BAMBOO_RECIPE_REBALANCE.isFalse() && !value) {
@@ -21,6 +22,7 @@ public record BambooConfigCondition(Boolean value) implements ICondition {
     }
 
     @Override
+    @NotNull
     public MapCodec<? extends ICondition> codec() {
         return CODEC;
     }

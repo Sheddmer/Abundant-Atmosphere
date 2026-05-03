@@ -22,6 +22,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.common.CommonHooks;
 import net.sheddmer.abundant_atmosphere.common.init.AABlocks;
 import net.sheddmer.abundant_atmosphere.common.init.AATags;
+import org.jetbrains.annotations.NotNull;
 
 public class PuffballMushroomBlock extends Block implements BonemealableBlock {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_4;
@@ -30,8 +31,7 @@ public class PuffballMushroomBlock extends Block implements BonemealableBlock {
             Block.box(4.0, 0.0, 4.0, 12.0, 6.0, 12.0),
             Block.box(4.0, 0.0, 4.0, 12.0, 6.0, 12.0),
             Block.box(3.0, 0.0, 3.0, 13.0, 7.0, 13.0),
-            Block.box(1.0, 0.0, 1.0, 15.0, 8.0, 15.0)
-    };
+            Block.box(1.0, 0.0, 1.0, 15.0, 8.0, 15.0)};
 
     public PuffballMushroomBlock(Properties properties) {
         super(properties);
@@ -39,12 +39,14 @@ public class PuffballMushroomBlock extends Block implements BonemealableBlock {
     }
 
     @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
+    @NotNull
+    protected VoxelShape getShape(BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return SHAPE_BY_AGE[state.getValue(AGE)];
     }
 
     @Override
-    protected VoxelShape getCollisionShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
+    @NotNull
+    protected VoxelShape getCollisionShape(BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         if (state.getValue(AGE) == 0 || state.getValue(AGE) == 1) {
             return Shapes.empty();
         }
@@ -52,22 +54,23 @@ public class PuffballMushroomBlock extends Block implements BonemealableBlock {
     }
 
     @Override
-    protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource source) {
+    protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, @NotNull RandomSource source) {
         BlockState growthBlock = level.getBlockState(pos.below());
-        if (state.getValue(AGE) < 4 && growthBlock.is(AATags.PUFFBALL_GROWS_ON) && CommonHooks.canCropGrow(level, pos, state, source.nextInt(8) == 0)) {
+        if (state.getValue(AGE) < 4 && growthBlock.is(AATags.PUFFBALL_GROWS) && CommonHooks.canCropGrow(level, pos, state, source.nextInt(8) == 0)) {
             level.setBlock(pos, state.setValue(AGE, state.getValue(AGE) + 1), 2);
-        } else if (state.getValue(AGE) >= 4 && growthBlock.is(AATags.PUFFBALL_GROWS_ON) && CommonHooks.canCropGrow(level, pos, state, source.nextInt(8) == 0)) {
+        } else if (state.getValue(AGE) >= 4 && growthBlock.is(AATags.PUFFBALL_GROWS) && CommonHooks.canCropGrow(level, pos, state, source.nextInt(8) == 0)) {
             level.setBlock(pos, AABlocks.LARGE_PUFFBALL_MUSHROOM.get().defaultBlockState(), 2);
         }
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, Direction direction, BlockState altState, LevelAccessor accessor, BlockPos pos, BlockPos altPos) {
+    @NotNull
+    protected BlockState updateShape(@NotNull BlockState state, @NotNull Direction direction, @NotNull BlockState altState, @NotNull LevelAccessor accessor, @NotNull BlockPos pos, @NotNull BlockPos altPos) {
         return !this.canSurvive(state, accessor, pos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, direction, altState, accessor, pos, altPos);
     }
 
     @Override
-    protected boolean canSurvive(BlockState state, LevelReader reader, BlockPos pos) {
+    protected boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader reader, BlockPos pos) {
         return Block.canSupportRigidBlock(reader, pos.below());
     }
 
@@ -89,17 +92,17 @@ public class PuffballMushroomBlock extends Block implements BonemealableBlock {
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader reader, BlockPos pos, BlockState state) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader reader, @NotNull BlockPos pos, @NotNull BlockState state) {
         return true;
     }
 
     @Override
-    public boolean isBonemealSuccess(Level level, RandomSource source, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(@NotNull Level level, @NotNull RandomSource source, @NotNull BlockPos pos, @NotNull BlockState state) {
         return true;
     }
 
     @Override
-    public void performBonemeal(ServerLevel level, RandomSource source, BlockPos pos, BlockState state) {
+    public void performBonemeal(@NotNull ServerLevel level, @NotNull RandomSource source, @NotNull BlockPos pos, BlockState state) {
         if (state.getValue(AGE) >= 4) {
             level.setBlock(pos, AABlocks.LARGE_PUFFBALL_MUSHROOM.get().defaultBlockState(), 1);
         } else {

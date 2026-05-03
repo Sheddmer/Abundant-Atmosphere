@@ -69,7 +69,7 @@ public class RedBambooStalkBlock extends Block implements BonemealableBlock {
         } else {
             BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos().below());
             net.neoforged.neoforge.common.util.TriState soilDecision = blockstate.canSustainPlant(context.getLevel(), context.getClickedPos().below(), net.minecraft.core.Direction.UP, this.defaultBlockState());
-            if (soilDecision.isDefault() ? blockstate.is(AATags.RED_BAMBOO_PLANTABLE_ON) : soilDecision.isTrue()) {
+            if (soilDecision.isDefault() ? blockstate.is(AATags.RED_BAMBOO_PLANTABLE) : soilDecision.isTrue()) {
                 if (blockstate.is(AABlocks.RED_BAMBOO_SAPLING)) {
                     return this.defaultBlockState().setValue(AGE, Integer.valueOf(0));
                 } else if (blockstate.is(AABlocks.RED_BAMBOO)) {
@@ -119,7 +119,7 @@ public class RedBambooStalkBlock extends Block implements BonemealableBlock {
     protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         net.neoforged.neoforge.common.util.TriState soilDecision = level.getBlockState(pos.below()).canSustainPlant(level, pos.below(), Direction.UP, state);
         if (!soilDecision.isDefault()) return soilDecision.isTrue();
-        return level.getBlockState(pos.below()).is(AATags.RED_BAMBOO_PLANTABLE_ON);
+        return level.getBlockState(pos.below()).is(AATags.RED_BAMBOO_PLANTABLE);
     }
 
     @Override
