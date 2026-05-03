@@ -47,7 +47,7 @@ public class RedBambooSaplingBlock extends Block implements BonemealableBlock {
     protected boolean canSurvive(@NotNull BlockState state, LevelReader level, BlockPos pos) {
         net.neoforged.neoforge.common.util.TriState soilDecision = level.getBlockState(pos.below()).canSustainPlant(level, pos.below(), net.minecraft.core.Direction.UP, state);
         if (!soilDecision.isDefault()) return soilDecision.isTrue();
-        return level.getBlockState(pos.below()).is(AATags.RED_BAMBOO_PLANTABLE);
+        return level.getBlockState(pos.below()).is(AATags.RED_BAMBOO_PLANTABLE_ON);
     }
 
     @Override

@@ -33,8 +33,8 @@ public record BoolConfigCondition(ModConfigSpec.BooleanValue config, Boolean val
 
     public static final MapCodec<BoolConfigCondition> CODEC = RecordCodecBuilder.mapCodec(
         inst -> inst.group(
-            BOOLEAN_VALUE_CODEC.fieldOf("config").forGetter(BoolConfigCondition::config)).and(
-            Codec.BOOL.fieldOf("value").forGetter(BoolConfigCondition::value))
+            BOOLEAN_VALUE_CODEC.fieldOf("option").forGetter(BoolConfigCondition::config)).and(
+            Codec.BOOL.fieldOf("enabled_when").forGetter(BoolConfigCondition::value))
                     .apply(inst, BoolConfigCondition::new)
     );
 

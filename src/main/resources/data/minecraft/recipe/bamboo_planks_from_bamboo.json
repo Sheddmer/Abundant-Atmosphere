@@ -2,8 +2,8 @@
   "neoforge:conditions": [
     {
       "type": "abundant_atmosphere:boolean_config",
-      "config": "bamboo_recipe_rebalance",
-      "value": true
+      "option": "bamboo_recipe_rebalance",
+      "enabled_when": true
     }
   ],
   "type": "minecraft:crafting_shaped",

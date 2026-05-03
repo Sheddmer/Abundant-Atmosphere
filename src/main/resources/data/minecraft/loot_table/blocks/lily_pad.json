@@ -2,8 +2,8 @@
   "neoforge:conditions": [
     {
       "type": "abundant_atmosphere:boolean_config",
-      "config": "lily_pads_require_shears",
-      "value": true
+      "option": "lily_pads_require_shears",
+      "enabled_when": true
     }
   ],
   "type": "minecraft:block",

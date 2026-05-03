@@ -27,7 +27,7 @@ public class MossyBasaltBlock extends RotatedPillarBlock {
     }
 
     private static boolean isOvergrownSetting(BlockState state) {
-        return state.is(AATags.MOSSY_BASALT_OVERGROWABLE) || state.is(AABlocks.MOSS_CLUMP) && state.getValue(MultifacePlantBlock.getFaceProperty(Direction.DOWN));
+        return state.is(AATags.MAKES_MOSSY_OVERGROWTH) || state.is(AABlocks.MOSS_CLUMP) && state.getValue(MultifacePlantBlock.getFaceProperty(Direction.DOWN));
     }
 
     @Override
