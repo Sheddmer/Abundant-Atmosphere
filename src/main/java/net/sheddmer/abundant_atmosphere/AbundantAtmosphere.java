@@ -24,7 +24,7 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 @Mod(AbundantAtmosphere.MODID)
 public class AbundantAtmosphere {
     public static final String MODID = "abundant_atmosphere";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public AbundantAtmosphere(IEventBus bus, ModContainer modContainer) {
         AABlocks.BLOCKS.register(bus);

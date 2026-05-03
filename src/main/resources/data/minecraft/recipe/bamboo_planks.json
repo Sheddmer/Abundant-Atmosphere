@@ -1,7 +1,8 @@
 {
   "neoforge:conditions": [
     {
-      "type": "abundant_atmosphere:bamboo_config",
+      "type": "abundant_atmosphere:boolean_config",
+      "config": "bamboo_recipe_rebalance",
       "value": false
     }
   ],
