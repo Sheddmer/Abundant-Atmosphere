@@ -13,7 +13,7 @@ import net.sheddmer.abundant_atmosphere.AAConfig;
 import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 import org.jetbrains.annotations.NotNull;
 
-public record BoolConfigCondition(ModConfigSpec.BooleanValue config, Boolean value) implements ICondition {
+public record BoolConfigCondition(ModConfigSpec.BooleanValue option, Boolean value) implements ICondition {
     private static final PrimitiveCodec<ModConfigSpec.BooleanValue> BOOLEAN_VALUE_CODEC = new PrimitiveCodec<ModConfigSpec.BooleanValue>(){
         @Override
         public <T> DataResult<ModConfigSpec.BooleanValue> read(DynamicOps<T> ops, T input) {
@@ -33,14 +33,14 @@ public record BoolConfigCondition(ModConfigSpec.BooleanValue config, Boolean val
 
     public static final MapCodec<BoolConfigCondition> CODEC = RecordCodecBuilder.mapCodec(
         inst -> inst.group(
-            BOOLEAN_VALUE_CODEC.fieldOf("option").forGetter(BoolConfigCondition::config)).and(
+            BOOLEAN_VALUE_CODEC.fieldOf("option").forGetter(BoolConfigCondition::option)).and(
             Codec.BOOL.fieldOf("enabled_when").forGetter(BoolConfigCondition::value))
                     .apply(inst, BoolConfigCondition::new)
     );
 
     @Override
     public boolean test(@NotNull ICondition.IContext context) {
-        return config.get() == value;
+        return option.get() == value;
     }
 
     @Override

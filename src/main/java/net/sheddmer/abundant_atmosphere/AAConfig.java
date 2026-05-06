@@ -6,7 +6,7 @@ public class AAConfig {
     public static ModConfigSpec COMMON_CONFIG;
     public static final String CATEGORY_VANILLA_CHANGES = "vanilla overrides";
     public static ModConfigSpec.BooleanValue PLANT_PLACEMENT;
-    public static ModConfigSpec.BooleanValue BAMBOO_RECIPE_REBALANCE;
+    public static ModConfigSpec.BooleanValue BAMBOO_RECIPE_REWORK;
     public static ModConfigSpec.BooleanValue LILY_PADS_SHEARS;
     public static final String CATEGORY_BIOMES = "biome generation";
     public static ModConfigSpec.BooleanValue BIOMES;
@@ -17,11 +17,11 @@ public class AAConfig {
         ModConfigSpec.Builder COMMON_BUILDER = new ModConfigSpec.Builder();
         COMMON_BUILDER.push(CATEGORY_VANILLA_CHANGES);
         PLANT_PLACEMENT = COMMON_BUILDER
-                .comment("Changes plants so they are placeable on more block types, like mossy blocks & packed mud. These use a new block tag : abundant_atmosphere:plant_placeable")
+                .comment("Changes plants so they are placeable on more block types, like mossy blocks & packed mud. These use a new block tag - abundant_atmosphere:plant_placeable")
                 .define("plant_placement_changes", true);
-        BAMBOO_RECIPE_REBALANCE = COMMON_BUILDER
-                .comment("Changes bamboo recipes so you can un-craft bamboo blocks & craft planks from regular bamboo, applies to Bamboo and Red Bamboo")
-                .define("bamboo_recipe_rebalance", true);
+        BAMBOO_RECIPE_REWORK = COMMON_BUILDER
+                .comment("Changes bamboo recipes so bamboo blocks work as storage blocks & planks can be crafted from regular bamboo. These changes apply to Bamboo & Red Bamboo")
+                .define("bamboo_recipe_rework", true);
         LILY_PADS_SHEARS = COMMON_BUILDER
                 .comment("Changes lily pads to require shears to collect, similar to most plants")
                 .define("lily_pads_require_shears", true);

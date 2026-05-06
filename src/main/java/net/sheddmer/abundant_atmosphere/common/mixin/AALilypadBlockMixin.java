@@ -32,7 +32,9 @@ public class AALilypadBlockMixin extends BushBlock implements BonemealableBlock 
     @Unique
     private static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     @Unique
-    private static final VoxelShape SHAPE = Block.box(1.0, -1.0, 1.0, 15.0, 0.0, 15.0);
+    private static final VoxelShape SHAPE = Block.box(1.0, 0.0, 1.0, 15.0, 1.0, 15.0);
+    @Unique
+    private static final VoxelShape SHAPE_COLLISION = Block.box(1.0, -1.0, 1.0, 15.0, 0.0, 15.0);
 
     protected AALilypadBlockMixin(Properties properties) {
         super(properties);
@@ -60,6 +62,8 @@ public class AALilypadBlockMixin extends BushBlock implements BonemealableBlock 
             if (entity != null) {
                 if (entity instanceof Boat || entity.getType().is(AATags.PASS_THROUGH_LILY_PADS)) {
                     return Shapes.empty();
+                } else {
+                    return SHAPE_COLLISION;
                 }
             }
         }

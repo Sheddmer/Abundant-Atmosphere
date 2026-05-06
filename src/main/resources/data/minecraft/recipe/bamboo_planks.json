@@ -2,7 +2,7 @@
   "neoforge:conditions": [
     {
       "type": "abundant_atmosphere:boolean_config",
-      "option": "bamboo_recipe_rebalance",
+      "option": "bamboo_recipe_rework",
       "enabled_when": false
     }
   ],

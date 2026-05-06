@@ -9,6 +9,8 @@
     "minecraft:basalt",
     "minecraft:blackstone",
     "minecraft:calcite",
+    "minecraft:cobblestone",
+    "minecraft:cobbled_deepslate",
     {
       "id": "nomansland:gravel_path",
       "required":false
