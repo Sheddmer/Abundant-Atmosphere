@@ -1,0 +1,27 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "boatload"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "large_boat",
+  "key": {
+    "#": {
+      "item": "abundant_atmosphere:red_bamboo_planks"
+    },
+    "X": {
+      "item": "abundant_atmosphere:red_bamboo_raft"
+    }
+  },
+  "pattern": [
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "abundant_atmosphere:wide_red_bamboo_raft"
+  }
+}

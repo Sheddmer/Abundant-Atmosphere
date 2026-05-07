@@ -16,6 +16,7 @@ public class NutlingHeadLayer extends RenderLayer<Nutling, NutlingModel<Nutling>
 
     private static final ResourceLocation TEXTURE = AbundantAtmosphere.location("textures/entity/equipment/gourdnut.png");
     private static final ResourceLocation TEXTURE_FRIEND = AbundantAtmosphere.location("textures/entity/equipment/gourdnut_friend.png");
+    private static final ResourceLocation TEXTURE_HOMUNCULUS = AbundantAtmosphere.location("textures/entity/equipment/gourdnut_homunculus.png");
 
     public NutlingHeadLayer(RenderLayerParent<Nutling, NutlingModel<Nutling>> renderer) {
         super(renderer);
@@ -29,6 +30,9 @@ public class NutlingHeadLayer extends RenderLayer<Nutling, NutlingModel<Nutling>
             getParentModel().prepareMobModel(nutling, limbSwing, limbSwingAmount, partialTick);
             if ("Friend".equals(string)) {
                 var vertexConsumer = bufferSource.getBuffer(RenderType.entityCutoutNoCull(TEXTURE_FRIEND));
+                getParentModel().renderToBuffer(poseStack, vertexConsumer, packedLight, overlay);
+            } else if ("homunculus".equals(string)) {
+                var vertexConsumer = bufferSource.getBuffer(RenderType.entityCutoutNoCull(TEXTURE_HOMUNCULUS));
                 getParentModel().renderToBuffer(poseStack, vertexConsumer, packedLight, overlay);
             } else {
                 var vertexConsumer = bufferSource.getBuffer(RenderType.entityCutoutNoCull(TEXTURE));
