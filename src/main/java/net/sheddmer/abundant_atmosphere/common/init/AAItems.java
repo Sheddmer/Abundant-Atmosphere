@@ -1,5 +1,7 @@
 package net.sheddmer.abundant_atmosphere.common.init;
 
+import com.farcr.nomansland.common.registry.blocks.NMLBlocks;
+import com.teamabnormals.woodworks.core.registry.WoodworksBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
@@ -9,14 +11,11 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.sheddmer.abundant_atmosphere.AbundantAtmosphere;
 import net.sheddmer.abundant_atmosphere.common.AAEnumParams;
+import net.sheddmer.abundant_atmosphere.common.integration.*;
 import net.sheddmer.abundant_atmosphere.common.integration.boatload.BLIntegration;
 import net.sheddmer.abundant_atmosphere.common.item.CreepieSproutItem;
 import net.sheddmer.abundant_atmosphere.common.item.DrinkItem;
 import net.sheddmer.abundant_atmosphere.common.item.FungusSporeItem;
-import net.sheddmer.abundant_atmosphere.common.integration.AAModCompats;
-import net.sheddmer.abundant_atmosphere.common.integration.BBIntegration;
-import net.sheddmer.abundant_atmosphere.common.integration.FDIntegration;
-import net.sheddmer.abundant_atmosphere.common.integration.NMLIntegration;
 import net.sheddmer.abundant_atmosphere.common.item.LeafPileItem;
 
 import java.util.function.Supplier;
@@ -299,6 +298,10 @@ public class AAItems {
                 event.insertAfter(BBIntegration.ASHROOT_SEAT.toStack(), BBIntegration.GOURDROT_SEAT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 event.insertAfter(BBIntegration.GOURDROT_SEAT.toStack(), BBIntegration.RED_BAMBOO_SEAT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             }
+            if (AAModCompats.NOMANSLAND.isLoaded()) {
+            }
+            if (AAModCompats.WOODWORKS.isLoaded()) {
+            }
         }
         if (tabKey == CreativeModeTabs.FOOD_AND_DRINKS) {
             event.insertBefore(Items.PUMPKIN_PIE.getDefaultInstance(), AAItems.ROASTED_GOURDNUT.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
@@ -336,6 +339,9 @@ public class AAItems {
         if (tabKey == CreativeModeTabs.REDSTONE_BLOCKS) {
             event.insertAfter(Items.OAK_DOOR.getDefaultInstance(), AABlocks.STONE_DOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(Items.OAK_TRAPDOOR.getDefaultInstance(), AABlocks.STONE_TRAPDOOR.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+
+            if (AAModCompats.WOODWORKS.isLoaded()) {
+            }
         }
         if (tabKey == CreativeModeTabs.SPAWN_EGGS) {
             event.insertAfter(Items.SNOW_GOLEM_SPAWN_EGG.getDefaultInstance(), AAItems.NUTLING_SPAWN_EGG.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);

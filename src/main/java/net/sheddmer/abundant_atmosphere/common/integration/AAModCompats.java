@@ -7,7 +7,8 @@ public enum AAModCompats {
     BOATLOAD,
     CREATE,
     FARMERSDELIGHT,
-    NOMANSLAND;
+    NOMANSLAND,
+    WOODWORKS;
 
     private final String id;
 

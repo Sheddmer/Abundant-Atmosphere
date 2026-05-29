@@ -10,7 +10,6 @@
     "AALilypadBlockMixin",
     "AAMangroveRootsRotationMixin",
     "AAPumpkinBlockMixin",
-    "AASaplingBlockMixin",
     "AAThrownPotionMixin"
   ],
   "client": [

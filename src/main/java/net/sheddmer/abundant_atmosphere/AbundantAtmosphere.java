@@ -47,6 +47,7 @@ public class AbundantAtmosphere {
             bus.addListener(FDIntegration::addBlockEntities);
         }
         if (AAModCompats.NOMANSLAND.isLoaded()) NMLIntegration.register();
+        if (AAModCompats.WOODWORKS.isLoaded()) WWIntegration.register();
 
         bus.addListener(AAItems::addCreative);
         bus.addListener(AABlockEntities::addBlockEntities);
