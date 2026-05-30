@@ -95,8 +95,6 @@ public class AABlocks {
     public static final DeferredBlock<FlowerPotBlock> POTTED_UMBRA_BUSHBUDS = registerBlockNoItem("potted_umbra_bushbuds", () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), AABlocks.UMBRA_BUSHBUDS, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
     public static final DeferredBlock<BrushableBlock> SUSPICIOUS_RED_SAND = registerBlock("suspicious_red_sand", () -> new BrushableBlock(Blocks.RED_SAND, SoundEvents.BRUSH_SAND, SoundEvents.BRUSH_SAND_COMPLETED, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(0.25f, 0.25f).instrument(NoteBlockInstrument.SNARE).sound(SoundType.SUSPICIOUS_SAND).pushReaction(PushReaction.DESTROY)));
 
-    public static final DeferredBlock<TallGrassBlock> BLOODROOT_BUSH = registerBlock("bloodroot_bush", () ->  new TallGrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).instabreak().noCollission().noOcclusion().replaceable().offsetType(BlockBehaviour.OffsetType.XZ).sound(SoundType.GRASS).ignitedByLava()));
-
     public static final DeferredBlock<CreepingCloverBlock> CREEPING_CLOVERS = registerBlock("creeping_clovers", () -> new CreepingCloverBlock(BlockBehaviour.Properties.of().instabreak().noCollission().noOcclusion().randomTicks().sound(SoundType.NETHER_SPROUTS).pushReaction(PushReaction.DESTROY)));
 
     // Mud blocks
@@ -134,7 +132,7 @@ public class AABlocks {
     public static final DeferredBlock<WallBlock> MOSSY_DEEPSLATE_TILE_WALL = registerBlock("mossy_deepslate_tile_wall", () ->  new WallBlock(BlockBehaviour.Properties.ofFullCopy(MOSSY_DEEPSLATE_TILES.get()).forceSolidOn()));
 
     // Stone Chests
-    public static final DeferredBlock<StoneChestBlock> STONE_CHEST = registerBlock("stone_chest", () -> new StoneChestBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).strength(4.0f, 8.0f).requiresCorrectToolForDrops().sound(SoundType.POLISHED_DEEPSLATE)));
+    public static final DeferredBlock<StoneChestBlock> STONE_CHEST = registerBlock("stone_chest", () -> new StoneChestBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).strength(4.0f, 8.0f).requiresCorrectToolForDrops().sound(SoundType.POLISHED_DEEPSLATE), AABlockEntities.STONE_CHEST::get));
 
     // Stone Doors
     public static final DeferredBlock<DoorBlock> STONE_DOOR = registerBlock("stone_door", () -> new StoneDoorBlock(AABlockSetTypes.STONE_DOOR, BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));

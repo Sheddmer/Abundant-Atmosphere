@@ -146,6 +146,7 @@ public class AACreativeTabs {
                 output.accept(AABlocks.DEEPSLATE_DOOR);
                 output.accept(AABlocks.DEEPSLATE_TRAPDOOR);
                 output.accept(AABlocks.DEEPSLATE_PILLAR);
+                output.accept(AABlocks.STONE_CHEST);
                 output.accept(AABlocks.MOSSY_DEEPSLATE);
                 output.accept(AABlocks.MOSSY_COBBLED_DEEPSLATE);
                 output.accept(AABlocks.MOSSY_COBBLED_DEEPSLATE_STAIRS);
@@ -187,7 +188,6 @@ public class AACreativeTabs {
                 output.accept(AABlocks.RUST_MOSS_CARPET);
                 output.accept(AABlocks.RUST_MOSS_SPROUTS);
                 output.accept(AABlocks.LEAF_PILE);
-                output.accept(AABlocks.BLOODROOT_BUSH);
                 output.accept(AAItems.PUFFBALL_SPORES);
                 output.accept(AABlocks.PUFFBALL_MUSHROOM);
                 output.accept(AABlocks.LARGE_PUFFBALL_MUSHROOM);
