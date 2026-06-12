@@ -21,13 +21,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Frog.class)
 public abstract class AAFrogVariantMixin extends Animal {
+    // This mixin adds the ability for Abundant Atmosphere's frog variants to spawn in biomes under their specific tags.
     @Shadow
     public abstract void setVariant(Holder<FrogVariant> variant);
     protected AAFrogVariantMixin(EntityType<? extends Animal> type, Level level) {
         super(type, level);
     }
 
-    @Inject(at = @At("TAIL"), method = "finalizeSpawn")
+    @Inject(method = "finalizeSpawn", at = @At("TAIL"))
     private void finalizeSpawn(ServerLevelAccessor accessor, DifficultyInstance instance, MobSpawnType type, SpawnGroupData data, CallbackInfoReturnable<SpawnGroupData> cir) {
         Holder<Biome> holder = accessor.getBiome(this.blockPosition());
         if (holder.is(AATags.SPAWNS_TROPICAL_FROGS)) {

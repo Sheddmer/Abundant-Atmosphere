@@ -19,25 +19,28 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(MangroveRootsBlock.class)
 public class AAMangroveRootsRotationMixin extends Block {
-    @Shadow @Final public static BooleanProperty WATERLOGGED;
+    // this mixin changes Mangrove Roots more significantly by adding built in rotation support for the block. this does override certain aspects like the placement and skiprendering method.
+    @Shadow
+    @Final
+    public static BooleanProperty WATERLOGGED;
     private static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;
 
     public AAMangroveRootsRotationMixin(Properties properties) {
         super(properties);
     }
 
-    @Inject(at = @At("TAIL"), method = "<init>")
-    public void MangroveRootsBlock(Properties properties, CallbackInfo ci) {
+    @Inject(method = "<init>", at = @At("TAIL"))
+    public void MangroveRootsRotatingBlock(Properties properties, CallbackInfo cir) {
         this.registerDefaultState(this.getStateDefinition().any().setValue(AXIS, Direction.Axis.Y).setValue(WATERLOGGED, false));
     }
 
-
-        @Override
-    protected boolean skipRendering(BlockState state, BlockState blockState, Direction direction) {
-        return blockState.is(Blocks.MANGROVE_ROOTS) && direction.getAxis() == state.getValue(AXIS);
+    @Inject(method = "skipRendering", at = @At("TAIL"), cancellable = true)
+    protected void skipRenderingForRotation(BlockState state, BlockState blockState, Direction direction, CallbackInfoReturnable<Boolean> cir) {
+        if (blockState.is(Blocks.MANGROVE_ROOTS) && direction.getAxis() == state.getValue(AXIS)) cir.setReturnValue(true);
     }
 
     @Override
@@ -62,15 +65,10 @@ public class AAMangroveRootsRotationMixin extends Block {
         }
     }
 
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
-        FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
-        boolean flag = fluidstate.getType() == Fluids.WATER;
-        return super.getStateForPlacement(context).setValue(WATERLOGGED, Boolean.valueOf(flag)).setValue(AXIS, context.getClickedFace().getAxis());
-    }
 
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(AXIS, WATERLOGGED);
+
+    @Inject(method = "createBlockStateDefinition", at = @At("TAIL"))
+    protected void createRotationBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder, CallbackInfo ci) {
+        builder.add(AXIS);
     }
 }

@@ -15,9 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BushBlock.class)
 public class AABushBlockMixin extends Block {
-
-    // These changes are being done to expand the amount of blocks most plants can be placed on using the plant_placeable_on tag. It should not modify how they function, just where they can be placed.
-
+    // These changes are being done to expand the amount of blocks most plants can be placed on using the plant_placeable_on tag. It should not modify how they function, just add to where they can be placed.
     public AABushBlockMixin(Properties properties) {
         super(properties);
     }

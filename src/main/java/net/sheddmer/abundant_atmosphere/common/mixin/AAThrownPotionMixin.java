@@ -16,12 +16,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ThrownPotion.class)
 public abstract class AAThrownPotionMixin extends Entity {
-
+    // Adds the ability to extinguish Mud Lamps & Stone Braziers with thrown water potions.
     public AAThrownPotionMixin(EntityType<?> type, Level level) {
         super(type, level);
     }
 
-    @Inject(at = @At("TAIL"), method = "dowseFire")
+    @Inject(method = "dowseFire", at = @At("TAIL"))
     private void dowseFire(BlockPos pPos, CallbackInfo cir) {
         BlockState blockstate = this.level().getBlockState(pPos);
         if (MudLampBlock.isLit(blockstate)) {

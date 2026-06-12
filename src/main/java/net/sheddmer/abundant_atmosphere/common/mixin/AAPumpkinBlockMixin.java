@@ -18,8 +18,8 @@ import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(PumpkinBlock.class)
 public class AAPumpkinBlockMixin extends Block implements BonemealableBlock {
+    // This should only add the ability to bone meal pumpkins into Gourdrot trees, it should not replace or change the pumpkins base behaviors.
     private static final IntegerProperty STAGE = BlockStateProperties.STAGE;
-
     public AAPumpkinBlockMixin(Properties properties) {
         super(properties);
     }
